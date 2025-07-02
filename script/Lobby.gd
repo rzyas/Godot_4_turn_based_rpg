@@ -2,6 +2,7 @@ extends Node
 
 func _ready():
 	#---------------------------------
+	onready_slide_story()
 	onreadt_btn_unlocked_level()
 	onready_setting()
 	onready_gearset()
@@ -38,6 +39,44 @@ func _ready():
 	$ui_currency/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer/vbox/prog_exp.value = update_level["prog"]
 	set_bab_indicator(AutoloadData.temp_bab)
 
+# =======================================================
+# SLIDER
+# =======================================================
+@onready var global_func_data = Global_func.new()
+func scroll_slide(scroll_node: ScrollContainer, is_horizontal: bool, is_reverse: bool) -> void:
+	var tween := create_tween()
+	var delta := 200
+	if is_reverse:
+		delta *= -1
+	if is_horizontal:
+		var from := scroll_node.scroll_horizontal
+		var to := from + delta
+		tween.tween_property(scroll_node, "scroll_horizontal", to, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	else:
+		var from := scroll_node.scroll_vertical
+		var to := from + delta
+		tween.tween_property(scroll_node, "scroll_vertical", to, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+func onready_slide_story():
+	var get_scrollc = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer
+	var get_parent = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/hbox_btn
+	var get_parent_stage = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer2/prosedural_main_stage/vbox
+	var get_scrollc_stage = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer2/prosedural_main_stage/ScrollContainer2
+	var get_scrollc_fullstory = $ui_fullstory/VBoxContainer/VBoxContainer/PanelContainer2/ScrollContainer
+	var get_parent_fullstory = $ui_fullstory/VBoxContainer/VBoxContainer/PanelContainer2/vbox
+	var btn_next:Button = get_parent.get_child(0)
+	var btn_prev:Button = get_parent.get_child(1)
+	btn_next.connect("pressed", scroll_slide.bind(get_scrollc, true, true) )
+	btn_prev.connect("pressed", scroll_slide.bind(get_scrollc, true, false) )
+	var btn_slide_top:Button = get_parent_stage.get_child(0)
+	var btn_slide_bott:Button = get_parent_stage.get_child(1)
+	btn_slide_top.connect("pressed", scroll_slide.bind(get_scrollc_stage, false, true) )
+	btn_slide_bott.connect("pressed", scroll_slide.bind(get_scrollc_stage, false, false) )
+	var btn_fullstory_top = get_parent_fullstory.get_child(0)
+	var btn_fullstory_bott = get_parent_fullstory.get_child(1)
+	btn_fullstory_top.connect("pressed", scroll_slide.bind(get_scrollc_fullstory, false, true) )
+	btn_fullstory_bott.connect("pressed", scroll_slide.bind(get_scrollc_fullstory, false, false) )
+# --------------------------------------------------------
 enum ENUM_SET_NOTIF{RED, ORANGE, BLUE}
 
 func onreadt_btn_unlocked_level():
