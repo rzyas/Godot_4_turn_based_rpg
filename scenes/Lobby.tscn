@@ -1451,6 +1451,29 @@ layout_mode = 2
 theme = ExtResource("82_pmqce")
 text = "Read in larger panels"
 
+[node name="vbox" type="VBoxContainer" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/btn_fullstory"]
+layout_mode = 2
+offset_left = 890.0
+offset_top = -372.0
+offset_right = 940.0
+offset_bottom = -7.0
+size_flags_horizontal = 8
+
+[node name="btn_top" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/btn_fullstory/vbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("125_sxbt5")
+icon = ExtResource("43_024gn")
+expand_icon = true
+
+[node name="btn_bott" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/btn_fullstory/vbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("125_sxbt5")
+icon = ExtResource("44_yv5nh")
+expand_icon = true
+
 [node name="main_gate_panel" type="ScrollContainer" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 visible = false
 layout_mode = 2

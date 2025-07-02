@@ -42,7 +42,6 @@ func _ready():
 # =======================================================
 # SLIDER
 # =======================================================
-@onready var global_func_data = Global_func.new()
 func scroll_slide(scroll_node: ScrollContainer, is_horizontal: bool, is_reverse: bool) -> void:
 	var tween := create_tween()
 	var delta := 200
@@ -58,16 +57,18 @@ func scroll_slide(scroll_node: ScrollContainer, is_horizontal: bool, is_reverse:
 		tween.tween_property(scroll_node, "scroll_vertical", to, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func onready_slide_story():
-	var get_scrollc = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer
-	var get_parent = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/hbox_btn
+	var get_scrollc_story = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer
+	var get_parent_story = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/hbox_btn
 	var get_parent_stage = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer2/prosedural_main_stage/vbox
 	var get_scrollc_stage = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer2/prosedural_main_stage/ScrollContainer2
 	var get_scrollc_fullstory = $ui_fullstory/VBoxContainer/VBoxContainer/PanelContainer2/ScrollContainer
 	var get_parent_fullstory = $ui_fullstory/VBoxContainer/VBoxContainer/PanelContainer2/vbox
-	var btn_next:Button = get_parent.get_child(0)
-	var btn_prev:Button = get_parent.get_child(1)
-	btn_next.connect("pressed", scroll_slide.bind(get_scrollc, true, true) )
-	btn_prev.connect("pressed", scroll_slide.bind(get_scrollc, true, false) )
+	var get_parent_smallstory = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/btn_fullstory/vbox
+	var get_scroll_smallstory = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/ScrollContainer
+	var btn_next:Button = get_parent_story.get_child(0)
+	var btn_prev:Button = get_parent_story.get_child(1)
+	btn_next.connect("pressed", scroll_slide.bind(get_scrollc_story, true, true) )
+	btn_prev.connect("pressed", scroll_slide.bind(get_scrollc_story, true, false) )
 	var btn_slide_top:Button = get_parent_stage.get_child(0)
 	var btn_slide_bott:Button = get_parent_stage.get_child(1)
 	btn_slide_top.connect("pressed", scroll_slide.bind(get_scrollc_stage, false, true) )
@@ -76,6 +77,10 @@ func onready_slide_story():
 	var btn_fullstory_bott = get_parent_fullstory.get_child(1)
 	btn_fullstory_top.connect("pressed", scroll_slide.bind(get_scrollc_fullstory, false, true) )
 	btn_fullstory_bott.connect("pressed", scroll_slide.bind(get_scrollc_fullstory, false, false) )
+	var btn_smallstory_up:Button = get_parent_smallstory.get_child(0)
+	var btn_smallstory_down:Button = get_parent_smallstory.get_child(1)
+	btn_smallstory_up.connect("pressed", scroll_slide.bind(get_scroll_smallstory, false, true) )
+	btn_smallstory_down.connect("pressed", scroll_slide.bind(get_scroll_smallstory, false, false) )
 # --------------------------------------------------------
 enum ENUM_SET_NOTIF{RED, ORANGE, BLUE}
 
