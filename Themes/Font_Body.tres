@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dw1bwe3ppqrtq"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_lciib"]
+
+[resource]
+Label/colors/font_color = Color(0.598525, 0.598525, 0.598524, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.588235)
+Label/constants/shadow_outline_size = 12
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_lciib")

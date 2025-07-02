@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cby5d2a6eylbn"]
+
+[ext_resource type="FontFile" uid="uid://cwbxtadbgfau6" path="res://font/RobotoCondensed-Regular.ttf" id="1_tdspt"]
+
+[resource]
+Label/colors/font_color = Color(0.638193, 0.868194, 1, 1)
+Label/colors/font_shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0.686275)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_tdspt")

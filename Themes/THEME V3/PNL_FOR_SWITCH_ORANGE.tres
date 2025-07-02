@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dbgfeq8br6k7b"]
+
+[ext_resource type="Texture2D" uid="uid://bq1ifxujx65ik" path="res://img/UI (new)/UI_3_1.png" id="1_olg2u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da2kj"]
+texture = ExtResource("1_olg2u")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_bottom = 20.0
+region_rect = Rect2(0, 45, 89, 38)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_da2kj")

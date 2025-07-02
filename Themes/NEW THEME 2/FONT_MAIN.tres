@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d3r5bu5nkfm1d"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_knes1"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.705882, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 9
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_knes1")

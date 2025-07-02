@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dkjvhx3bvonfk"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_l20jd"]
+
+[resource]
+Label/colors/font_color = Color(0.968627, 0.623529, 0.0745098, 1)
+Label/fonts/font = ExtResource("1_l20jd")

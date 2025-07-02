@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://di0uqyl4yeyuj"]
+
+[ext_resource type="Texture2D" uid="uid://cvuuj417ktni4" path="res://img/UI (new)/UI_3.png" id="1_mpidk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jspwb"]
+texture = ExtResource("1_mpidk")
+texture_margin_right = 10.5148
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(39.871, 90, 88.1285, 38)
+
+[resource]
+Label/styles/normal = SubResource("StyleBoxTexture_jspwb")

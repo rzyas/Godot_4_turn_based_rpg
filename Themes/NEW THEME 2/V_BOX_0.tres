@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cnoognha3ao31"]
+
+[ext_resource type="Texture2D" uid="uid://bd8vkhpwr3n8v" path="res://img/UI/sub_panel_small_v1.png" id="1_3gbi3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vghv8"]
+texture = ExtResource("1_3gbi3")
+region_rect = Rect2(49, 25, 21, 21)
+
+[resource]
+VBoxContainer/constants/separation = 4
+VBoxContainer/styles/bg_main = SubResource("StyleBoxTexture_vghv8")

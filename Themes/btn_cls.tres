@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ic2vue1tumye"]
+
+[ext_resource type="Texture2D" uid="uid://dvqppmtd7sq75" path="res://img/UI/UI_PACK_002.png" id="1_6twyd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0t6fw"]
+load_path = "res://.godot/imported/UI_PACK_002.png-63b6abf62d1ca508bd9a5d31af61a962.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5t1r"]
+texture = SubResource("CompressedTexture2D_0t6fw")
+region_rect = Rect2(644, 565, 109, 108)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifg5j"]
+texture = ExtResource("1_6twyd")
+region_rect = Rect2(644, 565, 110, 108)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/font_sizes/font_size = 20
+Button/styles/hover = SubResource("StyleBoxTexture_i5t1r")
+Button/styles/normal = SubResource("StyleBoxTexture_ifg5j")

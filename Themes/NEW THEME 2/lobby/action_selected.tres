@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://djee8gk4xpgf8"]
+
+[ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="1_jn47d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t103e"]
+atlas = ExtResource("1_jn47d")
+region = Rect2(21, 21, 102, 102)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1qq8"]
+texture = SubResource("AtlasTexture_t103e")
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_l1qq8")

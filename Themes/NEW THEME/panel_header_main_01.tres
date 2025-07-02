@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bcq28ndc83vq4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_navfb"]
+load_path = "res://.godot/imported/UI_PACK_003.png-ab3b887c91748adefd3f2918a67dc35e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aohtq"]
+texture = SubResource("CompressedTexture2D_navfb")
+texture_margin_left = 100.0
+texture_margin_right = 100.0
+region_rect = Rect2(528, 510, 470, 109)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_aohtq")

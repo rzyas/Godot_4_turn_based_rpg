@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://8vb4t47xb2p0"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_rv612"]
+[ext_resource type="Texture2D" uid="uid://crggcpocjkwdr" path="res://img/UI (new)/UI_11.png" id="2_bfblp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv612"]
+texture = ExtResource("2_bfblp")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(68, 7, 53, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfblp"]
+texture = ExtResource("2_bfblp")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(68, 7, 53, 53)
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+Button/constants/outline_size = 16
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_rv612")
+Button/styles/disabled = SubResource("StyleBoxTexture_rv612")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_rv612")
+Button/styles/focus = SubResource("StyleBoxTexture_rv612")
+Button/styles/hover = SubResource("StyleBoxTexture_rv612")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_rv612")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_rv612")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_rv612")
+Button/styles/normal = SubResource("StyleBoxTexture_rv612")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_rv612")
+Button/styles/pressed = SubResource("StyleBoxTexture_rv612")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_bfblp")

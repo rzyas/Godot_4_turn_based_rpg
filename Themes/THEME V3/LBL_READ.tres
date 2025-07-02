@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cf26cr2r27rtn"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_pwk76"]
+[ext_resource type="Texture2D" uid="uid://crkkbt6puppgf" path="res://img/UI (new)/UI Panel Mini - Clear.png" id="2_gdwfd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfptl"]
+texture = ExtResource("2_gdwfd")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(389, 389, 102, 102)
+
+[resource]
+Label/colors/font_color = Color(0.639206, 0.639206, 0.639206, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+Label/constants/outline_size = 12
+Label/font_sizes/font_size = 21
+Label/fonts/font = ExtResource("1_pwk76")
+Label/styles/normal = SubResource("StyleBoxTexture_vfptl")

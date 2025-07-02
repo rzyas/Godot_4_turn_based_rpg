@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bxg15ondvt6x5"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_7ve1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fapf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7van"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4o5q"]
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("1_7ve1c")
+Button/styles/hover = SubResource("StyleBoxEmpty_8fapf")
+Button/styles/normal = SubResource("StyleBoxEmpty_c7van")
+Button/styles/pressed = SubResource("StyleBoxEmpty_u4o5q")

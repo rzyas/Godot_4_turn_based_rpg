@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://sm1b7gl6xiv8"]
+
+[ext_resource type="Texture2D" uid="uid://bc0gsad5irce7" path="res://img/UI (new)/UI Panel Mini - Border glow.png" id="1_8ktvf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnyvu"]
+texture = ExtResource("1_8ktvf")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(267, 21, 102, 102)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_nnyvu")

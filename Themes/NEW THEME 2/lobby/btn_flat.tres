@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbyh1tc6djlki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx1uc"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_bx1uc")
+Button/styles/hover = SubResource("StyleBoxFlat_bx1uc")
+Button/styles/normal = SubResource("StyleBoxFlat_bx1uc")
+Button/styles/pressed = SubResource("StyleBoxFlat_bx1uc")

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://47acsrev7m1i"]
+
+[ext_resource type="FontFile" uid="uid://cwbxtadbgfau6" path="res://font/RobotoCondensed-Regular.ttf" id="1_1c81v"]
+
+[resource]
+Label/colors/font_color = Color(0.338968, 0.429448, 0.529255, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0.27451)
+Label/constants/outline_size = 12
+Label/fonts/font = ExtResource("1_1c81v")

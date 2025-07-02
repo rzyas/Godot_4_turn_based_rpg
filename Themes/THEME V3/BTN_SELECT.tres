@@ -1,0 +1,55 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://srh11jnyhheh"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_ow6p6"]
+[ext_resource type="Texture2D" uid="uid://cn3lwqhxgw78k" path="res://img/UI (new)/UI_16.png" id="1_phe6a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ow6p6"]
+texture = ExtResource("1_phe6a")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(5, 66, 57, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idlhr"]
+texture = ExtResource("1_phe6a")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(66, 66, 57, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogqwi"]
+texture = ExtResource("1_phe6a")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(66, 5, 57, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_puxgw"]
+texture = ExtResource("1_phe6a")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(5, 5, 57, 57)
+
+[resource]
+Button/colors/font_color = Color(0.398342, 0.762965, 1, 1)
+Button/colors/font_disabled_color = Color(0.88, 0.5632, 0.5632, 0.501961)
+Button/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 21
+Button/fonts/font = ExtResource("1_ow6p6")
+Button/styles/disabled = SubResource("StyleBoxTexture_ow6p6")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_ow6p6")
+Button/styles/focus = SubResource("StyleBoxTexture_idlhr")
+Button/styles/hover = SubResource("StyleBoxTexture_ogqwi")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_ogqwi")
+Button/styles/hover_pressed = null
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_idlhr")
+Button/styles/normal = SubResource("StyleBoxTexture_puxgw")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_puxgw")
+Button/styles/pressed = SubResource("StyleBoxTexture_puxgw")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_puxgw")

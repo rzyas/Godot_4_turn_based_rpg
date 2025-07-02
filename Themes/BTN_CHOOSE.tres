@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dn1uogoyuigce"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edghf"]
+bg_color = Color(4.52429e-06, 0.672491, 0.776987, 1)
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_edghf")

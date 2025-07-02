@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ohsx4sb1a8hy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ictay"]
+bg_color = Color(0, 0, 0, 0)
+
+[resource]
+Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_ictay")
+Button/styles/focus = SubResource("StyleBoxFlat_ictay")
+Button/styles/hover = SubResource("StyleBoxFlat_ictay")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_ictay")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_ictay")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ictay")
+Button/styles/normal = SubResource("StyleBoxFlat_ictay")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_ictay")
+Button/styles/pressed = SubResource("StyleBoxFlat_ictay")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_ictay")

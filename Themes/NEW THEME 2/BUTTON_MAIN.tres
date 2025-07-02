@@ -1,0 +1,58 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://gwahdjg4ert7"]
+
+[ext_resource type="Texture2D" uid="uid://drfiilbb3q1xo" path="res://img/UI/UI_btn_v1.png" id="1_dn2fu"]
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_ncxd5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjdbg"]
+texture = ExtResource("1_dn2fu")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+region_rect = Rect2(0, 153, 200, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ky5j"]
+texture = ExtResource("1_dn2fu")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+region_rect = Rect2(0, 51, 200, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1t8e"]
+texture = ExtResource("1_dn2fu")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.3567
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+region_rect = Rect2(0, 0, 200, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdhgx"]
+texture = ExtResource("1_dn2fu")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+region_rect = Rect2(0, 102, 200, 47)
+
+[resource]
+Button/colors/font_hover_color = Color(0.27022, 0.270222, 0.270223, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_ncxd5")
+Button/styles/disabled = SubResource("StyleBoxTexture_pjdbg")
+Button/styles/hover = SubResource("StyleBoxTexture_7ky5j")
+Button/styles/normal = SubResource("StyleBoxTexture_c1t8e")
+Button/styles/pressed = SubResource("StyleBoxTexture_xdhgx")
+Label/colors/font_color = Color(0.8, 0.8, 0.8, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0.168627)
+Label/constants/outline_size = 16
+Label/fonts/font = ExtResource("1_ncxd5")

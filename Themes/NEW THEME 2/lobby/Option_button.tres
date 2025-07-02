@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dos1yq83agf3y"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_bvrw4"]
+[ext_resource type="Texture2D" uid="uid://dw0nfuqrxar2y" path="res://img/UI (new)/UI Panel Popup.png" id="2_662fp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcv78"]
+atlas = ExtResource("2_662fp")
+region = Rect2(86, 3, 39, 39)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swxw6"]
+texture = SubResource("AtlasTexture_dcv78")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiff4"]
+atlas = ExtResource("2_662fp")
+region = Rect2(86, 44, 39, 39)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v85ca"]
+texture = SubResource("AtlasTexture_yiff4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sygbn"]
+atlas = ExtResource("2_662fp")
+region = Rect2(86, 86, 39, 39)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsrlq"]
+texture = SubResource("AtlasTexture_sygbn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+OptionButton/colors/font_color = Color(1, 0.705882, 0, 1)
+OptionButton/font_sizes/font_size = 32
+OptionButton/fonts/font = ExtResource("1_bvrw4")
+OptionButton/styles/disabled = SubResource("StyleBoxTexture_swxw6")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_v85ca")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_fsrlq")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_fsrlq")

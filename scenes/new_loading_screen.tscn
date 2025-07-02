@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://xbad1c4dwumx"]
+
+[ext_resource type="Texture2D" uid="uid://b1grqaahurg48" path="res://img/UI (new)/UI_7.png" id="1_4qnc0"]
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_q6gqm"]
+[ext_resource type="Script" uid="uid://dxv4m8ky86odx" path="res://script/new_loading_screen.gd" id="1_ujj2c"]
+[ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="3_ujj2c"]
+[ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="4_k5qnt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5qnt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ysde"]
+texture = ExtResource("1_4qnc0")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(67, 7, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et2ph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tce6r"]
+atlas = ExtResource("4_k5qnt")
+region = Rect2(267, 21, 102, 102)
+
+[node name="parent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujj2c")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1302.0
+offset_top = -799.0
+offset_right = 1302.0
+offset_bottom = 799.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5qnt")
+
+[node name="main" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -756.0
+offset_top = 159.0
+offset_right = 756.0
+offset_bottom = 423.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ysde")
+
+[node name="vbox" type="VBoxContainer" parent="main"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="main/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ujj2c")
+text = "LOADING ad wdawdawd awd adad aw aw da daw da dawdawdad adadaad a dad adawdada dadd awdwdada aw dadadd"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="hbox" type="HBoxContainer" parent="main/vbox"]
+layout_mode = 2
+
+[node name="prog" type="TextureProgressBar" parent="main/vbox/hbox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 20.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_et2ph")
+texture_progress = SubResource("AtlasTexture_tce6r")
+tint_under = Color(0, 0, 0, 0.392157)
+
+[node name="txt" type="Label" parent="main/vbox/hbox"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.392157)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_q6gqm")
+theme_override_font_sizes/font_size = 26
+text = "100%"
+vertical_alignment = 1

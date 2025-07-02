@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d16vkfe6xa8ha"]
+
+[ext_resource type="Texture2D" uid="uid://cofn3aik0pd3n" path="res://img/UI/UI_PACK_004.png" id="1_syqsx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mc8cw"]
+texture = ExtResource("1_syqsx")
+texture_margin_left = 70.0
+texture_margin_right = 70.0
+region_rect = Rect2(476, 484, 518, 150)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wpsxp"]
+load_path = "res://.godot/imported/UI_PACK_004.png-36565e62700ff9a98363279b24108c00.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73qvr"]
+texture = SubResource("CompressedTexture2D_wpsxp")
+texture_margin_left = 70.0
+texture_margin_right = 70.0
+region_rect = Rect2(476, 484, 518, 150)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_mc8cw")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_73qvr")

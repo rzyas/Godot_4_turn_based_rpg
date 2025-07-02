@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://byygwb3fkenkh"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_1q100"]
+
+[resource]
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+RichTextLabel/constants/outline_size = 12
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_1q100")

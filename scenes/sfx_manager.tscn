@@ -1,0 +1,470 @@
+[gd_scene load_steps=105 format=3 uid="uid://2ybn8771o6i3"]
+
+[ext_resource type="Script" uid="uid://ck4gp8ciun1mf" path="res://script/sfx_manager.gd" id="1_mar36"]
+[ext_resource type="AudioStream" uid="uid://jvve4swwrchu" path="res://SFX/ENHANCE/Enhance_01.wav" id="2_2koeu"]
+[ext_resource type="AudioStream" uid="uid://bqw8eudx1eisg" path="res://SFX/Lucky Wheel/lucky_wheel_ding.wav" id="2_2xojh"]
+[ext_resource type="AudioStream" uid="uid://df1qutie6ij2k" path="res://SFX/HIT/HIT - Explosoions/sfx_explosion_0.wav" id="2_5g5ae"]
+[ext_resource type="AudioStream" uid="uid://dliix00no3duj" path="res://SFX/Reward/count.wav" id="2_5slaw"]
+[ext_resource type="AudioStream" uid="uid://cv4q8wlg2scba" path="res://SFX/Reward/exp.wav" id="2_5vre6"]
+[ext_resource type="AudioStream" uid="uid://ds4kx5w0vcsi8" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 1.wav" id="2_6r62q"]
+[ext_resource type="AudioStream" uid="uid://cyde6of281tj1" path="res://SFX/Lucky Wheel/lw_freespin.wav" id="2_6yocu"]
+[ext_resource type="AudioStream" uid="uid://bsjhyeu44bnia" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_1.wav" id="2_58ki1"]
+[ext_resource type="AudioStream" uid="uid://dwn2mahyo43sw" path="res://SFX/Lucky Wheel/lw_jackpot.mp3" id="2_275hw"]
+[ext_resource type="AudioStream" uid="uid://c7b1j5oh2ct1l" path="res://SFX/Reward/popup.mp3" id="2_bvfxy"]
+[ext_resource type="AudioStream" uid="uid://dulkfxcv8xj6t" path="res://SFX/Lucky Wheel/bgm_gamble_of_light_1.wav" id="2_emkev"]
+[ext_resource type="AudioStream" uid="uid://40avk6wc6l2g" path="res://SFX/Interactive/sfx_click.wav" id="2_gs221"]
+[ext_resource type="AudioStream" uid="uid://cf1tbtg6js68g" path="res://SFX/HIT/Battle BGS/BGS_Battle_0.wav" id="2_h5s8o"]
+[ext_resource type="AudioStream" uid="uid://cq1bibc6i8k35" path="res://SFX/Roadmap/Roadmap_1.wav" id="2_hjoh6"]
+[ext_resource type="AudioStream" uid="uid://cxlmjdsp10jd7" path="res://SFX/Lucky Wheel/NEW/BGM Shop - The Jester's Dance 2.wav" id="2_k4o6y"]
+[ext_resource type="AudioStream" uid="uid://cpvkp3iel780a" path="res://SFX/Lucky Wheel/lw_reward_mana.wav" id="2_lvtmo"]
+[ext_resource type="AudioStream" uid="uid://dklp3afswockb" path="res://SFX/SELECT/menu_select.wav" id="2_oppp2"]
+[ext_resource type="AudioStream" uid="uid://bx6214ysexxuo" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_0.wav" id="2_oygtb"]
+[ext_resource type="AudioStream" uid="uid://bcqmaa4fgcpqk" path="res://SFX/WIN LOSE/sfx_lose_0.wav" id="2_q5vo2"]
+[ext_resource type="AudioStream" uid="uid://y1ed55unm5fg" path="res://SFX/ENHANCE/Enhance_spell.wav" id="2_v3im6"]
+[ext_resource type="AudioStream" uid="uid://biebkp4u3bqbw" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Market's Melody.wav" id="2_ve3h6"]
+[ext_resource type="AudioStream" uid="uid://cx1cqppxqhkhg" path="res://SFX/HIT/Battle BGS/BGS_Battle_1.wav" id="3_1sjkn"]
+[ext_resource type="AudioStream" uid="uid://bt3i10a2e2n2f" path="res://SFX/Lucky Wheel/system_fail.mp3" id="3_5ix0e"]
+[ext_resource type="AudioStream" uid="uid://cs7vykun4tth3" path="res://SFX/Lucky Wheel/lw_jackpot_super.mp3" id="3_6yocu"]
+[ext_resource type="AudioStream" uid="uid://b3k3orgbk3yyb" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_1.wav" id="3_aid5e"]
+[ext_resource type="AudioStream" uid="uid://bxejsk74mi5tu" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 2.wav" id="3_d47fg"]
+[ext_resource type="AudioStream" uid="uid://becqqtn0yn617" path="res://SFX/WIN LOSE/sfx_lose_1.wav" id="3_et2op"]
+[ext_resource type="AudioStream" uid="uid://ckre4qavu43p6" path="res://SFX/Lucky Wheel/Lucky_Wheel_fail_1.wav" id="3_fjwa0"]
+[ext_resource type="AudioStream" uid="uid://c63685g61rxkw" path="res://SFX/Lucky Wheel/NEW/BGM Shop - The Jester's Dance.wav" id="3_k4o6y"]
+[ext_resource type="AudioStream" uid="uid://bijgl4l2d6opp" path="res://SFX/Lucky Wheel/bgm_gamble_of_light_2.wav" id="3_lu1vy"]
+[ext_resource type="AudioStream" uid="uid://boklipdmawww" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_2.wav" id="3_oppp2"]
+[ext_resource type="AudioStream" uid="uid://dwf7pbi34pp40" path="res://SFX/Reward/jackpot.wav" id="3_r1ds3"]
+[ext_resource type="AudioStream" uid="uid://b44sfll8fbl2" path="res://SFX/Roadmap/Roadmap_2.wav" id="3_tuesr"]
+[ext_resource type="AudioStream" uid="uid://dtno0mhbe156j" path="res://SFX/Interactive/sfx_item_aquire_0.wav" id="3_uvc1x"]
+[ext_resource type="AudioStream" uid="uid://c1qhpgqq7nmq8" path="res://SFX/Lucky Wheel/NEW/BGM Shop - Jesters' Revelry.wav" id="3_uwwo3"]
+[ext_resource type="AudioStream" uid="uid://c0j6flp7osy4p" path="res://SFX/ENHANCE/Enhance_02.wav" id="3_v3im6"]
+[ext_resource type="AudioStream" uid="uid://yd2j5brk5vkl" path="res://SFX/Lucky Wheel/lw_reward_money.wav" id="3_yqk4d"]
+[ext_resource type="AudioStream" uid="uid://48bgajmydlqa" path="res://SFX/ENHANCE/Enhance_03.wav" id="4_2xojh"]
+[ext_resource type="AudioStream" uid="uid://3a7cpgvvx6ec" path="res://SFX/HIT/Battle BGS/BGS_Battle_2.wav" id="4_4nhal"]
+[ext_resource type="AudioStream" uid="uid://b7fa31lkct5cm" path="res://SFX/Roadmap/Roadmap_3.wav" id="4_5kplq"]
+[ext_resource type="AudioStream" uid="uid://c4qfg4dlducao" path="res://SFX/Reward/money.wav" id="4_08km7"]
+[ext_resource type="AudioStream" uid="uid://2jsnvakjfq2f" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 3.wav" id="4_8nxo1"]
+[ext_resource type="AudioStream" uid="uid://cw1o0p2qpfxri" path="res://SFX/Lucky Wheel/Lucky_Wheel_fail_2.wav" id="4_cxlqt"]
+[ext_resource type="AudioStream" uid="uid://ds77xwuv1hap8" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_3.wav" id="4_dawnf"]
+[ext_resource type="AudioStream" uid="uid://djiccuask2n6s" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_2.wav" id="4_nqaqh"]
+[ext_resource type="AudioStream" uid="uid://d1i0184gyjjv2" path="res://SFX/WIN LOSE/sfx_lose_2.wav" id="4_r0lbx"]
+[ext_resource type="AudioStream" uid="uid://e3q5eud3v5av" path="res://SFX/Interactive/sfx_item_aquire_1.wav" id="4_t6uqj"]
+[ext_resource type="AudioStream" uid="uid://b1lfgvuvw8mio" path="res://SFX/Lucky Wheel/bgm_jackpot_symphony.wav" id="4_ve3h6"]
+[ext_resource type="AudioStream" uid="uid://cdsak3e48anx3" path="res://SFX/Interactive/sfx_item_close.wav" id="5_1rsa4"]
+[ext_resource type="AudioStream" uid="uid://blmwhp6wobywe" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_4.wav" id="5_bxsn6"]
+[ext_resource type="AudioStream" uid="uid://bv8u1m4lpv3tw" path="res://SFX/Reward/jackpot_super.wav" id="5_duc4f"]
+[ext_resource type="AudioStream" uid="uid://bxt6kpsg75202" path="res://SFX/HIT/Battle BGS/BGS_Battle_3.wav" id="5_g1fmx"]
+[ext_resource type="AudioStream" uid="uid://cm8gts0kgbyi6" path="res://SFX/Lucky Wheel/bgm_wheel_of_fortune.wav" id="5_k4o6y"]
+[ext_resource type="AudioStream" uid="uid://bwpxwqbhep7rm" path="res://SFX/Lucky Wheel/Lucky_Wheel_fail_3.wav" id="5_lvtmo"]
+[ext_resource type="AudioStream" uid="uid://ok6bhuf8f5oe" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - Battle Hymn of the Crimson Blade 2.wav" id="5_ni8vt"]
+[ext_resource type="AudioStream" uid="uid://cu18norvmuvtt" path="res://SFX/ENHANCE/Enhance_04.wav" id="5_q5u1v"]
+[ext_resource type="AudioStream" uid="uid://cfoaxcjwoaqkh" path="res://SFX/Roadmap/Roadmap_4.wav" id="5_t2bvm"]
+[ext_resource type="AudioStream" uid="uid://c4ge7u7ln7uxt" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_3.wav" id="5_tixdj"]
+[ext_resource type="AudioStream" uid="uid://dg7m2rucugteq" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 4.wav" id="5_urvek"]
+[ext_resource type="AudioStream" uid="uid://cg3w4te47nv8n" path="res://SFX/WIN LOSE/sfx_lose_3.wav" id="5_vcfo8"]
+[ext_resource type="AudioStream" uid="uid://cuaipddnsiqfp" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - Battle Hymn of the Crimson Blade.wav" id="6_4i04o"]
+[ext_resource type="AudioStream" uid="uid://bewrectsf740e" path="res://SFX/WIN LOSE/sfx_win_0.wav" id="6_c62ct"]
+[ext_resource type="AudioStream" uid="uid://wvox5cdc1v72" path="res://SFX/Interactive/sfx_item_open_0.wav" id="6_cexi1"]
+[ext_resource type="AudioStream" uid="uid://bal0wyaa83vi7" path="res://SFX/Roadmap/Roadmap_5.wav" id="6_go7cx"]
+[ext_resource type="AudioStream" uid="uid://br7ntgtiu166c" path="res://SFX/HIT/Battle BGS/BGS_Battle_BOSS_0.wav" id="6_herj2"]
+[ext_resource type="AudioStream" uid="uid://db1fabhunaq1" path="res://SFX/ENHANCE/Enhance_05.wav" id="6_ttgc2"]
+[ext_resource type="AudioStream" uid="uid://c0r4utv85hmy6" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_5.wav" id="6_wnjph"]
+[ext_resource type="AudioStream" uid="uid://bboj6k7xs7x1n" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - Echoes of the Forgotten Realm.wav" id="7_2hv3i"]
+[ext_resource type="AudioStream" uid="uid://btyaqx0lp0186" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_6.wav" id="7_f4p62"]
+[ext_resource type="AudioStream" uid="uid://di0qbpydctmdh" path="res://SFX/ENHANCE/Enhance_06.wav" id="7_fjwa0"]
+[ext_resource type="AudioStream" uid="uid://pmy57jdwdndf" path="res://SFX/WIN LOSE/sfx_win_1.wav" id="7_n6uo0"]
+[ext_resource type="AudioStream" uid="uid://cnnnm6vvp56to" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_0.wav" id="7_sjm52"]
+[ext_resource type="AudioStream" uid="uid://byx2qo2n1g0bd" path="res://SFX/WIN LOSE/sfx_win_2.wav" id="8_0dta7"]
+[ext_resource type="AudioStream" uid="uid://brusllyjgq5y4" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_1.wav" id="8_x0tmi"]
+[ext_resource type="AudioStream" uid="uid://de1hqkxq4vdmb" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_2.wav" id="9_m5suj"]
+[ext_resource type="AudioStream" uid="uid://kl41ejtdns1u" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_3.wav" id="10_r0dut"]
+[ext_resource type="AudioStream" uid="uid://d1t37wpufcjas" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_4.wav" id="11_45eja"]
+[ext_resource type="AudioStream" uid="uid://bqxx6txi71jfw" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_00.wav" id="12_2f2sc"]
+[ext_resource type="AudioStream" uid="uid://cs1mwgp275hco" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_01.wav" id="13_xupd8"]
+[ext_resource type="AudioStream" uid="uid://dhi81uwixltnh" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_02.wav" id="14_epsq2"]
+[ext_resource type="AudioStream" uid="uid://tyg3dmitpmv8" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_03.wav" id="15_luwpy"]
+[ext_resource type="AudioStream" uid="uid://dt2qgwlpw2t80" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_04.wav" id="16_e1rhl"]
+[ext_resource type="AudioStream" uid="uid://ie8itti18xou" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_1.wav" id="17_7hbli"]
+[ext_resource type="AudioStream" uid="uid://dihtjdlb450y5" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_2.wav" id="18_cbpil"]
+[ext_resource type="AudioStream" uid="uid://bclpq6otrp6mc" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_3.wav" id="19_0507p"]
+[ext_resource type="AudioStream" uid="uid://bpmgo2r70qqwl" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_4.wav" id="20_d0xv4"]
+[ext_resource type="AudioStream" uid="uid://dr1jylct85r6g" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_5.wav" id="21_5yej8"]
+[ext_resource type="AudioStream" uid="uid://dn83raauysvfg" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_6.wav" id="22_gxfjf"]
+[ext_resource type="AudioStream" uid="uid://bwku6vks5nmmw" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_0.wav" id="23_ojscf"]
+[ext_resource type="AudioStream" uid="uid://b2464pdiqo4e5" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_1.wav" id="24_5f3p6"]
+[ext_resource type="AudioStream" uid="uid://cw48w21bbvaqa" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_2.wav" id="25_bilmn"]
+[ext_resource type="AudioStream" uid="uid://3iknd4j70vyo" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_3.wav" id="26_qxjou"]
+[ext_resource type="AudioStream" uid="uid://2hnknn7x4c7k" path="res://SFX/New BGM/bgm_battle_00.ogg" id="32_lmv6t"]
+[ext_resource type="AudioStream" uid="uid://bddefou8dgxm6" path="res://SFX/New BGM/bgm_battle_01.ogg" id="33_xhjt4"]
+[ext_resource type="AudioStream" uid="uid://dk0b31efllvbn" path="res://SFX/New BGM/bgm_battle_02.ogg" id="34_y7do8"]
+[ext_resource type="AudioStream" uid="uid://qyn7xq0qhwv7" path="res://SFX/New BGM/bgm_battle_03.ogg" id="35_i1rf4"]
+[ext_resource type="AudioStream" uid="uid://cqcl1766o4pch" path="res://SFX/SELECT/select_turn_icon.ogg" id="36_aqp26"]
+[ext_resource type="AudioStream" uid="uid://ds38wwagciu7x" path="res://SFX/New BGM/bgm_battle_04.ogg" id="36_ueg0k"]
+[ext_resource type="AudioStream" uid="uid://bn43jpuxgseg1" path="res://SFX/BUFF/heal.mp3" id="37_m1nug"]
+[ext_resource type="AudioStream" uid="uid://c1qaemxc5k1bu" path="res://SFX/VAI/vai_enemy_turn.mp3" id="39_i13tp"]
+[ext_resource type="AudioStream" uid="uid://bwmpb5hhtdeb3" path="res://SFX/VAI/vai_your_turn.mp3" id="40_fi5w5"]
+[ext_resource type="AudioStream" uid="uid://cmvmxaw5svxge" path="res://SFX/BUFF/score_batch.wav" id="45_cuajm"]
+[ext_resource type="AudioStream" uid="uid://b2bkxfbh84jxo" path="res://SFX/Interactive/sfx_clock.wav" id="54_en6h3"]
+
+[node name="SFX_Manager" type="Node2D"]
+script = ExtResource("1_mar36")
+
+[node name="Roadmap1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hjoh6")
+
+[node name="Roadmap2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tuesr")
+
+[node name="Roadmap3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5kplq")
+
+[node name="Roadmap4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t2bvm")
+
+[node name="Roadmap5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_go7cx")
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oppp2")
+
+[node name="BgmBattle1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_58ki1")
+volume_db = -10.0
+
+[node name="BgmBattle2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oppp2")
+volume_db = -10.0
+
+[node name="BgmBattle3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dawnf")
+volume_db = -10.0
+
+[node name="BgmBattle4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bxsn6")
+volume_db = -10.0
+
+[node name="BgmBattle5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wnjph")
+volume_db = -10.0
+
+[node name="BgmBattle6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f4p62")
+volume_db = -10.0
+
+[node name="BGM_Lobby_4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6r62q")
+
+[node name="BGM_Lobby_5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d47fg")
+
+[node name="BGM_Lobby_6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8nxo1")
+
+[node name="BGM_Lobby_7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_urvek")
+
+[node name="BGM_Shop_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k4o6y")
+volume_db = -10.0
+
+[node name="BGM_Shop_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uwwo3")
+volume_db = -10.0
+
+[node name="BGM_Lobby_0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ve3h6")
+volume_db = -10.0
+
+[node name="BGM_Lobby_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ni8vt")
+volume_db = -10.0
+
+[node name="BGM_Lobby_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4i04o")
+volume_db = -10.0
+
+[node name="BGM_Lobby_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2hv3i")
+volume_db = -10.0
+
+[node name="BGM_Shop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k4o6y")
+volume_db = -10.0
+
+[node name="BgmGambleOfLight1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_emkev")
+volume_db = -5.0
+
+[node name="BgmGambleOfLight2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lu1vy")
+volume_db = -5.0
+
+[node name="BgmJackpotSymphony" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ve3h6")
+volume_db = -5.0
+
+[node name="BgmWheelOfFortune" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k4o6y")
+volume_db = -5.0
+
+[node name="LwFreespin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6yocu")
+
+[node name="SystemFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5ix0e")
+
+[node name="LwJackpot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_275hw")
+
+[node name="LwJackpotSuper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6yocu")
+
+[node name="LwRewardMana" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lvtmo")
+
+[node name="LwRewardMoney" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yqk4d")
+
+[node name="LuckyWheelDing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2xojh")
+
+[node name="LuckyWheelFail1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fjwa0")
+
+[node name="LuckyWheelFail2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cxlqt")
+
+[node name="LuckyWheelFail3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lvtmo")
+
+[node name="EnhanceSpell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v3im6")
+
+[node name="Enhance01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2koeu")
+
+[node name="Enhance02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v3im6")
+
+[node name="Enhance03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2xojh")
+
+[node name="Enhance04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q5u1v")
+
+[node name="Enhance05" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ttgc2")
+
+[node name="Enhance06" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fjwa0")
+
+[node name="Count" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5slaw")
+
+[node name="Popup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bvfxy")
+
+[node name="Exp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5vre6")
+
+[node name="Jackpot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r1ds3")
+
+[node name="Money" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_08km7")
+
+[node name="JackpotSuper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_duc4f")
+
+[node name="SfxExplosion0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5g5ae")
+
+[node name="SfxClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gs221")
+
+[node name="SfxItemAquire0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uvc1x")
+
+[node name="SfxItemAquire1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t6uqj")
+
+[node name="SfxItemClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1rsa4")
+
+[node name="SfxItemOpen0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cexi1")
+
+[node name="SfxLose0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q5vo2")
+
+[node name="SfxLose1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_et2op")
+
+[node name="SfxLose2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_r0lbx")
+
+[node name="SfxLose3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vcfo8")
+
+[node name="SfxWin0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_c62ct")
+
+[node name="SfxWin1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_n6uo0")
+
+[node name="SfxWin2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0dta7")
+
+[node name="SfxArrow0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oygtb")
+volume_db = -10.0
+
+[node name="SfxArrow1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aid5e")
+volume_db = -10.0
+
+[node name="SfxArrow2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nqaqh")
+volume_db = -10.0
+
+[node name="SfxArrow3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tixdj")
+volume_db = -10.0
+
+[node name="BgsBattle0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h5s8o")
+volume_db = -15.0
+
+[node name="BgsBattle1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1sjkn")
+volume_db = -15.0
+
+[node name="BgsBattle2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4nhal")
+volume_db = -15.0
+
+[node name="BgsBattle3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g1fmx")
+volume_db = -15.0
+
+[node name="BgsBattleBoss0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_herj2")
+volume_db = -15.0
+
+[node name="SfxSwordhit0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_sjm52")
+volume_db = -10.0
+
+[node name="SfxSwordhit1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x0tmi")
+volume_db = -10.0
+
+[node name="SfxSwordhit2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m5suj")
+volume_db = -10.0
+
+[node name="SfxSwordhit3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_r0dut")
+volume_db = -10.0
+
+[node name="SfxSwordhit4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_45eja")
+volume_db = -10.0
+
+[node name="SfxMagicspell00" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2f2sc")
+volume_db = -10.0
+
+[node name="SfxMagicspell01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_xupd8")
+volume_db = -10.0
+
+[node name="SfxMagicspell02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_epsq2")
+volume_db = -10.0
+
+[node name="SfxMagicspell03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_luwpy")
+volume_db = -10.0
+
+[node name="SfxMagicspell04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_e1rhl")
+volume_db = -10.0
+
+[node name="SfxDaggerHit1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_7hbli")
+volume_db = -10.0
+
+[node name="SfxDaggerHit2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_cbpil")
+volume_db = -10.0
+
+[node name="SfxDaggerHit3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_0507p")
+volume_db = -10.0
+
+[node name="SfxDaggerHit4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_d0xv4")
+volume_db = -10.0
+
+[node name="SfxDaggerHit5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_5yej8")
+volume_db = -10.0
+
+[node name="SfxDaggerHit6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_gxfjf")
+volume_db = -10.0
+
+[node name="SfxClaw0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_ojscf")
+volume_db = -10.0
+
+[node name="SfxClaw1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_5f3p6")
+volume_db = -10.0
+
+[node name="SfxClaw2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_bilmn")
+volume_db = -10.0
+
+[node name="SfxClaw3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_qxjou")
+volume_db = -10.0
+
+[node name="BgmBattle00" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_lmv6t")
+
+[node name="BgmBattle01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_xhjt4")
+
+[node name="BgmBattle02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_y7do8")
+
+[node name="BgmBattle03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_i1rf4")
+
+[node name="BgmBattle04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_ueg0k")
+
+[node name="SfxBuff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_aqp26")
+
+[node name="SelectTurnIcon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_aqp26")
+
+[node name="star_drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_m1nug")
+
+[node name="ScoreBatch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("45_cuajm")
+
+[node name="VaiYourTurn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("40_fi5w5")
+
+[node name="VaiEnemyTurn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_i13tp")
+
+[node name="Heal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_m1nug")
+
+[node name="SfxClock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("54_en6h3")

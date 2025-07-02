@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bddd4scclb6c"]
+
+[ext_resource type="Script" uid="uid://7idxyok5d7fi" path="res://script/main_loading_screen.gd" id="1_5ctqg"]
+[ext_resource type="Texture2D" uid="uid://ddu4yvsvumc8i" path="res://img/Base Card/Loading Screen/7.jpeg" id="2_5qea6"]
+[ext_resource type="Texture2D" uid="uid://dhv88a4tnic1o" path="res://img/Base Card/Loading Screen/main_bg_contras.png" id="3_rmup5"]
+[ext_resource type="FontFile" uid="uid://cwbxtadbgfau6" path="res://font/RobotoCondensed-Regular.ttf" id="4_ohg42"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5ctqg")
+
+[node name="bg_loading_scrn" type="Sprite2D" parent="."]
+position = Vector2(-2, -7)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_5qea6")
+
+[node name="MainBgContras" type="Sprite2D" parent="."]
+position = Vector2(-4, 369.5)
+scale = Vector2(2.20898, 0.381836)
+texture = ExtResource("3_rmup5")
+
+[node name="loading_count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 427.0
+offset_right = 677.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("4_ohg42")
+theme_override_font_sizes/font_size = 30
+text = "10%"
+vertical_alignment = 1
+
+[node name="loading_txt" type="Label" parent="."]
+layout_mode = 0
+offset_left = -98.0
+offset_top = 379.0
+offset_right = 618.0
+offset_bottom = 463.0
+theme_override_fonts/font = ExtResource("4_ohg42")
+theme_override_font_sizes/font_size = 50
+text = "LOADING.."
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.85, 0.85)
+
+[node name="prog_bar_loading" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = -539.0
+offset_top = 442.0
+offset_right = 540.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 0
+step = 1.0
+value = 9.0

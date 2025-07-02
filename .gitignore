@@ -1,0 +1,17 @@
+# Folder cache Godot
+.import/
+.godot/
+
+# File auto-generate
+*.import
+*.uid
+*.tmp
+*.log
+
+# Config editor
+export_presets.cfg
+default_bus_layout.tres
+
+# Sampah sistem
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1659 @@
+[gd_scene load_steps=46 format=3 uid="uid://cpds3qnnu6hes"]
+
+[ext_resource type="Script" uid="uid://d0h8jxvrfs0m6" path="res://script/Roadmap.gd" id="1_0yhtd"]
+[ext_resource type="Texture2D" uid="uid://c0foqapdgx22j" path="res://img/Roadmap/bg_main_roadmap.png" id="1_vni6k"]
+[ext_resource type="Texture2D" uid="uid://exn6iqhjc2d3" path="res://img/Roadmap/Panel Quest/bg.png" id="2_s7gh1"]
+[ext_resource type="Texture2D" uid="uid://btt2lwa13vlpr" path="res://img/Roadmap/Panel Quest/prog_1.png" id="4_iogn0"]
+[ext_resource type="Texture2D" uid="uid://dwe26io6kp6yf" path="res://img/Roadmap/Panel Quest/3.png" id="4_kutq0"]
+[ext_resource type="Texture2D" uid="uid://dp8cfsnk7c315" path="res://img/Roadmap/Panel Quest/prog_2.png" id="5_8nnwp"]
+[ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="6_ddrec"]
+[ext_resource type="Texture2D" uid="uid://bplpndrsdyw03" path="res://img/Roadmap/Panel Quest/quest_icon_1.png" id="7_8nnwp"]
+[ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="8_8nnwp"]
+[ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="8_ddrec"]
+[ext_resource type="Theme" uid="uid://naxxa1nykskx" path="res://Themes/THEME V3/BTN_CLEAR.tres" id="10_ddrec"]
+[ext_resource type="Texture2D" uid="uid://duy1rp1inqqor" path="res://img/Roadmap/Panel Quest/quest_icon_4.png" id="11_yes1r"]
+[ext_resource type="Texture2D" uid="uid://cxio86ovure0p" path="res://img/Roadmap/Panel Quest/quest_icon_2.png" id="12_yes1r"]
+[ext_resource type="Texture2D" uid="uid://cl2lcdtk2rr8b" path="res://img/Roadmap/Panel Quest/quest_icon_3.png" id="14_ooyfw"]
+[ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="17_ooyfw"]
+[ext_resource type="Texture2D" uid="uid://b2d1scsu10fpf" path="res://img/Roadmap/Panel Quest/quest_main_adv_2.png" id="18_lexxp"]
+[ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="19_5daq3"]
+[ext_resource type="Texture2D" uid="uid://dl7fms37p7ssa" path="res://img/UI (new)/New UI Flat/flat_ticket.png" id="20_0nhqy"]
+[ext_resource type="Texture2D" uid="uid://c0y3wjvxvhmyt" path="res://img/UI (new)/New UI Flat/flat_spin.png" id="20_16477"]
+[ext_resource type="Theme" uid="uid://srh11jnyhheh" path="res://Themes/THEME V3/BTN_SELECT.tres" id="21_lexxp"]
+[ext_resource type="Texture2D" uid="uid://cq6ombnd5tx3d" path="res://img/Roadmap/Panel Quest/quest_main_adv_1.png" id="22_46bph"]
+[ext_resource type="Texture2D" uid="uid://bvrcuybt2u7sk" path="res://img/Roadmap/Panel Quest/quest_main_adv_3.png" id="23_6owf1"]
+[ext_resource type="Texture2D" uid="uid://yervcnp1rd4y" path="res://img/Roadmap/Panel Quest/quest_main_adv_4.png" id="25_k5ia2"]
+[ext_resource type="Texture2D" uid="uid://cuwj8k5c62qur" path="res://img/UI (new)/New UI Flat/flat_gold.png" id="26_s0qek"]
+[ext_resource type="Texture2D" uid="uid://c5nhn2vo3xnxo" path="res://img/Roadmap/Panel Quest/quest_main_adv_5.png" id="27_w6qvm"]
+[ext_resource type="Texture2D" uid="uid://cd2uk2h7tcdm4" path="res://img/UI (new)/New UI Flat/flat_mana.png" id="28_kutq0"]
+[ext_resource type="Texture2D" uid="uid://bv2oqnc4tbw5a" path="res://img/Roadmap/Panel Quest/quest_main_adv_6.png" id="29_vuksm"]
+[ext_resource type="Texture2D" uid="uid://yxu018ysn0d3" path="res://img/Roadmap/Panel Quest/quest_main_adv_7.png" id="30_fa8ir"]
+[ext_resource type="Texture2D" uid="uid://dpi54mpwvr6py" path="res://img/Roadmap/Panel Quest/quest_main_adv_8.png" id="31_lsn1d"]
+[ext_resource type="Texture2D" uid="uid://c2fy6gji2um4u" path="res://img/Roadmap/Panel Quest/quest_main_adv_9.png" id="32_dhta4"]
+[ext_resource type="Texture2D" uid="uid://dxpif53gwy6hg" path="res://img/Roadmap/Panel Quest/quest_main_adv_10.png" id="33_fa8ir"]
+[ext_resource type="Texture2D" uid="uid://dn8ivt7sjyhw3" path="res://img/Roadmap/Panel Quest/quest_main_adv_11.png" id="34_lsn1d"]
+[ext_resource type="Texture2D" uid="uid://3kwgmso200rj" path="res://img/Roadmap/Panel Quest/quest_main_adv_12.png" id="35_dhta4"]
+[ext_resource type="Texture2D" uid="uid://bw60s35a0hcdr" path="res://img/Roadmap/Panel Quest/quest_main_adv_13.png" id="36_8gnv4"]
+[ext_resource type="Theme" uid="uid://dqkbqtltov57a" path="res://Themes/THEME V3/PNL_BORDER_10_BLUE.tres" id="36_vuksm"]
+[ext_resource type="Texture2D" uid="uid://bgcrcopdah6av" path="res://img/UI (new)/New UI Flat/Tier Reward/gold.png" id="37_b8mel"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8pef"]
+texture = ExtResource("1_vni6k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yhtd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sveyv"]
+texture = ExtResource("2_s7gh1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iij3i"]
+texture = ExtResource("4_kutq0")
+region_rect = Rect2(6, 6, 289, 289)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlltm"]
+atlas = ExtResource("4_iogn0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ceb22"]
+texture = ExtResource("4_kutq0")
+region_rect = Rect2(6, 6, 289, 289)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rybts"]
+texture = ExtResource("17_ooyfw")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lexxp"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa8ir"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0yhtd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="bg_main" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -846.5
+offset_top = -522.5
+offset_right = 846.5
+offset_bottom = 522.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q8pef")
+
+[node name="pnl_top_quest" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -848.0
+offset_top = -522.0
+offset_right = 848.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0yhtd")
+
+[node name="quest_1" type="Panel" parent="pnl_top_quest"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(250, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -761.0
+offset_top = -426.0
+offset_right = -511.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(125, 375)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sveyv")
+
+[node name="bg" type="Panel" parent="pnl_top_quest/quest_1"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -397.5
+offset_right = 150.0
+offset_bottom = -97.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 150)
+theme_override_styles/panel = SubResource("StyleBoxTexture_iij3i")
+
+[node name="prog_main" type="TextureProgressBar" parent="pnl_top_quest/quest_1/bg"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tlltm")
+texture_progress = ExtResource("5_8nnwp")
+
+[node name="main" type="Label" parent="pnl_top_quest/quest_1/bg/prog_main"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ddrec")
+theme_override_colors/font_color = Color(1, 0.87451, 0.0235294, 1)
+theme_override_font_sizes/font_size = 48
+text = "DONE
+1/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bg2" type="TextureRect" parent="pnl_top_quest/quest_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 181.0
+offset_right = 66.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_8nnwp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox" type="VBoxContainer" parent="pnl_top_quest/quest_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -56.0
+offset_right = 110.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="progress_count" type="Label" parent="pnl_top_quest/quest_1/vbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("8_8nnwp")
+text = "3 MAIN QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="pnl_top_quest/quest_1/vbox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("8_ddrec")
+theme_override_font_sizes/font_size = 32
+text = "ADVENTURE"
+horizontal_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_top_quest/quest_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -347.0
+offset_right = 102.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_ddrec")
+
+[node name="quest_2" type="Panel" parent="pnl_top_quest"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(250, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -258.0
+offset_right = -232.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(125, 375)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sveyv")
+
+[node name="bg" type="Panel" parent="pnl_top_quest/quest_2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -397.5
+offset_right = 150.0
+offset_bottom = -97.4999
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 150)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ceb22")
+
+[node name="prog_main" type="TextureProgressBar" parent="pnl_top_quest/quest_2/bg"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 32.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tlltm")
+texture_progress = ExtResource("5_8nnwp")
+
+[node name="main" type="Label" parent="pnl_top_quest/quest_2/bg/prog_main"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ddrec")
+theme_override_colors/font_color = Color(1, 0.87451, 0.0235294, 1)
+theme_override_font_sizes/font_size = 48
+text = "0.12%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bg2" type="TextureRect" parent="pnl_top_quest/quest_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 181.0
+offset_right = 66.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_yes1r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox" type="VBoxContainer" parent="pnl_top_quest/quest_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -56.0
+offset_right = 110.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="progress_count" type="Label" parent="pnl_top_quest/quest_2/vbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("8_8nnwp")
+text = "2 MAIN QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="pnl_top_quest/quest_2/vbox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("8_ddrec")
+theme_override_font_sizes/font_size = 32
+text = "ECONOMY"
+horizontal_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_top_quest/quest_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -350.0
+offset_right = 102.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_ddrec")
+
+[node name="quest_3" type="Panel" parent="pnl_top_quest"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(250, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 245.0
+offset_top = -258.0
+offset_right = 495.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(125, 375)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sveyv")
+
+[node name="bg" type="Panel" parent="pnl_top_quest/quest_3"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -397.5
+offset_right = 150.0
+offset_bottom = -97.4999
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 150)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ceb22")
+
+[node name="prog_main" type="TextureProgressBar" parent="pnl_top_quest/quest_3/bg"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 32.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tlltm")
+texture_progress = ExtResource("5_8nnwp")
+
+[node name="main" type="Label" parent="pnl_top_quest/quest_3/bg/prog_main"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ddrec")
+theme_override_colors/font_color = Color(1, 0.87451, 0.0235294, 1)
+theme_override_font_sizes/font_size = 48
+text = "0.12%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bg2" type="TextureRect" parent="pnl_top_quest/quest_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 181.0
+offset_right = 66.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ooyfw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox" type="VBoxContainer" parent="pnl_top_quest/quest_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -56.0
+offset_right = 110.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="progress_count" type="Label" parent="pnl_top_quest/quest_3/vbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("8_8nnwp")
+text = "4 MAIN QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="pnl_top_quest/quest_3/vbox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("8_ddrec")
+theme_override_font_sizes/font_size = 32
+text = "BATTLE"
+horizontal_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_top_quest/quest_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -350.0
+offset_right = 102.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_ddrec")
+
+[node name="quest_4" type="Panel" parent="pnl_top_quest"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(250, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 513.0
+offset_top = -426.0
+offset_right = 763.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(125, 375)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sveyv")
+
+[node name="bg" type="Panel" parent="pnl_top_quest/quest_4"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -396.25
+offset_right = 149.0
+offset_bottom = -96.2499
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 150)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ceb22")
+
+[node name="prog_main" type="TextureProgressBar" parent="pnl_top_quest/quest_4/bg"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 32.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tlltm")
+texture_progress = ExtResource("5_8nnwp")
+
+[node name="main" type="Label" parent="pnl_top_quest/quest_4/bg/prog_main"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ddrec")
+theme_override_colors/font_color = Color(1, 0.87451, 0.0235294, 1)
+theme_override_font_sizes/font_size = 48
+text = "0.12%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bg2" type="TextureRect" parent="pnl_top_quest/quest_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 181.0
+offset_right = 66.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_yes1r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox" type="VBoxContainer" parent="pnl_top_quest/quest_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -56.0
+offset_right = 110.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="progress_count" type="Label" parent="pnl_top_quest/quest_4/vbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("8_8nnwp")
+text = "4 MAIN QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="pnl_top_quest/quest_4/vbox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("8_ddrec")
+theme_override_font_sizes/font_size = 32
+text = "COLLECTION"
+horizontal_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_top_quest/quest_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -350.0
+offset_right = 102.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_ddrec")
+
+[node name="btn_lobby" type="Button" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = 359.0
+offset_right = 149.0
+offset_bottom = 435.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("21_lexxp")
+theme_override_font_sizes/font_size = 26
+text = "LOBBY"
+
+[node name="pnl_list_quest" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.627451)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -815.0
+offset_top = -467.0
+offset_right = 815.0
+offset_bottom = 408.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rybts")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="pnl_list_quest"]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1590.0
+offset_bottom = 835.0
+
+[node name="quest_parent" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="quest_prosed_level" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("18_lexxp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Level Up! Powered up to level 2"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_16477")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 1X Spin Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 1"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_level/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_adv" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("22_46bph")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Adventure! clear stage 1"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_0nhqy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: x500 Gold Ticket"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_adv/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_star" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("23_6owf1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Perfect Battle! Collect a total of 18 stars from battles."
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_16477")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 3X Spin Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_star/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_gold" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("25_k5ia2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: I'm Rich! Collect total 1M gold on battle"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("26_s0qek")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 100K Gold Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gold/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_mana" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("27_w6qvm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Miner! Collect total 100K Mana stone on battle"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("28_kutq0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 10K Mana stone"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_mana/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_battle" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("29_vuksm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: War cry! Finished the battle 25 times"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_16477")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 1x Spin Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_battle/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_dmg_total" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("30_fa8ir")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Monster hunter! Make 1M total damage to enemy!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("28_kutq0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 25K Mana Stone"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_dmg_total/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_heal_take" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("31_lsn1d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Front knight! Take heal from ally by 500K total!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("28_kutq0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 25K Mana Stone"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_take/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_heal_gift" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("32_dhta4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Angel! Gift ally heal total 500K total!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("28_kutq0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 25K Mana Stone"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_heal_gift/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_card" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("33_fa8ir")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Card Collector! Collect 1 card!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_16477")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 1 Spin Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_card/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_gear" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("34_lsn1d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Private Werehouse! Collect 10 Equipment"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_0nhqy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 300 Gold Ticket"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 3"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_gear/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_spin" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+visible = false
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("35_dhta4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: God of Djudie! Spin 10 Times!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("20_0nhqy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 2K Gold Ticket"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_spin/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="quest_prosed_enhance" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent"]
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("36_8gnv4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vobx" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="quest_desc" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 32
+text = "Achievement: Enhance Master! upgrade gear 10 times!"
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx"]
+layout_mode = 2
+
+[node name="icon_rwd" type="TextureRect" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx/hbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("37_b8mel")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="vbox" type="VBoxContainer" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="target_reward" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "REWARD: 500K Gold Coin"
+vertical_alignment = 1
+
+[node name="target_progress" type="Label" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx/hbox/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lexxp")
+text = "Current: 0"
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="pnl_list_quest/ScrollContainer/quest_parent/quest_prosed_enhance/vobx/hbox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "CLAIM"
+
+[node name="btn_cls" type="Button" parent="pnl_list_quest"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -13.0
+offset_right = 229.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("21_lexxp")
+theme_override_font_sizes/font_size = 26
+text = "DONE"
+
+[node name="bg" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.0
+offset_top = -527.0
+offset_right = 842.0
+offset_bottom = 527.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa8ir")
+
+[node name="btn_cls_rwd" type="Button" parent="bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -855.0
+offset_top = -532.0
+offset_right = 855.0
+offset_bottom = 532.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_ddrec")
+
+[node name="Label" type="Label" parent="bg/btn_cls_rwd"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -144.0
+offset_right = 87.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_ddrec")
+text = "TAP ANYWHERE TO EXIT."
+
+[node name="pnlc" type="PanelContainer" parent="bg/btn_cls_rwd"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -109.0
+offset_right = 268.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("36_vuksm")
+
+[node name="vbox" type="VBoxContainer" parent="bg/btn_cls_rwd/pnlc"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="bg/btn_cls_rwd/pnlc/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_ddrec")
+text = "Gold Ticket +544.34K"
+horizontal_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="bg/btn_cls_rwd/pnlc/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="bg/btn_cls_rwd/pnlc/vbox/hbox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("20_0nhqy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="desc" type="Label" parent="bg/btn_cls_rwd/pnlc/vbox/hbox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_font_sizes/font_size = 21
+text = "item ini dapat digunakan untuk upgrade peralatan"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="count" type="Label" parent="bg/btn_cls_rwd/pnlc/vbox"]
+layout_mode = 2
+theme = ExtResource("19_5daq3")
+theme_override_font_sizes/font_size = 21
+text = "OWN: 0"
