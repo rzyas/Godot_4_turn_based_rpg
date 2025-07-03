@@ -392,8 +392,6 @@ func on_button_pressed_prosedural_stage(stage):
 			AutoloadData.temp_bab=6
 			get_bab = arr_bab[6]
 	AutoloadData.save_data()
-	print(current_bab)
-	print(current_stage)
 	var get_header_story = new_bab_story.data_bab_story[get_bab][get_stage]["header"]
 	var get_main_story = new_bab_story.data_bab_story[get_bab][get_stage]["story"]
 	story_stage.text = get_stage.replace("_", " ")
@@ -1903,26 +1901,58 @@ func new_prosedural_assign_later(for_looping:bool, _index):
 
 	var new_assign_later = prosedural_new_redeem_assign.duplicate()
 	new_assign_later.name = new_id
-	var _parent = new_assign_later.get_node("_parent")
-	var get_btn_copy:Button = _parent.get_node("btn_id_copy")
-	var get_btn_assign:Button = _parent.get_node("btn_assign")
-	var get_btn_del:Button = _parent.get_node("btn_del")
+	# ----------------------
+	var parent = new_assign_later.get_node("_parent")
+	var get_btn_copy:Button = parent.get_node("btn_id_copy")
+	var get_btn_assign:Button = parent.get_node("btn_assign")
+	var get_btn_del:Button = parent.get_node("btn_del")
 
 	get_btn_copy.text = new_id
-	get_btn_copy.connect("pressed", func():
-		SfxManager.play_click()
-		DisplayServer.clipboard_set(new_id)
-		set_notification(ENUM_SET_NOTIF.BLUE,"copied"))
-	get_btn_assign.connect("pressed", func():
-		SfxManager.play_click()
-		label_redeem_gen.text = new_id
-		scroll_redeem_panel(true))
-	get_btn_del.pressed.connect(func():
-		var _get_index = AutoloadData.redeem_assign_history.find(new_id)
-		AutoloadData.redeem_assign_history.remove_at(_get_index)
-		await AutoloadData.save_data()
-		new_assign_later.queue_free()
-		redeem_history_set_loop_num())
+
+	# Debug dan connect untuk btn_copy
+	#print("DEBUG: btn_copy current connections: ", get_btn_copy.pressed.get_connections().size())
+	if get_btn_copy.pressed.get_connections().size() == 0:
+		#print("DEBUG: Connecting btn_copy 'pressed' signal...")
+		get_btn_copy.pressed.connect(func():
+			#print("DEBUG: Copy button pressed for ID: ", new_id)
+			SfxManager.play_click()
+			DisplayServer.clipboard_set(new_id)
+			set_notification(ENUM_SET_NOTIF.BLUE, "copied"))
+	else:
+		print("DEBUG: btn_copy already has connections, skipping...")
+
+	# Debug dan connect untuk btn_assign
+	#print("DEBUG: btn_assign current connections: ", get_btn_assign.pressed.get_connections().size())
+	if get_btn_assign.pressed.get_connections().size() == 0:
+		#print("DEBUG: Connecting btn_assign 'pressed' signal...")
+		get_btn_assign.pressed.connect(func():
+			print("DEBUG: Assign button pressed for ID: ", new_id)
+			SfxManager.play_click()
+			label_redeem_gen.text = new_id
+			scroll_redeem_panel(true))
+	else:
+		print("DEBUG: btn_assign already has connections, skipping...")
+
+	# Debug dan connect untuk btn_del
+	#print("DEBUG: btn_del current connections: ", get_btn_del.pressed.get_connections().size())
+	if get_btn_del.pressed.get_connections().size() == 0:
+		#print("DEBUG: Connecting btn_del 'pressed' signal...")
+		get_btn_del.pressed.connect(func():
+			#print("DEBUG: Delete button pressed for ID: ", new_id)
+			var _get_index = AutoloadData.redeem_assign_history.find(new_id)
+			#print("DEBUG: Found index: ", _get_index)
+			
+			if _get_index != -1:
+				AutoloadData.redeem_assign_history.remove_at(_get_index)
+				#print("DEBUG: Removed ID from history at index: ", _get_index)
+				await AutoloadData.save_data()
+				new_assign_later.queue_free()
+				redeem_history_set_loop_num()
+				#print("DEBUG: Delete operation completed")
+			else:
+				print("DEBUG: ID not found in history: ", new_id))
+	else:
+		print("DEBUG: btn_del already has connections, skipping...")
 	
 	AutoloadData.save_data()
 	new_assign_later.show()
