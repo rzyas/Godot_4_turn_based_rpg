@@ -63,10 +63,15 @@ var system_cardCollection: Array[String] = [
 var player_cardCollection: Array[String] = [
 	"s1_000", "s1_001", "s1_002"
 ]
+var player_cardAvailable: Array[String] = []
 var player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
 var player_inventory_chest = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
 var player_inventory_enhance = {1: 0, 2: 0, 3: 0, 4: 0}
-var player_inventory_fragment = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0, 21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0}
+var player_inventory_fragment = {
+	1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,
+	11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0,
+	21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0
+}
 var player_inventory_misc = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 var player_inventory_token = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0}
 
@@ -226,6 +231,7 @@ func apply_loaded_data(data: Dictionary):
 	player_exp_need = get_exp_requirement_for_level(player_level)
 
 func reset_data():
+	player_cardAvailable = []
 	roadmap_total_enhance=0
 	roadmap_total_spin=0
 	roadmap_total_eq=0
@@ -302,9 +308,13 @@ func reset_data():
 	}
 	
 	player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
-	player_inventory_chest = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0}
-	player_inventory_enhance = {1: 0, 2: 0, 3: 0, 4: 0}
-	player_inventory_fragment = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0, 21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0}
+	player_inventory_chest = {1:2, 2:3, 3:2, 4:43, 5:34, 6:198, 7:22, 8:34}
+	player_inventory_enhance = {1:12, 2:320, 3:76, 4: 12}
+	player_inventory_fragment = {
+		1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,
+		11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0,
+		21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0
+	}
 	player_inventory_misc = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 	player_inventory_token = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0}
 	

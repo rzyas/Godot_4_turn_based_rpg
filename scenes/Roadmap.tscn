@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cpds3qnnu6hes"]
+[gd_scene load_steps=47 format=3 uid="uid://cpds3qnnu6hes"]
 
 [ext_resource type="Script" uid="uid://d0h8jxvrfs0m6" path="res://script/Roadmap.gd" id="1_0yhtd"]
 [ext_resource type="Texture2D" uid="uid://c0foqapdgx22j" path="res://img/Roadmap/bg_main_roadmap.png" id="1_vni6k"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://duy1rp1inqqor" path="res://img/Roadmap/Panel Quest/quest_icon_4.png" id="11_yes1r"]
 [ext_resource type="Texture2D" uid="uid://cxio86ovure0p" path="res://img/Roadmap/Panel Quest/quest_icon_2.png" id="12_yes1r"]
 [ext_resource type="Texture2D" uid="uid://cl2lcdtk2rr8b" path="res://img/Roadmap/Panel Quest/quest_icon_3.png" id="14_ooyfw"]
+[ext_resource type="Texture2D" uid="uid://cb6ry48dmauh2" path="res://img/Roadmap/Panel Quest/lobby_icon.png" id="15_fa8ir"]
 [ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="17_ooyfw"]
 [ext_resource type="Texture2D" uid="uid://b2d1scsu10fpf" path="res://img/Roadmap/Panel Quest/quest_main_adv_2.png" id="18_lexxp"]
 [ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="19_5daq3"]
@@ -71,8 +72,6 @@ bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0yhtd")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="bg_main" type="Panel" parent="."]
 anchors_preset = 8
@@ -668,21 +667,23 @@ grow_vertical = 2
 theme = ExtResource("10_ddrec")
 
 [node name="btn_lobby" type="Button" parent="."]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = 359.0
-offset_right = 149.0
-offset_bottom = 435.0
+offset_left = -177.0
+offset_top = 182.0
+offset_right = 177.0
+offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("21_lexxp")
+theme = ExtResource("10_ddrec")
 theme_override_font_sizes/font_size = 26
-text = "LOBBY"
+icon = ExtResource("15_fa8ir")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="pnl_list_quest" type="Panel" parent="."]
 visible = false
@@ -1657,3 +1658,5 @@ layout_mode = 2
 theme = ExtResource("19_5daq3")
 theme_override_font_sizes/font_size = 21
 text = "OWN: 0"
+
+[node name="Camera2D" type="Camera2D" parent="."]

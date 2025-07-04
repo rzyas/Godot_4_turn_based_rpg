@@ -6728,6 +6728,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="item_backpack" type="VBoxContainer" parent="lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

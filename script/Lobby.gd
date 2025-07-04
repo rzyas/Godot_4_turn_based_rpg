@@ -2488,8 +2488,8 @@ func animate_chapter_size(selected: int) -> void:
 	"own":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/PanelContainer/inven_preview/own,
 	"prosed":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_backpack/ScrollContainer/grid_parent/inven_gen,
 	"parent":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_backpack/ScrollContainer/grid_parent,
-	
 }
+
 func load_all_inven():
 	var parent = inven_dict["parent"]
 	var child_count = parent.get_child_count()
@@ -2498,8 +2498,8 @@ func load_all_inven():
 	for i in range(child_count - 1, 0, -1):
 		var child = parent.get_child(i)
 		child.queue_free()
-	var new_data = Lobby_inventory.new()
-	new_data.load_all_inven(inven_dict["name"], inven_dict["icon"], inven_dict["type"], inven_dict["desc"], inven_dict["own"], inven_dict["prosed"], inven_dict["parent"])
+	var load_inven = Lobby_inventory.new()
+	load_inven.load_all_inven(inven_dict["name"], inven_dict["icon"], inven_dict["type"], inven_dict["desc"], inven_dict["own"], inven_dict["prosed"], inven_dict["parent"])
 
 @onready var _inven_btn = {
 	1:{
