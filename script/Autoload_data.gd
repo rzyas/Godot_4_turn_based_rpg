@@ -13,7 +13,8 @@ func filter_num_k(value: int) -> String:
 		if value >= threshold[0]:
 			return "%.2f%s" % [value / threshold[0], threshold[1]]
 	return str(value)
-
+func get_pct(value, pct):
+	return (value * pct) / 100
 func set_pct(total: int, angka_utama: int) -> int:
 	if total == 0:
 		return 0 # Hindari pembagian oleh nol
@@ -64,6 +65,8 @@ var player_cardCollection: Array[String] = [
 	"s1_000", "s1_001", "s1_002"
 ]
 var player_cardAvailable: Array[String] = []
+var player_cardFragments={}
+# Equipments
 var player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
 var player_inventory_chest = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
 var player_inventory_enhance = {1: 0, 2: 0, 3: 0, 4: 0}
@@ -231,7 +234,8 @@ func apply_loaded_data(data: Dictionary):
 	player_exp_need = get_exp_requirement_for_level(player_level)
 
 func reset_data():
-	player_cardAvailable = []
+	player_cardFragments = {}
+	player_cardAvailable = ["s1_003", "s1_004"]
 	roadmap_total_enhance=0
 	roadmap_total_spin=0
 	roadmap_total_eq=0

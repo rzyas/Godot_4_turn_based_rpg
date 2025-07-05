@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cpds3qnnu6hes"]
+[gd_scene load_steps=56 format=3 uid="uid://cpds3qnnu6hes"]
 
 [ext_resource type="Script" uid="uid://d0h8jxvrfs0m6" path="res://script/Roadmap.gd" id="1_0yhtd"]
 [ext_resource type="Texture2D" uid="uid://c0foqapdgx22j" path="res://img/Roadmap/bg_main_roadmap.png" id="1_vni6k"]
@@ -37,6 +37,15 @@
 [ext_resource type="Texture2D" uid="uid://bw60s35a0hcdr" path="res://img/Roadmap/Panel Quest/quest_main_adv_13.png" id="36_8gnv4"]
 [ext_resource type="Theme" uid="uid://dqkbqtltov57a" path="res://Themes/THEME V3/PNL_BORDER_10_BLUE.tres" id="36_vuksm"]
 [ext_resource type="Texture2D" uid="uid://bgcrcopdah6av" path="res://img/UI (new)/New UI Flat/Tier Reward/gold.png" id="37_b8mel"]
+[ext_resource type="Theme" uid="uid://c0m6mi8n4n2so" path="res://Themes/THEME V3/PNL_MAIN.tres" id="38_5ca0g"]
+[ext_resource type="Theme" uid="uid://bl8q3cq5l1u4l" path="res://Themes/THEME V3/BTN_ACTIVE_WARNING.tres" id="39_kul6w"]
+[ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="39_v4ctk"]
+[ext_resource type="Texture2D" uid="uid://gljhxmfh1vc" path="res://img/Hero/[PROSED].png" id="40_5ca0g"]
+[ext_resource type="Texture2D" uid="uid://cntooikwh6n0k" path="res://img/UI/Tier_star.png" id="41_hwn16"]
+[ext_resource type="Texture2D" uid="uid://bif0nffu4xgft" path="res://img/Icon Jobs/New icon elements/icn_class_light.png" id="42_sqlxd"]
+[ext_resource type="Texture2D" uid="uid://ce3ski03pyovi" path="res://img/Icon Class/icn_job_abbys.png" id="43_lhxmv"]
+[ext_resource type="Texture2D" uid="uid://ut48rakx7fg" path="res://img/UI (new)/New UI Flat/flat_peaces.png" id="44_jjhpq"]
+[ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="45_o3fkv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8pef"]
 texture = ExtResource("1_vni6k")
@@ -1658,5 +1667,155 @@ layout_mode = 2
 theme = ExtResource("19_5daq3")
 theme_override_font_sizes/font_size = 21
 text = "OWN: 0"
+
+[node name="btn_unlocked" type="Button" parent="."]
+offset_left = -48.0
+offset_top = -19.0
+offset_right = 161.0
+offset_bottom = 50.0
+text = "btn_unlocked"
+
+[node name="hero_unlocked" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -758.0
+offset_top = -437.0
+offset_right = 758.0
+offset_bottom = 397.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("38_5ca0g")
+
+[node name="btn_cls" type="Button" parent="hero_unlocked"]
+layout_mode = 2
+offset_left = 580.0
+offset_top = 826.0
+offset_right = 936.0
+offset_bottom = 882.0
+theme = ExtResource("39_kul6w")
+text = "EXIT"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="hero_unlocked"]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1486.0
+offset_bottom = 804.0
+
+[node name="hbox" type="HBoxContainer" parent="hero_unlocked/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="prosed_0" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox"]
+layout_mode = 2
+theme = ExtResource("39_v4ctk")
+
+[node name="vbox" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("8_ddrec")
+theme_override_font_sizes/font_size = 32
+text = "???"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="img" type="TextureRect" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+clip_contents = true
+custom_minimum_size = Vector2(350, 450)
+layout_mode = 2
+texture = ExtResource("40_5ca0g")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="main" type="Sprite2D" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+visible = false
+position = Vector2(175, 118)
+scale = Vector2(0.698795, 0.698795)
+texture = ExtResource("41_hwn16")
+vframes = 6
+
+[node name="hbox_elem" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_elem"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("42_sqlxd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_elem"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+text = "???"
+
+[node name="hbox_class" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_class"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("43_lhxmv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_class"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("19_5daq3")
+text = "???"
+
+[node name="hbox_frag" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+layout_mode = 2
+alignment = 1
+
+[node name="img" type="TextureRect" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_frag"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("44_jjhpq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="total" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_frag"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+theme_override_colors/font_color = Color(1, 0.705882, 0, 1)
+text = "87"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="total2" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_frag"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("8_8nnwp")
+text = "Collect 500 fragmanet to unlock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("45_o3fkv")
+theme_override_font_sizes/font_size = 26
+disabled = true
+text = "OPEN 200.00K MANA"
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -71,7 +71,7 @@ func hero_s1_001() -> Dictionary:
 		"N_HEAL_1_Karin", ## CODE GAMBAR
 		card_generator.ELEM.NATURE,
 		card_generator.JOB.HEALER,
-		card_generator.RANK.STAR_1,
+		card_generator.RANK.STAR_6,
 		# Basic skill
 		card_generator.ENUM_SKILL_TARGET.SINGLE,
 		card_generator.ENUM_SKILL_CODE.NONE,
@@ -231,9 +231,9 @@ func hero_s1_004() -> Dictionary:
 		hero_code,
 		"Kumbang",
 		"N_WAR_1_Kumbang", ## CODE GAMBAR
-		card_generator.ELEM.NATURE,
+		card_generator.ELEM.DARK,
 		card_generator.JOB.WARRIOR,
-		card_generator.RANK.STAR_1,
+		card_generator.RANK.STAR_6,
 		# Basic skill
 		card_generator.ENUM_SKILL_TARGET.SINGLE,
 		card_generator.ENUM_SKILL_CODE.NONE,

@@ -96,8 +96,6 @@ func raw_img_eq_wpn_wiz(code):
 	const link = "res://img/Equipments/wpn_wiz/"
 	return raw_img_eq_gen(code, link)	
 # -------------------- RAW -------------------
-
-
 func _img_eq_gen_acc(code, link):
 	var code_limit = clamp(code, 1, 34)
 	var temp_num = ""

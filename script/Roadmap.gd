@@ -12,6 +12,7 @@ func _ready() -> void:
 	hide_all_btn_quest()
 	onready_btn_main()
 	update_prog_main()
+	onready_fragments_set()
 
 @onready var btn_to_lobby = $btn_lobby
 @onready var node_parent_btn_main = $pnl_top_quest
@@ -230,10 +231,97 @@ func update_prog_main():
 		var desc:Label = node_parent_btn_main.get_child(i).get_node("bg/prog_main/main")		
 		prog.value = AutoloadData.set_pct(total_mainquest[i], total_count[i])
 		desc.text = str("Claim\n",total_count[i],"/",total_mainquest[i])
-		
-		
-		
-		
+# ----------------------------------------------
+# UNLOCKED HERO
+# ----------------------------------------------
+@onready var parent_prosed_unlocked = $hero_unlocked/ScrollContainer/hbox
+@onready var prosed_unlocked:PanelContainer = $hero_unlocked/ScrollContainer/hbox/prosed_0
+@onready var data_card = Card_data_s1.new()
+@onready var data_img = Load_images.new()
+func set_string_elem(code):
+	match code:
+		0:return "Light"
+		1:return "Nature"
+		2:return "Water"
+		3:return "Dark"
+		4:return "Fire"
+func set_string_class(code):
+	match code:
+		0:return "Warrior"
+		1:return "Archer"
+		2:return "Knight"
+		3:return "Assasin"
+		4:return "Support"
+		5:return "Mech"
+		6:return "Beast"
+		7:return "Mage"
+		8:return "Healer"
+func onready_fragments_set():
+	$btn_unlocked.connect("pressed", func():
+		$hero_unlocked.show())
+	$hero_unlocked/btn_cls.connect("pressed", func():
+		$hero_unlocked.hide())
+	for card_code in AutoloadData.player_cardAvailable:
+		if AutoloadData.player_cardFragments.has(card_code)==false:
+			var price:int=0
+			var get_rank = data_card.dict_all_card_s1[card_code]["rank"]
+			var get_elem = data_card.dict_all_card_s1[card_code]["elem"]
+			if get_rank == card_generator.RANK.STAR_1:price+=20000
+			elif get_rank == card_generator.RANK.STAR_2:price+=50000
+			elif get_rank == card_generator.RANK.STAR_3:price+=100000
+			elif get_rank == card_generator.RANK.STAR_4:price+=300000
+			elif get_rank == card_generator.RANK.STAR_5:price+=1000000
+			elif get_rank == card_generator.RANK.STAR_6:price+=2500000
+			if get_elem == card_generator.ELEM.LIGHT or card_generator.ELEM.DARK:
+				price += AutoloadData.get_pct(price, 200)
+			AutoloadData.player_cardFragments[card_code]={"count":0, "price":price, "locked":true}
+			AutoloadData.save_data()
+	for card_code in AutoloadData.player_cardFragments:
+		generate_unlocked(card_code)
+func generate_unlocked(code):
+	var validate_code = AutoloadData.player_cardFragments[code]["locked"]
+	if validate_code == false: return
+	
+	var card_code = data_card.dict_all_card_s1[code]
+	
+	var new_unlocked = prosed_unlocked.duplicate()
+	var node_name:Label = new_unlocked.get_node("vbox/name")
+	var node_img:TextureRect = new_unlocked.get_node("vbox/img")
+	var node_sprite_star:Sprite2D = new_unlocked.get_node("vbox/main")
+	var node_elem_img:TextureRect = new_unlocked.get_node("vbox/hbox_elem/img")
+	var node_elem_txt:Label = new_unlocked.get_node("vbox/hbox_elem/txt")
+	var node_class_img:TextureRect = new_unlocked.get_node("vbox/hbox_class/img")
+	var node_class_txt:Label = new_unlocked.get_node("vbox/hbox_class/txt")
+	var node_frag_total:Label = new_unlocked.get_node("vbox/hbox_frag/total")
+	var node_btn:Button = new_unlocked.get_node("vbox/btn")
+	
+	node_name.text = card_code["name"]
+	node_img.texture = load(card_code["img"])
+	node_sprite_star.frame = card_code["rank"]
+	node_elem_img.texture = data_img.img_elemen[card_code["elem"]+1][true]
+	node_elem_img.show()
+	node_elem_txt.text = set_string_elem(card_code["elem"])
+	node_class_img.texture = data_img.img_class[card_code["job"]+1][true]
+	node_class_img.show()
+	node_class_txt.text = set_string_class(card_code["job"])
+	node_frag_total.text = AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"])
+	
+	if AutoloadData.player_cardFragments[code]["count"] >= 500:
+		node_btn.disabled = false
+		node_btn.text = str("UNLOCK: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"]),"Mana")
+	else:
+		node_btn.text = str("Cost: ", AutoloadData.filter_num_k( AutoloadData.player_cardFragments[code]["price"] )," Mana")
+	
+	node_btn.connect("pressed", func():
+		if AutoloadData.player_cardFragments[code]["count"] >= 500:
+			node_btn.text="Card Purchased !"
+			node_btn.disabled=true
+			AutoloadData.player_cardFragments[code]["locked"]=false
+			AutoloadData.player_cardCollection.append(code)
+			AutoloadData.save_data() )
+	
+	new_unlocked.show()
+	parent_prosed_unlocked.add_child(new_unlocked)
 		
 		
 		
