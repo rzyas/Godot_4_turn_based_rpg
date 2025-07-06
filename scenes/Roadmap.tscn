@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cpds3qnnu6hes"]
+[gd_scene load_steps=62 format=3 uid="uid://cpds3qnnu6hes"]
 
 [ext_resource type="Script" uid="uid://d0h8jxvrfs0m6" path="res://script/Roadmap.gd" id="1_0yhtd"]
 [ext_resource type="Texture2D" uid="uid://c0foqapdgx22j" path="res://img/Roadmap/bg_main_roadmap.png" id="1_vni6k"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cxio86ovure0p" path="res://img/Roadmap/Panel Quest/quest_icon_2.png" id="12_yes1r"]
 [ext_resource type="Texture2D" uid="uid://cl2lcdtk2rr8b" path="res://img/Roadmap/Panel Quest/quest_icon_3.png" id="14_ooyfw"]
 [ext_resource type="Texture2D" uid="uid://cb6ry48dmauh2" path="res://img/Roadmap/Panel Quest/lobby_icon.png" id="15_fa8ir"]
+[ext_resource type="Texture2D" uid="uid://bqfi2urds0cod" path="res://img/Roadmap/Panel Quest/btn_soul.png" id="15_lhxmv"]
+[ext_resource type="Texture2D" uid="uid://ciy7nfuhfxpva" path="res://img/Roadmap/Panel Quest/btn_shop.png" id="16_jjhpq"]
 [ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="17_ooyfw"]
 [ext_resource type="Texture2D" uid="uid://b2d1scsu10fpf" path="res://img/Roadmap/Panel Quest/quest_main_adv_2.png" id="18_lexxp"]
 [ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="19_5daq3"]
@@ -42,6 +44,8 @@
 [ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="39_v4ctk"]
 [ext_resource type="Texture2D" uid="uid://gljhxmfh1vc" path="res://img/Hero/[PROSED].png" id="40_5ca0g"]
 [ext_resource type="Texture2D" uid="uid://cntooikwh6n0k" path="res://img/UI/Tier_star.png" id="41_hwn16"]
+[ext_resource type="Theme" uid="uid://fg7w05xewjl7" path="res://Themes/THEME V3/PNL_9_BLUE.tres" id="41_sqlxd"]
+[ext_resource type="Theme" uid="uid://46evkqyxo8d5" path="res://Themes/THEME V3/LBL2_READ.tres" id="42_lhxmv"]
 [ext_resource type="Texture2D" uid="uid://bif0nffu4xgft" path="res://img/Icon Jobs/New icon elements/icn_class_light.png" id="42_sqlxd"]
 [ext_resource type="Texture2D" uid="uid://ce3ski03pyovi" path="res://img/Icon Class/icn_job_abbys.png" id="43_lhxmv"]
 [ext_resource type="Texture2D" uid="uid://ut48rakx7fg" path="res://img/UI (new)/New UI Flat/flat_peaces.png" id="44_jjhpq"]
@@ -77,6 +81,11 @@ texture_margin_bottom = 40.0
 bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa8ir"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwn16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqlxd"]
 bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="Node2D" type="Node2D"]
@@ -674,6 +683,28 @@ offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_ddrec")
+
+[node name="btn_soul" type="Button" parent="."]
+offset_left = 628.0
+offset_top = 308.0
+offset_right = 760.0
+offset_bottom = 430.0
+theme = ExtResource("10_ddrec")
+icon = ExtResource("15_lhxmv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="btn_unlocked" type="Button" parent="."]
+offset_left = -773.0
+offset_top = 290.0
+offset_right = -545.0
+offset_bottom = 452.0
+theme = ExtResource("10_ddrec")
+icon = ExtResource("16_jjhpq")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="btn_lobby" type="Button" parent="."]
 anchors_preset = 7
@@ -1668,13 +1699,6 @@ theme = ExtResource("19_5daq3")
 theme_override_font_sizes/font_size = 21
 text = "OWN: 0"
 
-[node name="btn_unlocked" type="Button" parent="."]
-offset_left = -48.0
-offset_top = -19.0
-offset_right = 161.0
-offset_bottom = 50.0
-text = "btn_unlocked"
-
 [node name="hero_unlocked" type="Panel" parent="."]
 visible = false
 anchors_preset = 8
@@ -1683,12 +1707,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -758.0
-offset_top = -437.0
+offset_top = -449.0
 offset_right = 758.0
-offset_bottom = 397.0
+offset_bottom = 385.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("38_5ca0g")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hwn16")
+
+[node name="bg" type="Panel" parent="hero_unlocked"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -912.0
+offset_top = -571.0
+offset_right = 912.0
+offset_bottom = 571.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqlxd")
 
 [node name="btn_cls" type="Button" parent="hero_unlocked"]
 layout_mode = 2
@@ -1725,22 +1765,208 @@ theme = ExtResource("8_ddrec")
 theme_override_font_sizes/font_size = 32
 text = "???"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 3
 
+[node name="pnl_skill" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox_s0" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_skill" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("41_sqlxd")
+
+[node name="vbox" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0/pnl_skill"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0/pnl_skill/vbox"]
+layout_mode = 2
+
+[node name="main" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("19_5daq3")
+text = "Basic"
+
+[node name="cd" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_8nnwp")
+text = "Cooldown: 0 turn"
+
+[node name="desc_main" type="RichTextLabel" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s0/pnl_skill/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("42_lhxmv")
+bbcode_enabled = true
+text = "Skillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa aSkillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa a"
+
+[node name="vbox_s1" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_skill" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("41_sqlxd")
+
+[node name="vbox" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1/pnl_skill"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1/pnl_skill/vbox"]
+layout_mode = 2
+
+[node name="main" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("19_5daq3")
+text = "Skill 1"
+
+[node name="cd" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_8nnwp")
+text = "Cooldown: 0 turn"
+
+[node name="desc_main" type="RichTextLabel" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s1/pnl_skill/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("42_lhxmv")
+bbcode_enabled = true
+text = "Skillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa aSkillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa a"
+
+[node name="vbox_s2" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_skill" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("41_sqlxd")
+
+[node name="vbox" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2/pnl_skill"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2/pnl_skill/vbox"]
+layout_mode = 2
+
+[node name="main" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("19_5daq3")
+text = "Skill 2"
+
+[node name="cd" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_8nnwp")
+text = "Cooldown: 0 turn"
+
+[node name="desc_main" type="RichTextLabel" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s2/pnl_skill/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("42_lhxmv")
+bbcode_enabled = true
+text = "Skillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa aSkillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa a"
+
+[node name="vbox_s3" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_skill" type="PanelContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("41_sqlxd")
+
+[node name="vbox" type="VBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3/pnl_skill"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3/pnl_skill/vbox"]
+layout_mode = 2
+
+[node name="main" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("19_5daq3")
+text = "Ultimate"
+
+[node name="cd" type="Label" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3/pnl_skill/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_8nnwp")
+text = "Cooldown: 0 turn"
+
+[node name="desc_main" type="RichTextLabel" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/pnl_skill/vbox_s3/pnl_skill/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("42_lhxmv")
+bbcode_enabled = true
+text = "Skillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa aSkillawd awda wd a da dawd aw dada d adwa da wa wd dwad dwad awdadad awdawdaw dawdawd adw dawdaw aw awd awdwa a"
+
 [node name="img" type="TextureRect" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
 clip_contents = true
-custom_minimum_size = Vector2(350, 450)
 layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("40_5ca0g")
 expand_mode = 1
 stretch_mode = 3
 
+[node name="hbox_btn_skill" type="HBoxContainer" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+visible = false
+layout_mode = 2
+
+[node name="btn_s0" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_btn_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_lexxp")
+text = "BASIC"
+
+[node name="btn_s1" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_btn_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_lexxp")
+text = "SKILL 1"
+
+[node name="btn_s2" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_btn_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_lexxp")
+text = "SKILL 2"
+
+[node name="btn_s3" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox/hbox_btn_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_lexxp")
+text = "ULTIMATE"
+
+[node name="btn_switch_skill" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+visible = false
+layout_mode = 2
+theme = ExtResource("21_lexxp")
+text = "SHOW SKILL"
+
 [node name="main" type="Sprite2D" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
 visible = false
-position = Vector2(175, 118)
-scale = Vector2(0.698795, 0.698795)
+position = Vector2(203, 64)
+scale = Vector2(0.385542, 0.385542)
 texture = ExtResource("41_hwn16")
 vframes = 6
 
@@ -1797,7 +2023,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("8_8nnwp")
 theme_override_colors/font_color = Color(1, 0.705882, 0, 1)
-text = "87"
+text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1811,11 +2037,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="btn" type="Button" parent="hero_unlocked/ScrollContainer/hbox/prosed_0/vbox"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-size_flags_vertical = 3
 theme = ExtResource("45_o3fkv")
 theme_override_font_sizes/font_size = 26
 disabled = true
-text = "OPEN 200.00K MANA"
+text = "???"
 
 [node name="Camera2D" type="Camera2D" parent="."]

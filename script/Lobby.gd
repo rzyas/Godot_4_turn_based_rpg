@@ -991,7 +991,6 @@ func set_prosedural_card_inspect(card_code, is_card_hero:bool):
 		card_inspect_filter,
 		card_inspect_stat)
 	# ---------------------------- PROGRESS:END --------------------------
-	
 	var cd_1 = new_card.dict_all_card_s1[card_code]["skill_1_cd"]
 	var cd_2 = new_card.dict_all_card_s1[card_code]["skill_2_cd"]
 	var cd_3 = new_card.dict_all_card_s1[card_code]["skill_ulti_cd"]

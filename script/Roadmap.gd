@@ -295,6 +295,48 @@ func generate_unlocked(code):
 	var node_frag_total:Label = new_unlocked.get_node("vbox/hbox_frag/total")
 	var node_btn:Button = new_unlocked.get_node("vbox/btn")
 	
+	var node_pnl_skill:PanelContainer = new_unlocked.get_node("vbox/pnl_skill")
+	var node_skill_0:VBoxContainer = node_pnl_skill.get_node("vbox_s0")
+	var node_skill_1:VBoxContainer = node_pnl_skill.get_node("vbox_s1")
+	var node_skill_2:VBoxContainer = node_pnl_skill.get_node("vbox_s2")
+	var node_skill_3:VBoxContainer = node_pnl_skill.get_node("vbox_s3")
+	
+	var node_hbox_btn:HBoxContainer = new_unlocked.get_node("vbox/hbox_btn_skill")
+	var node_btn_skill_0:Button = node_hbox_btn.get_node("btn_s0")
+	var node_btn_skill_1:Button = node_hbox_btn.get_node("btn_s1")
+	var node_btn_skill_2:Button = node_hbox_btn.get_node("btn_s2")
+	var node_btn_skill_3:Button = node_hbox_btn.get_node("btn_s3")
+	
+	var all_vbox_skill = [node_skill_0, node_skill_1, node_skill_2, node_skill_3]
+	var all_btn_switch = [node_btn_skill_0, node_btn_skill_1, node_btn_skill_2, node_btn_skill_3]
+	var all_desc_skill = [Card_data_s1.ENUM_SET_DES.S0, Card_data_s1.ENUM_SET_DES.S1, Card_data_s1.ENUM_SET_DES.S2, Card_data_s1.ENUM_SET_DES.S3]
+	# SET BTN PRESSED FOR HIDE AND SHOW SKILL & DESC
+	for i in all_btn_switch.size():
+		# DESC
+		var get_desc:RichTextLabel = all_vbox_skill[i].get_node("pnl_skill/vbox/desc_main")
+		var get_cd:Label = all_vbox_skill[i].get_node("pnl_skill/vbox/hbox/cd")
+		var desc_main = data_card.set_desc_card(all_desc_skill[i], code)["desc"]
+		var desc_cd = data_card.set_desc_card(all_desc_skill[i], code)["cd"]
+		get_desc.text = desc_main
+		get_cd.text = desc_cd
+		# BTN
+		var btn:Button = all_btn_switch[i]
+		btn.connect("pressed", func():
+			SfxManager.play_click()
+			for ii in all_vbox_skill.size():
+				all_vbox_skill[ii].visible = i==ii )
+	# SET BTN PRESSED FOR HIDE MAIN PANEL SKILL
+	var node_btn_switch:Button = new_unlocked.get_node("vbox/btn_switch_skill")
+	node_btn_switch.show()
+	node_sprite_star.show()
+	node_btn_switch.connect("pressed", func():
+		SfxManager.play_click()
+		node_img.visible = !node_img.visible
+		node_hbox_btn.visible = !node_hbox_btn.visible
+		node_pnl_skill.visible = !node_pnl_skill.visible
+		if node_img.visible:node_btn_switch.text = "SHOW SKILL"
+		else: node_btn_switch.text = "HIDE SKILL" )
+	
 	node_name.text = card_code["name"]
 	node_img.texture = load(card_code["img"])
 	node_sprite_star.frame = card_code["rank"]
@@ -322,9 +364,6 @@ func generate_unlocked(code):
 	
 	new_unlocked.show()
 	parent_prosed_unlocked.add_child(new_unlocked)
-		
-		
-		
-		
-		
-		
+# ---------------------------------------------
+# SOUL
+# ---------------------------------------------

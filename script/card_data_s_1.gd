@@ -170,6 +170,43 @@ func fullset_desc(get_codeSkill, get_chances, get_level, get_atkPower, get_atkIn
 	var desc_1 = set_desc_buff(get_codeSkill, get_chances, get_level)
 	var main_desc = str(desc_0,desc_1)
 	return main_desc
+var _desc_key = {
+	"s0":["skill_code","pct_req","skill_lv","skill_0_dmg","skill_0_target"],
+	"s1":["skill_code_1","pct_req_1","skill_1_lv","skill_1_dmg","skill_1_target","skill_1_cd"],
+	"s2":["skill_code_2","pct_req_2","skill_2_lv","skill_2_dmg","skill_2_target","skill_2_cd"],
+	"s3":["skill_code_ulti","pct_req_ulti","skill_ulti_lv","skill_ulti_dmg","skill_ulti_target","skill_ulti_cd"],
+}
+enum ENUM_SET_DES{S0, S1, S2, S3}
+func set_desc_card(skill_code:ENUM_SET_DES, card_code) -> Dictionary :
+	if dict_all_card_s1.has(card_code)==false:
+		return {"desc":"CODE SALAH", "cd":"CODE SALAH"}
+	var main_code
+	match skill_code:
+		ENUM_SET_DES.S0:main_code="s0"
+		ENUM_SET_DES.S1:main_code="s1"
+		ENUM_SET_DES.S2:main_code="s2"
+		ENUM_SET_DES.S3:main_code="s3"
+	var cd
+	if skill_code==ENUM_SET_DES.S0: cd = str("Cooldown: 0 turn ")
+	else: cd = str("Cooldown: ", dict_all_card_s1[card_code][_desc_key[main_code][5]], " turn")
+	var desc = fullset_desc(
+		dict_all_card_s1[card_code][_desc_key[main_code][0]],
+		dict_all_card_s1[card_code][_desc_key[main_code][1]],
+		dict_all_card_s1[card_code][_desc_key[main_code][2]],
+		dict_all_card_s1[card_code][_desc_key[main_code][3]],
+		code_skill_target(dict_all_card_s1[card_code][_desc_key[main_code][4]])
+	)
+	return { "desc":desc, "cd":cd}
+func code_skill_target(code_target):
+	var _get_indic_atk
+	if code_target == "single": _get_indic_atk = 0
+	elif code_target == "aoe": _get_indic_atk = 1
+	elif code_target == "single_spell": _get_indic_atk = 2
+	elif code_target == "aoe_spell": _get_indic_atk = 3
+	elif code_target == "single_heal": _get_indic_atk = 4
+	elif code_target == "aoe_heal": _get_indic_atk = 5
+	return _get_indic_atk
+	
 func set_hero_icon(txt):return str("res://img/Hero/icon/"+txt+".png")
 enum ENUM_CHAR_GENDER{MALE, FEMALE, UNKNOWN}
 enum ENUM_CHAR_RACE{HUMAN, ANIMAL, ELF, CYBORG, GOD, AI, ABBYS, UNKNOWN, SPIRIT, DRAGON}
