@@ -176,7 +176,7 @@ func hero_s1_003() -> Dictionary:
 	heroes[hero_code] = new_card.create_card(
 		hero_code,
 		"Ulo",
-		"N_ASSA_1_Ulo", ## CODE GAMBAR
+		"N_BEAST_1_Ulo", ## CODE GAMBAR
 		card_generator.ELEM.NATURE,
 		card_generator.JOB.SUPPORT,
 		card_generator.RANK.STAR_1,
@@ -230,10 +230,10 @@ func hero_s1_004() -> Dictionary:
 	heroes[hero_code] = new_card.create_card(
 		hero_code,
 		"Kumbang",
-		"N_WAR_1_Kumbang", ## CODE GAMBAR
-		card_generator.ELEM.DARK,
-		card_generator.JOB.WARRIOR,
-		card_generator.RANK.STAR_6,
+		"N_BEAST_1_Kumbang", ## CODE GAMBAR
+		card_generator.ELEM.NATURE,
+		card_generator.JOB.BEAST,
+		card_generator.RANK.STAR_1,
 		# Basic skill
 		card_generator.ENUM_SKILL_TARGET.SINGLE,
 		card_generator.ENUM_SKILL_CODE.NONE,

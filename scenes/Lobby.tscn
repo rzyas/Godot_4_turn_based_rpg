@@ -36,11 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://oclsw04vn35f" path="res://img/UI (new)/UI_14.png" id="26_cdpbv"]
 [ext_resource type="Texture2D" uid="uid://c1rph4gudhefh" path="res://img/UI (new)/BG Gate/bg_gate_devil.png" id="26_mjuv4"]
 [ext_resource type="Texture2D" uid="uid://cjnx0jl4ulxp" path="res://img/UI (new)/BG Gate/bg_gate_dragon.png" id="27_4yae7"]
-[ext_resource type="Texture2D" uid="uid://cscw623aflism" path="res://img/Hero/icon/N_WAR_1_Dimas.png" id="27_swxw6"]
 [ext_resource type="Texture2D" uid="uid://m5jxb235cn7o" path="res://img/UI (new)/BG Gate/bg_gate_elf.png" id="28_dluis"]
-[ext_resource type="Texture2D" uid="uid://cufnsxu7wpaur" path="res://img/Hero/icon/N_SUPP_1_Reza.png" id="28_yiff4"]
 [ext_resource type="Texture2D" uid="uid://bw1v6lgy13fie" path="res://img/UI (new)/BG Gate/bg_gate_goblin.png" id="29_e5lm4"]
-[ext_resource type="Texture2D" uid="uid://bqibalnnqp1ax" path="res://img/Hero/icon/N_HEAL_1_Karin.png" id="29_v85ca"]
 [ext_resource type="Texture2D" uid="uid://dqxxjxulj8xdn" path="res://img/UI (new)/BG Gate/bg_gate_mecha.png" id="30_c8e2f"]
 [ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="30_tru14"]
 [ext_resource type="Texture2D" uid="uid://dj055sc5ghge6" path="res://img/UI (new)/BG Gate/bg_gate_mino.png" id="31_7fhbr"]
@@ -289,6 +286,15 @@ texture_margin_left = 35.0
 texture_margin_right = 35.0
 texture_margin_bottom = 20.0738
 region_rect = Rect2(0, 85.1907, 128, 42.8093)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oenvp"]
+load_path = "res://.godot/imported/N_HEAL_1_Karin.png-3e7ab87799f2f2e74822887d8723c2d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvwo2"]
+load_path = "res://.godot/imported/N_WAR_1_Dimas.png-9feae933757f44d75a0ca27672dba62c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wp2nl"]
+load_path = "res://.godot/imported/N_SUPP_1_Reza.png-db870d6f4a9f571ebfd8ec7d092ee9d9.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w08b"]
 texture = ExtResource("45_wi4um")
@@ -585,13 +591,13 @@ texture_margin_bottom = 10.0
 region_rect = Rect2(21, 267, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpimw"]
-atlas = ExtResource("29_v85ca")
+atlas = SubResource("CompressedTexture2D_oenvp")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcshx"]
-atlas = ExtResource("27_swxw6")
+atlas = SubResource("CompressedTexture2D_jvwo2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4xw8"]
-atlas = ExtResource("28_yiff4")
+atlas = SubResource("CompressedTexture2D_wp2nl")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i12kk"]
 texture = ExtResource("45_wi4um")
@@ -618,13 +624,13 @@ texture_margin_bottom = 10.0
 region_rect = Rect2(267, 21, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kkdf"]
-atlas = ExtResource("29_v85ca")
+atlas = SubResource("CompressedTexture2D_oenvp")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqn04"]
-atlas = ExtResource("27_swxw6")
+atlas = SubResource("CompressedTexture2D_jvwo2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfphx"]
-atlas = ExtResource("28_yiff4")
+atlas = SubResource("CompressedTexture2D_wp2nl")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wr45d"]
 texture = ExtResource("45_wi4um")
@@ -1981,7 +1987,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("29_v85ca")
+icon = SubResource("CompressedTexture2D_oenvp")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -1990,7 +1996,7 @@ expand_icon = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("27_swxw6")
+icon = SubResource("CompressedTexture2D_jvwo2")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -1999,7 +2005,7 @@ expand_icon = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("28_yiff4")
+icon = SubResource("CompressedTexture2D_wp2nl")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -5138,7 +5144,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pxf0a")
 [node name="hero_current_selected" type="TextureRect" parent="lobby_deck_final/set_deck_hero/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = ExtResource("29_v85ca")
+texture = SubResource("CompressedTexture2D_oenvp")
 expand_mode = 1
 stretch_mode = 5
 
@@ -5151,21 +5157,21 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_jmjlf")
 [node name="hero_slot_1" type="TextureRect" parent="lobby_deck_final/set_deck_hero/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("27_swxw6")
+texture = SubResource("CompressedTexture2D_jvwo2")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="hero_slot_2" type="TextureRect" parent="lobby_deck_final/set_deck_hero/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("28_yiff4")
+texture = SubResource("CompressedTexture2D_wp2nl")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="hero_slot_3" type="TextureRect" parent="lobby_deck_final/set_deck_hero/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("29_v85ca")
+texture = SubResource("CompressedTexture2D_oenvp")
 expand_mode = 1
 stretch_mode = 5
 
@@ -6565,7 +6571,7 @@ columns = 12
 visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-icon = ExtResource("27_swxw6")
+icon = SubResource("CompressedTexture2D_jvwo2")
 flat = true
 expand_icon = true
 

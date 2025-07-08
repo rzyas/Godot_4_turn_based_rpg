@@ -13,6 +13,7 @@ func _ready() -> void:
 	onready_btn_main()
 	update_prog_main()
 	onready_fragments_set()
+	onready_soul()
 
 @onready var btn_to_lobby = $btn_lobby
 @onready var node_parent_btn_main = $pnl_top_quest
@@ -278,6 +279,15 @@ func onready_fragments_set():
 			AutoloadData.save_data()
 	for card_code in AutoloadData.player_cardFragments:
 		generate_unlocked(card_code)
+func update_fragmanet(code):
+	var node_main = parent_prosed_unlocked.get_node(code)
+	var node_frag_count:Label = node_main.get_node("vbox/hbox_frag/total")
+	var node_btn_buy:Button = node_main.get_node("vbox/btn")
+	var get_count = AutoloadData.player_cardFragments[code]["count"]
+	node_frag_count.text = str( AutoloadData.filter_num_k(get_count),"/500" )
+	if AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"] and AutoloadData.player_cardFragments[code]["count"] >= 500:
+		node_btn_buy.disabled = false
+		node_btn_buy.text = str("UNLOCK: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"])," Mana")
 func generate_unlocked(code):
 	var validate_code = AutoloadData.player_cardFragments[code]["locked"]
 	if validate_code == false: return
@@ -285,6 +295,7 @@ func generate_unlocked(code):
 	var card_code = data_card.dict_all_card_s1[code]
 	
 	var new_unlocked = prosed_unlocked.duplicate()
+	new_unlocked.name = code
 	var node_name:Label = new_unlocked.get_node("vbox/name")
 	var node_img:TextureRect = new_unlocked.get_node("vbox/img")
 	var node_sprite_star:Sprite2D = new_unlocked.get_node("vbox/main")
@@ -293,7 +304,25 @@ func generate_unlocked(code):
 	var node_class_img:TextureRect = new_unlocked.get_node("vbox/hbox_class/img")
 	var node_class_txt:Label = new_unlocked.get_node("vbox/hbox_class/txt")
 	var node_frag_total:Label = new_unlocked.get_node("vbox/hbox_frag/total")
+	var node_btn_arise:Button = new_unlocked.get_node("vbox/hbox_frag/btn_arise")
 	var node_btn:Button = new_unlocked.get_node("vbox/btn")
+	
+	# BTN ARISE --------------
+	var check_price = AutoloadData.get_pct(AutoloadData.player_cardFragments[code]["price"], 10)
+	node_btn_arise.text = str("Arise: ",AutoloadData.filter_num_k(check_price))
+	node_btn_arise.connect("pressed", func():
+		var check_mana = AutoloadData.player_exp
+		if check_mana >= check_price:
+			if AutoloadData.player_cardFragments[code]["count"] >= 500:
+				node_btn_arise.text = "Collected"
+				node_btn_arise.disabled = true
+				SfxManager.play_system_fail()
+				return
+			AutoloadData.player_exp -= check_price
+			AutoloadData.save_data()
+			show_soul(code)
+		else:
+			SfxManager.play_system_fail() )
 	
 	var node_pnl_skill:PanelContainer = new_unlocked.get_node("vbox/pnl_skill")
 	var node_skill_0:VBoxContainer = node_pnl_skill.get_node("vbox_s0")
@@ -346,24 +375,89 @@ func generate_unlocked(code):
 	node_class_img.texture = data_img.img_class[card_code["job"]+1][true]
 	node_class_img.show()
 	node_class_txt.text = set_string_class(card_code["job"])
-	node_frag_total.text = AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"])
+	node_frag_total.text = str( AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"]),"/500" )
 	
-	if AutoloadData.player_cardFragments[code]["count"] >= 500:
+	if AutoloadData.player_cardFragments[code]["count"] >= 500 and AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"]:
 		node_btn.disabled = false
-		node_btn.text = str("UNLOCK: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"]),"Mana")
+		node_btn.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"]),"Mana")
 	else:
-		node_btn.text = str("Cost: ", AutoloadData.filter_num_k( AutoloadData.player_cardFragments[code]["price"] )," Mana")
+		node_btn.text = "NOT ENOUGH"
 	
 	node_btn.connect("pressed", func():
-		if AutoloadData.player_cardFragments[code]["count"] >= 500:
+		if AutoloadData.player_cardFragments[code]["count"] >= 500 and AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"]:
 			node_btn.text="Card Purchased !"
 			node_btn.disabled=true
+			AutoloadData.player_exp -= AutoloadData.player_cardFragments[code]["price"]
+			AutoloadData.player_cardFragments[code]["price"] -= 500
 			AutoloadData.player_cardFragments[code]["locked"]=false
 			AutoloadData.player_cardCollection.append(code)
 			AutoloadData.save_data() )
 	
 	new_unlocked.show()
 	parent_prosed_unlocked.add_child(new_unlocked)
-# ---------------------------------------------
-# SOUL
-# ---------------------------------------------
+@onready var pnl_soul = $pnl_soul
+func start_random_blink(texture_rect: TextureRect) -> void:
+	await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
+	if not is_instance_valid(texture_rect):
+		return
+	var fade_out := create_tween()
+	fade_out.tween_property(texture_rect, "self_modulate:a", 0.0, randf_range(0.1, 0.3))
+	await fade_out.finished
+	var fade_in := create_tween()
+	fade_in.tween_property(texture_rect, "self_modulate:a", 1.0, randf_range(0.1, 0.3))
+	await fade_in.finished
+	# Lanjutkan blink lagi
+	start_random_blink(texture_rect)
+func rotate_forever(texture_rect: TextureRect, duration: float, clockwise: bool, random_blink: bool) -> void:
+	var tween := create_tween()
+	tween.set_loops()
+	var angle := TAU if clockwise else -TAU
+	tween.tween_property(texture_rect, "rotation", angle, duration)\
+		.from(0.0)\
+		.as_relative()
+	if random_blink:
+		start_random_blink(texture_rect)
+func onready_soul():
+	var node_ss_spell = pnl_soul.get_node("ss_bg/ss_spell")
+	var node_ss_particel_0 = pnl_soul.get_node("ss_bg/ss_particel_0")
+	var node_ss_particel_1 = pnl_soul.get_node("ss_bg/ss_particel_1")
+	var node_ss_particel_2 = pnl_soul.get_node("ss_bg/ss_particel_2")
+	rotate_forever(node_ss_spell, 15.0, true, false)
+	rotate_forever(node_ss_particel_0, 1.5, false, true)
+	rotate_forever(node_ss_particel_1, 2.5, true, true)
+	rotate_forever(node_ss_particel_2, 5.0, false, true)
+	var btn_cls_soul:Button = pnl_soul.get_node("btn_cls")
+	btn_cls_soul.connect("pressed", func():
+		pnl_soul.hide() )
+func tween_number(from_value, to_value, duration, label_node: Label) -> void:
+	var tween := create_tween()
+	tween.tween_method(
+		func(value):
+			label_node.text = str(round(value))
+			SfxManager.play_count(),
+		from_value,
+		to_value,
+		duration
+	)
+func show_soul(card_code):
+	var get_count:Label = pnl_soul.get_node("count")
+	get_count.text = "0"
+	var get_img_main:TextureRect = pnl_soul.get_node("ss_bg/ss_main")
+	get_img_main.texture = load(data_card.dict_all_card_s1[card_code]["icon"])
+	var rng = randi_range(1, 100)
+	pnl_soul.show()
+	SfxManager.play_roadmap_soul()
+	await get_tree().create_timer(.25).timeout
+	var total_soul:int = 0
+	if rng <= 10: total_soul += randi_range(100, 250)
+	elif rng <= 30: total_soul += randi_range(50, 100)
+	elif rng <= 50: total_soul += randi_range(25, 50)
+	else: total_soul += 25
+	tween_number(0, total_soul, 1, get_count)
+	AutoloadData.player_cardFragments[card_code]["count"]+=total_soul
+	var limit_count = clamp( AutoloadData.player_cardFragments[card_code]["count"], 0, 500 )
+	AutoloadData.player_cardFragments[card_code]["count"] = limit_count
+	update_fragmanet(card_code)
+	AutoloadData.save_data()
+	
+	

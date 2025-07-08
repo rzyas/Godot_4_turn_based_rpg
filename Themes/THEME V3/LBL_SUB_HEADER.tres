@@ -7,7 +7,7 @@
 texture = ExtResource("2_nle2l")
 texture_margin_left = 25.0
 texture_margin_right = 24.8097
-texture_margin_bottom = 19.4588
+texture_margin_bottom = 19.7714
 region_rect = Rect2(7, 62.1737, 114, 19.8263)
 
 [resource]

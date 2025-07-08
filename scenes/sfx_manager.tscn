@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://2ybn8771o6i3"]
+[gd_scene load_steps=106 format=3 uid="uid://2ybn8771o6i3"]
 
 [ext_resource type="Script" uid="uid://ck4gp8ciun1mf" path="res://script/sfx_manager.gd" id="1_mar36"]
 [ext_resource type="AudioStream" uid="uid://jvve4swwrchu" path="res://SFX/ENHANCE/Enhance_01.wav" id="2_2koeu"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dklp3afswockb" path="res://SFX/SELECT/menu_select.wav" id="2_oppp2"]
 [ext_resource type="AudioStream" uid="uid://bx6214ysexxuo" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_0.wav" id="2_oygtb"]
 [ext_resource type="AudioStream" uid="uid://bcqmaa4fgcpqk" path="res://SFX/WIN LOSE/sfx_lose_0.wav" id="2_q5vo2"]
+[ext_resource type="AudioStream" uid="uid://cnumfhp0wnd1t" path="res://SFX/Roadmap/Roadmap_Soul_0.wav" id="2_tuesr"]
 [ext_resource type="AudioStream" uid="uid://y1ed55unm5fg" path="res://SFX/ENHANCE/Enhance_spell.wav" id="2_v3im6"]
 [ext_resource type="AudioStream" uid="uid://biebkp4u3bqbw" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Market's Melody.wav" id="2_ve3h6"]
 [ext_resource type="AudioStream" uid="uid://cx1cqppxqhkhg" path="res://SFX/HIT/Battle BGS/BGS_Battle_1.wav" id="3_1sjkn"]
@@ -107,6 +108,9 @@
 
 [node name="SFX_Manager" type="Node2D"]
 script = ExtResource("1_mar36")
+
+[node name="RoadmapSoul0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tuesr")
 
 [node name="Roadmap1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hjoh6")

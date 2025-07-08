@@ -277,7 +277,7 @@ func reset_data():
 	player_exp_main = 0
 	player_exp_need = 1000
 	player_money = 0
-	player_exp = 0
+	player_exp = 23982938298
 	player_super_ticket = 0
 	current_stage = 0
 	player_spin_coin = 0

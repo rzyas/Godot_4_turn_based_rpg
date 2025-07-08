@@ -2,7 +2,7 @@ extends Node2D
 func get_random_int(rand_min: int, rand_max: int) -> int:
 	return randi_range(rand_min, rand_max)
 
-
+func play_roadmap_soul():$RoadmapSoul0.play()
 func play_menu_select():$MenuSelect.play()
 #------------------------------------ BGM:START --------------------------
 # Variabel untuk menyimpan state BGM

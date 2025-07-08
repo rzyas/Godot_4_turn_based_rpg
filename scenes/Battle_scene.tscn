@@ -64,13 +64,10 @@
 [ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="52_aoa3p"]
 [ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="52_feiib"]
 [ext_resource type="Theme" uid="uid://bl880dy7upjp0" path="res://Themes/THEME V3/PNL_SUB_BLUE.tres" id="53_qnjwc"]
-[ext_resource type="Texture2D" uid="uid://bqibalnnqp1ax" path="res://img/Hero/icon/N_HEAL_1_Karin.png" id="54_udcom"]
 [ext_resource type="Theme" uid="uid://bne6qdlo7ts1v" path="res://Themes/THEME V3/PNL_BLUE_DARK.tres" id="56_qnjwc"]
 [ext_resource type="Texture2D" uid="uid://crkkbt6puppgf" path="res://img/UI (new)/UI Panel Mini - Clear.png" id="57_t64eq"]
-[ext_resource type="Texture2D" uid="uid://cscw623aflism" path="res://img/Hero/icon/N_WAR_1_Dimas.png" id="62_wmnxe"]
 [ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="64_khgk6"]
 [ext_resource type="Theme" uid="uid://c0m6mi8n4n2so" path="res://Themes/THEME V3/PNL_MAIN.tres" id="64_x8hap"]
-[ext_resource type="Texture2D" uid="uid://cufnsxu7wpaur" path="res://img/Hero/icon/N_SUPP_1_Reza.png" id="65_2ftwj"]
 [ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="65_oye1n"]
 [ext_resource type="Texture2D" uid="uid://bew2jkhw1tfyr" path="res://img/Equipments/wpn_wiz/028.png" id="65_p07ft"]
 [ext_resource type="Theme" uid="uid://46evkqyxo8d5" path="res://Themes/THEME V3/LBL2_READ.tres" id="66_p07ft"]
@@ -2904,6 +2901,9 @@ animations = [{
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0hc3"]
 atlas = ExtResource("50_wmnxe")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oenvp"]
+load_path = "res://.godot/imported/N_HEAL_1_Karin.png-3e7ab87799f2f2e74822887d8723c2d1.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvc1l"]
 atlas = ExtResource("5_al84k")
 region = Rect2(856, 406, 65, 66)
@@ -2923,6 +2923,12 @@ region = Rect2(25, 25, 21, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_goqab"]
 atlas = ExtResource("6_cwo5p")
 region = Rect2(25, 0, 21, 21)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvwo2"]
+load_path = "res://.godot/imported/N_WAR_1_Dimas.png-9feae933757f44d75a0ca27672dba62c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wp2nl"]
+load_path = "res://.godot/imported/N_SUPP_1_Reza.png-db870d6f4a9f571ebfd8ec7d092ee9d9.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gage1"]
 
@@ -4222,7 +4228,7 @@ stretch_mode = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("54_udcom")
+texture = SubResource("CompressedTexture2D_oenvp")
 expand_mode = 1
 stretch_mode = 5
 
@@ -4389,7 +4395,7 @@ stretch_mode = 4
 [node name="fs1_icon" type="TextureRect" parent="Camera2D/final_statistic/VBoxContainer/fs1/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("62_wmnxe")
+texture = SubResource("CompressedTexture2D_jvwo2")
 expand_mode = 1
 stretch_mode = 5
 
@@ -4556,7 +4562,7 @@ stretch_mode = 4
 [node name="fs2_icon" type="TextureRect" parent="Camera2D/final_statistic/VBoxContainer/fs2/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("65_2ftwj")
+texture = SubResource("CompressedTexture2D_wp2nl")
 expand_mode = 1
 stretch_mode = 5
 
