@@ -287,7 +287,7 @@ func update_fragmanet(code):
 	node_frag_count.text = str( AutoloadData.filter_num_k(get_count),"/500" )
 	if AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"] and AutoloadData.player_cardFragments[code]["count"] >= 500:
 		node_btn_buy.disabled = false
-		node_btn_buy.text = str("UNLOCK: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"])," Mana")
+		node_btn_buy.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"])," Mana")
 func generate_unlocked(code):
 	var validate_code = AutoloadData.player_cardFragments[code]["locked"]
 	if validate_code == false: return
@@ -314,7 +314,7 @@ func generate_unlocked(code):
 		var check_mana = AutoloadData.player_exp
 		if check_mana >= check_price:
 			if AutoloadData.player_cardFragments[code]["count"] >= 500:
-				node_btn_arise.text = "Collected"
+				node_btn_arise.text = "Soul Full"
 				node_btn_arise.disabled = true
 				SfxManager.play_system_fail()
 				return
@@ -385,6 +385,7 @@ func generate_unlocked(code):
 	
 	node_btn.connect("pressed", func():
 		if AutoloadData.player_cardFragments[code]["count"] >= 500 and AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"]:
+			SfxManager.play_money()
 			node_btn.text="Card Purchased !"
 			node_btn.disabled=true
 			AutoloadData.player_exp -= AutoloadData.player_cardFragments[code]["price"]

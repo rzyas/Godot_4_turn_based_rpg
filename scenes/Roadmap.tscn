@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cpds3qnnu6hes"]
+[gd_scene load_steps=69 format=3 uid="uid://cpds3qnnu6hes"]
 
 [ext_resource type="Script" uid="uid://d0h8jxvrfs0m6" path="res://script/Roadmap.gd" id="1_0yhtd"]
 [ext_resource type="Texture2D" uid="uid://c0foqapdgx22j" path="res://img/Roadmap/bg_main_roadmap.png" id="1_vni6k"]
@@ -14,9 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://duy1rp1inqqor" path="res://img/Roadmap/Panel Quest/quest_icon_4.png" id="11_yes1r"]
 [ext_resource type="Texture2D" uid="uid://cxio86ovure0p" path="res://img/Roadmap/Panel Quest/quest_icon_2.png" id="12_yes1r"]
 [ext_resource type="Texture2D" uid="uid://cl2lcdtk2rr8b" path="res://img/Roadmap/Panel Quest/quest_icon_3.png" id="14_ooyfw"]
-[ext_resource type="Texture2D" uid="uid://cb6ry48dmauh2" path="res://img/Roadmap/Panel Quest/lobby_icon.png" id="15_fa8ir"]
-[ext_resource type="Texture2D" uid="uid://bqfi2urds0cod" path="res://img/Roadmap/Panel Quest/btn_soul.png" id="15_lhxmv"]
-[ext_resource type="Texture2D" uid="uid://ciy7nfuhfxpva" path="res://img/Roadmap/Panel Quest/btn_shop.png" id="16_jjhpq"]
+[ext_resource type="Texture2D" uid="uid://wys8sb6lvtth" path="res://img/Roadmap/Panel Quest/btn_arise.png" id="15_tmv3x"]
+[ext_resource type="Texture2D" uid="uid://bqpiay0ip2ell" path="res://img/Roadmap/Panel Quest/btn_new_lobby.png" id="16_4u2uc"]
 [ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="17_ooyfw"]
 [ext_resource type="Texture2D" uid="uid://b2d1scsu10fpf" path="res://img/Roadmap/Panel Quest/quest_main_adv_2.png" id="18_lexxp"]
 [ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="19_5daq3"]
@@ -697,24 +696,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_ddrec")
 
-[node name="btn_soul" type="Button" parent="."]
-offset_left = 628.0
-offset_top = 308.0
-offset_right = 760.0
-offset_bottom = 430.0
-theme = ExtResource("10_ddrec")
-icon = ExtResource("15_lhxmv")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="btn_unlocked" type="Button" parent="."]
-offset_left = -773.0
-offset_top = 290.0
-offset_right = -545.0
-offset_bottom = 452.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = 174.0
+offset_right = 191.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("10_ddrec")
-icon = ExtResource("16_jjhpq")
+icon = ExtResource("15_tmv3x")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -725,15 +720,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -177.0
-offset_top = 182.0
-offset_right = 177.0
-offset_bottom = 452.0
+offset_left = -772.0
+offset_top = 326.0
+offset_right = -644.0
+offset_bottom = 446.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("10_ddrec")
 theme_override_font_sizes/font_size = 26
-icon = ExtResource("15_fa8ir")
+icon = ExtResource("16_4u2uc")
 flat = true
 icon_alignment = 1
 expand_icon = true

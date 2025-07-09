@@ -24,6 +24,15 @@ var scene_data: String = ""
 # =====================================================
 # DECLARATIVE DATA STRUCTURE - Tambah data baru di sini saja!
 # =====================================================
+# Started Code
+var player_started_reward = {
+	"INDIE_GAME_DEV_INDO":{
+		"id": "spin",
+		"claim": false,
+		"count": 10,
+		"desc": "Code successful!\nYou've received 10 free spin coins!\nUse them in the shop (unlocked at level 5)."
+	},
+}
 # Player progression data
 var player_name = ""
 var player_level: int = 1

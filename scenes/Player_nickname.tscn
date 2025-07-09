@@ -1,0 +1,252 @@
+[gd_scene load_steps=17 format=3 uid="uid://4ol026xc1ofh"]
+
+[ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="1_42la8"]
+[ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="1_c82gc"]
+[ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="1_p4yh8"]
+[ext_resource type="Script" uid="uid://o41no8qscn6s" path="res://script/Player_nickname.gd" id="1_udkxx"]
+[ext_resource type="Theme" uid="uid://bl3tlf70y4c0a" path="res://Themes/THEME V3/LINE_EDIT_BASIC.tres" id="1_yhn5w"]
+[ext_resource type="Texture2D" uid="uid://cuwj8k5c62qur" path="res://img/UI (new)/New UI Flat/flat_gold.png" id="3_ydldp"]
+[ext_resource type="Texture2D" uid="uid://c35pqksgkh2it" path="res://img/UI (new)/UI_10.png" id="4_klby6"]
+[ext_resource type="Theme" uid="uid://dwxewndixe53u" path="res://Themes/THEME V3/BTN_SW_MAIN.tres" id="5_nf65l"]
+[ext_resource type="Texture2D" uid="uid://cd2uk2h7tcdm4" path="res://img/UI (new)/New UI Flat/flat_mana.png" id="6_42la8"]
+[ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="6_sx28s"]
+[ext_resource type="Texture2D" uid="uid://dl7fms37p7ssa" path="res://img/UI (new)/New UI Flat/flat_ticket.png" id="7_klby6"]
+[ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="8_pce14"]
+[ext_resource type="Texture2D" uid="uid://c0y3wjvxvhmyt" path="res://img/UI (new)/New UI Flat/flat_spin.png" id="8_ry1dh"]
+[ext_resource type="Theme" uid="uid://srh11jnyhheh" path="res://Themes/THEME V3/BTN_SELECT.tres" id="9_ydldp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ry1dh"]
+texture = ExtResource("1_42la8")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+region_rect = Rect2(7, 7, 115, 115)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udkxx"]
+texture = ExtResource("4_klby6")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(7, 68, 54, 54)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_udkxx")
+metadata/_edit_vertical_guides_ = [-1049.0]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -492.0
+offset_right = 818.0
+offset_bottom = 492.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="main_pnl_start" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -310.0
+offset_right = 479.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ry1dh")
+
+[node name="vbox" type="VBoxContainer" parent="main_pnl_start"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="main_pnl_start/vbox"]
+layout_mode = 2
+
+[node name="vbox_header" type="VBoxContainer" parent="main_pnl_start/vbox/hbox"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="header_0" type="Label" parent="main_pnl_start/vbox/hbox/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 32
+text = "Nickname"
+vertical_alignment = 1
+uppercase = true
+
+[node name="header_1" type="Label" parent="main_pnl_start/vbox/hbox/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 32
+text = "Code"
+vertical_alignment = 1
+uppercase = true
+
+[node name="vbox_main" type="VBoxContainer" parent="main_pnl_start/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="enter_nickname" type="LineEdit" parent="main_pnl_start/vbox/hbox/vbox_main"]
+layout_mode = 2
+theme = ExtResource("1_yhn5w")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Nickname. Min (3-13 Character)"
+max_length = 13
+
+[node name="enter_code_promp" type="LineEdit" parent="main_pnl_start/vbox/hbox/vbox_main"]
+layout_mode = 2
+theme = ExtResource("1_yhn5w")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Reward Code. Max 32 Character"
+max_length = 32
+
+[node name="pnl_1" type="PanelContainer" parent="main_pnl_start/vbox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_udkxx")
+
+[node name="txt_confirm_code" type="Label" parent="main_pnl_start/vbox/pnl_1"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("6_sx28s")
+text = "Waiting input..."
+
+[node name="btn_check_code" type="Button" parent="main_pnl_start/vbox"]
+custom_minimum_size = Vector2(50, 75)
+layout_mode = 2
+theme = ExtResource("9_ydldp")
+theme_override_font_sizes/font_size = 32
+text = "CHECK CODE"
+
+[node name="pnl_0" type="PanelContainer" parent="main_pnl_start/vbox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_udkxx")
+
+[node name="vbox" type="VBoxContainer" parent="main_pnl_start/vbox/pnl_0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox"]
+layout_mode = 2
+theme = ExtResource("8_pce14")
+theme_override_font_sizes/font_size = 32
+text = "STARTER REWARD"
+horizontal_alignment = 1
+
+[node name="reward_0" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_ydldp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme = ExtResource("1_p4yh8")
+theme_override_font_sizes/font_size = 32
+text = "Gold: 300K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sw_gold" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
+layout_mode = 2
+theme = ExtResource("5_nf65l")
+button_pressed = true
+flat = true
+
+[node name="reward_1" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6_42la8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme = ExtResource("1_p4yh8")
+theme_override_font_sizes/font_size = 32
+text = "Mana Stone: 30K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sw_mana" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
+layout_mode = 2
+theme = ExtResource("5_nf65l")
+flat = true
+
+[node name="reward_2" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_klby6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme = ExtResource("1_p4yh8")
+theme_override_font_sizes/font_size = 32
+text = "Super Ticket: 1.5K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sw_ticket" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
+layout_mode = 2
+theme = ExtResource("5_nf65l")
+flat = true
+
+[node name="reward_3" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("8_ry1dh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme = ExtResource("1_p4yh8")
+theme_override_font_sizes/font_size = 32
+text = "Spin Coin: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sw_spin" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
+layout_mode = 2
+theme = ExtResource("5_nf65l")
+flat = true
+
+[node name="btn_enter_game" type="Button" parent="main_pnl_start/vbox"]
+custom_minimum_size = Vector2(50, 75)
+layout_mode = 2
+theme = ExtResource("9_ydldp")
+theme_override_font_sizes/font_size = 32
+text = "ENTER GAME"
