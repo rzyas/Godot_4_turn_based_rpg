@@ -368,7 +368,6 @@ func update_spin_exhance():
 	$spin/fixed_reward/hbox/vbox_3/Label.text = str(AutoloadData.spin_exhance_common,"/100")
 	$spin/fixed_reward/hbox/vbox_3/Label2.text = str(AutoloadData.spin_exhance_special,"/500")
 	
-	
 func onready_spin():
 	$spin/btn_cls.connect("pressed", func():
 		$spin.hide() )

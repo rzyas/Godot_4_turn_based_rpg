@@ -21,6 +21,7 @@ func set_pct(total: int, angka_utama: int) -> int:
 	return int((angka_utama * 100.0) / total)
 
 var scene_data: String = ""
+var player_set_nickname=false
 # =====================================================
 # DECLARATIVE DATA STRUCTURE - Tambah data baru di sini saja!
 # =====================================================
@@ -41,7 +42,7 @@ var player_exp_need: int = 1000
 var player_money: int = 0
 var player_exp: int = 0
 var player_super_ticket: int = 0
-var player_spin_coin: int = 10
+var player_spin_coin: int = 0
 var player_reward: int = 0
 var player_reward_special: int = 0
 # Stage
@@ -165,12 +166,12 @@ const SAVE_VERSION := "2.0"
 # =====================================================
 # Variables yang tidak perlu disave (exclude dari save)
 var _excluded_variables: Array[String] = [
-	"scene_data", "_excluded_variables", "_save_variables_cache", 
+	"_excluded_variables", "_save_variables_cache", 
 	"setting_default_db_level", "system_cardCollection", "player_level_exp_limit"]
 # Cache untuk mempercepat akses
 var _save_variables_cache: Array[String] = []
 func _ready():
-	reset_data()
+	#reset_data()
 	_initialize_save_system()
 	load_data()
 func _initialize_save_system():
@@ -243,6 +244,9 @@ func apply_loaded_data(data: Dictionary):
 	player_exp_need = get_exp_requirement_for_level(player_level)
 
 func reset_data():
+	print("DATA RESET")
+	scene_data = "res://scenes/Player_nickname.tscn"
+	player_set_nickname=false
 	player_cardFragments = {}
 	player_cardAvailable = ["s1_003", "s1_004"]
 	roadmap_total_enhance=0
@@ -286,7 +290,7 @@ func reset_data():
 	player_exp_main = 0
 	player_exp_need = 1000
 	player_money = 0
-	player_exp = 23982938298
+	player_exp = 0
 	player_super_ticket = 0
 	current_stage = 0
 	player_spin_coin = 0
@@ -321,8 +325,8 @@ func reset_data():
 	}
 	
 	player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
-	player_inventory_chest = {1:2, 2:3, 3:2, 4:43, 5:34, 6:198, 7:22, 8:34}
-	player_inventory_enhance = {1:12, 2:320, 3:76, 4: 12}
+	player_inventory_chest = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
+	player_inventory_enhance = {1:0, 2:0, 3:0, 4: 0}
 	player_inventory_fragment = {
 		1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,
 		11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0,

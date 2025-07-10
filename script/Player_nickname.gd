@@ -2,8 +2,7 @@ extends Node2D
 @onready var pnl_main = $main_pnl_start
 func _ready() -> void:
 	onready_main()
-
-
+	
 var started_code:int=0
 func _get_reward(code, value):
 	match code:
@@ -28,7 +27,6 @@ func onready_main():
 	var node_check_ticket:CheckButton = pnl_main.get_node("vbox/pnl_0/vbox/reward_2/sw_ticket")
 	var node_check_spin:CheckButton = pnl_main.get_node("vbox/pnl_0/vbox/reward_3/sw_spin")
 	var node_btn_entergame:Button = pnl_main.get_node("vbox/btn_enter_game")
-	
 	# -----------------------------------------------
 	# STARTED REWARD
 	# -----------------------------------------------
@@ -78,6 +76,7 @@ func onready_main():
 		else:
 			node_btn_entergame.disabled = true
 			AutoloadData.player_name = node_nickname.text
+			AutoloadData.player_set_nickname = true
 			if started_code == 0: _get_reward("gold", 300000)
 			elif started_code == 1: _get_reward("mana", 30000)
 			elif started_code == 2: _get_reward("ticket", 1500)
@@ -85,8 +84,7 @@ func onready_main():
 			for i in range(4):
 				node_btn_entergame.text = str("Enter in: ",3-i)
 				await get_tree().create_timer(1.0).timeout
-			AutoloadData.scene_data = "res://scenes/Lobby.tscn"
-			get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn") )
+			SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY) )
 	
 	
 	

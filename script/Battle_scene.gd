@@ -3280,5 +3280,4 @@ func btn_battle_info_elem() -> void:
 	battle_info_btn_main(2)
 
 func _on_btn_battle_end_exit_pressed() -> void:
-	AutoloadData.scene_data	 = "res://scenes/Lobby.tscn"
-	get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn")
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY)

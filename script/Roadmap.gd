@@ -51,8 +51,7 @@ func onready_btn_main():
 		pnl.connect("mouse_entered", tween_customsize.bind(pnl, true) )
 		pnl.connect("mouse_exited", tween_customsize.bind(pnl, false) )
 	btn_to_lobby.connect("pressed", func():
-		AutoloadData.scene_data = "res://scenes/Lobby.tscn"
-		get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn") )
+		SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY) )
 	$pnl_list_quest/btn_cls.connect("pressed", func():
 		pnl_main.show()
 		pnl_list.hide()

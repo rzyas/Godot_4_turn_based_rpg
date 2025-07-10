@@ -487,8 +487,7 @@ func on_button_exit_action(index):
 func on_shop_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-	AutoloadData.scene_data = "res://scenes/Shop.tscn"
-	get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn")
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.SHOP)
 func on_battle_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
@@ -496,8 +495,7 @@ func on_battle_pressed():
 func on_quest_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-	AutoloadData.scene_data = "res://scenes/Roadmap.tscn"
-	get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn")
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.ROADMAP)
 func on_card_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
@@ -1758,8 +1756,7 @@ func _on_btn_deck_sort_pressed() -> void:
 # ------------------------------- MOVES SCENE -------------------------------------
 func _on_btn_attack_pressed() -> void:
 	#get_tree().change_scene_to_file("res://scenes/main_loading_screen.tscn")
-	AutoloadData.scene_data = "res://scenes/Battle_scene.tscn"
-	get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn")
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.BATTLE)
 	#NewLoadingScreen.goto_scene_battle()
 # ------------------------------------------------------------------------------
 
@@ -1984,6 +1981,7 @@ func _on_btn_save_id_pressed() -> void:
 func _on_button_pressed() -> void: # BUTTON RESET DATA
 	AutoloadData.reset_data()
 	update_resources_player()
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.START)
 # ------------------------------------------------------------------------------
 @onready var prosedural_notification_txt = $prosedural_notification
 @onready var theme_notif_red = preload("res://Themes/NEW THEME 2/lobby/notif_label_red.tres")
