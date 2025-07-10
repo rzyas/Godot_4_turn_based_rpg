@@ -3,6 +3,8 @@ extends Node2D
 func _ready() -> void:
 	onready_main()
 
+
+var started_code:int=0
 func _get_reward(code, value):
 	match code:
 		"gold": AutoloadData.player_money+=value
@@ -31,15 +33,13 @@ func onready_main():
 	# STARTED REWARD
 	# -----------------------------------------------
 	var all_sw = [node_check_gold, node_check_mana, node_check_ticket, node_check_spin]
-	var started_code:int=0
 	for i in all_sw.size():
 		var btn_sw: CheckButton = all_sw[i]
 		btn_sw.connect("pressed", func(i_copy := i):
 			for j in all_sw.size():
 				all_sw[j].button_pressed = j == i_copy
 				if j == i_copy:
-					started_code = j
-		)
+					started_code = j )
 	# -------------------------------------------------
 	# CODE
 	# -------------------------------------------------
@@ -60,20 +60,33 @@ func onready_main():
 				AutoloadData.save_data()
 				_get_reward(get_id_reward, get_count_reward)
 				node_code_desc.text = get_desc_reward
+				SfxManager.play_money()
 			else:
+				SfxManager.play_system_fail()
 				node_code_desc.text = 'Code already claimed! One time only.'
 		else:
 			# Kode tidak ditemukan
 			SfxManager.play_system_fail()
-			node_code_desc.text = 'Sorry, the code you entered is wrong.'
-	)
-
+			node_code_desc.text = 'Sorry, the code you entered is wrong.')
 	# -------------------------------------------------
 	# ENTER GAME
 	# -------------------------------------------------
 	node_btn_entergame.connect("pressed", func():
 		if node_nickname.text.length() <=3:
-			form_alert(node_nickname) )
+			form_alert(node_nickname)
+			SfxManager.play_system_fail()
+		else:
+			node_btn_entergame.disabled = true
+			AutoloadData.player_name = node_nickname.text
+			if started_code == 0: _get_reward("gold", 300000)
+			elif started_code == 1: _get_reward("mana", 30000)
+			elif started_code == 2: _get_reward("ticket", 1500)
+			elif started_code == 3: _get_reward("spin", 1)
+			for i in range(4):
+				node_btn_entergame.text = str("Enter in: ",3-i)
+				await get_tree().create_timer(1.0).timeout
+			AutoloadData.scene_data = "res://scenes/Lobby.tscn"
+			get_tree().change_scene_to_file("res://scenes/new_loading_screen.tscn") )
 	
 	
 	
