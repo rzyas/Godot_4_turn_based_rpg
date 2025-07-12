@@ -49,6 +49,7 @@ var current_stage: int = 0
 # INITIALIZATION
 # ========================================
 func _ready() -> void:
+	AutoloadData.load_data()
 	set_main_scene()
 	get_scene_tomove = AutoloadData.scene_data
 	# Inisialisasi autoload data

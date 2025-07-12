@@ -284,6 +284,7 @@ func update_fragmanet(code):
 	var node_btn_buy:Button = node_main.get_node("vbox/btn")
 	var get_count = AutoloadData.player_cardFragments[code]["count"]
 	node_frag_count.text = str( AutoloadData.filter_num_k(get_count),"/500" )
+	node_btn_buy.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"]),"/",AutoloadData.filter_num_k(AutoloadData.player_exp))
 	if AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"] and AutoloadData.player_cardFragments[code]["count"] >= 500:
 		node_btn_buy.disabled = false
 		node_btn_buy.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"])," Mana")
@@ -380,7 +381,7 @@ func generate_unlocked(code):
 		node_btn.disabled = false
 		node_btn.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["count"]),"Mana")
 	else:
-		node_btn.text = "NOT ENOUGH"
+		node_btn.text = str("ARISE: ", AutoloadData.filter_num_k(AutoloadData.player_cardFragments[code]["price"]),"/",AutoloadData.filter_num_k(AutoloadData.player_exp))
 	
 	node_btn.connect("pressed", func():
 		if AutoloadData.player_cardFragments[code]["count"] >= 500 and AutoloadData.player_exp >= AutoloadData.player_cardFragments[code]["price"]:

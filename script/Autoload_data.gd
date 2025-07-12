@@ -30,10 +30,21 @@ var player_started_reward = {
 	"INDIE_GAME_DEV_INDO":{
 		"id": "spin",
 		"claim": false,
-		"count": 10,
-		"desc": "Code successful!\nYou've received 10 free spin coins!\nUse them in the shop (unlocked at level 5)."
+		"count": 7,
+		"desc": "Claim Successful!\nYou've received 7 free spin coins!\nUse them in the shop (unlocked at level 5)."
 	},
-}
+	"RZYAS_NUSANTARA":{
+		"id": "gold",
+		"claim": false,
+		"count": 500000,
+		"desc": "Claim Successful!\nYou've received 500K gold coins!"
+	},
+	"CODENYA_APA_BANG?":{
+		"id": "mana",
+		"claim": false,
+		"count": 50000,
+		"desc": "Claim Successful!\nYou've received 50K mana stone!"
+	},}
 # Player progression data
 var player_name = ""
 var player_level: int = 1
@@ -69,11 +80,9 @@ var setting_default_db_level: Array = [-80.0, -30.0, -10.0, -5.0, 0.0]
 var setting_player_db_level = setting_default_db_level[4]
 # Collections and inventories
 var system_cardCollection: Array[String] = [
-	"s1_000", "s1_001", "s1_002", "s1_003", "s1_004"
-]
+	"s1_000", "s1_001", "s1_002", "s1_003", "s1_004"]
 var player_cardCollection: Array[String] = [
-	"s1_000", "s1_001", "s1_002"
-]
+	"s1_000", "s1_001", "s1_002"]
 var player_cardAvailable: Array[String] = []
 var player_cardFragments={}
 # Equipments
@@ -83,8 +92,7 @@ var player_inventory_enhance = {1: 0, 2: 0, 3: 0, 4: 0}
 var player_inventory_fragment = {
 	1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,
 	11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0,
-	21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0
-}
+	21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0, 28: 0, 29: 0, 30: 0}
 var player_inventory_misc = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 var player_inventory_token = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0}
 
@@ -245,6 +253,25 @@ func apply_loaded_data(data: Dictionary):
 
 func reset_data():
 	print("DATA RESET")
+	player_started_reward = {
+		"INDIE_GAME_DEV_INDO":{
+			"id": "spin",
+			"claim": false,
+			"count": 7,
+			"desc": "Claim Successful!\nYou've received 7 free spin coins!\nUse them in the shop (unlocked at level 5)."
+		},
+		"RZYAS_NUSANTARA":{
+			"id": "gold",
+			"claim": false,
+			"count": 500000,
+			"desc": "Claim Successful!\nYou've received 500K gold coins!"
+		},
+		"CODENYA_APA_BANG?":{
+			"id": "mana",
+			"claim": false,
+			"count": 50000,
+			"desc": "Claim Successful!\nYou've received 50K mana stone!"
+		}, }
 	scene_data = "res://scenes/Player_nickname.tscn"
 	player_set_nickname=false
 	player_cardFragments = {}
@@ -286,7 +313,7 @@ func reset_data():
 	# NEW DATA defaults - Tambahkan default values untuk data baru
 	"""Reset semua data ke default values"""
 	player_name = "tanpa nama"
-	player_level = 10
+	player_level = 1
 	player_exp_main = 0
 	player_exp_need = 1000
 	player_money = 0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://xbad1c4dwumx"]
+[gd_scene load_steps=12 format=3 uid="uid://xbad1c4dwumx"]
 
-[ext_resource type="Texture2D" uid="uid://b1grqaahurg48" path="res://img/UI (new)/UI_7.png" id="1_4qnc0"]
 [ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_q6gqm"]
 [ext_resource type="Script" uid="uid://dxv4m8ky86odx" path="res://script/new_loading_screen.gd" id="1_ujj2c"]
+[ext_resource type="Texture2D" uid="uid://bmsdsbrjfyja1" path="res://img/Background/LOADING/0.png" id="2_k5qnt"]
+[ext_resource type="Texture2D" uid="uid://c35pqksgkh2it" path="res://img/UI (new)/UI_10.png" id="2_ujj2c"]
 [ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="3_ujj2c"]
 [ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="4_k5qnt"]
 
@@ -10,12 +11,14 @@
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ysde"]
-texture = ExtResource("1_4qnc0")
+texture = ExtResource("2_ujj2c")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
-region_rect = Rect2(67, 7, 54, 54)
+region_rect = Rect2(7, 68, 54, 54)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ysde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_et2ph"]
 
@@ -39,26 +42,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1302.0
-offset_top = -799.0
-offset_right = 1302.0
-offset_bottom = 799.0
+offset_left = -827.0
+offset_top = -491.0
+offset_right = 827.0
+offset_bottom = 491.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5qnt")
 
-[node name="main" type="PanelContainer" parent="."]
+[node name="bg_rng" type="TextureRect" parent="bg"]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -756.0
-offset_top = 159.0
-offset_right = 756.0
-offset_bottom = 423.0
+offset_left = -859.0
+offset_top = -466.0
+offset_right = 859.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k5qnt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="main" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = 185.0
+offset_right = 485.0
+offset_bottom = 413.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8ysde")
@@ -71,7 +93,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_ujj2c")
-text = "LOADING ad wdawdawd awd adad aw aw da daw da dawdawdad adadaad a dad adawdada dadd awdwdada aw dadadd"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ysde")
+text = "lorem lorem lorem lorem lorem lorem lorem lorem 
+lorem lorem lorem lorem 
+lorem lorem lorem lorem lorem lorem 
+lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem 
+lorem lorem "
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3

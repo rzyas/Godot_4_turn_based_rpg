@@ -95,6 +95,7 @@
 [ext_resource type="Theme" uid="uid://bxky8d4gx7klf" path="res://Themes/NEW THEME 2/deck/panelContainer_disabled.tres" id="65_adt4o"]
 [ext_resource type="Texture2D" uid="uid://bu3idrtswiyh7" path="res://img/UI (new)/link_fb.png" id="68_6k1bq"]
 [ext_resource type="Theme" uid="uid://di0uqyl4yeyuj" path="res://Themes/NEW THEME 2/lobby/notif_label_red.tres" id="69_adt4o"]
+[ext_resource type="Theme" uid="uid://bl3tlf70y4c0a" path="res://Themes/THEME V3/LINE_EDIT_BASIC.tres" id="69_jvwo2"]
 [ext_resource type="Texture2D" uid="uid://biudyswps2xab" path="res://img/UI (new)/dc_link.png" id="69_pal3n"]
 [ext_resource type="Texture2D" uid="uid://dgw4o7hsm8ha3" path="res://img/UI (new)/link_pp.png" id="71_jk0yl"]
 [ext_resource type="Texture2D" uid="uid://dq6fn005tn3ch" path="res://img/UI (new)/link_sb.png" id="72_cdpbv"]
@@ -427,21 +428,13 @@ texture_margin_top = 19.0
 texture_margin_bottom = 19.0
 region_rect = Rect2(0, 90, 95, 38)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gp6r"]
-texture = ExtResource("45_wi4um")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp2nl"]
+texture = ExtResource("140_o54yg")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
-region_rect = Rect2(45, 87, 39, 39)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjuv4"]
-texture = ExtResource("6_h77bf")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-region_rect = Rect2(86, 3, 39, 39)
+region_rect = Rect2(7, 68, 53, 53)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbljs"]
 texture = ExtResource("40_iux2f")
@@ -2697,30 +2690,45 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 2
 
-[node name="Button" type="Button" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account"]
+[node name="pnl_c" type="PanelContainer" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.878276, 0.64998, 0.643116, 1)
-theme_override_fonts/font = ExtResource("8_4hpk5")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/hover = SubResource("StyleBoxTexture_2gp6r")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mjuv4")
-theme_override_styles/normal = SubResource("StyleBoxTexture_mjuv4")
-text = "RESET DATA"
+theme_override_styles/panel = SubResource("StyleBoxTexture_wp2nl")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account"]
+[node name="vbox" type="VBoxContainer" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/pnl_c"]
 layout_mode = 2
 
-[node name="time_label" type="Label" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/HBoxContainer"]
+[node name="time_label" type="Label" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/pnl_c/vbox"]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("59_4yae7")
-text = "CHECK TIME"
+theme = ExtResource("78_q4nup")
+theme_override_colors/font_color = Color(1, 0.64181, 0.586169, 1)
+text = "You must retype \"CONFIRM\" to unlock the account deletion button (RESET DATA). Once the RESET DATA button is pressed, the game will close and all in-game data will be reset from the beginning without exception — including redemption codes such as promo codes or secret codes — and will be permanently deleted with no way to recover it."
+horizontal_alignment = 1
+autowrap_mode = 1
 
-[node name="btn_check_time" type="Button" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/HBoxContainer"]
+[node name="le_del" type="LineEdit" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/pnl_c/vbox"]
 layout_mode = 2
-theme = ExtResource("82_pmqce")
+theme = ExtResource("69_jvwo2")
+placeholder_text = "Please re-type \"CONFIRM\" to unlock button reset data"
+alignment = 1
+max_length = 7
+
+[node name="btn_del" type="Button" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/pnl_c/vbox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("128_mpkgq")
+text = "Confirm"
+
+[node name="Button" type="Button" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("128_mpkgq")
+theme_override_font_sizes/font_size = 32
 disabled = true
-text = "CHECK"
+text = "RESET DATA"
 
 [node name="sound" type="HBoxContainer" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer"]
 visible = false

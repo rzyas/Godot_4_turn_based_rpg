@@ -1659,6 +1659,7 @@ func check_turn_has_end():
 		AutoloadData.roadmap_total_battle+=1
 		if AutoloadData.stage_star[AutoloadData.temp_bab][AutoloadData.temp_stage] < count_win:
 			AutoloadData.stage_star[AutoloadData.temp_bab][AutoloadData.temp_stage]=count_win
+		AutoloadData.scene_data = "res://scenes/Lobby.tscn"
 		AutoloadData.save_data()
 		print(AutoloadData.stage_star)
 		
@@ -1679,6 +1680,7 @@ func check_turn_has_end():
 			AutoloadData.roadmap_total_heal_taked+=arr_hero_pos[i].total_heal_recived
 			AutoloadData.roadmap_total_heal_gift+=arr_hero_pos[i].total_heal
 		AutoloadData.roadmap_total_battle+=1
+		AutoloadData.scene_data = "res://scenes/Lobby.tscn"
 		AutoloadData.save_data()
 		AutoloadData.story_update(false)
 		$Camera2D/panel_reward.visible = true

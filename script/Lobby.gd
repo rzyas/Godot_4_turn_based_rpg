@@ -2,6 +2,7 @@ extends Node
 
 func _ready():
 	#---------------------------------
+	onready_reset_data()
 	onready_slide_story()
 	onreadt_btn_unlocked_level()
 	onready_setting()
@@ -1978,10 +1979,24 @@ func _on_btn_save_id_pressed() -> void:
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
+@onready var pnl_reset_data:VBoxContainer = $lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/pnl_c/vbox
+@onready var btn_reset_data:Button = $lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/Button
+func onready_reset_data():
+	btn_reset_data.disabled=true
+	var node_le_del:LineEdit = pnl_reset_data.get_node("le_del")
+	var node_btn_del:Button = pnl_reset_data.get_node("btn_del")
+	node_btn_del.connect("pressed", func():
+		if node_le_del.text == "CONFIRM":
+			btn_reset_data.disabled=false
+		else:
+			SfxManager.play_system_fail()
+			btn_reset_data.disabled=true )
 func _on_button_pressed() -> void: # BUTTON RESET DATA
 	AutoloadData.reset_data()
 	update_resources_player()
-	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.START)
+	btn_reset_data.disabled=true
+	get_tree().quit()
+	#SceneManager.move_to_scene(SceneManager.ENUM_SCENE.START)
 # ------------------------------------------------------------------------------
 @onready var prosedural_notification_txt = $prosedural_notification
 @onready var theme_notif_red = preload("res://Themes/NEW THEME 2/lobby/notif_label_red.tres")
@@ -2471,11 +2486,6 @@ func animate_chapter_size(selected: int) -> void:
 	tween.set_parallel(false)
 # ----------------------------------- BTN CHAPER ANIM:END -------------------------------------------
 
-#------------------------------------- TIME CHECKER: START ---------------------------------------------
-@onready var time_label: Label = $lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account/HBoxContainer/time_label
-
-
-#------------------------------------- TIME CHECKER: END ---------------------------------------------
 #------------------------------------- INVENTORY BACKPACK: START ---------------------------------------------
 @onready var inven_dict = {
 	"name":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/PanelContainer/inven_preview/name,
