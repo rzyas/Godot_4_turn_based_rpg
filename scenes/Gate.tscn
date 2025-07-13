@@ -1,37 +1,82 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=29 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
-[ext_resource type="Texture2D" uid="uid://c3pqymoancyaj" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
+[ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
 [ext_resource type="Texture2D" uid="uid://gricc0olbqcc" path="res://img/Gate/arrow_center.png" id="3_mec7e"]
+[ext_resource type="Texture2D" uid="uid://fo55mug16u3r" path="res://img/Gate/Map Jungle/1.png" id="4_46oxy"]
 [ext_resource type="Theme" uid="uid://naxxa1nykskx" path="res://Themes/THEME V3/BTN_CLEAR.tres" id="4_mec7e"]
 [ext_resource type="Texture2D" uid="uid://b8yq1sd484o8b" path="res://img/Gate/arrow.png" id="4_ssit8"]
-[ext_resource type="Texture2D" uid="uid://cwlajr43in8e4" path="res://img/Gate/Map Jungle/0.png" id="6_xld3y"]
+[ext_resource type="Texture2D" uid="uid://dw46kp7fb41pk" path="res://img/Gate/Map Jungle/2.png" id="5_5hroy"]
+[ext_resource type="Texture2D" uid="uid://cppa4egc6vqpj" path="res://img/Gate/Map Jungle/4.png" id="6_tcydf"]
+[ext_resource type="Texture2D" uid="uid://ddk1kmoas5sy8" path="res://img/Gate/Map Jungle/0.png" id="6_xld3y"]
+[ext_resource type="Texture2D" uid="uid://t8usintaxo0c" path="res://img/Gate/Map Jungle/5.png" id="7_0gpd2"]
+[ext_resource type="Texture2D" uid="uid://c6xyjkn7m5hkq" path="res://img/UI (new)/circle_charts_v2.png" id="7_xld3y"]
+[ext_resource type="Texture2D" uid="uid://dbikih832h3qx" path="res://img/Gate/Map Jungle/6.png" id="8_rq62h"]
+[ext_resource type="Texture2D" uid="uid://xur8p0p6np8h" path="res://img/Gate/Map Jungle/7.png" id="9_rq62h"]
+[ext_resource type="Texture2D" uid="uid://c4prn04t775t1" path="res://img/Gate/Map Jungle/8.png" id="10_um45y"]
+[ext_resource type="Texture2D" uid="uid://cqiu0pc65apkg" path="res://img/Gate/Map Jungle/9.png" id="11_du5is"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_neh4c"]
 texture = ExtResource("6_xld3y")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gpd2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um45y"]
+texture = ExtResource("4_46oxy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_du5is"]
+texture = ExtResource("5_5hroy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrc6v"]
+texture = ExtResource("6_tcydf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3qtc"]
+texture = ExtResource("7_0gpd2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibuj8"]
+texture = ExtResource("8_rq62h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7t806"]
+texture = ExtResource("9_rq62h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfm6y"]
+texture = ExtResource("10_um45y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rasxx"]
+texture = ExtResource("11_du5is")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xld3y"]
 texture = ExtResource("3_mec7e")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neh4c"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(9, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2on8l"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(159, 9, 132, 132)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uvwl4")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="bg_main" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(5000, 5000)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7483.0
-offset_top = -4210.0
-offset_right = 7483.0
-offset_bottom = 4210.0
+offset_left = -10000.0
+offset_top = -10000.0
+offset_right = 10000.0
+offset_bottom = 10000.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(10000, 10000)
 texture = ExtResource("2_ssit8")
 stretch_mode = 1
 
-[node name="Panel" type="Panel" parent="."]
+[node name="map_0" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,41 +90,316 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_neh4c")
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="main_cam" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="parent_btn_move" type="Panel" parent="main_cam"]
-custom_minimum_size = Vector2(50, 50)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = 81.0
-offset_right = -241.0
-offset_bottom = 207.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xld3y")
-
-[node name="btn_r" type="Button" parent="main_cam/parent_btn_move"]
-custom_minimum_size = Vector2(50, 50)
+[node name="sector_0" type="Panel" parent="map_0"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = -25.0
-offset_right = 73.0
-offset_bottom = 25.0
+offset_left = -575.0
+offset_top = -738.0
+offset_right = 263.0
+offset_bottom = -438.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0gpd2")
+
+[node name="sector_1" type="Panel" parent="map_0"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.544
+offset_left = -342.0
+offset_top = -400.0
+offset_right = 447.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0gpd2")
+
+[node name="sector_2" type="Panel" parent="map_0"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.544
+offset_left = 478.0
+offset_top = -282.0
+offset_right = 783.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0gpd2")
+
+[node name="sector_3" type="Panel" parent="map_0"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.544
+offset_left = -256.0
+offset_top = 386.0
+offset_right = 397.0
+offset_bottom = 598.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0gpd2")
+
+[node name="sector_4" type="Panel" parent="map_0"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.544
+offset_left = -880.0
+offset_top = -422.0
+offset_right = -358.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0gpd2")
+
+[node name="map_1" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 196.0
+offset_top = -2033.0
+offset_right = 2196.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_um45y")
+
+[node name="img" type="TextureRect" parent="map_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_2" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1539.0
+offset_top = -1106.0
+offset_right = 4237.0
+offset_bottom = 1592.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_du5is")
+
+[node name="img" type="TextureRect" parent="map_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_3" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = 225.0
+offset_right = 2165.0
+offset_bottom = 2255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vrc6v")
+
+[node name="img" type="TextureRect" parent="map_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_4" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2213.0
+offset_top = -2242.0
+offset_right = -183.0
+offset_bottom = -212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w3qtc")
+
+[node name="img" type="TextureRect" parent="map_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_5" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3307.0
+offset_top = -889.0
+offset_right = -1277.0
+offset_bottom = 1141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ibuj8")
+
+[node name="img" type="TextureRect" parent="map_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_6" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.0
+offset_top = -3669.0
+offset_right = 1457.0
+offset_bottom = -1639.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7t806")
+
+[node name="img" type="TextureRect" parent="map_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_7" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3989.0
+offset_top = -4543.0
+offset_right = -1393.0
+offset_bottom = -1947.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nfm6y")
+
+[node name="img" type="TextureRect" parent="map_7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_8" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1828.0
+offset_top = -4869.0
+offset_right = 4424.0
+offset_bottom = -2273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rasxx")
+
+[node name="img" type="TextureRect" parent="map_8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_cam" type="Camera2D" parent="."]
+
+[node name="parent_btn_move" type="Panel" parent="main_cam"]
+custom_minimum_size = Vector2(50, 50)
+offset_left = -719.0
+offset_top = 216.0
+offset_right = -563.0
+offset_bottom = 372.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xld3y")
+
+[node name="btn_r" type="Button" parent="main_cam/parent_btn_move"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -50.0
+offset_right = 130.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_mec7e")
@@ -87,7 +407,7 @@ flat = true
 expand_icon = true
 
 [node name="img" type="TextureRect" parent="main_cam/parent_btn_move/btn_r"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,17 +425,17 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="btn_l" type="Button" parent="main_cam/parent_btn_move"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = -25.0
-offset_right = -23.0
-offset_bottom = 25.0
+offset_left = -130.0
+offset_top = -50.0
+offset_right = -30.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_mec7e")
@@ -123,7 +443,7 @@ flat = true
 expand_icon = true
 
 [node name="img" type="TextureRect" parent="main_cam/parent_btn_move/btn_l"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,17 +462,17 @@ stretch_mode = 5
 flip_h = true
 
 [node name="btn_t" type="Button" parent="main_cam/parent_btn_move"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -73.0
-offset_right = 25.0
-offset_bottom = -23.0
+offset_left = -50.0
+offset_top = -130.0
+offset_right = 50.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_mec7e")
@@ -160,37 +480,37 @@ flat = true
 expand_icon = true
 
 [node name="img" type="TextureRect" parent="main_cam/parent_btn_move/btn_t"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-pivot_offset = Vector2(25, 25)
+pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_ssit8")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="btn_b" type="Button" parent="main_cam/parent_btn_move"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = 23.0
-offset_right = 25.0
-offset_bottom = 73.0
+offset_left = -50.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_mec7e")
@@ -199,21 +519,55 @@ flat = true
 expand_icon = true
 
 [node name="img" type="TextureRect" parent="main_cam/parent_btn_move/btn_b"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
-pivot_offset = Vector2(25, 25)
+pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_ssit8")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="btn_snap" type="Button" parent="main_cam/parent_btn_move"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mec7e")
+flat = true
+
+[node name="prog" type="TextureProgressBar" parent="main_cam/parent_btn_move/btn_snap"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -39.0
+offset_right = 39.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_neh4c")
+texture_progress = SubResource("AtlasTexture_2on8l")

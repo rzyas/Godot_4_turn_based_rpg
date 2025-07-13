@@ -134,6 +134,7 @@ func create_card(
 	
 	var card = {
 		# BASIC ATTRIBUTE
+		"id":id,
 		"img": "res://img/Hero/" + img_name + ".png",
 		"icon": set_hero_icon(img_name),
 		"elem": elem,
