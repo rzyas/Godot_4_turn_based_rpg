@@ -1,153 +1,205 @@
-extends Node2D
+extends Node
 
 func _ready() -> void:
-	# Setup timer untuk continuous movement
+	onready_cam_nav()
+
+# Referensi node yang diperlukan
+@onready var nodes_btn_nav = $parent_btn_move
+@onready var node_main_cam = $main_cam
+@onready var node_nav_prog = $parent_btn_move/btn_snap/prog
+
+# Variabel untuk Tween dan kontrol snap
+var tween: Tween
+var snap_tween: Tween
+var prog_tween: Tween
+var is_snapping: bool = false
+
+# Variabel untuk kontrol tombol tahan
+var move_timer: Timer
+var current_move_direction: Vector2 = Vector2.ZERO
+var is_button_held: bool = false
+
+func onready_cam_nav():
+	# Inisialisasi Tween
+	tween = create_tween()
+	tween.set_loops()
+	tween.pause()
+	
+	snap_tween = create_tween()
+	snap_tween.set_loops()
+	snap_tween.pause()
+	
+	prog_tween = create_tween()
+	prog_tween.set_loops()
+	prog_tween.pause()
+	
+	# Inisialisasi Timer untuk gerakan berulang
 	move_timer = Timer.new()
-	move_timer.wait_time = 0.2
+	move_timer.wait_time = 0.1  # Interval gerakan saat tombol ditahan
 	move_timer.timeout.connect(_on_move_timer_timeout)
 	add_child(move_timer)
 	
-	onready_btn_move()
-	onready_btn_snap()
+	# Hubungkan tombol navigasi
+	var btn_right = nodes_btn_nav.get_child(0)  # Tombol kanan
+	var btn_left = nodes_btn_nav.get_child(1)   # Tombol kiri
+	var btn_up = nodes_btn_nav.get_child(2)     # Tombol atas
+	var btn_down = nodes_btn_nav.get_child(3)   # Tombol bawah
+	var btn_snap = nodes_btn_nav.get_child(4)   # Tombol snap
+	
+	# Hubungkan signal tombol untuk pressed dan released
+	btn_right.button_down.connect(_on_btn_right_down)
+	btn_right.button_up.connect(_on_btn_released)
+	btn_left.button_down.connect(_on_btn_left_down)
+	btn_left.button_up.connect(_on_btn_released)
+	btn_up.button_down.connect(_on_btn_up_down)
+	btn_up.button_up.connect(_on_btn_released)
+	btn_down.button_down.connect(_on_btn_down_down)
+	btn_down.button_up.connect(_on_btn_released)
+	btn_snap.pressed.connect(_on_btn_snap_pressed)
 
-# --------------------------------------------
-# GERAKKAN KAMERA DENGAN TWEEN DAN SET TOMBOL
-# --------------------------------------------
-@onready var nodes_btn_move: Node = $main_cam/parent_btn_move
-@onready var node_main_cam: Camera2D = $main_cam
-@onready var node_btn_snap: Button = $main_cam/parent_btn_move/btn_snap
-@onready var node_prog_snap: TextureProgressBar = $main_cam/parent_btn_move/btn_snap/prog
+# Fungsi untuk menggerakkan kamera (untuk kompatibilitas)
+func _move_camera(offset: Vector2):
+	_move_camera_instant(offset)
+# Fungsi untuk tombol arah - button_down
+var _nav_speed = 150
+func _on_btn_right_down():
+	_start_continuous_move(Vector2(_nav_speed, 0))
+func _on_btn_left_down():
+	_start_continuous_move(Vector2(-_nav_speed, 0))
+func _on_btn_up_down():
+	_start_continuous_move(Vector2(0, -_nav_speed))
+func _on_btn_down_down():
+	_start_continuous_move(Vector2(0, _nav_speed))
 
-var is_button_pressed = false
-var pressed_dir = null
-var move_timer: Timer
-var current_move_tween: Tween
-
-enum ENUM_CAMMOVE { RIGHT, LEFT, TOP, BOTTOM }
-
-func tween_camera_move(camera: Camera2D, direction: ENUM_CAMMOVE) -> void:
-	# Stop tween sebelumnya jika ada
-	if current_move_tween:
-		current_move_tween.kill()
+# Fungsi untuk tombol arah - button_up
+func _on_btn_released():
+	_stop_continuous_move()
+# Fungsi untuk memulai gerakan berulang
+func _start_continuous_move(direction: Vector2):
+	# Batalkan snap jika sedang berlangsung
+	if is_snapping:
+		_cancel_snap()
 	
-	current_move_tween = create_tween()
-	var target_position := camera.position
-	
-	match direction:
-		ENUM_CAMMOVE.RIGHT:
-			target_position.x += 200
-		ENUM_CAMMOVE.LEFT:
-			target_position.x -= 200
-		ENUM_CAMMOVE.TOP:
-			target_position.y -= 200
-		ENUM_CAMMOVE.BOTTOM:
-			target_position.y += 200
-	
-	# Cek apakah target_position melebihi batas sebelum clamp
-	var original_position := target_position
-	target_position.x = clamp(target_position.x, -6500, 6500)
-	target_position.y = clamp(target_position.y, -6500, 6500)
-	
-	if original_position != target_position:
-		print("melebihi batas")
-	
-	current_move_tween.tween_property(camera, 'position', target_position, 0.2)
-# HUBUNGKAN TOMBOL DENGAN GERAKAN KAMERA
-func onready_btn_move():
-	for i in nodes_btn_move.get_child_count():
-		var btn: Button = nodes_btn_move.get_child(i)
-		
-		# Skip btn_snap (asumsi btn_snap adalah child terakhir atau bukan bagian dari move buttons)
-		if btn == node_btn_snap:
-			continue
-		
-		match i:
-			0:
-				btn.set_meta('move_dir', ENUM_CAMMOVE.RIGHT)
-			1:
-				btn.set_meta('move_dir', ENUM_CAMMOVE.LEFT)
-			2:
-				btn.set_meta('move_dir', ENUM_CAMMOVE.TOP)
-			3:
-				btn.set_meta('move_dir', ENUM_CAMMOVE.BOTTOM)
-		
-		# Ketika tombol ditekan
-		btn.button_down.connect(func():
-			is_button_pressed = true
-			pressed_dir = btn.get_meta('move_dir')
-			start_moving()
-		)
-		
-		# Ketika tombol dilepas
-		btn.button_up.connect(func():
-			is_button_pressed = false
-			move_timer.stop()
-		)
-# MULAI GERAKAN CONTINUOUS
-func start_moving():
-	if not is_button_pressed:
-		return
-	
-	tween_camera_move(node_main_cam, pressed_dir)
+	current_move_direction = direction
+	is_button_held = true
+	# Gerakan pertama langsung
+	_move_camera_instant(direction)
+	# Mulai timer untuk gerakan berulang
 	move_timer.start()
-# CALLBACK TIMER UNTUK CONTINUOUS MOVEMENT
+
+# Fungsi untuk menghentikan gerakan berulang
+func _stop_continuous_move():
+	is_button_held = false
+	current_move_direction = Vector2.ZERO
+	move_timer.stop()
+
+# Fungsi callback timer untuk gerakan berulang
 func _on_move_timer_timeout():
-	if is_button_pressed:
-		tween_camera_move(node_main_cam, pressed_dir)
+	if is_button_held and current_move_direction != Vector2.ZERO:
+		_move_camera_instant(current_move_direction)
 	else:
 		move_timer.stop()
-# TOMBOL SNAP KE TENGAH
-func onready_btn_snap():
-	var snap_state = {
-		"processing": false,
-		"snap_tween": null,
-		"progress_tween": null
-	}
+
+# Fungsi untuk menggerakkan kamera secara instant (untuk gerakan berulang)
+func _move_camera_instant(offset: Vector2):
+	# Hentikan tween sebelumnya
+	if tween:
+		tween.kill()
 	
-	# Fungsi untuk reset progress bar
-	var reset_progress = func():
-		if snap_state.progress_tween and snap_state.progress_tween.is_valid():
-			snap_state.progress_tween.kill()
-		snap_state.progress_tween = create_tween()
-		snap_state.progress_tween.tween_property(node_prog_snap, "value", 0, 0.2)
+	# Buat tween baru untuk perpindahan kamera dan tombol navigasi
+	tween = create_tween()
+	tween.set_parallel(true)  # Izinkan animasi paralel
 	
-	# Fungsi untuk stop semua tween
-	var stop_all_tweens = func():
-		if snap_state.snap_tween and snap_state.snap_tween.is_valid():
-			snap_state.snap_tween.kill()
-		if snap_state.progress_tween and snap_state.progress_tween.is_valid():
-			snap_state.progress_tween.kill()
+	var target_cam_pos = node_main_cam.position + offset
+	var target_btn_pos = nodes_btn_nav.position + offset
+	# Animasi kamera dan tombol navigasi bersamaan
+	tween.tween_property(node_main_cam, "position", target_cam_pos, 0.1)
+	tween.tween_property(nodes_btn_nav, "position", target_btn_pos, 0.1)
+	#nodes_btn_nav.position = Vector2(-688, 248)
+
+# Fungsi untuk tombol snap
+func _on_btn_snap_pressed():
+	if is_snapping:
+		# Jika sedang dalam proses snap, batalkan snap
+		_cancel_snap()
+		return
 	
-	node_btn_snap.pressed.connect(func():
-		# Jika sedang dalam proses, batalkan dan reset
-		if snap_state.processing:
-			snap_state.processing = false
-			stop_all_tweens.call()
-			reset_progress.call()
-			return
-		
-		# Mulai proses snap
-		snap_state.processing = true
-		node_prog_snap.value = 0  # Reset progress bar value
-		
-		# Tween progress bar dari 0 ke 100 dalam 3 detik
-		snap_state.progress_tween = create_tween()
-		snap_state.progress_tween.tween_property(node_prog_snap, "value", 100, 3.0)
-		
-		# Setelah 3 detik, pindahkan camera ke posisi 0,0
-		snap_state.progress_tween.finished.connect(func():
-			if snap_state.processing:  # Pastikan masih dalam proses
-				for i in nodes_btn_move.get_child_count():
-					var btn:Button = nodes_btn_move.get_child(i)
-					btn.disabled = true
-				snap_state.snap_tween = create_tween()
-				snap_state.snap_tween.tween_property(node_main_cam, "position", Vector2.ZERO, .5)
-				snap_state.snap_tween.finished.connect(func():
-					snap_state.processing = false
-				, CONNECT_ONE_SHOT)
-				await get_tree().create_timer(.5).timeout
-				for i in nodes_btn_move.get_child_count():
-					var btn:Button = nodes_btn_move.get_child(i)
-					btn.disabled = false
-				node_prog_snap.value = 0
-		, CONNECT_ONE_SHOT) )
+	_start_snap_process()
+
+func _start_snap_process():
+	is_snapping = true
+	
+	# Nonaktifkan semua tombol
+	_set_buttons_disabled(true)
+	
+	# Reset progress bar
+	node_nav_prog.value = 0
+	
+	# Mulai progress bar animation
+	if prog_tween:
+		prog_tween.kill()
+	
+	prog_tween = create_tween()
+	prog_tween.tween_property(node_nav_prog, "value", 100, 3.0)
+	
+	# Setelah 3 detik, lakukan snap jika tidak dibatalkan
+	prog_tween.tween_callback(_complete_snap)
+
+func _complete_snap():
+	if not is_snapping:
+		return
+	
+	# Snap kamera dan tombol navigasi ke tengah
+	if snap_tween:
+		snap_tween.kill()
+	
+	snap_tween = create_tween()
+	snap_tween.set_parallel(true)  # Izinkan animasi paralel
+	
+	# Snap kamera dan tombol navigasi ke posisi (0,0)
+	var target_btn_default_pos = Vector2(-688, 248)
+	snap_tween.tween_property(node_main_cam, "position", Vector2.ZERO, 0.2)
+	snap_tween.tween_property(nodes_btn_nav, "position", target_btn_default_pos, 0.2)
+	
+	# Setelah snap selesai, reset progress
+	snap_tween.tween_callback(_reset_progress)
+
+func _reset_progress():
+	if prog_tween:
+		prog_tween.kill()
+	
+	prog_tween = create_tween()
+	prog_tween.tween_property(node_nav_prog, "value", 0, 0.1)
+	prog_tween.tween_callback(_finish_snap)
+
+func _cancel_snap():
+	if not is_snapping:
+		return
+	
+	# Hentikan semua tween yang berkaitan dengan snap
+	if prog_tween:
+		prog_tween.kill()
+	
+	if snap_tween:
+		snap_tween.kill()
+	
+	# Reset progress bar dari value saat ini ke 0 dalam 0.1 detik
+	prog_tween = create_tween()
+	prog_tween.tween_property(node_nav_prog, "value", 0, 0.1)
+	prog_tween.tween_callback(_finish_snap)
+
+func _finish_snap():
+	is_snapping = false
+	
+	# Aktifkan kembali semua tombol
+	_set_buttons_disabled(false)
+
+func _set_buttons_disabled(disabled: bool):
+	# Nonaktifkan tombol arah (0-3) tapi biarkan btn_snap (4) tetap aktif
+	for i in range(4):  # Hanya tombol 0-3
+		var btn = nodes_btn_nav.get_child(i)
+		btn.disabled = disabled
+	
+	# Jika tombol dinonaktifkan, hentikan gerakan berulang
+	if disabled:
+		_stop_continuous_move()
