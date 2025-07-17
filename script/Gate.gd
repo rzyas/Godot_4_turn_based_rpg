@@ -1,19 +1,73 @@
 extends Node
-
+enum ENUM_ICON_SPAWN_BLUE { VILLAGE, KINGDOM, HOUSE, OLD_RUIN, GRAVE, RUIN, CAMP, TOWER, BUOY, SHIP, ISLAND, BUOY_SIGNAL, TASK, CASTLE }
+enum ENUM_ICON_SPAWN_ORANGE { BATTLE, MARK_PIRATE, TORNADO, SHIP_CRASH, CHEST, PORTAL, BROKEN_HOUSE, MINING, FARM }
+enum ENUM_ICON_SPAWN_RED {MONSTER_LV_0, MONSTER_LV_1, MONSTER_LV_2, MONSTER_LV_3, MONSTER_LV_4, MINI_BOSS_VIKING, MINI_BOSS_DRAGON,
+	MINI_BOSS_GIANT, BIG_BOSS_EVIL, SEA_MONSTER_KRAKEN, SEA_MONSTER_LEVIATAN, PIRATE, SEA_BIG_BOSS_NATURE }
+enum ENUM_ICON_SPAWN_MARK {BLUE, ORANGE, RED}
 func _ready() -> void:
 	onready_cam_nav()
+	var main_btn:Button = $parent_btn_move/Button
+	
+	main_btn.connect("pressed", func():
+		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
 
+# --------------------------------------
+# SECTOR SWPAN
+# --------------------------------------
+@onready var nodes_all_sector = $all_sector
+@onready var node_btn_prosed_spawn:Button = $btn_prosed
+func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
+	var get_sector_main = nodes_all_sector.get_child(sector)
+	var rng_sector = randi_range( 0, get_sector_main.get_child_count()-1 )
+	var get_sector:Panel = get_sector_main.get_child(rng_sector)
+	
+	var sector_max_x = get_sector.size.x - 25
+	var sector_max_y = get_sector.size.y - 25
+
+	var main_spawn:Button = node_btn_prosed_spawn.duplicate()
+	var spawn_img:TextureRect = main_spawn.get_node("bg")
+	
+	main_spawn.connect("pressed", func():
+		var npc_data = NPC_generator.new()
+		var npc:Dictionary = npc_data.npc_new()
+		for i in npc:
+			print(str("ID: ",i))
+			var main_data:Dictionary = npc[i]
+			for key in main_data.keys():
+				print( str("KEY: ",key,": ",main_data[key]) ) )
+	
+	main_spawn.show()
+	spawn_img.texture = load(_path_icon_spawn_mark(mark))
+	main_spawn.icon = load(main)
+	
+	get_sector.add_child(main_spawn)
+	main_spawn.position = Vector2( randi_range(0, sector_max_x), randi_range(0, sector_max_y) )
+	
+# -------------------- UTYLITY FUNC ------------------------
+func _path_icon_spawn_blue(code):
+	var path = str("res://img/Gate/Icon/Blue/",code,".png")
+	return path
+func _path_icon_spawn_orange(code):
+	var path = str("res://img/Gate/Icon/Gold/",code,".png")
+	return path
+func _path_icon_spawn_red(code):
+	var path = str("res://img/Gate/Icon/Red/",code,".png")
+	return path
+func _path_icon_spawn_mark(code):
+	var path = str("res://img/Gate/Icon/Mark/",code,".png")
+	return path
+# --------------------------------------
+# NAVIGATION BUTTON
+# --------------------------------------
 # Referensi node yang diperlukan
 @onready var nodes_btn_nav = $parent_btn_move
 @onready var node_main_cam = $main_cam
 @onready var node_nav_prog = $parent_btn_move/btn_snap/prog
-
 # Variabel untuk Tween dan kontrol snap
 var tween: Tween
 var snap_tween: Tween
 var prog_tween: Tween
 var is_snapping: bool = false
-
 # Variabel untuk kontrol tombol tahan
 var move_timer: Timer
 var current_move_direction: Vector2 = Vector2.ZERO
@@ -38,14 +92,12 @@ func onready_cam_nav():
 	move_timer.wait_time = 0.1  # Interval gerakan saat tombol ditahan
 	move_timer.timeout.connect(_on_move_timer_timeout)
 	add_child(move_timer)
-	
 	# Hubungkan tombol navigasi
 	var btn_right = nodes_btn_nav.get_child(0)  # Tombol kanan
 	var btn_left = nodes_btn_nav.get_child(1)   # Tombol kiri
 	var btn_up = nodes_btn_nav.get_child(2)     # Tombol atas
 	var btn_down = nodes_btn_nav.get_child(3)   # Tombol bawah
 	var btn_snap = nodes_btn_nav.get_child(4)   # Tombol snap
-	
 	# Hubungkan signal tombol untuk pressed dan released
 	btn_right.button_down.connect(_on_btn_right_down)
 	btn_right.button_up.connect(_on_btn_released)
@@ -56,7 +108,6 @@ func onready_cam_nav():
 	btn_down.button_down.connect(_on_btn_down_down)
 	btn_down.button_up.connect(_on_btn_released)
 	btn_snap.pressed.connect(_on_btn_snap_pressed)
-
 # Fungsi untuk menggerakkan kamera (untuk kompatibilitas)
 func _move_camera(offset: Vector2):
 	_move_camera_instant(offset)
@@ -86,20 +137,17 @@ func _start_continuous_move(direction: Vector2):
 	_move_camera_instant(direction)
 	# Mulai timer untuk gerakan berulang
 	move_timer.start()
-
 # Fungsi untuk menghentikan gerakan berulang
 func _stop_continuous_move():
 	is_button_held = false
 	current_move_direction = Vector2.ZERO
 	move_timer.stop()
-
 # Fungsi callback timer untuk gerakan berulang
 func _on_move_timer_timeout():
 	if is_button_held and current_move_direction != Vector2.ZERO:
 		_move_camera_instant(current_move_direction)
 	else:
 		move_timer.stop()
-
 # Fungsi untuk menggerakkan kamera secara instant (untuk gerakan berulang)
 func _move_camera_instant(offset: Vector2):
 	# Hentikan tween sebelumnya
@@ -116,7 +164,6 @@ func _move_camera_instant(offset: Vector2):
 	tween.tween_property(node_main_cam, "position", target_cam_pos, 0.1)
 	tween.tween_property(nodes_btn_nav, "position", target_btn_pos, 0.1)
 	#nodes_btn_nav.position = Vector2(-688, 248)
-
 # Fungsi untuk tombol snap
 func _on_btn_snap_pressed():
 	if is_snapping:
@@ -128,23 +175,18 @@ func _on_btn_snap_pressed():
 
 func _start_snap_process():
 	is_snapping = true
-	
 	# Nonaktifkan semua tombol
 	_set_buttons_disabled(true)
-	
 	# Reset progress bar
 	node_nav_prog.value = 0
-	
 	# Mulai progress bar animation
 	if prog_tween:
 		prog_tween.kill()
 	
 	prog_tween = create_tween()
 	prog_tween.tween_property(node_nav_prog, "value", 100, 3.0)
-	
 	# Setelah 3 detik, lakukan snap jika tidak dibatalkan
 	prog_tween.tween_callback(_complete_snap)
-
 func _complete_snap():
 	if not is_snapping:
 		return
@@ -163,7 +205,6 @@ func _complete_snap():
 	
 	# Setelah snap selesai, reset progress
 	snap_tween.tween_callback(_reset_progress)
-
 func _reset_progress():
 	if prog_tween:
 		prog_tween.kill()
@@ -171,35 +212,27 @@ func _reset_progress():
 	prog_tween = create_tween()
 	prog_tween.tween_property(node_nav_prog, "value", 0, 0.1)
 	prog_tween.tween_callback(_finish_snap)
-
 func _cancel_snap():
 	if not is_snapping:
 		return
-	
 	# Hentikan semua tween yang berkaitan dengan snap
 	if prog_tween:
 		prog_tween.kill()
-	
 	if snap_tween:
 		snap_tween.kill()
-	
 	# Reset progress bar dari value saat ini ke 0 dalam 0.1 detik
 	prog_tween = create_tween()
 	prog_tween.tween_property(node_nav_prog, "value", 0, 0.1)
 	prog_tween.tween_callback(_finish_snap)
-
 func _finish_snap():
 	is_snapping = false
-	
 	# Aktifkan kembali semua tombol
 	_set_buttons_disabled(false)
-
 func _set_buttons_disabled(disabled: bool):
 	# Nonaktifkan tombol arah (0-3) tapi biarkan btn_snap (4) tetap aktif
 	for i in range(4):  # Hanya tombol 0-3
 		var btn = nodes_btn_nav.get_child(i)
 		btn.disabled = disabled
-	
 	# Jika tombol dinonaktifkan, hentikan gerakan berulang
 	if disabled:
 		_stop_continuous_move()

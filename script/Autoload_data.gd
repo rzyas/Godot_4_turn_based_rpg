@@ -23,6 +23,10 @@ func set_pct(total: int, angka_utama: int) -> int:
 var scene_data: String = ""
 var player_set_nickname=false
 # =====================================================
+# DATA NPC GATE
+# =====================================================
+var all_npc:Dictionary = {}
+# =====================================================
 # DECLARATIVE DATA STRUCTURE - Tambah data baru di sini saja!
 # =====================================================
 # Started Code
@@ -253,6 +257,7 @@ func apply_loaded_data(data: Dictionary):
 
 func reset_data():
 	print("DATA RESET")
+	all_npc = {}
 	player_started_reward = {
 		"INDIE_GAME_DEV_INDO":{
 			"id": "spin",
