@@ -6,11 +6,58 @@ enum ENUM_ICON_SPAWN_RED {MONSTER_LV_0, MONSTER_LV_1, MONSTER_LV_2, MONSTER_LV_3
 enum ENUM_ICON_SPAWN_MARK {BLUE, ORANGE, RED}
 func _ready() -> void:
 	onready_cam_nav()
-	var main_btn:Button = $parent_btn_move/Button
+	onready_btn_sector()
+	node_sldv_cam.value_changed.connect(onready_cam_zoom)
+
+	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	
 	main_btn.connect("pressed", func():
 		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
 
+# --------------------------------------
+# SECTOR INSPECT
+# --------------------------------------
+@onready var nodes_sector_inspect = $canvas_l/pnl_sector
+@onready var nodes_all_btn_sector = $island_name
+func onready_btn_sector():
+	for i in nodes_all_btn_sector.get_child_count():
+		var sector_size = nodes_all_btn_sector.get_child(i).get_child_count()
+		for ii in sector_size:
+			var btn:Button = nodes_all_btn_sector.get_child(i).get_child(ii)
+			btn.connect("pressed", sector_inspect.bind(i, ii) )
+# sector data
+func sector_inspect(zone, sector):
+	var node_sector_header:Label = nodes_sector_inspect.get_node("vbox/name")
+	var node_sector_size:Label = nodes_sector_inspect.get_node("vbox/size")
+	var _island_x_size = nodes_all_sector.get_child(zone).get_child(sector).size.x * 2
+	var _island_y_size = nodes_all_sector.get_child(zone).get_child(sector).size.y * 2
+	var node_vbox_prog:VBoxContainer = nodes_sector_inspect.get_node("vbox/hbox/vbox_prog")
+	var node_vbox_count:VBoxContainer = nodes_sector_inspect.get_node("vbox/hbox/vbox_count")
+	
+	node_sector_header.text = AutoloadData.sector_data[zone][sector]["name"]
+	node_sector_size.text = str("AREA SIZE: ", int(_island_x_size)+int(_island_y_size))
+	var _dict_key = ["danger","mining","food","treasure","population"]
+	for i in node_vbox_prog.get_child_count():
+		var prog:TextureProgressBar = node_vbox_prog.get_node(str("vbox_",i,"/prog"))
+		var count:Label = node_vbox_count.get_child(i)
+		# Mulai dari 0
+		prog.value = 0
+		count.text = '0'
+		# Ambil target value
+		var target_value = AutoloadData.sector_data[zone][sector][_dict_key[i]]
+		# Buat tween paralel
+		var tween_prog = create_tween()
+		tween_prog.set_parallel(true)
+		# Tween prog.value dari 0 ke target
+		tween_prog.tween_property(prog, 'value', target_value, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		# Tween dummy untuk update count.text saat prog.value berubah
+		tween_prog.tween_method(
+			func(v):
+				count.text = str(int(v)),
+			0.0,
+			target_value,
+			1.0
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 # --------------------------------------
 # SECTOR SWPAN
 # --------------------------------------
@@ -21,20 +68,14 @@ func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
 	var rng_sector = randi_range( 0, get_sector_main.get_child_count()-1 )
 	var get_sector:Panel = get_sector_main.get_child(rng_sector)
 	
-	var sector_max_x = get_sector.size.x - 25
-	var sector_max_y = get_sector.size.y - 25
+	var sector_max_x = get_sector.size.x - 50
+	var sector_max_y = get_sector.size.y - 50
 
 	var main_spawn:Button = node_btn_prosed_spawn.duplicate()
 	var spawn_img:TextureRect = main_spawn.get_node("bg")
-	
-	main_spawn.connect("pressed", func():
-		var npc_data = NPC_generator.new()
-		var npc:Dictionary = npc_data.npc_new()
-		for i in npc:
-			print(str("ID: ",i))
-			var main_data:Dictionary = npc[i]
-			for key in main_data.keys():
-				print( str("KEY: ",key,": ",main_data[key]) ) )
+	var rng_size = randi_range(75, 500)
+	spawn_img.size = Vector2(rng_size, rng_size)
+	spawn_img.position = -(spawn_img.size / 2)
 	
 	main_spawn.show()
 	spawn_img.texture = load(_path_icon_spawn_mark(mark))
@@ -42,27 +83,23 @@ func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
 	
 	get_sector.add_child(main_spawn)
 	main_spawn.position = Vector2( randi_range(0, sector_max_x), randi_range(0, sector_max_y) )
-	
-# -------------------- UTYLITY FUNC ------------------------
-func _path_icon_spawn_blue(code):
-	var path = str("res://img/Gate/Icon/Blue/",code,".png")
-	return path
-func _path_icon_spawn_orange(code):
-	var path = str("res://img/Gate/Icon/Gold/",code,".png")
-	return path
-func _path_icon_spawn_red(code):
-	var path = str("res://img/Gate/Icon/Red/",code,".png")
-	return path
-func _path_icon_spawn_mark(code):
-	var path = str("res://img/Gate/Icon/Mark/",code,".png")
-	return path
+# ---------------------------------------
+# VERTICAL SLIDE ZOOM IN/OUT
+# ---------------------------------------
+@onready var node_sldv_cam = $canvas_l/sld_camzoom
+func onready_cam_zoom(slide_value):
+	var min_zoom = .5
+	var max_zoom = 5.0
+	var normalized = slide_value / 100.0
+	var zoom_factor = lerp(min_zoom, max_zoom, normalized)
+	node_main_cam.zoom = Vector2(zoom_factor, zoom_factor)
 # --------------------------------------
 # NAVIGATION BUTTON
 # --------------------------------------
 # Referensi node yang diperlukan
-@onready var nodes_btn_nav = $parent_btn_move
+@onready var nodes_btn_nav = $canvas_l/parent_btn_move
 @onready var node_main_cam = $main_cam
-@onready var node_nav_prog = $parent_btn_move/btn_snap/prog
+@onready var node_nav_prog = nodes_btn_nav.get_node("btn_snap/prog")
 # Variabel untuk Tween dan kontrol snap
 var tween: Tween
 var snap_tween: Tween
@@ -112,7 +149,7 @@ func onready_cam_nav():
 func _move_camera(offset: Vector2):
 	_move_camera_instant(offset)
 # Fungsi untuk tombol arah - button_down
-var _nav_speed = 150
+var _nav_speed = 70
 func _on_btn_right_down():
 	_start_continuous_move(Vector2(_nav_speed, 0))
 func _on_btn_left_down():
@@ -121,7 +158,6 @@ func _on_btn_up_down():
 	_start_continuous_move(Vector2(0, -_nav_speed))
 func _on_btn_down_down():
 	_start_continuous_move(Vector2(0, _nav_speed))
-
 # Fungsi untuk tombol arah - button_up
 func _on_btn_released():
 	_stop_continuous_move()
@@ -159,10 +195,10 @@ func _move_camera_instant(offset: Vector2):
 	tween.set_parallel(true)  # Izinkan animasi paralel
 	
 	var target_cam_pos = node_main_cam.position + offset
-	var target_btn_pos = nodes_btn_nav.position + offset
+	#var target_btn_pos = nodes_btn_nav.position + offset
 	# Animasi kamera dan tombol navigasi bersamaan
 	tween.tween_property(node_main_cam, "position", target_cam_pos, 0.1)
-	tween.tween_property(nodes_btn_nav, "position", target_btn_pos, 0.1)
+	#tween.tween_property(nodes_btn_nav, "position", target_btn_pos, 0.1)
 	#nodes_btn_nav.position = Vector2(-688, 248)
 # Fungsi untuk tombol snap
 func _on_btn_snap_pressed():
@@ -172,7 +208,19 @@ func _on_btn_snap_pressed():
 		return
 	
 	_start_snap_process()
-
+# -------------------- UTYLITY FUNC ------------------------
+func _path_icon_spawn_blue(code):
+	var path = str("res://img/Gate/Icon/Blue/",code,".png")
+	return path
+func _path_icon_spawn_orange(code):
+	var path = str("res://img/Gate/Icon/Gold/",code,".png")
+	return path
+func _path_icon_spawn_red(code):
+	var path = str("res://img/Gate/Icon/Red/",code,".png")
+	return path
+func _path_icon_spawn_mark(code):
+	var path = str("res://img/Gate/Icon/Mark/",code,".png")
+	return path
 func _start_snap_process():
 	is_snapping = true
 	# Nonaktifkan semua tombol
@@ -199,9 +247,9 @@ func _complete_snap():
 	snap_tween.set_parallel(true)  # Izinkan animasi paralel
 	
 	# Snap kamera dan tombol navigasi ke posisi (0,0)
-	var target_btn_default_pos = Vector2(-688, 248)
+	#var target_btn_default_pos = Vector2(-688, 248)
 	snap_tween.tween_property(node_main_cam, "position", Vector2.ZERO, 0.2)
-	snap_tween.tween_property(nodes_btn_nav, "position", target_btn_default_pos, 0.2)
+	#snap_tween.tween_property(nodes_btn_nav, "position", target_btn_default_pos, 0.2)
 	
 	# Setelah snap selesai, reset progress
 	snap_tween.tween_callback(_reset_progress)

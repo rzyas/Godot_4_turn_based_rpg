@@ -25,6 +25,23 @@ var player_set_nickname=false
 # =====================================================
 # DATA NPC GATE
 # =====================================================
+var sector_data = {
+	0:{
+		0:{ "danger":95,"mining":50,"food":80,"treasure":5,"population":0,"name":"Gunuraya Thicket" },
+		1:{ "danger":80,"mining":20,"food":90,"treasure":2,"population":0,"name":"Kabrawa Hollow" },
+		2:{ "danger":60,"mining":35,"food":60,"treasure":0,"population":0,"name":"Danara Glade" },
+		3:{ "danger":30,"mining":70,"food":100,"treasure":10,"population":0,"name":"Sempadar Expanse" },
+		4:{ "danger":70,"mining":5,"food":70,"treasure":4,"population":0,"name":"Telagri Grove" },
+		5:{ "danger":10,"mining":60,"food":15,"treasure":25,"population":0,"name":"Norsava Strand" },
+		6:{ "danger":25,"mining":50,"food":30,"treasure":0,"population":0,"name":"Myarok Coast" },
+		7:{ "danger":15,"mining":40,"food":15,"treasure":0,"population":0,"name":"Froskala Reach Dat" },
+		8:{ "danger":15,"mining":60,"food":5,"treasure":3,"population":0,"name":"Aurgil Cape" },
+		9:{ "danger":5,"mining":80,"food":0,"treasure":10,"population":0,"name":"Kalandro Isle" },
+		10:{ "danger":25,"mining":30,"food":30,"treasure":0,"population":0,"name":"Ombanai Island" },
+		11:{ "danger":10,"mining":35,"food":5,"treasure":0,"population":0,"name":"Silurak Islet" },
+		12:{ "danger":2,"mining":20,"food":1,"treasure":0,"population":0,"name":"Rintalo Islet" },
+	},
+}
 var all_npc:Dictionary = {}
 # =====================================================
 # DECLARATIVE DATA STRUCTURE - Tambah data baru di sini saja!
@@ -257,6 +274,23 @@ func apply_loaded_data(data: Dictionary):
 
 func reset_data():
 	print("DATA RESET")
+	sector_data = {
+		0:{
+			0:{ "danger":95,"mining":50,"food":80,"treasure":5,"population":0,"name":"Gunuraya Thicket" },
+			1:{ "danger":80,"mining":20,"food":90,"treasure":2,"population":0,"name":"Kabrawa Hollow" },
+			2:{ "danger":60,"mining":35,"food":60,"treasure":0,"population":0,"name":"Danara Glade" },
+			3:{ "danger":30,"mining":70,"food":100,"treasure":10,"population":0,"name":"Sempadar Expanse" },
+			4:{ "danger":70,"mining":5,"food":70,"treasure":4,"population":0,"name":"Telagri Grove" },
+			5:{ "danger":10,"mining":60,"food":15,"treasure":25,"population":0,"name":"Norsava Strand" },
+			6:{ "danger":25,"mining":50,"food":30,"treasure":0,"population":0,"name":"Myarok Coast" },
+			7:{ "danger":15,"mining":40,"food":15,"treasure":0,"population":0,"name":"Froskala Reach Dat" },
+			8:{ "danger":15,"mining":60,"food":5,"treasure":3,"population":0,"name":"Aurgil Cape" },
+			9:{ "danger":5,"mining":80,"food":0,"treasure":10,"population":0,"name":"Kalandro Isle" },
+			10:{ "danger":25,"mining":30,"food":30,"treasure":0,"population":0,"name":"Ombanai Island" },
+			11:{ "danger":10,"mining":35,"food":5,"treasure":0,"population":0,"name":"Silurak Islet" },
+			12:{ "danger":2,"mining":20,"food":1,"treasure":0,"population":0,"name":"Rintalo Islet" },
+		},
+	}
 	all_npc = {}
 	player_started_reward = {
 		"INDIE_GAME_DEV_INDO":{

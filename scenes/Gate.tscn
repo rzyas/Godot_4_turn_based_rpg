@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=59 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -14,9 +14,85 @@
 [ext_resource type="Texture2D" uid="uid://bn1ge15rdal07" path="res://img/Gate/Map Jungle/0.png" id="6_xld3y"]
 [ext_resource type="Texture2D" uid="uid://c6xyjkn7m5hkq" path="res://img/UI (new)/circle_charts_v2.png" id="7_xld3y"]
 [ext_resource type="Texture2D" uid="uid://bft4iajkr3k57" path="res://img/Gate/Map Jungle/6.png" id="8_rq62h"]
+[ext_resource type="Texture2D" uid="uid://quapdu8jhn5i" path="res://img/Gate/location.png" id="12_sb342"]
+[ext_resource type="Texture2D" uid="uid://cn3lwqhxgw78k" path="res://img/UI (new)/UI_16.png" id="13_p46fb"]
+[ext_resource type="Texture2D" uid="uid://co0nk8vcr2wa3" path="res://img/Gate/Icon/Red/1.png" id="14_ujw2g"]
+[ext_resource type="Theme" uid="uid://cq55jxqqspacb" path="res://Themes/THEME V3/SLD_V.tres" id="15_0gpd2"]
+[ext_resource type="Texture2D" uid="uid://dtdvjvcsir3sf" path="res://img/Gate/Icon/Gold/7.png" id="15_2lgv5"]
+[ext_resource type="Texture2D" uid="uid://bq1ifxujx65ik" path="res://img/UI (new)/UI_3_1.png" id="15_p46fb"]
+[ext_resource type="Texture2D" uid="uid://blhk3kcx8hlgs" path="res://img/UI (new)/black_panel.png" id="16_ibuj8"]
+[ext_resource type="Texture2D" uid="uid://7b6jmq3odpse" path="res://img/Gate/Icon/Gold/8.png" id="16_xo5lu"]
+[ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="17_7t806"]
+[ext_resource type="Texture2D" uid="uid://emapmrxbrhfq" path="res://img/Gate/Icon/Gold/4.png" id="17_mtd7b"]
+[ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="18_rasxx"]
+[ext_resource type="Texture2D" uid="uid://lqp6ssl8ms2v" path="res://img/Gate/Icon/Blue/0.png" id="18_vrl8x"]
+[ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="19_rasxx"]
+[ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="20_3cji6"]
+[ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="20_dyt46"]
+[ext_resource type="Texture2D" uid="uid://dspncu0vo557o" path="res://img/Gate/PP/0.png" id="20_y5qjd"]
+[ext_resource type="Texture2D" uid="uid://5rywyo74dut0" path="res://img/Gate/STAT/4.png" id="21_5bv70"]
+[ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="21_rn2v2"]
+[ext_resource type="Texture2D" uid="uid://cmpwfmk3nu2me" path="res://img/Gate/STAT/0.png" id="22_1iflt"]
+[ext_resource type="Texture2D" uid="uid://jccor76rqla2" path="res://img/Gate/STAT/6.png" id="23_tpbcu"]
+[ext_resource type="Texture2D" uid="uid://utkqsh1r1byb" path="res://img/Gate/STAT/7.png" id="24_y5qjd"]
+[ext_resource type="Theme" uid="uid://fg7w05xewjl7" path="res://Themes/THEME V3/PNL_9_BLUE.tres" id="25_8smru"]
+[ext_resource type="Texture2D" uid="uid://cb66u55tls0og" path="res://img/Gate/STAT/8.png" id="26_pgr5m"]
+[ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="27_a2iyx"]
+[ext_resource type="Texture2D" uid="uid://xiebqd2pkxn7" path="res://img/Gate/STAT/9.png" id="27_dw84m"]
+[ext_resource type="Texture2D" uid="uid://22asr0vn0m0n" path="res://img/Hero/icon/N_BEAST_1_Skarnath.png" id="28_8smru"]
+[ext_resource type="Theme" uid="uid://8vb4t47xb2p0" path="res://Themes/THEME V3/BTN_ACTIVE_BLUE.tres" id="28_pgr5m"]
+[ext_resource type="Texture2D" uid="uid://c6c845lwv0nha" path="res://img/Gate/STAT/10.png" id="28_xqwb1"]
+[ext_resource type="Texture2D" uid="uid://3jouenep6ddj" path="res://img/Hero/icon/D_BEAST_2_Drelmora.png" id="29_a2iyx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq62h"]
-bg_color = Color(0, 0, 0, 0.392157)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p46fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlf3w"]
+atlas = ExtResource("12_sb342")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p2sl"]
+atlas = ExtResource("16_ibuj8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbcu"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(9, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aam0"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(9, 159, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5qjd"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(159, 9, 132, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uykja"]
+texture = ExtResource("13_p46fb")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(5, 5, 57, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lgv5"]
+texture = ExtResource("15_p46fb")
+texture_margin_left = 11.8763
+region_rect = Rect2(0, 90, 125.472, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826ep"]
+atlas = ExtResource("16_ibuj8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo5lu"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(145, 267, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p46fb"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(389, 144, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujw2g"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xld3y"]
 texture = ExtResource("3_mec7e")
@@ -34,8 +110,7 @@ script = ExtResource("1_uvwl4")
 
 [node name="btn_prosed" type="Button" parent="."]
 visible = false
-z_index = 1
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(40, 40)
 offset_left = -32.0
 offset_top = 387.0
 offset_right = -7.0
@@ -49,25 +124,24 @@ expand_icon = true
 [node name="bg" type="TextureRect" parent="btn_prosed"]
 self_modulate = Color(1, 1, 1, 0.588235)
 show_behind_parent = true
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(150, 150)
 mouse_filter = 2
 texture = ExtResource("4_0gpd2")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="main_cam" type="Camera2D" parent="."]
 
 [node name="bg_main" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(5000, 5000)
@@ -205,84 +279,1235 @@ mouse_filter = 2
 [node name="sector_0_0" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 388.0
+offset_top = 171.0
 offset_right = 127.0
 offset_bottom = 682.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_1" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 384.0
-offset_right = 255.0
-offset_bottom = 518.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = 130.0
+offset_top = 170.0
+offset_right = 219.0
+offset_bottom = 546.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_2" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = -133.0
-offset_top = 184.0
-offset_right = 207.0
-offset_bottom = 376.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = -189.0
+offset_top = 172.0
+offset_right = 3.0
+offset_bottom = 422.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_3" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = -213.0
-offset_top = 304.0
-offset_right = -135.0
-offset_bottom = 428.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = -495.0
+offset_top = -164.0
+offset_right = 247.0
+offset_bottom = 163.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_4" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = -74.0
-offset_top = 376.0
-offset_right = 4.0
-offset_bottom = 464.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = 257.0
+offset_top = -265.0
+offset_right = 457.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_5" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 521.0
-offset_right = 168.0
-offset_bottom = 588.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = 460.0
+offset_top = -547.0
+offset_right = 604.0
+offset_bottom = -210.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_6" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = -365.0
-offset_top = -277.0
-offset_right = 235.0
-offset_bottom = 175.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = -66.0
+offset_top = -610.0
+offset_right = 253.0
+offset_bottom = -171.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
 [node name="sector_0_7" type="Panel" parent="all_sector/sector_0"]
 layout_mode = 0
-offset_left = 235.0
-offset_top = -277.0
-offset_right = 463.0
-offset_bottom = 37.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq62h")
+offset_left = -394.0
+offset_top = -357.0
+offset_right = -75.0
+offset_bottom = -171.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
 
-[node name="parent_btn_move" type="Panel" parent="."]
-z_index = 1
-custom_minimum_size = Vector2(50, 50)
+[node name="sector_0_8" type="Panel" parent="all_sector/sector_0"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = -607.0
+offset_right = 456.0
+offset_bottom = -273.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+
+[node name="sector_0_9" type="Panel" parent="all_sector/sector_0"]
+layout_mode = 0
+offset_left = -420.0
+offset_top = -754.0
+offset_right = -71.0
+offset_bottom = -628.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+
+[node name="sector_0_10" type="Panel" parent="all_sector/sector_0"]
+layout_mode = 0
+offset_left = -778.0
+offset_top = -498.0
+offset_right = -503.0
+offset_bottom = -126.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+
+[node name="sector_0_11" type="Panel" parent="all_sector/sector_0"]
+layout_mode = 0
+offset_left = 607.0
+offset_top = -253.0
+offset_right = 773.0
+offset_bottom = 4.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+
+[node name="sector_0_12" type="Panel" parent="all_sector/sector_0"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 112.0
+offset_right = 452.0
+offset_bottom = 289.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+
+[node name="island_name" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -688.0
-offset_top = 248.0
-offset_right = -592.0
-offset_bottom = 344.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="0" type="Panel" parent="island_name"]
+layout_mode = 0
+
+[node name="0" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 67.0
+offset_top = 369.0
+offset_right = 242.0
+offset_bottom = 399.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Gunuraya Thicket "
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 171.0
+offset_top = 329.0
+offset_right = 346.0
+offset_bottom = 359.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Kabrawa Hollow"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -101.0
+offset_top = 273.0
+offset_right = 74.0
+offset_bottom = 303.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Danara Glade"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -171.0
+offset_top = -31.0
+offset_right = 96.0
+offset_bottom = -1.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Sempadar Expanse"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 355.0
+offset_top = -127.0
+offset_right = 530.0
+offset_bottom = -97.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Telagri Grove"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 523.0
+offset_top = -383.0
+offset_right = 698.0
+offset_bottom = -353.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Norsava Strand"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="6" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 91.0
+offset_top = -407.0
+offset_right = 266.0
+offset_bottom = -377.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Myarok Coast"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="7" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -229.0
+offset_top = -279.0
+offset_right = -54.0
+offset_bottom = -249.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Froskala Reach	Dat"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="8" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 355.0
+offset_top = -431.0
+offset_right = 530.0
+offset_bottom = -401.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Aurgil Cape"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="9" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -267.0
+offset_top = -709.0
+offset_right = -92.0
+offset_bottom = -679.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Kalandro Isle"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="10" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -633.0
+offset_top = -326.0
+offset_right = -458.0
+offset_bottom = -296.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Ombanai Island"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="11" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 678.0
+offset_top = -143.0
+offset_right = 853.0
+offset_bottom = -113.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Silurak Islet"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="12" type="Button" parent="island_name/0"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 404.0
+offset_top = 183.0
+offset_right = 579.0
+offset_bottom = 213.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Rintalo Islet"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="main_cam" type="Camera2D" parent="."]
+
+[node name="canvas_l" type="CanvasLayer" parent="."]
+
+[node name="btn_cls_info_people" type="Button" parent="canvas_l"]
+self_modulate = Color(1, 1, 1, 0.588235)
+show_behind_parent = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -956.5
+offset_top = -846.0
+offset_right = 956.5
+offset_bottom = 846.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = SubResource("AtlasTexture_1p2sl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -472.0
+offset_right = 76.5
+offset_bottom = -440.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
+
+[node name="pnl_main" type="PanelContainer" parent="canvas_l/btn_cls_info_people"]
+custom_minimum_size = Vector2(1300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.5
+offset_top = -417.0
+offset_right = 550.5
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("18_rasxx")
+
+[node name="vbox_info" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+theme_override_font_sizes/font_size = 32
+text = "INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="hbox_prog" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+
+[node name="profile" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("20_y5qjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox_title" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="tittle_name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 21
+text = "KING XIII"
+vertical_alignment = 1
+uppercase = true
+
+[node name="tittle_age" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 21
+text = "29 years old - farmer"
+vertical_alignment = 1
+uppercase = true
+
+[node name="stat_str" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_str"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("21_5bv70")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_int" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_int"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("22_1iflt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_com" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_com"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("23_tpbcu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_wis" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_wis"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("24_y5qjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_food" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_food"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("26_pgr5m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_mood" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_mood"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("27_dw84m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_health" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_health"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("28_xqwb1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="pnl_data" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("25_8smru")
+
+[node name="hbox_data" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+layout_mode = 2
+
+[node name="vbox_header_0" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data"]
+layout_mode = 2
+
+[node name="trust" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "TRUST"
+uppercase = true
+
+[node name="gender" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "gender"
+uppercase = true
+
+[node name="age" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "age"
+uppercase = true
+
+[node name="birth_date" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "birth date"
+uppercase = true
+
+[node name="death_date" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "death date"
+uppercase = true
+
+[node name="height" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "height"
+uppercase = true
+
+[node name="weight" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "weight"
+uppercase = true
+
+[node name="weight2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "alive"
+uppercase = true
+
+[node name="location" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "location"
+uppercase = true
+
+[node name="alive" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "death location"
+uppercase = true
+
+[node name="vbox_main_0" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="txt_trust" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_gender" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_age" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_birth_date" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_death_date" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_haight" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_weight" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_alive" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_location" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_death_loc" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_0"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="vbox_header_1" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data"]
+layout_mode = 2
+
+[node name="hobby" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "hobby"
+uppercase = true
+
+[node name="origin" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "origin"
+uppercase = true
+
+[node name="status" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "status"
+uppercase = true
+
+[node name="marriage" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_header_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 16
+text = "marriage"
+uppercase = true
+
+[node name="vbox_main_1" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="txt_hobby" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_1"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_origin" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_1"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_status" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_1"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="txt_marriage" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_data/vbox_main_1"]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "-"
+vertical_alignment = 1
+
+[node name="hbox_trade" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+visible = false
+layout_mode = 2
+
+[node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
+custom_minimum_size = Vector2(1040, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="gridc" type="GridContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
+
+[node name="btn_prosed" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/gridc"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("28_8smru")
+flat = true
+expand_icon = true
+
+[node name="pnl_desc" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("18_rasxx")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("29_a2iyx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "UDIN PETOT"
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="desc" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "menggunkana tensigain level 29 ajabn vbiusa mnebndaoaka utemn rare"
+autowrap_mode = 3
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+layout_mode = 2
+
+[node name="btn_dec" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+text = "-"
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "234.34K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_add" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+text = "+"
+
+[node name="btn_buy" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+text = "BUY"
+
+[node name="btn_act" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("28_pgr5m")
+text = "TRADE"
+
+[node name="pnl_sector" type="PanelContainer" parent="canvas_l"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -242.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_sector"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="canvas_l/pnl_sector/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_2lgv5")
+text = "sector name"
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="size" type="Label" parent="canvas_l/pnl_sector/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.772247, 0.772247, 0.772247, 1)
+theme_override_font_sizes/font_size = 16
+text = "area size: -"
+horizontal_alignment = 2
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/pnl_sector/vbox"]
+layout_mode = 2
+
+[node name="vbox_icon" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="icon_0" type="TextureRect" parent="canvas_l/pnl_sector/vbox/hbox/vbox_icon"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("14_ujw2g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon_1" type="TextureRect" parent="canvas_l/pnl_sector/vbox/hbox/vbox_icon"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("15_2lgv5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon_2" type="TextureRect" parent="canvas_l/pnl_sector/vbox/hbox/vbox_icon"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("16_xo5lu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon_3" type="TextureRect" parent="canvas_l/pnl_sector/vbox/hbox/vbox_icon"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("17_mtd7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon_4" type="TextureRect" parent="canvas_l/pnl_sector/vbox/hbox/vbox_icon"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("18_vrl8x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="vbox_0" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="txt" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_0"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 16
+text = "danger area"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_0"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_826ep")
+texture_progress = SubResource("AtlasTexture_xo5lu")
+
+[node name="vbox_1" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="txt" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_1"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 16
+text = "mining"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_1"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_826ep")
+texture_progress = SubResource("AtlasTexture_p46fb")
+
+[node name="vbox_2" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="txt" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 16
+text = "food"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_2"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_826ep")
+texture_progress = SubResource("AtlasTexture_p46fb")
+
+[node name="vbox_3" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="txt" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_3"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 16
+text = "treasure"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_3"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_826ep")
+texture_progress = SubResource("AtlasTexture_p46fb")
+
+[node name="vbox_4" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="txt" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_4"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 16
+text = "population"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/pnl_sector/vbox/hbox/vbox_prog/vbox_4"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_826ep")
+texture_progress = SubResource("AtlasTexture_ujw2g")
+
+[node name="vbox_count" type="VBoxContainer" parent="canvas_l/pnl_sector/vbox/hbox"]
+layout_mode = 2
+
+[node name="txt_0" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_count"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txt_1" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_count"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txt_2" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_count"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txt_3" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_count"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txt_4" type="Label" parent="canvas_l/pnl_sector/vbox/hbox/vbox_count"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sld_camzoom" type="VSlider" parent="canvas_l"]
+offset_top = 15.0
+offset_right = 60.0
+offset_bottom = 690.0
+theme = ExtResource("15_0gpd2")
+
+[node name="parent_btn_move" type="Panel" parent="canvas_l"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -184.0
+offset_right = 184.0
+offset_bottom = -88.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xld3y")
 
-[node name="btn_r" type="Button" parent="parent_btn_move"]
+[node name="btn_r" type="Button" parent="canvas_l/parent_btn_move"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -300,7 +1525,7 @@ theme = ExtResource("4_mec7e")
 flat = true
 expand_icon = true
 
-[node name="img" type="TextureRect" parent="parent_btn_move/btn_r"]
+[node name="img" type="TextureRect" parent="canvas_l/parent_btn_move/btn_r"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -318,7 +1543,7 @@ texture = ExtResource("4_ssit8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="btn_l" type="Button" parent="parent_btn_move"]
+[node name="btn_l" type="Button" parent="canvas_l/parent_btn_move"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -336,7 +1561,7 @@ theme = ExtResource("4_mec7e")
 flat = true
 expand_icon = true
 
-[node name="img" type="TextureRect" parent="parent_btn_move/btn_l"]
+[node name="img" type="TextureRect" parent="canvas_l/parent_btn_move/btn_l"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -355,7 +1580,7 @@ expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
-[node name="btn_t" type="Button" parent="parent_btn_move"]
+[node name="btn_t" type="Button" parent="canvas_l/parent_btn_move"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -373,7 +1598,7 @@ theme = ExtResource("4_mec7e")
 flat = true
 expand_icon = true
 
-[node name="img" type="TextureRect" parent="parent_btn_move/btn_t"]
+[node name="img" type="TextureRect" parent="canvas_l/parent_btn_move/btn_t"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -393,7 +1618,7 @@ texture = ExtResource("4_ssit8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="btn_b" type="Button" parent="parent_btn_move"]
+[node name="btn_b" type="Button" parent="canvas_l/parent_btn_move"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -411,7 +1636,7 @@ theme = ExtResource("4_mec7e")
 flat = true
 expand_icon = true
 
-[node name="img" type="TextureRect" parent="parent_btn_move/btn_b"]
+[node name="img" type="TextureRect" parent="canvas_l/parent_btn_move/btn_b"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -431,7 +1656,7 @@ texture = ExtResource("4_ssit8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="btn_snap" type="Button" parent="parent_btn_move"]
+[node name="btn_snap" type="Button" parent="canvas_l/parent_btn_move"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -447,7 +1672,7 @@ grow_vertical = 2
 theme = ExtResource("4_mec7e")
 flat = true
 
-[node name="prog" type="TextureProgressBar" parent="parent_btn_move/btn_snap"]
+[node name="prog" type="TextureProgressBar" parent="canvas_l/parent_btn_move/btn_snap"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -465,7 +1690,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_neh4c")
 texture_progress = SubResource("AtlasTexture_2on8l")
 
-[node name="Button" type="Button" parent="parent_btn_move"]
+[node name="Button" type="Button" parent="canvas_l/parent_btn_move"]
 layout_mode = 0
 offset_left = -42.0
 offset_top = -177.0

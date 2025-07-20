@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dcfx47csmkff2"]
+
+[ext_resource type="Texture2D" uid="uid://dxu0jvxj6afvm" path="res://img/Gate/Icon/Utility/btn_circle.png" id="1_wgkct"]
+[ext_resource type="Texture2D" uid="uid://ckamxle7sytc0" path="res://img/Gate/Icon/Utility/bg_btn_0.png" id="2_u7xl1"]
+[ext_resource type="Texture2D" uid="uid://bna0yvqwbwx82" path="res://img/Gate/Icon/Utility/bg_btn.png" id="3_j338n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du5is"]
+atlas = ExtResource("1_wgkct")
+region = Rect2(1, 1, 49, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3qtc"]
+texture = ExtResource("2_u7xl1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrc6v"]
+texture = ExtResource("3_j338n")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(1, 2, 48, 47)
+
+[resource]
+VSlider/icons/grabber = SubResource("AtlasTexture_du5is")
+VSlider/icons/grabber_disabled = SubResource("AtlasTexture_du5is")
+VSlider/icons/grabber_highlight = SubResource("AtlasTexture_du5is")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_w3qtc")
+VSlider/styles/slider = SubResource("StyleBoxTexture_vrc6v")
