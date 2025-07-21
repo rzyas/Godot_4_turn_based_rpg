@@ -14,8 +14,9 @@ func npc_new() -> Dictionary:
 	var npc_data = {
 		npc_id: {
 			"name": _generate_name(gender),
-			"gender": gender,
 			"age": age,
+			"job": null,
+			"gender": gender,
 			"birth_date": birth_data,
 			"death_date": death_data,
 			"height": _generate_height(gender),
@@ -25,17 +26,16 @@ func npc_new() -> Dictionary:
 			"status": null,
 			"trust": 0,
 			"marriage": null,
-			"job": null,
 			"location": null,
 			"is_alive": true,
 			"death_location": null,
-			"intelligence": stats.intelligence,
 			"physical": stats.physical,
-			"wisdom": stats.wisdom,
+			"intelligence": stats.intelligence,
 			"communication": stats.communication,
-			"stat_food":0,
-			"stat_health":0,
-			"stat_mmod":0,
+			"wisdom": stats.wisdom,
+			"stat_food":50,
+			"stat_mmod":70,
+			"stat_health":70,
 		}
 	}
 	

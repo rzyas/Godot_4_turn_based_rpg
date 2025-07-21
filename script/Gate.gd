@@ -4,6 +4,7 @@ enum ENUM_ICON_SPAWN_ORANGE { BATTLE, MARK_PIRATE, TORNADO, SHIP_CRASH, CHEST, P
 enum ENUM_ICON_SPAWN_RED {MONSTER_LV_0, MONSTER_LV_1, MONSTER_LV_2, MONSTER_LV_3, MONSTER_LV_4, MINI_BOSS_VIKING, MINI_BOSS_DRAGON,
 	MINI_BOSS_GIANT, BIG_BOSS_EVIL, SEA_MONSTER_KRAKEN, SEA_MONSTER_LEVIATAN, PIRATE, SEA_BIG_BOSS_NATURE }
 enum ENUM_ICON_SPAWN_MARK {BLUE, ORANGE, RED}
+enum ENUM_ICON_PROFILE {MALE, FEMALE, FARM, TIEF, GUARD, QUEEN, KING}
 func _ready() -> void:
 	onready_cam_nav()
 	onready_btn_sector()
@@ -14,6 +15,50 @@ func _ready() -> void:
 	main_btn.connect("pressed", func():
 		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
 
+
+
+# --------------------------------------
+# PERSON INSPECT
+# --------------------------------------
+@onready var nodes_btn_cls_personinspect:Button = $canvas_l/btn_cls_info_people
+@onready var _person_keys_dict = {
+	0: 'name', 1: 'age', 2: 'job', 3: 'gender', 4: 'birth_date', 5: 'death_date', 6: 'height', 7: 'weight', 8: 'hobby', 9: 'origin',
+	10: 'status', 11: 'trust', 12: 'marriage', 13: 'location', 14: 'is_alive', 15: 'death_location', 16: 'physical', 17: 'intelligence',
+	18: 'communication', 19: 'wisdom', 20: 'stat_food', 21: 'stat_mmood', 22: 'stat_health' }
+
+func person_inspect(code):
+	var data_main = AutoloadData.all_npc[code]
+	# basic
+	var get_profile:TextureRect = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/profile")
+	var get_name:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/name")
+	var get_stat:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/stat")
+	var _pp_gender = 0 if data_main[_person_keys_dict[0]]=="Mele" else 1
+	get_profile.texture = _path_icon_profile(_pp_gender)
+	get_name.text = data_main[_person_keys_dict[0]]
+	get_stat.text = str(data_main[_person_keys_dict[1]]," Years Old - ",data_main[_person_keys_dict[3]])
+	# prog
+	var _hbox_prog = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog")
+	for i in range( 2, _hbox_prog.get_child_count() ):
+		var prog:TextureProgressBar = _hbox_prog.get_child(i)
+		prog.value = data_main[_person_keys_dict[i+14]]
+	# info
+	var _vbox_txt = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt")
+	for i in _vbox_txt.get_child_count():
+		var get_txt:Label = _vbox_txt.get_child(i)
+		get_txt.text = str( data_main[_person_keys_dict[i+3]] )
+	# trade
+	var get_btn_parent:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent")
+	var get_btn_prosed:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent/btn_prosed")
+	var get_trade_img:TextureRect = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/img")
+	var get_trade_item:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/item_name")
+	var get_trade_desc:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/desc")
+	var get_trade_btn_dec:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_dec")
+	var get_trade_btn_add:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_add")
+	var get_trade_btn_count:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/count")
+	var get_trade_btn_buy:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/btn_buy")
+	var get_trade_btn_act:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/btn_act")
+
+	
 # --------------------------------------
 # SECTOR INSPECT
 # --------------------------------------
@@ -209,6 +254,8 @@ func _on_btn_snap_pressed():
 	
 	_start_snap_process()
 # -------------------- UTYLITY FUNC ------------------------
+func _path_icon_profile(code):
+	return str( "res://img/Gate/PP/",code,".png" )
 func _path_icon_spawn_blue(code):
 	var path = str("res://img/Gate/Icon/Blue/",code,".png")
 	return path
