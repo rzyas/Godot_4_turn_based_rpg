@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=60 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://7b6jmq3odpse" path="res://img/Gate/Icon/Gold/8.png" id="16_xo5lu"]
 [ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="17_7t806"]
 [ext_resource type="Texture2D" uid="uid://emapmrxbrhfq" path="res://img/Gate/Icon/Gold/4.png" id="17_mtd7b"]
+[ext_resource type="Texture2D" uid="uid://cg86rgr5lreh" path="res://img/Gate/Frame/4.png" id="18_p46fb"]
 [ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="18_rasxx"]
 [ext_resource type="Texture2D" uid="uid://lqp6ssl8ms2v" path="res://img/Gate/Icon/Blue/0.png" id="18_vrl8x"]
 [ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="19_rasxx"]
@@ -657,9 +658,27 @@ vertical_alignment = 2
 layout_mode = 2
 
 [node name="profile" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+clip_children = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("20_y5qjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/profile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -59.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_p46fb")
 expand_mode = 1
 stretch_mode = 5
 

@@ -34,8 +34,9 @@ func npc_new() -> Dictionary:
 			"communication": stats.communication,
 			"wisdom": stats.wisdom,
 			"stat_food":50,
-			"stat_mmod":70,
+			"stat_mood":70,
 			"stat_health":70,
+			"inventory":{},
 		}
 	}
 	

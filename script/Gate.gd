@@ -8,56 +8,94 @@ enum ENUM_ICON_PROFILE {MALE, FEMALE, FARM, TIEF, GUARD, QUEEN, KING}
 func _ready() -> void:
 	onready_cam_nav()
 	onready_btn_sector()
+	onready_person_inspect()
+	# BTN
 	node_sldv_cam.value_changed.connect(onready_cam_zoom)
-
-	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	
+	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
 		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
-
-
-
 # --------------------------------------
 # PERSON INSPECT
 # --------------------------------------
-@onready var nodes_btn_cls_personinspect:Button = $canvas_l/btn_cls_info_people
+@onready var btn_cls_personinspect := $canvas_l/btn_cls_info_people
+@onready var profile = btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/profile")
+@onready var name_lbl = btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/name")
+@onready var stat_lbl = btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/stat")
+@onready var hbox_prog = btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog")
+@onready var vbox_txt = btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt")
+
+@onready var person_trade = {
+	"btn_parent": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent"),
+	"btn_prosed": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent/btn_prosed"),
+	"img": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/img"),
+	"item_name": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/item_name"),
+	"desc": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/desc"),
+	"btn_dec": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_dec"),
+	"btn_add": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_add"),
+	"count": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/count"),
+	"btn_buy": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/btn_buy"),
+	"btn_act": btn_cls_personinspect.get_node("pnl_main/vbox_info/btn_act"),
+	"hbox_trade": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade"),
+	"hbox_info": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info"), }
+
 @onready var _person_keys_dict = {
-	0: 'name', 1: 'age', 2: 'job', 3: 'gender', 4: 'birth_date', 5: 'death_date', 6: 'height', 7: 'weight', 8: 'hobby', 9: 'origin',
-	10: 'status', 11: 'trust', 12: 'marriage', 13: 'location', 14: 'is_alive', 15: 'death_location', 16: 'physical', 17: 'intelligence',
-	18: 'communication', 19: 'wisdom', 20: 'stat_food', 21: 'stat_mmood', 22: 'stat_health' }
+	0: 'name', 1: 'age', 2: 'job', 3: 'gender', 4: 'birth_date', 5: 'death_date', 6: 'height', 7: 'weight',
+	8: 'hobby', 9: 'origin', 10: 'status', 11: 'trust', 12: 'marriage', 13: 'location', 14: 'is_alive',
+	15: 'death_location', 16: 'physical', 17: 'intelligence', 18: 'communication', 19: 'wisdom',
+	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health' }
 
+func _reset_person_trade(_bool:bool, code:Dictionary = {}):
+	person_trade["btn_dec"].disabled = _bool
+	person_trade["btn_add"].disabled = _bool
+	person_trade["btn_buy"].disabled = _bool
+	if _bool:
+		if code.has("img"): person_trade["img"].texture = load(code["img"])
+		if code.has("item_name"): person_trade["item_name"].text = str(code["item_name"])
+		if code.has("desc"): person_trade["desc"].text = str(code["desc"])
+		if code.has("count"): person_trade["count"].text = str(code["count"])
+	else:		
+		person_trade["img"].texture = null
+		person_trade["item_name"].text = "Item Name"
+		person_trade["desc"].text = "-"
+		person_trade["count"].text = "0"
+
+var _trade_data = { "code":null, "min":0, "max":0 }
+func onready_person_inspect():
+	btn_cls_personinspect.connect("pressed", func():
+		btn_cls_personinspect.hide() )
+	# btn switch info and trade
+	var btn_act:Button = person_trade["btn_act"]
+	btn_act.text = "TRADE"
+	btn_act.connect("pressed", func():
+		if person_trade["btn_act"].text == "TRADE":
+			btn_act.text = "INFO"
+			person_trade["hbox_trade"].show()
+			person_trade["hbox_info"].hide()
+		else:
+			btn_act.text = "TRADE"
+			person_trade["hbox_trade"].hide()
+			person_trade["hbox_info"].show() )
+	# btn trade
+	
 func person_inspect(code):
-	var data_main = AutoloadData.all_npc[code]
-	# basic
-	var get_profile:TextureRect = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/profile")
-	var get_name:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/name")
-	var get_stat:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog/vbox_title/stat")
-	var _pp_gender = 0 if data_main[_person_keys_dict[0]]=="Mele" else 1
-	get_profile.texture = _path_icon_profile(_pp_gender)
-	get_name.text = data_main[_person_keys_dict[0]]
-	get_stat.text = str(data_main[_person_keys_dict[1]]," Years Old - ",data_main[_person_keys_dict[3]])
-	# prog
-	var _hbox_prog = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/hbox_prog")
-	for i in range( 2, _hbox_prog.get_child_count() ):
-		var prog:TextureProgressBar = _hbox_prog.get_child(i)
-		prog.value = data_main[_person_keys_dict[i+14]]
-	# info
-	var _vbox_txt = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt")
-	for i in _vbox_txt.get_child_count():
-		var get_txt:Label = _vbox_txt.get_child(i)
-		get_txt.text = str( data_main[_person_keys_dict[i+3]] )
-	# trade
-	var get_btn_parent:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent")
-	var get_btn_prosed:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent/btn_prosed")
-	var get_trade_img:TextureRect = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/img")
-	var get_trade_item:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/item_name")
-	var get_trade_desc:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/desc")
-	var get_trade_btn_dec:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_dec")
-	var get_trade_btn_add:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/btn_add")
-	var get_trade_btn_count:Label = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox/count")
-	var get_trade_btn_buy:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/btn_buy")
-	var get_trade_btn_act:Button = nodes_btn_cls_personinspect.get_node("pnl_main/vbox_info/btn_act")
-
+	if AutoloadData.all_npc.has(code)== false: return
+	btn_cls_personinspect.visible = true
+	
+	var data = AutoloadData.all_npc[code]
+	# Profile
+	var gender_index = 0 if data['gender'] == 'Mele' else 1
+	profile.texture = _path_icon_profile(gender_index)
+	name_lbl.text = data['name']
+	stat_lbl.text = "%s Years Old - %s" % [data['age'], data['gender']]
+	# Progress Bars
+	for i in range(2, hbox_prog.get_child_count()):
+		var bar:TextureProgressBar = hbox_prog.get_child(i)
+		bar.value = data[_person_keys_dict[i + 14]]
+	# Text Info
+	for i in range(vbox_txt.get_child_count()):
+		var txt:Label = vbox_txt.get_child(i)
+		txt.text = str(data[_person_keys_dict[i + 3]])
 	
 # --------------------------------------
 # SECTOR INSPECT
