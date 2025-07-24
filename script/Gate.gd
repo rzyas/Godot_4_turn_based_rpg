@@ -5,7 +5,15 @@ enum ENUM_ICON_SPAWN_RED {MONSTER_LV_0, MONSTER_LV_1, MONSTER_LV_2, MONSTER_LV_3
 	MINI_BOSS_GIANT, BIG_BOSS_EVIL, SEA_MONSTER_KRAKEN, SEA_MONSTER_LEVIATAN, PIRATE, SEA_BIG_BOSS_NATURE }
 enum ENUM_ICON_SPAWN_MARK {BLUE, ORANGE, RED}
 enum ENUM_ICON_PROFILE {MALE, FEMALE, FARM, TIEF, GUARD, QUEEN, KING}
+
+enum ENUM_NPC_JOB_FARM {CANGKUL, PUPUK, BENIH, AIR, ORANG_SAWAH}
+enum ENUM_NPC_JOB_FISHER {KAPAL, UMPAN, PANCING, JARING, NET}
+enum ENUM_NPC_JOB_HUNTER {TRAP, CROSSBOW, SWORD, ROPE, RANSEL}
+enum ENUM_NPC_JOB_MINER {HELM, PICKEXE, LENTERA, CART, OKSIGEN}
+enum ENUM_NPC_JOB_THIEF {DAGGER, POISON, BOW, FOODO, BOM_ASAP}
+
 func _ready() -> void:
+	update_currency()
 	onready_cam_nav()
 	onready_btn_sector()
 	onready_person_inspect()
@@ -15,6 +23,17 @@ func _ready() -> void:
 	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
 		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
+# --------------------------------------
+# UPDATE CURRECNCY
+# --------------------------------------
+@onready var gate_currency = {0:$canvas_l/vbox_currecy/hbox_0/count, 1:$canvas_l/vbox_currecy/hbox_1/count, 2:$canvas_l/vbox_currecy/hbox_2/count}
+func update_currency():
+	var coin_star:Label = gate_currency[0]
+	var coin_skull:Label = gate_currency[1]
+	var coin_cumon:Label = gate_currency[2]
+	coin_star.text = str(AutoloadData.filter_num_k(AutoloadData.gate_coin_star))
+	coin_skull.text = str(AutoloadData.filter_num_k(AutoloadData.gate_coin_skull))
+	coin_cumon.text = str(AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon))
 # --------------------------------------
 # PERSON INSPECT
 # --------------------------------------
@@ -26,8 +45,6 @@ func _ready() -> void:
 @onready var vbox_txt = btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt")
 
 @onready var person_trade = {
-	"btn_parent": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent"),
-	"btn_prosed": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent/btn_prosed"),
 	"img": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/img"),
 	"item_name": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/item_name"),
 	"desc": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/desc"),
@@ -37,30 +54,24 @@ func _ready() -> void:
 	"btn_buy": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/btn_buy"),
 	"btn_act": btn_cls_personinspect.get_node("pnl_main/vbox_info/btn_act"),
 	"hbox_trade": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade"),
-	"hbox_info": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info"), }
+	"hbox_info": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_info"),
+	"hbox_price_img": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/icon_price"),
+	"hbox_price_txt": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/price"),
+	"hbox_price_own": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/own"), }
 
 @onready var _person_keys_dict = {
 	0: 'name', 1: 'age', 2: 'job', 3: 'gender', 4: 'birth_date', 5: 'death_date', 6: 'height', 7: 'weight',
 	8: 'hobby', 9: 'origin', 10: 'status', 11: 'trust', 12: 'marriage', 13: 'location', 14: 'is_alive',
 	15: 'death_location', 16: 'physical', 17: 'intelligence', 18: 'communication', 19: 'wisdom',
-	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health' }
-
-func _reset_person_trade(_bool:bool, code:Dictionary = {}):
-	person_trade["btn_dec"].disabled = _bool
-	person_trade["btn_add"].disabled = _bool
-	person_trade["btn_buy"].disabled = _bool
+	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health', 23:'inventory' }
+var _temp_trade_data = { "item_code":null, "item_price":null, "npc_code":null, "min":0, "max":0 }
+func _trade_inspect_reset(_bool:bool=true):
 	if _bool:
-		if code.has("img"): person_trade["img"].texture = load(code["img"])
-		if code.has("item_name"): person_trade["item_name"].text = str(code["item_name"])
-		if code.has("desc"): person_trade["desc"].text = str(code["desc"])
-		if code.has("count"): person_trade["count"].text = str(code["count"])
-	else:		
 		person_trade["img"].texture = null
-		person_trade["item_name"].text = "Item Name"
-		person_trade["desc"].text = "-"
-		person_trade["count"].text = "0"
-
-var _trade_data = { "code":null, "min":0, "max":0 }
+		person_trade["item_name"].text = str("-")
+		person_trade["desc"].text = str("-")
+		person_trade["count"].text = str("-")        
+		
 func onready_person_inspect():
 	btn_cls_personinspect.connect("pressed", func():
 		btn_cls_personinspect.hide() )
@@ -77,6 +88,10 @@ func onready_person_inspect():
 			person_trade["hbox_trade"].hide()
 			person_trade["hbox_info"].show() )
 	# btn trade
+	person_trade["btn_buy"].connect("pressed", func():
+		if AutoloadData.all_npc[_temp_trade_data["npc_code"]].has( _temp_trade_data["inventory"]["item_code"] ) == false:
+			SfxManager.play_system_fail()
+			return )
 	
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
@@ -96,7 +111,6 @@ func person_inspect(code):
 	for i in range(vbox_txt.get_child_count()):
 		var txt:Label = vbox_txt.get_child(i)
 		txt.text = str(data[_person_keys_dict[i + 3]])
-	
 # --------------------------------------
 # SECTOR INSPECT
 # --------------------------------------
@@ -146,6 +160,7 @@ func sector_inspect(zone, sector):
 # --------------------------------------
 @onready var nodes_all_sector = $all_sector
 @onready var node_btn_prosed_spawn:Button = $btn_prosed
+
 func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
 	var get_sector_main = nodes_all_sector.get_child(sector)
 	var rng_sector = randi_range( 0, get_sector_main.get_child_count()-1 )
@@ -183,6 +198,7 @@ func onready_cam_zoom(slide_value):
 @onready var nodes_btn_nav = $canvas_l/parent_btn_move
 @onready var node_main_cam = $main_cam
 @onready var node_nav_prog = nodes_btn_nav.get_node("btn_snap/prog")
+@onready var node_cam_loc = $canvas_l/cam_loc
 # Variabel untuk Tween dan kontrol snap
 var tween: Tween
 var snap_tween: Tween
@@ -272,24 +288,27 @@ func _move_camera_instant(offset: Vector2):
 	# Hentikan tween sebelumnya
 	if tween:
 		tween.kill()
-	
-	# Buat tween baru untuk perpindahan kamera dan tombol navigasi
+
+	# Buat tween baru
 	tween = create_tween()
-	tween.set_parallel(true)  # Izinkan animasi paralel
-	
+	tween.set_parallel(true)
+
+	# Hitung posisi target
 	var target_cam_pos = node_main_cam.position + offset
-	#var target_btn_pos = nodes_btn_nav.position + offset
-	# Animasi kamera dan tombol navigasi bersamaan
+
+	# Tween posisi kamera
 	tween.tween_property(node_main_cam, "position", target_cam_pos, 0.1)
-	#tween.tween_property(nodes_btn_nav, "position", target_btn_pos, 0.1)
-	#nodes_btn_nav.position = Vector2(-688, 248)
-# Fungsi untuk tombol snap
+
+	# Setelah selesai, update teks label posisi kamera
+	tween.tween_callback(Callable(self, "_update_cam_loc_label"))
+func _update_cam_loc_label():
+	var pos = node_main_cam.position.round()
+	node_cam_loc.text = 'X:%d, Y:%d' % [pos.x, pos.y]
 func _on_btn_snap_pressed():
 	if is_snapping:
 		# Jika sedang dalam proses snap, batalkan snap
 		_cancel_snap()
 		return
-	
 	_start_snap_process()
 # -------------------- UTYLITY FUNC ------------------------
 func _path_icon_profile(code):
@@ -338,6 +357,7 @@ func _complete_snap():
 	
 	# Setelah snap selesai, reset progress
 	snap_tween.tween_callback(_reset_progress)
+	node_cam_loc.text = str("X: 0, Y:0")
 func _reset_progress():
 	if prog_tween:
 		prog_tween.kill()

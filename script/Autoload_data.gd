@@ -67,6 +67,9 @@ var player_started_reward = {
 		"desc": "Claim Successful!\nYou've received 50K mana stone!"
 	},}
 # Player progression data
+var gate_coin_star = 0
+var gate_coin_skull = 0
+var gate_coin_cummon = 250
 var player_name = ""
 var player_level: int = 1
 var player_exp_main: int = 0
@@ -274,6 +277,9 @@ func apply_loaded_data(data: Dictionary):
 
 func reset_data():
 	print("DATA RESET")
+	gate_coin_star = 0
+	gate_coin_skull = 0
+	gate_coin_cummon = 250
 	sector_data = {
 		0:{
 			0:{ "danger":95,"mining":50,"food":80,"treasure":5,"population":0,"name":"Gunuraya Thicket" },

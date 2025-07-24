@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=87 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -16,15 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://bft4iajkr3k57" path="res://img/Gate/Map Jungle/6.png" id="8_rq62h"]
 [ext_resource type="Texture2D" uid="uid://quapdu8jhn5i" path="res://img/Gate/location.png" id="12_sb342"]
 [ext_resource type="Texture2D" uid="uid://cn3lwqhxgw78k" path="res://img/UI (new)/UI_16.png" id="13_p46fb"]
+[ext_resource type="Texture2D" uid="uid://gxtlnqb47fvr" path="res://img/Gate/Gate Coin/0.png" id="14_2lgv5"]
 [ext_resource type="Texture2D" uid="uid://co0nk8vcr2wa3" path="res://img/Gate/Icon/Red/1.png" id="14_ujw2g"]
 [ext_resource type="Theme" uid="uid://cq55jxqqspacb" path="res://Themes/THEME V3/SLD_V.tres" id="15_0gpd2"]
 [ext_resource type="Texture2D" uid="uid://dtdvjvcsir3sf" path="res://img/Gate/Icon/Gold/7.png" id="15_2lgv5"]
 [ext_resource type="Texture2D" uid="uid://bq1ifxujx65ik" path="res://img/UI (new)/UI_3_1.png" id="15_p46fb"]
 [ext_resource type="Texture2D" uid="uid://blhk3kcx8hlgs" path="res://img/UI (new)/black_panel.png" id="16_ibuj8"]
+[ext_resource type="Texture2D" uid="uid://bg7stp661ao82" path="res://img/Gate/Gate Coin/1.png" id="16_mtd7b"]
+[ext_resource type="Texture2D" uid="uid://0d4as4oc5gfm" path="res://img/Gate/Gate Coin/2.png" id="16_ujw2g"]
 [ext_resource type="Texture2D" uid="uid://7b6jmq3odpse" path="res://img/Gate/Icon/Gold/8.png" id="16_xo5lu"]
 [ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="17_7t806"]
 [ext_resource type="Texture2D" uid="uid://emapmrxbrhfq" path="res://img/Gate/Icon/Gold/4.png" id="17_mtd7b"]
-[ext_resource type="Texture2D" uid="uid://cg86rgr5lreh" path="res://img/Gate/Frame/4.png" id="18_p46fb"]
 [ext_resource type="Theme" uid="uid://buanj04tk57dp" path="res://Themes/THEME V3/PNL_MAIN_BLUE.tres" id="18_rasxx"]
 [ext_resource type="Texture2D" uid="uid://lqp6ssl8ms2v" path="res://img/Gate/Icon/Blue/0.png" id="18_vrl8x"]
 [ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="19_rasxx"]
@@ -40,31 +42,38 @@
 [ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="27_a2iyx"]
 [ext_resource type="Texture2D" uid="uid://xiebqd2pkxn7" path="res://img/Gate/STAT/9.png" id="27_dw84m"]
 [ext_resource type="Theme" uid="uid://dqkbqtltov57a" path="res://Themes/THEME V3/PNL_BORDER_10_BLUE.tres" id="27_sb342"]
-[ext_resource type="Texture2D" uid="uid://22asr0vn0m0n" path="res://img/Hero/icon/N_BEAST_1_Skarnath.png" id="28_8smru"]
 [ext_resource type="Theme" uid="uid://8vb4t47xb2p0" path="res://Themes/THEME V3/BTN_ACTIVE_BLUE.tres" id="28_pgr5m"]
 [ext_resource type="Texture2D" uid="uid://c6c845lwv0nha" path="res://img/Gate/STAT/10.png" id="28_xqwb1"]
-[ext_resource type="Texture2D" uid="uid://3jouenep6ddj" path="res://img/Hero/icon/D_BEAST_2_Drelmora.png" id="29_a2iyx"]
+[ext_resource type="Texture2D" uid="uid://7otmc7cajl6j" path="res://img/Gate/Job Icon/Farm_0.png" id="43_vrl8x"]
+[ext_resource type="Texture2D" uid="uid://c4aa7fukcx335" path="res://img/Gate/Job Icon/Farm_1.png" id="44_81qaa"]
+[ext_resource type="Texture2D" uid="uid://7ori2et1bvaa" path="res://img/Gate/Job Icon/Farm_2.png" id="45_dyt46"]
+[ext_resource type="Texture2D" uid="uid://bi220p0eaoca7" path="res://img/Gate/Job Icon/Farm_3.png" id="46_jlf3w"]
+[ext_resource type="Texture2D" uid="uid://cn8y2iby7gdd2" path="res://img/Gate/Job Icon/Farm_4.png" id="47_uykja"]
+[ext_resource type="Texture2D" uid="uid://bu0smo6qalvm5" path="res://img/Gate/Job Icon/Fisher_0.png" id="48_rr3x4"]
+[ext_resource type="Texture2D" uid="uid://hqjvftd6qbmr" path="res://img/Gate/Job Icon/Fisher_1.png" id="49_wk8cj"]
+[ext_resource type="Texture2D" uid="uid://dwcu284a5cpj4" path="res://img/Gate/Job Icon/Fisher_2.png" id="50_ycqo8"]
+[ext_resource type="Texture2D" uid="uid://df8bng5qnchq6" path="res://img/Gate/Job Icon/Fisher_3.png" id="51_ub7aj"]
+[ext_resource type="Texture2D" uid="uid://cspl74dmdsmby" path="res://img/Gate/Job Icon/Fisher_4.png" id="52_3egsp"]
+[ext_resource type="Texture2D" uid="uid://kuio6e0fa4v3" path="res://img/Gate/Job Icon/Hunter_0.png" id="53_mj33a"]
+[ext_resource type="Texture2D" uid="uid://bru50wi1q6y0h" path="res://img/Gate/Job Icon/Hunter_1.png" id="54_62x48"]
+[ext_resource type="Texture2D" uid="uid://dteymvmp4362b" path="res://img/Gate/Job Icon/Hunter_2.png" id="55_1yyhv"]
+[ext_resource type="Texture2D" uid="uid://g0qfe3pxkl3o" path="res://img/Gate/Job Icon/Hunter_3.png" id="56_ajp5b"]
+[ext_resource type="Texture2D" uid="uid://bg6hjj1w7x6hi" path="res://img/Gate/Job Icon/Hunter_4.png" id="57_a3n88"]
+[ext_resource type="Texture2D" uid="uid://dhyxgm4havju6" path="res://img/Gate/Job Icon/Miner_0.png" id="58_7u0wx"]
+[ext_resource type="Texture2D" uid="uid://cg366q8vfo1vx" path="res://img/Gate/Job Icon/Miner_1.png" id="59_aqqb7"]
+[ext_resource type="Texture2D" uid="uid://blikyx6num3r8" path="res://img/Gate/Job Icon/Miner_2.png" id="60_itrlk"]
+[ext_resource type="Texture2D" uid="uid://beaaglkwtyhbf" path="res://img/Gate/Job Icon/Miner_3.png" id="61_rol1x"]
+[ext_resource type="Texture2D" uid="uid://bhxtgf82roo7c" path="res://img/Gate/Job Icon/Miner_4.png" id="62_vpkvi"]
+[ext_resource type="Texture2D" uid="uid://roib25hgh620" path="res://img/Gate/Job Icon/Thief_0.png" id="63_cimri"]
+[ext_resource type="Texture2D" uid="uid://dyvgi152tbcfp" path="res://img/Gate/Job Icon/Thief_1.png" id="64_8qlsb"]
+[ext_resource type="Texture2D" uid="uid://dqvurkpa5u24w" path="res://img/Gate/Job Icon/Thief_2.png" id="65_0cjsr"]
+[ext_resource type="Texture2D" uid="uid://ck5er80fnb2im" path="res://img/Gate/Job Icon/Thief_3.png" id="66_cvi6g"]
+[ext_resource type="Texture2D" uid="uid://dymgg046t4osh" path="res://img/Gate/Job Icon/Thief_4.png" id="67_a7npw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p46fb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlf3w"]
 atlas = ExtResource("12_sb342")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1p2sl"]
-atlas = ExtResource("16_ibuj8")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpbcu"]
-atlas = ExtResource("7_xld3y")
-region = Rect2(9, 9, 132, 132)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6aam0"]
-atlas = ExtResource("7_xld3y")
-region = Rect2(9, 159, 132, 132)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5qjd"]
-atlas = ExtResource("7_xld3y")
-region = Rect2(159, 9, 132, 132)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uykja"]
 texture = ExtResource("13_p46fb")
@@ -105,6 +114,29 @@ region = Rect2(9, 9, 132, 132)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2on8l"]
 atlas = ExtResource("7_xld3y")
 region = Rect2(159, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p2sl"]
+atlas = ExtResource("16_ibuj8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbcu"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(9, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aam0"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(9, 159, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5qjd"]
+atlas = ExtResource("7_xld3y")
+region = Rect2(159, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7eml"]
+atlas = ExtResource("16_ibuj8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mul0x"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uvwl4")
@@ -591,776 +623,70 @@ expand_icon = true
 [node name="main_cam" type="Camera2D" parent="."]
 
 [node name="canvas_l" type="CanvasLayer" parent="."]
+process_priority = 1
 
-[node name="btn_cls_info_people" type="Button" parent="canvas_l"]
-self_modulate = Color(1, 1, 1, 0.588235)
-show_behind_parent = true
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -956.5
-offset_top = -846.0
-offset_right = 956.5
-offset_bottom = 846.0
-grow_horizontal = 2
-grow_vertical = 2
-icon = SubResource("AtlasTexture_1p2sl")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="vbox_currecy" type="VBoxContainer" parent="canvas_l"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -217.0
+offset_top = 16.0
+offset_bottom = 120.0
+grow_horizontal = 0
 
-[node name="header" type="Label" parent="canvas_l/btn_cls_info_people"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.5
-offset_top = -472.0
-offset_right = 76.5
-offset_bottom = -440.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/vbox_currecy"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/vbox_currecy/hbox_0"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("14_2lgv5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_0"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 theme = ExtResource("17_7t806")
-text = "TAP TO CLOSE"
-
-[node name="pnl_main" type="PanelContainer" parent="canvas_l/btn_cls_info_people"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -652.5
-offset_top = -366.0
-offset_right = 652.5
-offset_bottom = 322.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("18_rasxx")
-
-[node name="vbox_info" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main"]
-layout_mode = 2
-
-[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
-layout_mode = 2
-theme = ExtResource("19_rasxx")
 theme_override_font_sizes/font_size = 32
-text = "INFORMATION"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="hbox_prog" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
-layout_mode = 2
-
-[node name="profile" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-clip_children = 2
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("20_y5qjd")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/profile"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -59.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_p46fb")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="vbox_title" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("20_3cji6")
-theme_override_font_sizes/font_size = 21
-text = "KING XIII"
-vertical_alignment = 1
-uppercase = true
-
-[node name="stat" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("20_3cji6")
-theme_override_font_sizes/font_size = 21
-text = "29 years old - farmer"
-vertical_alignment = 1
-uppercase = true
-
-[node name="stat_str" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_6aam0")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_str"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("21_5bv70")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_int" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_6aam0")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_int"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("22_1iflt")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_com" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_6aam0")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_com"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("23_tpbcu")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_wis" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_6aam0")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_wis"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("24_y5qjd")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_food" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_y5qjd")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_food"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("26_pgr5m")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_mood" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_y5qjd")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_mood"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("27_dw84m")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="stat_health" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-size_flags_vertical = 4
-value = 22.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_tpbcu")
-texture_progress = SubResource("AtlasTexture_y5qjd")
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_health"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-texture = ExtResource("28_xqwb1")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="pnl_data" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("27_sb342")
-
-[node name="hbox_trade" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
-layout_mode = 2
-
-[node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
-custom_minimum_size = Vector2(1040, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="grid_parent" type="GridContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 10
-
-[node name="btn_prosed" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/grid_parent"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("4_mec7e")
-icon = ExtResource("28_8smru")
-flat = true
-expand_icon = true
-
-[node name="pnl_desc" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("18_rasxx")
-
-[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc"]
-layout_mode = 2
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("29_a2iyx")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="item_name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_vertical = 1
-theme = ExtResource("20_3cji6")
-theme_override_font_sizes/font_size = 14
-text = "UDIN PETOT"
-vertical_alignment = 2
-autowrap_mode = 3
-text_overrun_behavior = 3
-uppercase = true
-
-[node name="desc" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("21_rn2v2")
-theme_override_font_sizes/font_size = 14
-text = "-"
-autowrap_mode = 3
-text_overrun_behavior = 3
-uppercase = true
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-layout_mode = 2
-
-[node name="btn_dec" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-theme = ExtResource("27_a2iyx")
-theme_override_font_sizes/font_size = 21
-text = "-"
-
-[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
 text = "0"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="btn_add" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-theme = ExtResource("27_a2iyx")
-theme_override_font_sizes/font_size = 21
-text = "+"
-
-[node name="btn_buy" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-layout_mode = 2
-theme = ExtResource("27_a2iyx")
-theme_override_font_sizes/font_size = 21
-text = "BUY"
-
-[node name="hbox_info" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
-visible = false
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/vbox_currecy"]
 layout_mode = 2
 
-[node name="vbox_header" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
+[node name="img" type="TextureRect" parent="canvas_l/vbox_currecy/hbox_1"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+texture = ExtResource("16_mtd7b")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+[node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_1"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_vertical = 6
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "gender"
-uppercase = true
+theme_override_font_sizes/font_size = 32
+text = "0"
+vertical_alignment = 1
 
-[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+[node name="hbox_2" type="HBoxContainer" parent="canvas_l/vbox_currecy"]
 layout_mode = 2
-size_flags_vertical = 6
+
+[node name="img" type="TextureRect" parent="canvas_l/vbox_currecy/hbox_2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("16_ujw2g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "birth date"
-uppercase = true
-
-[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "death date"
-uppercase = true
-
-[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "height"
-uppercase = true
-
-[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "weight"
-uppercase = true
-
-[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "hobby"
-uppercase = true
-
-[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "origin"
-uppercase = true
-
-[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "status"
-uppercase = true
-
-[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "trust"
-uppercase = true
-
-[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "marriage"
-uppercase = true
-
-[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "location"
-uppercase = true
-
-[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "alive"
-uppercase = true
-
-[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "death ocation"
-uppercase = true
-
-[node name="vbox_space" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
-layout_mode = 2
-
-[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = ":"
-uppercase = true
-
-[node name="vbox_txt" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "-"
-autowrap_mode = 2
-uppercase = true
-
-[node name="btn_act" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
-layout_mode = 2
-theme = ExtResource("28_pgr5m")
-text = "TRADE"
+theme_override_font_sizes/font_size = 32
+text = "0"
+vertical_alignment = 1
 
 [node name="pnl_sector" type="PanelContainer" parent="canvas_l"]
 anchors_preset = 3
@@ -1820,3 +1146,1435 @@ offset_top = -177.0
 offset_right = 142.0
 offset_bottom = -112.0
 text = "RANDOM SPAWN"
+
+[node name="btn_cls_info_people" type="Button" parent="canvas_l"]
+self_modulate = Color(1, 1, 1, 0.588235)
+show_behind_parent = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -956.5
+offset_top = -846.0
+offset_right = 956.5
+offset_bottom = 846.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = SubResource("AtlasTexture_1p2sl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -472.0
+offset_right = 76.5
+offset_bottom = -440.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
+
+[node name="pnl_main" type="PanelContainer" parent="canvas_l/btn_cls_info_people"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -652.5
+offset_top = -366.0
+offset_right = 652.5
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("18_rasxx")
+
+[node name="vbox_info" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+theme_override_font_sizes/font_size = 32
+text = "INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="hbox_prog" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+
+[node name="profile" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+clip_children = 2
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("20_y5qjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="vbox_title" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 21
+text = "KING XIII"
+vertical_alignment = 1
+uppercase = true
+
+[node name="stat" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/vbox_title"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 21
+text = "29 years old - farmer"
+vertical_alignment = 1
+uppercase = true
+
+[node name="stat_str" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_str"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("21_5bv70")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_int" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_int"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("22_1iflt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_com" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_com"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("23_tpbcu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_wis" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_6aam0")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_wis"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("24_y5qjd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_food" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_food"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("26_pgr5m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_mood" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_mood"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("27_dw84m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stat_health" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_vertical = 4
+value = 22.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_tpbcu")
+texture_progress = SubResource("AtlasTexture_y5qjd")
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_health"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+texture = ExtResource("28_xqwb1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="pnl_data" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("27_sb342")
+
+[node name="hbox_trade" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+layout_mode = 2
+
+[node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
+custom_minimum_size = Vector2(1040, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_vertical = 571
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_0" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "FARMER"
+
+[node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="btn_0" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("43_vrl8x")
+flat = true
+expand_icon = true
+
+[node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("44_81qaa")
+flat = true
+expand_icon = true
+
+[node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("45_dyt46")
+flat = true
+expand_icon = true
+
+[node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("46_jlf3w")
+flat = true
+expand_icon = true
+
+[node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("47_uykja")
+flat = true
+expand_icon = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("19_rasxx")
+text = "STAT"
+horizontal_alignment = 1
+
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "SOURCE"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "PROGRESS"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="pnl_1" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "FISHERMAN"
+
+[node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="btn_0" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("48_rr3x4")
+flat = true
+expand_icon = true
+
+[node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("49_wk8cj")
+flat = true
+expand_icon = true
+
+[node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("50_ycqo8")
+flat = true
+expand_icon = true
+
+[node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("51_ub7aj")
+flat = true
+expand_icon = true
+
+[node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("52_3egsp")
+flat = true
+expand_icon = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("19_rasxx")
+text = "STAT"
+horizontal_alignment = 1
+
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "SOURCE"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "PROGRESS"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="pnl_2" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "HUNTER"
+
+[node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="btn_0" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("53_mj33a")
+flat = true
+expand_icon = true
+
+[node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("54_62x48")
+flat = true
+expand_icon = true
+
+[node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("55_1yyhv")
+flat = true
+expand_icon = true
+
+[node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("56_ajp5b")
+flat = true
+expand_icon = true
+
+[node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("57_a3n88")
+flat = true
+expand_icon = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("19_rasxx")
+text = "STAT"
+horizontal_alignment = 1
+
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "SOURCE"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "PROGRESS"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="pnl_3" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "MINER"
+
+[node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="btn_0" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("58_7u0wx")
+flat = true
+expand_icon = true
+
+[node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("59_aqqb7")
+flat = true
+expand_icon = true
+
+[node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("60_itrlk")
+flat = true
+expand_icon = true
+
+[node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("61_rol1x")
+flat = true
+expand_icon = true
+
+[node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("62_vpkvi")
+flat = true
+expand_icon = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("19_rasxx")
+text = "STAT"
+horizontal_alignment = 1
+
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "SOURCE"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "PROGRESS"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="pnl_4" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "THIEF"
+
+[node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="btn_0" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("63_cimri")
+flat = true
+expand_icon = true
+
+[node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("64_8qlsb")
+flat = true
+expand_icon = true
+
+[node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("65_0cjsr")
+flat = true
+expand_icon = true
+
+[node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("66_cvi6g")
+flat = true
+expand_icon = true
+
+[node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("67_a7npw")
+flat = true
+expand_icon = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("19_rasxx")
+text = "STAT"
+horizontal_alignment = 1
+
+[node name="hbox_0" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "SOURCE"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_0"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "PROGRESS"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_c7eml")
+texture_progress = SubResource("AtlasTexture_mul0x")
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_1"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="pnl_desc" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("18_rasxx")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="item_name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "Item name"
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="desc" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "-"
+autowrap_mode = 3
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="hbox_price" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="icon_price" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("16_ujw2g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="price" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 14
+text = "0"
+vertical_alignment = 2
+
+[node name="own" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "(own: 0)"
+vertical_alignment = 2
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+layout_mode = 2
+
+[node name="btn_dec" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+theme_override_font_sizes/font_size = 16
+text = "-"
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_add" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+theme_override_font_sizes/font_size = 16
+text = "+"
+
+[node name="btn_buy" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
+layout_mode = 2
+theme = ExtResource("27_a2iyx")
+theme_override_font_sizes/font_size = 16
+text = "BUY"
+
+[node name="hbox_info" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+visible = false
+layout_mode = 2
+
+[node name="vbox_header" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
+layout_mode = 2
+
+[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "gender"
+uppercase = true
+
+[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "birth date"
+uppercase = true
+
+[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "death date"
+uppercase = true
+
+[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "height"
+uppercase = true
+
+[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "weight"
+uppercase = true
+
+[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "hobby"
+uppercase = true
+
+[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "origin"
+uppercase = true
+
+[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "status"
+uppercase = true
+
+[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "trust"
+uppercase = true
+
+[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "marriage"
+uppercase = true
+
+[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "location"
+uppercase = true
+
+[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "alive"
+uppercase = true
+
+[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_header"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "death ocation"
+uppercase = true
+
+[node name="vbox_space" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
+layout_mode = 2
+
+[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_space"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = ":"
+uppercase = true
+
+[node name="vbox_txt" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="0" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="1" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="2" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="3" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="4" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="5" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="6" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="7" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="8" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="9" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="10" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="11" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="12" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info/vbox_txt"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "-"
+autowrap_mode = 2
+uppercase = true
+
+[node name="btn_act" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
+layout_mode = 2
+theme = ExtResource("28_pgr5m")
+text = "TRADE"
+
+[node name="cam_loc" type="Label" parent="canvas_l"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -236.0
+offset_right = -6.0
+offset_bottom = -217.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "X: 0, Y:0"
+horizontal_alignment = 2
+uppercase = true
