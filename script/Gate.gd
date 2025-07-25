@@ -58,20 +58,24 @@ func update_currency():
 	"hbox_price_img": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/icon_price"),
 	"hbox_price_txt": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/price"),
 	"hbox_price_own": btn_cls_personinspect.get_node("pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox_price/own"), }
-
 @onready var _person_keys_dict = {
 	0: 'name', 1: 'age', 2: 'job', 3: 'gender', 4: 'birth_date', 5: 'death_date', 6: 'height', 7: 'weight',
-	8: 'hobby', 9: 'origin', 10: 'status', 11: 'trust', 12: 'marriage', 13: 'location', 14: 'is_alive',
+	8: 'hobby', 9: 'origin', 10: 'status', 11: 'trust', 12: 'marriage', 13:'location', 14: 'is_alive',
 	15: 'death_location', 16: 'physical', 17: 'intelligence', 18: 'communication', 19: 'wisdom',
 	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health', 23:'inventory' }
+
 var _temp_trade_data = { "item_code":null, "item_price":null, "npc_code":null, "min":0, "max":0 }
+# Utility for trade
 func _trade_inspect_reset(_bool:bool=true):
 	if _bool:
 		person_trade["img"].texture = null
 		person_trade["item_name"].text = str("-")
 		person_trade["desc"].text = str("-")
 		person_trade["count"].text = str("-")        
-		
+func _trade_job(code):
+	if AutoloadData.all_npc.has(code)==false: return
+	
+
 func onready_person_inspect():
 	btn_cls_personinspect.connect("pressed", func():
 		btn_cls_personinspect.hide() )
@@ -89,7 +93,7 @@ func onready_person_inspect():
 			person_trade["hbox_info"].show() )
 	# btn trade
 	person_trade["btn_buy"].connect("pressed", func():
-		if AutoloadData.all_npc[_temp_trade_data["npc_code"]].has( _temp_trade_data["inventory"]["item_code"] ) == false:
+		if AutoloadData.all_npc.has(_temp_trade_data["npc_code"])==false:
 			SfxManager.play_system_fail()
 			return )
 	
@@ -99,10 +103,11 @@ func person_inspect(code):
 	
 	var data = AutoloadData.all_npc[code]
 	# Profile
-	var gender_index = 0 if data['gender'] == 'Mele' else 1
-	profile.texture = _path_icon_profile(gender_index)
+	var gender_index = 0 if data['gender'] == 'Male' else 1
+	profile.texture = load(_path_icon_profile(gender_index))
 	name_lbl.text = data['name']
-	stat_lbl.text = "%s Years Old - %s" % [data['age'], data['gender']]
+	var job = data["job"] if data["job"]!=null else "-"
+	stat_lbl.text = "%s Years Old - %s" % [data['age'], job]
 	# Progress Bars
 	for i in range(2, hbox_prog.get_child_count()):
 		var bar:TextureProgressBar = hbox_prog.get_child(i)
@@ -110,7 +115,20 @@ func person_inspect(code):
 	# Text Info
 	for i in range(vbox_txt.get_child_count()):
 		var txt:Label = vbox_txt.get_child(i)
-		txt.text = str(data[_person_keys_dict[i + 3]])
+		var temp_data = data[_person_keys_dict[i + 3]]
+		if i in [1, 2]:
+			var result = "%02d/%02d/%d - %02d:00" % [temp_data["day"], temp_data["month"], temp_data["year"], temp_data["hour"]]
+			txt.text = result
+		elif i == 11:
+			if temp_data: txt.text = "Surviving"
+			else: txt.text = "Dead"
+		elif i == 10:
+			txt.text = str(
+				"Sector: ",AutoloadData.sector_data.keys()[temp_data["sector"]],
+				" - Zone: ",AutoloadData.sector_data[temp_data["sector"]][temp_data["zone"]]["name"] )
+		else:
+			if temp_data == null: txt.text = "-"
+			else: txt.text = str(data[_person_keys_dict[i + 3]])
 # --------------------------------------
 # SECTOR INSPECT
 # --------------------------------------
@@ -161,6 +179,24 @@ func sector_inspect(zone, sector):
 @onready var nodes_all_sector = $all_sector
 @onready var node_btn_prosed_spawn:Button = $btn_prosed
 
+var _npc_job = {
+	"farm": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"fisher": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"hunter": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"miner": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"thief": {0:false, 1:false, 2:false, 3:false, 4:false}
+}
+	
+func _new_npc(sector, zona):
+	var npc_data = NPC_generator.new()
+	var new_npc:Dictionary = npc_data.npc_new()
+	var _npc_id = new_npc.keys()[0]
+	var _npc_data = new_npc[_npc_id]
+	_npc_data["inventory"] = _npc_job
+	_npc_data["location"] = {"sector":sector, "zone":zona}
+	AutoloadData.all_npc[_npc_id] = _npc_data
+	AutoloadData.save_data()
+	return _npc_id
 func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
 	var get_sector_main = nodes_all_sector.get_child(sector)
 	var rng_sector = randi_range( 0, get_sector_main.get_child_count()-1 )
@@ -174,6 +210,9 @@ func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
 	var rng_size = randi_range(75, 500)
 	spawn_img.size = Vector2(rng_size, rng_size)
 	spawn_img.position = -(spawn_img.size / 2)
+	
+	var npc = _new_npc(sector, rng_sector)
+	main_spawn.connect("pressed", person_inspect.bind(npc) )
 	
 	main_spawn.show()
 	spawn_img.texture = load(_path_icon_spawn_mark(mark))
@@ -312,7 +351,7 @@ func _on_btn_snap_pressed():
 	_start_snap_process()
 # -------------------- UTYLITY FUNC ------------------------
 func _path_icon_profile(code):
-	return str( "res://img/Gate/PP/",code,".png" )
+	return str("res://img/Gate/PP/",code,".png")
 func _path_icon_spawn_blue(code):
 	var path = str("res://img/Gate/Icon/Blue/",code,".png")
 	return path

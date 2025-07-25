@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=81 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -33,23 +33,17 @@
 [ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="20_3cji6"]
 [ext_resource type="Texture2D" uid="uid://72i6avguf6ai" path="res://img/UI (new)/UI Panel Mini - Glow.png" id="20_dyt46"]
 [ext_resource type="Texture2D" uid="uid://dspncu0vo557o" path="res://img/Gate/PP/0.png" id="20_y5qjd"]
-[ext_resource type="Texture2D" uid="uid://5rywyo74dut0" path="res://img/Gate/STAT/4.png" id="21_5bv70"]
 [ext_resource type="Theme" uid="uid://cf26cr2r27rtn" path="res://Themes/THEME V3/LBL_READ.tres" id="21_rn2v2"]
-[ext_resource type="Texture2D" uid="uid://cmpwfmk3nu2me" path="res://img/Gate/STAT/0.png" id="22_1iflt"]
-[ext_resource type="Texture2D" uid="uid://jccor76rqla2" path="res://img/Gate/STAT/6.png" id="23_tpbcu"]
-[ext_resource type="Texture2D" uid="uid://utkqsh1r1byb" path="res://img/Gate/STAT/7.png" id="24_y5qjd"]
-[ext_resource type="Texture2D" uid="uid://cb66u55tls0og" path="res://img/Gate/STAT/8.png" id="26_pgr5m"]
 [ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="27_a2iyx"]
-[ext_resource type="Texture2D" uid="uid://xiebqd2pkxn7" path="res://img/Gate/STAT/9.png" id="27_dw84m"]
 [ext_resource type="Theme" uid="uid://dqkbqtltov57a" path="res://Themes/THEME V3/PNL_BORDER_10_BLUE.tres" id="27_sb342"]
 [ext_resource type="Theme" uid="uid://8vb4t47xb2p0" path="res://Themes/THEME V3/BTN_ACTIVE_BLUE.tres" id="28_pgr5m"]
-[ext_resource type="Texture2D" uid="uid://c6c845lwv0nha" path="res://img/Gate/STAT/10.png" id="28_xqwb1"]
 [ext_resource type="Texture2D" uid="uid://7otmc7cajl6j" path="res://img/Gate/Job Icon/Farm_0.png" id="43_vrl8x"]
 [ext_resource type="Texture2D" uid="uid://c4aa7fukcx335" path="res://img/Gate/Job Icon/Farm_1.png" id="44_81qaa"]
 [ext_resource type="Texture2D" uid="uid://7ori2et1bvaa" path="res://img/Gate/Job Icon/Farm_2.png" id="45_dyt46"]
 [ext_resource type="Texture2D" uid="uid://bi220p0eaoca7" path="res://img/Gate/Job Icon/Farm_3.png" id="46_jlf3w"]
 [ext_resource type="Texture2D" uid="uid://cn8y2iby7gdd2" path="res://img/Gate/Job Icon/Farm_4.png" id="47_uykja"]
 [ext_resource type="Texture2D" uid="uid://bu0smo6qalvm5" path="res://img/Gate/Job Icon/Fisher_0.png" id="48_rr3x4"]
+[ext_resource type="Theme" uid="uid://c7uhqapnn6oo6" path="res://Themes/THEME V3/LBL_SUB_HEADER.tres" id="48_wk8cj"]
 [ext_resource type="Texture2D" uid="uid://hqjvftd6qbmr" path="res://img/Gate/Job Icon/Fisher_1.png" id="49_wk8cj"]
 [ext_resource type="Texture2D" uid="uid://dwcu284a5cpj4" path="res://img/Gate/Job Icon/Fisher_2.png" id="50_ycqo8"]
 [ext_resource type="Texture2D" uid="uid://df8bng5qnchq6" path="res://img/Gate/Job Icon/Fisher_3.png" id="51_ub7aj"]
@@ -1252,7 +1246,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_6aam0")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_str"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_str"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1267,9 +1261,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("21_5bv70")
-expand_mode = 1
-stretch_mode = 5
+text = "STR"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_int" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1281,7 +1275,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_6aam0")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_int"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_int"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1296,9 +1290,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("22_1iflt")
-expand_mode = 1
-stretch_mode = 5
+text = "INT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_com" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1310,7 +1304,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_6aam0")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_com"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_com"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1325,9 +1319,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("23_tpbcu")
-expand_mode = 1
-stretch_mode = 5
+text = "COM"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_wis" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1339,7 +1333,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_6aam0")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_wis"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_wis"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1354,9 +1348,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("24_y5qjd")
-expand_mode = 1
-stretch_mode = 5
+text = "WIS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_food" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1368,7 +1362,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_y5qjd")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_food"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_food"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1383,9 +1377,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("26_pgr5m")
-expand_mode = 1
-stretch_mode = 5
+text = "STA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_mood" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1397,7 +1391,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_y5qjd")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_mood"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_mood"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1412,9 +1406,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("27_dw84m")
-expand_mode = 1
-stretch_mode = 5
+text = "EMO"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stat_health" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog"]
 custom_minimum_size = Vector2(85, 85)
@@ -1426,7 +1420,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_tpbcu")
 texture_progress = SubResource("AtlasTexture_y5qjd")
 
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_health"]
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/hbox_prog/stat_health"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1441,9 +1435,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
-texture = ExtResource("28_xqwb1")
-expand_mode = 1
-stretch_mode = 5
+text = "CON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="pnl_data" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info"]
 layout_mode = 2
@@ -1451,13 +1445,14 @@ size_flags_vertical = 3
 theme = ExtResource("27_sb342")
 
 [node name="hbox_trade" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+visible = false
 layout_mode = 2
 
 [node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
 custom_minimum_size = Vector2(1040, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-scroll_vertical = 571
+scroll_vertical = 827
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
 layout_mode = 2
@@ -1473,7 +1468,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox"]
 layout_mode = 2
 theme = ExtResource("20_3cji6")
-text = "FARMER"
+text = "FARM TOOLS"
 
 [node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox"]
 layout_mode = 2
@@ -1528,7 +1523,8 @@ alignment = 1
 [node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("19_rasxx")
+theme = ExtResource("48_wk8cj")
+theme_override_font_sizes/font_size = 21
 text = "STAT"
 horizontal_alignment = 1
 
@@ -1536,12 +1532,12 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_0"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "SOURCE"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_0"]
@@ -1566,12 +1562,12 @@ uppercase = true
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_1"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "PROGRESS"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/vbox/hbox_1"]
@@ -1592,6 +1588,13 @@ text = "0"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "A farmer skilled in cultivating the land and growing various crops. Requires little stamina but demands proper knowledge for the best results.\","
+autowrap_mode = 3
+
 [node name="pnl_1" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
 layout_mode = 2
 
@@ -1601,7 +1604,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox"]
 layout_mode = 2
 theme = ExtResource("20_3cji6")
-text = "FISHERMAN"
+text = "FISHING TOOLS"
 
 [node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox"]
 layout_mode = 2
@@ -1656,7 +1659,8 @@ alignment = 1
 [node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("19_rasxx")
+theme = ExtResource("48_wk8cj")
+theme_override_font_sizes/font_size = 21
 text = "STAT"
 horizontal_alignment = 1
 
@@ -1664,12 +1668,12 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_0"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "SOURCE"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_0"]
@@ -1694,12 +1698,12 @@ uppercase = true
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_1"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "PROGRESS"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/vbox/hbox_1"]
@@ -1720,6 +1724,13 @@ text = "0"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "An angler skilled in waiting patiently in the right spot. Requires little stamina but great wisdom to catch the best fish."
+autowrap_mode = 3
+
 [node name="pnl_2" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
 layout_mode = 2
 
@@ -1729,7 +1740,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox"]
 layout_mode = 2
 theme = ExtResource("20_3cji6")
-text = "HUNTER"
+text = "HUNTER TOOLS"
 
 [node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox"]
 layout_mode = 2
@@ -1784,7 +1795,8 @@ alignment = 1
 [node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("19_rasxx")
+theme = ExtResource("48_wk8cj")
+theme_override_font_sizes/font_size = 21
 text = "STAT"
 horizontal_alignment = 1
 
@@ -1792,12 +1804,12 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_0"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "SOURCE"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_0"]
@@ -1822,12 +1834,12 @@ uppercase = true
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_1"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "PROGRESS"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/vbox/hbox_1"]
@@ -1848,6 +1860,13 @@ text = "0"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "A hunter who faces wild beasts in the wilderness. Must possess great strength and wisdom to survive and conquer their prey."
+autowrap_mode = 3
+
 [node name="pnl_3" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
 layout_mode = 2
 
@@ -1857,7 +1876,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox"]
 layout_mode = 2
 theme = ExtResource("20_3cji6")
-text = "MINER"
+text = "MINER TOOLS"
 
 [node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox"]
 layout_mode = 2
@@ -1912,7 +1931,8 @@ alignment = 1
 [node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("19_rasxx")
+theme = ExtResource("48_wk8cj")
+theme_override_font_sizes/font_size = 21
 text = "STAT"
 horizontal_alignment = 1
 
@@ -1920,12 +1940,12 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_0"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "SOURCE"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_0"]
@@ -1950,12 +1970,12 @@ uppercase = true
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_1"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "PROGRESS"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/vbox/hbox_1"]
@@ -1976,6 +1996,13 @@ text = "0"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "A miner who digs deep into the earth in search of valuable minerals. Requires immense strength and sufficient intellect to operate in extreme environments."
+autowrap_mode = 3
+
 [node name="pnl_4" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
 layout_mode = 2
 
@@ -1985,7 +2012,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox"]
 layout_mode = 2
 theme = ExtResource("20_3cji6")
-text = "THIEF"
+text = "ASSASIN TOOLS"
 
 [node name="hbox_item" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox"]
 layout_mode = 2
@@ -2040,7 +2067,8 @@ alignment = 1
 [node name="Button" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("19_rasxx")
+theme = ExtResource("48_wk8cj")
+theme_override_font_sizes/font_size = 21
 text = "STAT"
 horizontal_alignment = 1
 
@@ -2048,12 +2076,12 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_0"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "SOURCE"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_0"]
@@ -2078,12 +2106,12 @@ uppercase = true
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_1"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 16
 text = "PROGRESS"
-horizontal_alignment = 2
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/vbox/hbox_1"]
@@ -2103,6 +2131,13 @@ theme_override_font_sizes/font_size = 21
 text = "0"
 horizontal_alignment = 1
 uppercase = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "An assassin who moves in the shadows. Requires no great strength—only exceptional intellect and communication skills to complete missions without a trace."
+autowrap_mode = 3
 
 [node name="pnl_desc" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
 layout_mode = 2
@@ -2205,7 +2240,6 @@ theme_override_font_sizes/font_size = 16
 text = "BUY"
 
 [node name="hbox_info" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
-visible = false
 layout_mode = 2
 
 [node name="vbox_header" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]

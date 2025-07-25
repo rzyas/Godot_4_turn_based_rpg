@@ -10,6 +10,7 @@ func npc_new() -> Dictionary:
 	var birth_data = _generate_birth_date(birth_year)
 	var death_data = _generate_death_date(birth_data, age)
 	var stats = _generate_stats()
+	var basic_stat = _generate_basic_stat(stats.intelligence, stats.wisdom, stats.communication)
 	
 	var npc_data = {
 		npc_id: {
@@ -33,9 +34,9 @@ func npc_new() -> Dictionary:
 			"intelligence": stats.intelligence,
 			"communication": stats.communication,
 			"wisdom": stats.wisdom,
-			"stat_food":50,
-			"stat_mood":70,
-			"stat_health":70,
+			"stat_food":basic_stat["food"],
+			"stat_mood":basic_stat["mood"],
+			"stat_health":basic_stat["health"],
 			"inventory":{},
 		}
 	}
@@ -202,7 +203,34 @@ func npc_validate(data: Dictionary) -> bool:
 		return false
 	
 	return true
-# Generate unique ID for NPC
+# Generate unique ID for NPC -------------------------
+func _generate_basic_stat(intelligence, wisdom, communication):
+	var food: int = 0
+	var mood: int = 0
+	var health: int = 0
+	# Clamp input agar tetap 0-100
+	intelligence = clamp(intelligence, 0, 100)
+	wisdom = clamp(wisdom, 0, 100)
+	communication = clamp(communication, 0, 100)
+	# ===== Food: Berdasarkan intelligence =====
+	# 40% dari intelligence langsung, + bonus kecil dari wisdom
+	food = int(intelligence * 0.4 + wisdom * 0.1)
+	# ===== Mood: Berdasarkan communication dan sedikit wisdom =====
+	# 50% dari communication, 10% dari wisdom
+	mood = int(communication * 0.5 + wisdom * 0.1)
+	# ===== Health: Berdasarkan wisdom utama, + bonus kecil dari intelligence =====
+	# 50% dari wisdom, 15% dari intelligence
+	health = int(wisdom * 0.5 + intelligence * 0.15)
+	# Clamp output agar tidak melebihi 100
+	food = clamp(food, 0, 100)
+	mood = clamp(mood, 0, 100)
+	health = clamp(health, 0, 100)
+
+	return {
+		"food": food,
+		"mood": mood,
+		"health": health }
+# unique id
 func _generate_unique_id() -> String:
 	var timestamp = str(Time.get_unix_time_from_system()).substr(5, 5)
 	var random_num = str(randi_range(100, 999))
@@ -302,29 +330,66 @@ func _generate_hobby(stats: Dictionary) -> String:
 	var physical = stats.physical
 	var wisdom = stats.wisdom
 	var communication = stats.communication
-	
+
 	var hobbies = []
-	
-	# Intelligence-based hobbies
+
+	# Intelligence-based hobbies (medieval-friendly)
 	if intelligence >= 70:
-		hobbies.append_array(["Reading", "Chess", "Mathematics", "Programming", "Research"])
-	
+		hobbies.append_array([
+			"Studying ancient texts",
+			"Astronomy",
+			"Alchemy",
+			"Strategic games",
+			"Herb lore",
+			"Scripture copying"
+		])
+
 	# Physical-based hobbies
 	if physical >= 70:
-		hobbies.append_array(["Running", "Swimming", "Martial Arts", "Climbing", "Dancing"])
-	
+		hobbies.append_array([
+			"Hunting",
+			"Sword training",
+			"Archery",
+			"Woodcutting",
+			"Blacksmithing",
+			"Horseback riding",
+			"Fishing"
+		])
+
 	# Wisdom-based hobbies
 	if wisdom >= 70:
-		hobbies.append_array(["Meditation", "Gardening", "Philosophy", "Teaching", "Counseling"])
-	
+		hobbies.append_array([
+			"Meditation",
+			"Prayer",
+			"Storytelling",
+			"Healing arts",
+			"Teaching apprentices",
+			"Studying philosophy",
+			"Temple service"
+		])
+
 	# Communication-based hobbies
 	if communication >= 70:
-		hobbies.append_array(["Public Speaking", "Writing", "Singing", "Acting", "Socializing"])
-	
-	# Default hobbies if no high stats
+		hobbies.append_array([
+			"Orating",
+			"Debating",
+			"Negotiating in the market",
+			"Singing ballads",
+			"Writing letters",
+			"Playing lute",
+			"Hosting feasts"
+		])
+
+	# Default medieval-safe hobbies
 	if hobbies.is_empty():
-		hobbies = ["Watching TV", "Sleeping", "Eating", "Walking", "Listening Music"]
-	
+		hobbies = [
+			"Watching the stars",
+			"Strolling through village",
+			"Carving wood",
+			"Feeding livestock",
+			"Daydreaming"
+		]
+
 	return hobbies[randi_range(0, hobbies.size() - 1)]
 # Generate modified Indonesian origin names
 func _generate_origin() -> String:
