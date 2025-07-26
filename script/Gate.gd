@@ -63,21 +63,76 @@ func update_currency():
 	8: 'hobby', 9: 'origin', 10: 'status', 11: 'trust', 12: 'marriage', 13:'location', 14: 'is_alive',
 	15: 'death_location', 16: 'physical', 17: 'intelligence', 18: 'communication', 19: 'wisdom',
 	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health', 23:'inventory' }
+const _trade_price = {
+	0:{0:5, 1:5, 2:5, 3:1, 4:2},
+	1:{0:30, 1:1, 2:3, 3:2, 4:2},
+	2:{0:3, 1:7, 2:4, 3:1, 4:5},
+	3:{0:2, 1:3, 2:1, 3:20, 4:30},
+	4:{0:25, 1:20, 2:10, 3:100, 4:5}, }
+const _trade_value = {
+	0:{0:10, 1:20, 2:20, 3:10, 4:5},
+	1:{0:30, 1:1, 2:3, 3:2, 4:2},
+	2:{0:3, 1:7, 2:4, 3:1, 4:5},
+	3:{0:2, 1:3, 2:1, 3:20, 4:30},
+	4:{0:25, 1:20, 2:10, 3:100, 4:5}, }
 
 var _temp_trade_data = { "item_code":null, "item_price":null, "npc_code":null, "min":0, "max":0 }
 # Utility for trade
 func _trade_inspect_reset(_bool:bool=true):
 	if _bool:
+		person_trade["btn_buy"].disabled = true
+		person_trade["btn_dec"].disabled = true
+		person_trade["btn_add"].disabled = true
+		_current_tool["job"]=null
+		_current_tool["item"]=null
 		person_trade["img"].texture = null
 		person_trade["item_name"].text = str("-")
 		person_trade["desc"].text = str("-")
-		person_trade["count"].text = str("-")        
+		person_trade["count"].text = str("-")       
+		var price:Label = person_trade["hbox_price_txt"]
+		var own:Label = person_trade["hbox_price_own"]
+		price.text = "-"
+		own.text = str( "OWN: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon) )
 func _trade_job(code):
 	if AutoloadData.all_npc.has(code)==false: return
 	
 @onready var vbox_tools_item = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox
 @onready var vbox_tools_inspect = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox
+var _current_tool = {"job":null, "item":null, "count":1}
+# update count trade
+func _update_trade_count():
+	var txt_count:Label = person_trade["count"]
+	txt_count.text = str(_current_tool["count"])
 func onready_person_inspect():
+	# btn dec
+	var btn_add:Button = person_trade["btn_add"]
+	var btn_dec:Button = person_trade["btn_dec"]
+	btn_dec.connect("pressed", func():
+		if _current_tool["count"]<=1:
+			SfxManager.play_system_fail()
+			return
+		SfxManager.play_money()
+		var decrease = _current_tool["count"]-1
+		var limit_decrease = clamp(decrease, 1, 999)
+		_current_tool["count"]=limit_decrease
+		_update_trade_count() )
+	# btn add
+	btn_add.connect("pressed", func():
+		if _current_tool["job"] == null:
+			SfxManager.play_system_fail()
+			return
+		var cummon_coin = AutoloadData.gate_coin_cummon
+		var curr_job = _current_tool["job"]
+		var curr_item = _current_tool["item"]
+		var next_count = _current_tool["count"] + 1
+		var item_price = _trade_price[curr_job][curr_item]
+		var total_price_next = item_price * next_count
+		if cummon_coin < total_price_next:
+			SfxManager.play_system_fail()
+			return
+		SfxManager.play_money()
+		_current_tool["count"] = clamp(next_count, 1, 999)
+		_update_trade_count() )
 	# btn tools items
 	var data_tools = Gate_desc.new()
 	for i in vbox_tools_item.get_child_count():
@@ -87,14 +142,28 @@ func onready_person_inspect():
 			var node_img:TextureRect = vbox_tools_inspect.get_node("img")
 			var node_item_name:Label = vbox_tools_inspect.get_node("item_name")
 			var node_desc:Label = vbox_tools_inspect.get_node("desc")
+			# price
+			var price:Label = person_trade["hbox_price_txt"]
+			var own:Label = person_trade["hbox_price_own"]
+			# btn select items on job
 			btn.connect("pressed", func():
+				_current_tool["job"]=i
+				_current_tool["item"]=ii
+				_current_tool["count"]=1
+				_update_trade_count()
 				SfxManager.play_click()
 				node_img.texture = load(data_tools.tools_path_img(i, ii))
 				node_item_name.text = data_tools.tools_item[data_tools.tools_code[i]][ii]["name"]
-				node_desc.text = data_tools.tools_item[data_tools.tools_code[i]][ii]["desc"] )
+				node_desc.text = str("+",_trade_value[i][ii]," Sources\n",data_tools.tools_item[data_tools.tools_code[i]][ii]["desc"])
+				price.text = str(_trade_price[i][ii]*_current_tool["count"])
+				person_trade["btn_buy"].disabled = false
+				person_trade["btn_dec"].disabled = false
+				person_trade["btn_add"].disabled = false
+				own.text = str( "OWN: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon) ) )
 	# btn close panel
 	btn_cls_personinspect.connect("pressed", func():
-		btn_cls_personinspect.hide() )
+		btn_cls_personinspect.hide()
+		update_currency() )
 	# btn switch info and trade
 	var btn_act:Button = person_trade["btn_act"]
 	btn_act.text = "TRADE"
@@ -107,16 +176,27 @@ func onready_person_inspect():
 			btn_act.text = "TRADE"
 			person_trade["hbox_trade"].hide()
 			person_trade["hbox_info"].show() )
-	# btn trade
+	# btn trade (buy)
 	person_trade["btn_buy"].connect("pressed", func():
 		if AutoloadData.all_npc.has(_temp_trade_data["npc_code"])==false:
 			SfxManager.play_system_fail()
-			return )
+			return
+		var curr_job = _current_tool["job"]
+		var curr_item = _current_tool["item"]
+		var current_price = _trade_price[curr_job][curr_item]*_current_tool["count"]
+		if AutoloadData.gate_coin_cummon < current_price:
+			SfxManager.play_system_fail()
+			return
+		AutoloadData.all_npc[_temp_trade_data["npc_code"]]["stat"][curr_job]["sources"]+=_trade_value[curr_job][curr_item]*_current_tool["count"]
+		AutoloadData.gate_coin_cummon-=current_price
+		AutoloadData.save_data()
+		person_inspect(_temp_trade_data["npc_code"]) )
 	
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
 	btn_cls_personinspect.visible = true
 	_trade_inspect_reset()
+	_temp_trade_data["npc_code"]=code
 	var data = AutoloadData.all_npc[code]
 	var tools = Gate_desc.new()
 	# Profile
@@ -149,7 +229,6 @@ func person_inspect(code):
 	# disabled btn items job & set progress, resources, count
 	var data_items:Dictionary = AutoloadData.all_npc[code]["inventory"]
 	var data_prog:Dictionary = AutoloadData.all_npc[code]["stat"]
-	print(data_items)
 	for i in vbox_tools_item.get_child_count():
 		var hbox_items = vbox_tools_item.get_child(i).get_node("vbox/hbox_item")
 		for ii in hbox_items.get_child_count()-1:
@@ -157,7 +236,7 @@ func person_inspect(code):
 			var btn:Button = hbox_items.get_child(ii)
 			var keys = tools.tools_code[i]
 			var txt_sold:Label = btn.get_node("txt")
-			var get_bool = !data_items[keys][ii]
+			var get_bool = data_items[keys][ii]
 			btn.disabled = get_bool
 			txt_sold.visible = get_bool
 			# progress
@@ -168,7 +247,7 @@ func person_inspect(code):
 			var count_1:Label = vbox_prog.get_node("hbox_1/count")
 			prog_0.value = data_prog[i]["sources"]
 			prog_1.value = data_prog[i]["progress"]
-			count_0.text = str(data_prog[i]["progress"])
+			count_0.text = str(data_prog[i]["sources"])
 			count_1.text = str(data_prog[i]["progress"])
 # --------------------------------------
 # SECTOR INSPECT

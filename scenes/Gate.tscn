@@ -1448,7 +1448,7 @@ theme = ExtResource("27_sb342")
 layout_mode = 2
 
 [node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
-custom_minimum_size = Vector2(1040, 0)
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 scroll_vertical = 100
@@ -2653,13 +2653,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="item_name" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 1
 theme = ExtResource("20_3cji6")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "Item name"
-vertical_alignment = 2
+vertical_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 3
 uppercase = true
@@ -2669,7 +2668,7 @@ custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("21_rn2v2")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "-"
 autowrap_mode = 3
 text_overrun_behavior = 3
@@ -2712,6 +2711,7 @@ custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("27_a2iyx")
 theme_override_font_sizes/font_size = 16
+disabled = true
 text = "-"
 
 [node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox/hbox"]
@@ -2720,7 +2720,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("21_rn2v2")
 theme_override_font_sizes/font_size = 16
-text = "0"
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2729,6 +2729,7 @@ custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("27_a2iyx")
 theme_override_font_sizes/font_size = 16
+disabled = true
 text = "+"
 
 [node name="btn_buy" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]

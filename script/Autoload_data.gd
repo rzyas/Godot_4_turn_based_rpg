@@ -203,7 +203,7 @@ var _excluded_variables: Array[String] = [
 # Cache untuk mempercepat akses
 var _save_variables_cache: Array[String] = []
 func _ready():
-	#reset_data()
+	reset_data()
 	_initialize_save_system()
 	load_data()
 func _initialize_save_system():
