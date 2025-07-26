@@ -1445,14 +1445,13 @@ size_flags_vertical = 3
 theme = ExtResource("27_sb342")
 
 [node name="hbox_trade" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
-visible = false
 layout_mode = 2
 
 [node name="scrolc" type="ScrollContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
 custom_minimum_size = Vector2(1040, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-scroll_vertical = 827
+scroll_vertical = 100
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
 layout_mode = 2
@@ -1483,6 +1482,26 @@ icon = ExtResource("43_vrl8x")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1490,6 +1509,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("44_81qaa")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1499,6 +1538,26 @@ icon = ExtResource("45_dyt46")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1507,6 +1566,26 @@ icon = ExtResource("46_jlf3w")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1514,6 +1593,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("47_uykja")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 layout_mode = 2
@@ -1619,6 +1718,26 @@ icon = ExtResource("48_rr3x4")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1626,6 +1745,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("49_wk8cj")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1635,6 +1774,26 @@ icon = ExtResource("50_ycqo8")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1643,6 +1802,26 @@ icon = ExtResource("51_ub7aj")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1650,6 +1829,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("52_3egsp")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 layout_mode = 2
@@ -1755,6 +1954,26 @@ icon = ExtResource("53_mj33a")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1762,6 +1981,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("54_62x48")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1771,6 +2010,26 @@ icon = ExtResource("55_1yyhv")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1779,6 +2038,26 @@ icon = ExtResource("56_ajp5b")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1786,6 +2065,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("57_a3n88")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 layout_mode = 2
@@ -1891,6 +2190,26 @@ icon = ExtResource("58_7u0wx")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1898,6 +2217,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("59_aqqb7")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1907,6 +2246,26 @@ icon = ExtResource("60_itrlk")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1915,6 +2274,26 @@ icon = ExtResource("61_rol1x")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1922,6 +2301,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("62_vpkvi")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 layout_mode = 2
@@ -2027,6 +2426,26 @@ icon = ExtResource("63_cimri")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -2034,6 +2453,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("64_8qlsb")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2043,6 +2482,26 @@ icon = ExtResource("65_0cjsr")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -2051,6 +2510,26 @@ icon = ExtResource("66_cvi6g")
 flat = true
 expand_icon = true
 
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -2058,6 +2537,26 @@ theme = ExtResource("4_mec7e")
 icon = ExtResource("67_a7npw")
 flat = true
 expand_icon = true
+
+[node name="txt" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -26.5
+offset_right = 46.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "SOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 layout_mode = 2
@@ -2174,7 +2673,6 @@ theme_override_font_sizes/font_size = 14
 text = "-"
 autowrap_mode = 3
 text_overrun_behavior = 3
-uppercase = true
 
 [node name="hbox_price" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox"]
 layout_mode = 2
@@ -2240,6 +2738,7 @@ theme_override_font_sizes/font_size = 16
 text = "BUY"
 
 [node name="hbox_info" type="HBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data"]
+visible = false
 layout_mode = 2
 
 [node name="vbox_header" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_info"]

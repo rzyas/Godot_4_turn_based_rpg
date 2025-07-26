@@ -75,8 +75,24 @@ func _trade_inspect_reset(_bool:bool=true):
 func _trade_job(code):
 	if AutoloadData.all_npc.has(code)==false: return
 	
-
+@onready var vbox_tools_item = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox
+@onready var vbox_tools_inspect = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox
 func onready_person_inspect():
+	# btn tools items
+	var data_tools = Gate_desc.new()
+	for i in vbox_tools_item.get_child_count():
+		var vbox_items = vbox_tools_item.get_child(i).get_node("vbox/hbox_item")
+		for ii in vbox_items.get_child_count()-1:
+			var btn:Button = vbox_items.get_child(ii)
+			var node_img:TextureRect = vbox_tools_inspect.get_node("img")
+			var node_item_name:Label = vbox_tools_inspect.get_node("item_name")
+			var node_desc:Label = vbox_tools_inspect.get_node("desc")
+			btn.connect("pressed", func():
+				SfxManager.play_click()
+				node_img.texture = load(data_tools.tools_path_img(i, ii))
+				node_item_name.text = data_tools.tools_item[data_tools.tools_code[i]][ii]["name"]
+				node_desc.text = data_tools.tools_item[data_tools.tools_code[i]][ii]["desc"] )
+	# btn close panel
 	btn_cls_personinspect.connect("pressed", func():
 		btn_cls_personinspect.hide() )
 	# btn switch info and trade
@@ -100,13 +116,14 @@ func onready_person_inspect():
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
 	btn_cls_personinspect.visible = true
-	
+	_trade_inspect_reset()
 	var data = AutoloadData.all_npc[code]
+	var tools = Gate_desc.new()
 	# Profile
 	var gender_index = 0 if data['gender'] == 'Male' else 1
 	profile.texture = load(_path_icon_profile(gender_index))
 	name_lbl.text = data['name']
-	var job = data["job"] if data["job"]!=null else "-"
+	var job = data["job"] if data["job"]!=null else ""
 	stat_lbl.text = "%s Years Old - %s" % [data['age'], job]
 	# Progress Bars
 	for i in range(2, hbox_prog.get_child_count()):
@@ -129,6 +146,30 @@ func person_inspect(code):
 		else:
 			if temp_data == null: txt.text = "-"
 			else: txt.text = str(data[_person_keys_dict[i + 3]])
+	# disabled btn items job & set progress, resources, count
+	var data_items:Dictionary = AutoloadData.all_npc[code]["inventory"]
+	var data_prog:Dictionary = AutoloadData.all_npc[code]["stat"]
+	print(data_items)
+	for i in vbox_tools_item.get_child_count():
+		var hbox_items = vbox_tools_item.get_child(i).get_node("vbox/hbox_item")
+		for ii in hbox_items.get_child_count()-1:
+			# btn disabled
+			var btn:Button = hbox_items.get_child(ii)
+			var keys = tools.tools_code[i]
+			var txt_sold:Label = btn.get_node("txt")
+			var get_bool = !data_items[keys][ii]
+			btn.disabled = get_bool
+			txt_sold.visible = get_bool
+			# progress
+			var vbox_prog = hbox_items.get_node("vbox")
+			var prog_0:TextureProgressBar = vbox_prog.get_node("hbox_0/prog")
+			var prog_1:TextureProgressBar = vbox_prog.get_node("hbox_1/prog")
+			var count_0:Label = vbox_prog.get_node("hbox_0/count")
+			var count_1:Label = vbox_prog.get_node("hbox_1/count")
+			prog_0.value = data_prog[i]["sources"]
+			prog_1.value = data_prog[i]["progress"]
+			count_0.text = str(data_prog[i]["progress"])
+			count_1.text = str(data_prog[i]["progress"])
 # --------------------------------------
 # SECTOR INSPECT
 # --------------------------------------
@@ -180,18 +221,23 @@ func sector_inspect(zone, sector):
 @onready var node_btn_prosed_spawn:Button = $btn_prosed
 
 var _npc_job = {
-	"farm": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"fisher": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"hunter": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"miner": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"thief": {0:false, 1:false, 2:false, 3:false, 4:false}
-}
-	
+	"Farm": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"Fisher": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"Hunter": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"Miner": {0:false, 1:false, 2:false, 3:false, 4:false},
+	"Thief": {0:false, 1:false, 2:false, 3:false, 4:false} }
+# NPC DICT
 func _new_npc(sector, zona):
 	var npc_data = NPC_generator.new()
 	var new_npc:Dictionary = npc_data.npc_new()
 	var _npc_id = new_npc.keys()[0]
 	var _npc_data = new_npc[_npc_id]
+	_npc_data["stat"] = {
+		0:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
+		1:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
+		2:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
+		3:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
+		4:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)} }
 	_npc_data["inventory"] = _npc_job
 	_npc_data["location"] = {"sector":sector, "zone":zona}
 	AutoloadData.all_npc[_npc_id] = _npc_data
