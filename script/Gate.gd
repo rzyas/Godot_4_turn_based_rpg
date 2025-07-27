@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
-		rng_spawn(0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
+		rng_spawn(true, 0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
 # --------------------------------------
 # UPDATE CURRECNCY
 # --------------------------------------
@@ -65,16 +65,16 @@ func update_currency():
 	20: 'stat_food', 21: 'stat_mood', 22: 'stat_health', 23:'inventory' }
 const _trade_price = {
 	0:{0:5, 1:5, 2:5, 3:1, 4:2},
-	1:{0:30, 1:1, 2:3, 3:2, 4:2},
-	2:{0:3, 1:7, 2:4, 3:1, 4:5},
-	3:{0:2, 1:3, 2:1, 3:20, 4:30},
-	4:{0:25, 1:20, 2:10, 3:100, 4:5}, }
+	1:{0:100, 1:1, 2:35, 3:2, 4:20},
+	2:{0:10, 1:50, 2:30, 3:1, 4:5},
+	3:{0:2, 1:20, 2:1, 3:200, 4:30},
+	4:{0:300, 1:250, 2:100, 3:500, 4:100}, }
 const _trade_value = {
 	0:{0:10, 1:20, 2:20, 3:10, 4:5},
-	1:{0:30, 1:1, 2:3, 3:2, 4:2},
-	2:{0:3, 1:7, 2:4, 3:1, 4:5},
-	3:{0:2, 1:3, 2:1, 3:20, 4:30},
-	4:{0:25, 1:20, 2:10, 3:100, 4:5}, }
+	1:{0:250, 1:1, 2:50, 3:2, 4:100},
+	2:{0:25, 1:100, 2:75, 3:10, 4:5},
+	3:{0:2, 1:150, 2:1, 3:300, 4:30},
+	4:{0:500, 1:500, 2:150, 3:1000, 4:200}, }
 
 var _temp_trade_data = { "item_code":null, "item_price":null, "npc_code":null, "min":0, "max":0 }
 # Utility for trade
@@ -93,8 +93,6 @@ func _trade_inspect_reset(_bool:bool=true):
 		var own:Label = person_trade["hbox_price_own"]
 		price.text = "-"
 		own.text = str( "OWN: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon) )
-func _trade_job(code):
-	if AutoloadData.all_npc.has(code)==false: return
 	
 @onready var vbox_tools_item = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox
 @onready var vbox_tools_inspect = $canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/pnl_desc/vbox
@@ -166,14 +164,14 @@ func onready_person_inspect():
 		update_currency() )
 	# btn switch info and trade
 	var btn_act:Button = person_trade["btn_act"]
-	btn_act.text = "TRADE"
+	btn_act.text = "GIFT"
 	btn_act.connect("pressed", func():
-		if person_trade["btn_act"].text == "TRADE":
+		if person_trade["btn_act"].text == "GIFT":
 			btn_act.text = "INFO"
 			person_trade["hbox_trade"].show()
 			person_trade["hbox_info"].hide()
 		else:
-			btn_act.text = "TRADE"
+			btn_act.text = "GIFT"
 			person_trade["hbox_trade"].hide()
 			person_trade["hbox_info"].show() )
 	# btn trade (buy)
@@ -187,6 +185,7 @@ func onready_person_inspect():
 		if AutoloadData.gate_coin_cummon < current_price:
 			SfxManager.play_system_fail()
 			return
+		AutoloadData.all_npc[_temp_trade_data["npc_code"]]["item_count"][curr_job][curr_item]+=_current_tool["count"]
 		AutoloadData.all_npc[_temp_trade_data["npc_code"]]["stat"][curr_job]["sources"]+=_trade_value[curr_job][curr_item]*_current_tool["count"]
 		AutoloadData.gate_coin_cummon-=current_price
 		AutoloadData.save_data()
@@ -236,9 +235,11 @@ func person_inspect(code):
 			var btn:Button = hbox_items.get_child(ii)
 			var keys = tools.tools_code[i]
 			var txt_sold:Label = btn.get_node("txt")
+			var txt_count:Label = btn.get_node("count")
 			var get_bool = data_items[keys][ii]
 			btn.disabled = get_bool
 			txt_sold.visible = get_bool
+			txt_count.text = str(data["item_count"][i][ii])
 			# progress
 			var vbox_prog = hbox_items.get_node("vbox")
 			var prog_0:TextureProgressBar = vbox_prog.get_node("hbox_0/prog")
@@ -298,13 +299,105 @@ func sector_inspect(zone, sector):
 # --------------------------------------
 @onready var nodes_all_sector = $all_sector
 @onready var node_btn_prosed_spawn:Button = $btn_prosed
+# utility for npc data items
+# Hitung peluang item bernilai true berdasarkan statistik NPC (jika tidak terkena penalti)
+func _calculate_true_chance(job: String, stats: Dictionary) -> float:
+	match job:
+		"Farm":
+			return 0.0  # Tidak pernah punya item
+		"Fisher":
+			var strength = stats["physical"]
+			var wisdom = stats["wisdom"]
+			if strength >= 80 and wisdom >= 98:
+				return 0.25
+			elif strength >= 70 and wisdom >= 95:
+				return 0.1
+			else:
+				return 0.0  # Tidak layak, akan di-handle penalti slot
+		"Hunter":
+			var strength = stats["physical"]
+			var intelligence = stats["intelligence"]
+			var communication = stats["communication"]
+			if strength >= 98 and intelligence >= 80 and communication >= 80:
+				return 0.3
+			elif strength >= 95 and intelligence >= 65 and communication >= 65:
+				return 0.1
+			else:
+				return 0.0
+		"Miner":
+			var strength = stats["physical"]
+			var wisdom = stats["wisdom"]
+			var intelligence = stats["intelligence"]
+			if strength >= 85 and wisdom >= 95 and intelligence < 20:
+				return 0.25
+			elif strength >= 75 and wisdom >= 90 and intelligence <= 40:
+				return 0.1
+			else:
+				return 0.0
+		"Thief":
+			var strength = stats["physical"]
+			var intelligence = stats["intelligence"]
+			var communication = stats["communication"]
+			var wisdom = stats["wisdom"]
+			if strength <= 5 and intelligence >= 98 and communication >= 98 and wisdom <= 10:
+				return 0.3
+			elif strength <= 15 and intelligence >= 95 and communication >= 95 and wisdom <= 25:
+				return 0.1
+			else:
+				return 0.0
+		_:
+			return 0.0
+# Hasilkan data inventory berdasarkan pekerjaan dan statistik NPC
+func _generate_inventory_for_npc(stats: Dictionary) -> Dictionary:
+	var result = {}
+	var jobs = ["Farm", "Fisher", "Hunter", "Miner", "Thief"]
 
-var _npc_job = {
-	"Farm": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"Fisher": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"Hunter": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"Miner": {0:false, 1:false, 2:false, 3:false, 4:false},
-	"Thief": {0:false, 1:false, 2:false, 3:false, 4:false} }
+	for job in jobs:
+		var items = {0: false, 1: false, 2: false, 3: false, 4: false}
+		var chance = _calculate_true_chance(job, stats)
+		# Penanganan khusus penalti untuk job tertentu
+		match job:
+			"Fisher":
+				var strength = stats["physical"]
+				var wisdom = stats["wisdom"]
+				if strength < 70:
+					items[2] = true
+					items[4] = true
+				if wisdom < 90:
+					items[0] = true
+			"Hunter":
+				var strength = stats["physical"]
+				var intelligence = stats["intelligence"]
+				if strength < 95:
+					items[1] = true
+					items[2] = true
+				if intelligence < 65:
+					if randf() < 0.8:
+						items[0] = true
+					if randf() < 0.8:
+						items[3] = true
+			"Miner":
+				var strength = stats["physical"]
+				if strength < 75:
+					items[1] = true
+					items[3] = true
+			"Thief":
+				var communication = stats["communication"]
+				var intelligence = stats["intelligence"]
+				if communication < 95:
+					items[0] = true
+					items[1] = true
+					items[3] = true
+				if intelligence < 95:
+					items[3] = true
+					items[4] = true
+		# Jika tidak kena penalti di suatu slot, pakai peluang true normal
+		for i in range(5):
+			if items[i] == false and chance > 0.0:
+				items[i] = randf() < chance
+		result[job] = items
+	return result
+
 # NPC DICT
 func _new_npc(sector, zona):
 	var npc_data = NPC_generator.new()
@@ -312,39 +405,72 @@ func _new_npc(sector, zona):
 	var _npc_id = new_npc.keys()[0]
 	var _npc_data = new_npc[_npc_id]
 	_npc_data["stat"] = {
-		0:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
-		1:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
-		2:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
-		3:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)},
-		4:{"sources":randi_range(0, 100), "progress":randi_range(0, 100)} }
-	_npc_data["inventory"] = _npc_job
+		0:{"sources":0, "progress":0},
+		1:{"sources":0, "progress":0},
+		2:{"sources":0, "progress":0},
+		3:{"sources":0, "progress":0},
+		4:{"sources":0, "progress":0} }
+	_npc_data["inventory"] = _generate_inventory_for_npc(_npc_data)
 	_npc_data["location"] = {"sector":sector, "zone":zona}
+	_npc_data["spawn"] = {"position":[], "main":"", "mark":"" }
+	_npc_data["item_count"] = {0:[0, 0, 0, 0, 0],1:[0, 0, 0, 0, 0],2:[0, 0, 0, 0, 0],3:[0, 0, 0, 0, 0],4:[0, 0, 0, 0, 0],}
 	AutoloadData.all_npc[_npc_id] = _npc_data
 	AutoloadData.save_data()
 	return _npc_id
-func rng_spawn(sector, main, mark:ENUM_ICON_SPAWN_MARK):
+func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code = ""):
 	var get_sector_main = nodes_all_sector.get_child(sector)
-	var rng_sector = randi_range( 0, get_sector_main.get_child_count()-1 )
-	var get_sector:Panel = get_sector_main.get_child(rng_sector)
-	
+	var rng_sector = randi_range(0, get_sector_main.get_child_count() - 1)
+	var get_sector = get_sector_main.get_child(rng_sector) as Panel
+
 	var sector_max_x = get_sector.size.x - 50
 	var sector_max_y = get_sector.size.y - 50
 
-	var main_spawn:Button = node_btn_prosed_spawn.duplicate()
-	var spawn_img:TextureRect = main_spawn.get_node("bg")
+	var npc = ""
+	var pos_x = 0
+	var pos_y = 0
+	var radaar_img = ""
+	var btn_icon = ""
+
+	var main_spawn: Button = node_btn_prosed_spawn.duplicate()
+	var spawn_img: TextureRect = main_spawn.get_node("bg")
 	var rng_size = randi_range(75, 500)
+
+	if is_rng:
+		npc = _new_npc(sector, rng_sector)
+		pos_x = randi_range(0, sector_max_x)
+		pos_y = randi_range(0, sector_max_y)
+		btn_icon = main
+		radaar_img = _path_icon_spawn_mark(mark)
+
+		AutoloadData.all_npc[npc]["spawn"] = {
+			"position": [pos_x, pos_y],
+			"btn_icon": btn_icon,
+			"radaar_img": radaar_img,
+			"radar_size": 0
+		}
+	else:
+		npc = npc_code
+		var spawn_data = AutoloadData.all_npc.get(npc_code, {}).get("spawn", null)
+		if spawn_data == null:
+			push_error("Spawn data for NPC '%s' not found!" % npc_code)
+			return
+		pos_x = spawn_data["position"][0]
+		pos_y = spawn_data["position"][1]
+		btn_icon = spawn_data["btn_icon"]
+		radaar_img = spawn_data["radaar_img"]
+	# Set ukuran dan posisi texture background
 	spawn_img.size = Vector2(rng_size, rng_size)
 	spawn_img.position = -(spawn_img.size / 2)
-	
-	var npc = _new_npc(sector, rng_sector)
-	main_spawn.connect("pressed", person_inspect.bind(npc) )
-	
+	# Set ikon tombol dan radar
+	spawn_img.texture = load(radaar_img)
+	main_spawn.icon = load(btn_icon)
+	# Tambahkan tombol spawn ke sektor
+	main_spawn.connect("pressed", Callable(self, "person_inspect").bind(npc))
 	main_spawn.show()
-	spawn_img.texture = load(_path_icon_spawn_mark(mark))
-	main_spawn.icon = load(main)
-	
 	get_sector.add_child(main_spawn)
-	main_spawn.position = Vector2( randi_range(0, sector_max_x), randi_range(0, sector_max_y) )
+	main_spawn.position = Vector2(pos_x, pos_y)
+	# Simpan data
+	AutoloadData.save_data()
 # ---------------------------------------
 # VERTICAL SLIDE ZOOM IN/OUT
 # ---------------------------------------

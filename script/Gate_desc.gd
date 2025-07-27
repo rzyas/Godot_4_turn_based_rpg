@@ -43,6 +43,7 @@ var tools_job = {
 	"hunter":"A hunter who faces wild beasts in the wilderness. Must possess great strength and wisdom to survive and conquer their prey.",
 	"miner":"A miner who digs deep into the earth in search of valuable minerals. Requires immense strength and sufficient intellect to operate in extreme environments.",
 	"assassin":"An assassin who moves in the shadows. Requires no great strength—only exceptional intellect and communication skills to complete missions without a trace." }
+
 func tools_path_img(job, item):
 	var limit_item = clamp(item, 0, 4)
 	var main_code = str("res://img/Gate/Job Icon/",tools_code[job],"_",limit_item,".png")

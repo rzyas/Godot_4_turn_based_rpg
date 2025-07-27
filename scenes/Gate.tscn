@@ -1451,7 +1451,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-scroll_vertical = 100
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc"]
 layout_mode = 2
@@ -1497,10 +1496,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1525,10 +1542,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1553,10 +1588,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1581,10 +1634,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1609,10 +1680,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_0/vbox/hbox_item"]
 layout_mode = 2
@@ -1691,7 +1780,7 @@ uppercase = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme = ExtResource("21_rn2v2")
-text = "A farmer skilled in cultivating the land and growing various crops. Requires little stamina but demands proper knowledge for the best results.\","
+text = "A basic labor role with no special skills required. Farmers live a simple life, working the land with bare hands or crude tools. They are not equipped with any unique items or abilities."
 autowrap_mode = 3
 
 [node name="pnl_1" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
@@ -1733,10 +1822,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1761,10 +1867,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1789,10 +1912,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1817,10 +1957,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1845,10 +2002,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_1/vbox/hbox_item"]
 layout_mode = 2
@@ -1927,7 +2101,7 @@ uppercase = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme = ExtResource("21_rn2v2")
-text = "An angler skilled in waiting patiently in the right spot. Requires little stamina but great wisdom to catch the best fish."
+text = "Fishers are patient and thoughtful individuals who rely on wisdom and endurance to catch valuable fish in quiet, hidden waters. Only those with clear judgment and decent strength can succeed in this craft."
 autowrap_mode = 3
 
 [node name="pnl_2" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
@@ -1969,10 +2143,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -1997,10 +2188,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2025,10 +2233,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2053,10 +2278,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2081,10 +2323,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_2/vbox/hbox_item"]
 layout_mode = 2
@@ -2163,7 +2422,7 @@ uppercase = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme = ExtResource("21_rn2v2")
-text = "A hunter who faces wild beasts in the wilderness. Must possess great strength and wisdom to survive and conquer their prey."
+text = "Hunters are resilient survivalists who roam the wilds in search of prey. They depend on raw strength, quick thinking, and solid communication to track and capture creatures in challenging terrain."
 autowrap_mode = 3
 
 [node name="pnl_3" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
@@ -2205,10 +2464,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2233,10 +2509,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2261,10 +2554,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2289,10 +2599,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2317,10 +2644,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_3/vbox/hbox_item"]
 layout_mode = 2
@@ -2399,7 +2743,7 @@ uppercase = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme = ExtResource("21_rn2v2")
-text = "A miner who digs deep into the earth in search of valuable minerals. Requires immense strength and sufficient intellect to operate in extreme environments."
+text = "Miners work deep underground, extracting ores and crystals from the earth’s core. They need solid physical endurance and strong instincts to survive the dangers of cave-ins and toxic gas. Ironically, overthinking may get them killed."
 autowrap_mode = 3
 
 [node name="pnl_4" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox"]
@@ -2441,10 +2785,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_0"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_1" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2469,10 +2830,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_2" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2497,10 +2875,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_3" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2525,10 +2920,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="btn_4" type="Button" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 custom_minimum_size = Vector2(100, 100)
@@ -2553,10 +2965,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(1, 0.34902, 0.0235294, 1)
-theme_override_font_sizes/font_size = 32
-text = "SOLD"
+theme_override_font_sizes/font_size = 21
+text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item/btn_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade/scrolc/vbox/pnl_4/vbox/hbox_item"]
 layout_mode = 2
@@ -2635,7 +3064,7 @@ uppercase = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme = ExtResource("21_rn2v2")
-text = "An assassin who moves in the shadows. Requires no great strength—only exceptional intellect and communication skills to complete missions without a trace."
+text = "Thieves are cunning and elusive. They use intelligence and charm to deceive, steal, and vanish into the shadows. Physical strength and morality are liabilities in their line of work."
 autowrap_mode = 3
 
 [node name="pnl_desc" type="PanelContainer" parent="canvas_l/btn_cls_info_people/pnl_main/vbox_info/pnl_data/hbox_trade"]
