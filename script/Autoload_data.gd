@@ -23,23 +23,27 @@ func set_pct(total: int, angka_utama: int) -> int:
 var scene_data: String = ""
 var player_set_nickname=false
 # =====================================================
+# DATE AND TIME GATE
+# =====================================================
+var gate_date = {"day_in":0, "day":1, "mounth":1, "year":1500, "hour":0}
+# =====================================================
 # DATA NPC GATE
 # =====================================================
 var sector_data = {
 	0:{
-		0:{ "danger":95,"mining":50,"food":80,"treasure":5,"population":0,"name":"Gunuraya Thicket" },
-		1:{ "danger":80,"mining":20,"food":90,"treasure":2,"population":0,"name":"Kabrawa Hollow" },
-		2:{ "danger":60,"mining":35,"food":60,"treasure":0,"population":0,"name":"Danara Glade" },
-		3:{ "danger":30,"mining":70,"food":100,"treasure":10,"population":0,"name":"Sempadar Expanse" },
-		4:{ "danger":70,"mining":5,"food":70,"treasure":4,"population":0,"name":"Telagri Grove" },
-		5:{ "danger":10,"mining":60,"food":15,"treasure":25,"population":0,"name":"Norsava Strand" },
-		6:{ "danger":25,"mining":50,"food":30,"treasure":0,"population":0,"name":"Myarok Coast" },
-		7:{ "danger":15,"mining":40,"food":15,"treasure":0,"population":0,"name":"Froskala Reach Dat" },
-		8:{ "danger":15,"mining":60,"food":5,"treasure":3,"population":0,"name":"Aurgil Cape" },
-		9:{ "danger":5,"mining":80,"food":0,"treasure":10,"population":0,"name":"Kalandro Isle" },
-		10:{ "danger":25,"mining":30,"food":30,"treasure":0,"population":0,"name":"Ombanai Island" },
-		11:{ "danger":10,"mining":35,"food":5,"treasure":0,"population":0,"name":"Silurak Islet" },
-		12:{ "danger":2,"mining":20,"food":1,"treasure":0,"population":0,"name":"Rintalo Islet" },
+		0:{ "danger":95,"mining":50,"soil_index":80,"treasure":5,"water_index":14,"name":"Gunuraya Thicket" },
+		1:{ "danger":80,"mining":20,"soil_index":90,"treasure":2,"water_index":21,"name":"Kabrawa Hollow" },
+		2:{ "danger":60,"mining":35,"soil_index":60,"treasure":0,"water_index":26,"name":"Danara Glade" },
+		3:{ "danger":30,"mining":70,"soil_index":100,"treasure":10,"water_index":31,"name":"Sempadar Expanse" },
+		4:{ "danger":70,"mining":5,"soil_index":70,"treasure":4,"water_index":35,"name":"Telagri Grove" },
+		5:{ "danger":10,"mining":60,"soil_index":15,"treasure":25,"water_index":25,"name":"Norsava Strand" },
+		6:{ "danger":25,"mining":50,"soil_index":30,"treasure":0,"water_index":57,"name":"Myarok Coast" },
+		7:{ "danger":15,"mining":40,"soil_index":15,"treasure":0,"water_index":36,"name":"Froskala Reach Dat" },
+		8:{ "danger":15,"mining":60,"soil_index":5,"treasure":3,"water_index":12,"name":"Aurgil Cape" },
+		9:{ "danger":5,"mining":80,"soil_index":0,"treasure":10,"water_index":73,"name":"Kalandro Isle" },
+		10:{ "danger":25,"mining":30,"soil_index":30,"treasure":0,"water_index":82,"name":"Ombanai Island" },
+		11:{ "danger":10,"mining":35,"soil_index":5,"treasure":0,"water_index":92,"name":"Silurak Islet" },
+		12:{ "danger":2,"mining":20,"soil_index":1,"treasure":0,"water_index":86,"name":"Rintalo Islet" },
 	},
 }
 var all_npc:Dictionary = {}
@@ -277,26 +281,10 @@ func apply_loaded_data(data: Dictionary):
 
 func reset_data():
 	print("DATA RESET")
+	gate_date = {"day_in":0, "day":1, "mounth":1, "year":1500, "hour":0}
 	gate_coin_star = 0
 	gate_coin_skull = 0
 	gate_coin_cummon = 250
-	sector_data = {
-		0:{
-			0:{ "danger":95,"mining":50,"food":80,"treasure":5,"population":0,"name":"Gunuraya Thicket" },
-			1:{ "danger":80,"mining":20,"food":90,"treasure":2,"population":0,"name":"Kabrawa Hollow" },
-			2:{ "danger":60,"mining":35,"food":60,"treasure":0,"population":0,"name":"Danara Glade" },
-			3:{ "danger":30,"mining":70,"food":100,"treasure":10,"population":0,"name":"Sempadar Expanse" },
-			4:{ "danger":70,"mining":5,"food":70,"treasure":4,"population":0,"name":"Telagri Grove" },
-			5:{ "danger":10,"mining":60,"food":15,"treasure":25,"population":0,"name":"Norsava Strand" },
-			6:{ "danger":25,"mining":50,"food":30,"treasure":0,"population":0,"name":"Myarok Coast" },
-			7:{ "danger":15,"mining":40,"food":15,"treasure":0,"population":0,"name":"Froskala Reach Dat" },
-			8:{ "danger":15,"mining":60,"food":5,"treasure":3,"population":0,"name":"Aurgil Cape" },
-			9:{ "danger":5,"mining":80,"food":0,"treasure":10,"population":0,"name":"Kalandro Isle" },
-			10:{ "danger":25,"mining":30,"food":30,"treasure":0,"population":0,"name":"Ombanai Island" },
-			11:{ "danger":10,"mining":35,"food":5,"treasure":0,"population":0,"name":"Silurak Islet" },
-			12:{ "danger":2,"mining":20,"food":1,"treasure":0,"population":0,"name":"Rintalo Islet" },
-		},
-	}
 	all_npc = {}
 	player_started_reward = {
 		"INDIE_GAME_DEV_INDO":{

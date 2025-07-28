@@ -1,5 +1,6 @@
 extends Node
-enum ENUM_ICON_SPAWN_BLUE { VILLAGE, KINGDOM, HOUSE, OLD_RUIN, GRAVE, RUIN, CAMP, TOWER, BUOY, SHIP, ISLAND, BUOY_SIGNAL, TASK, CASTLE }
+enum ENUM_ICON_SPAWN_BLUE { VILLAGE, KINGDOM, HOUSE, OLD_RUIN, GRAVE, RUIN, CAMP, TOWER, BUOY, SHIP, ISLAND, BUOY_SIGNAL, TASK, CASTLE,
+	FISH, FEMALE, MALE, VIKING_F, VIKING_M, WIZARD_M, WIZARD_F }
 enum ENUM_ICON_SPAWN_ORANGE { BATTLE, MARK_PIRATE, TORNADO, SHIP_CRASH, CHEST, PORTAL, BROKEN_HOUSE, MINING, FARM }
 enum ENUM_ICON_SPAWN_RED {MONSTER_LV_0, MONSTER_LV_1, MONSTER_LV_2, MONSTER_LV_3, MONSTER_LV_4, MINI_BOSS_VIKING, MINI_BOSS_DRAGON,
 	MINI_BOSS_GIANT, BIG_BOSS_EVIL, SEA_MONSTER_KRAKEN, SEA_MONSTER_LEVIATAN, PIRATE, SEA_BIG_BOSS_NATURE }
@@ -17,12 +18,82 @@ func _ready() -> void:
 	onready_cam_nav()
 	onready_btn_sector()
 	onready_person_inspect()
+	# TIME
+	game_time = AutoloadData.gate_date.duplicate(true)
+	update_time_ui()
 	# BTN
 	node_sldv_cam.value_changed.connect(onready_cam_zoom)
 	
 	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
 		rng_spawn(true, 0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
+
+func _process(delta):
+	if is_time_paused:
+		return
+
+	_time_accumulator += delta
+	while _time_accumulator >= SECONDS_PER_GAME_HOUR:
+		advance_hour()
+		_time_accumulator -= SECONDS_PER_GAME_HOUR
+		update_time_ui()
+# --------------------------------------
+# TIME SIMULATION 1 SEC LOCAL TIME = 1 HOUR IN GAME
+# --------------------------------------
+@onready var parent_time = $canvas_l/pnl_time
+@onready var nodes_time = {
+	"curr_day":parent_time.get_node("hbox/day"),	# label current day
+	"date":parent_time.get_node("hbox/vbox/date"),	# label date example: 1/1/1500
+	"time":parent_time.get_node("hbox/vbox/time"),}	# label time example: 21:00 
+var game_time = { "day_in": 0, "day": 1, "mounth": 1, "year": 1500, "hour": 0 }
+const SECONDS_PER_GAME_HOUR = 1.0 / 3.0
+var _time_accumulator = 0.0
+
+func advance_hour():
+	game_time.hour += 1
+	if game_time.hour >= 24:
+		game_time.hour = 0
+		game_time.day += 1
+		game_time.day_in += 1
+		if game_time.day > 30:
+			game_time.day = 1
+			game_time.mounth += 1
+			if game_time.mounth > 12:
+				game_time.mounth = 1
+				game_time.year += 1
+	AutoloadData.gate_date = game_time.duplicate(true)
+	AutoloadData.save_data()
+
+func update_time_ui():
+	nodes_time.curr_day.text = 'Day %s' % str(game_time.day_in)
+	nodes_time.date.text = '%s/%s/%s' % [game_time.day, game_time.mounth, game_time.year]
+	nodes_time.time.text = '%02d:00' % game_time.hour
+
+# Utility functions
+func get_current_datetime_string() -> String:
+	return '%02d/%02d/%04d %02d:00' % [game_time.day, game_time.mounth, game_time.year, game_time.hour]
+# Set Custom times
+func set_time(hour: int, day: int, mounth: int, year: int):
+	game_time.hour = hour
+	game_time.day = day
+	game_time.mounth = mounth
+	game_time.year = year
+	AutoloadData.gate_date = game_time.duplicate(true)
+	AutoloadData.save_data()
+	update_time_ui()
+# Skil hours
+func skip_hours(amount: int):
+	for i in range(amount):
+		advance_hour()
+# Skil Days
+func skip_days(amount: int):
+	for i in range(amount):
+		game_time.hour = 0
+		advance_hour()
+# Paused game
+var is_time_paused = false
+func pause_time(state: bool) -> void:
+	is_time_paused = state
 # --------------------------------------
 # UPDATE CURRECNCY
 # --------------------------------------
@@ -161,6 +232,7 @@ func onready_person_inspect():
 	# btn close panel
 	btn_cls_personinspect.connect("pressed", func():
 		btn_cls_personinspect.hide()
+		pause_time(false)
 		update_currency() )
 	# btn switch info and trade
 	var btn_act:Button = person_trade["btn_act"]
@@ -193,6 +265,7 @@ func onready_person_inspect():
 	
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
+	pause_time(true)
 	btn_cls_personinspect.visible = true
 	_trade_inspect_reset()
 	_temp_trade_data["npc_code"]=code
@@ -272,7 +345,7 @@ func sector_inspect(zone, sector):
 	
 	node_sector_header.text = AutoloadData.sector_data[zone][sector]["name"]
 	node_sector_size.text = str("AREA SIZE: ", int(_island_x_size)+int(_island_y_size))
-	var _dict_key = ["danger","mining","food","treasure","population"]
+	var _dict_key = ["danger","mining","soil_index","treasure","water_index"]
 	for i in node_vbox_prog.get_child_count():
 		var prog:TextureProgressBar = node_vbox_prog.get_node(str("vbox_",i,"/prog"))
 		var count:Label = node_vbox_count.get_child(i)
@@ -404,6 +477,7 @@ func _new_npc(sector, zona):
 	var new_npc:Dictionary = npc_data.npc_new()
 	var _npc_id = new_npc.keys()[0]
 	var _npc_data = new_npc[_npc_id]
+	# add new data dict
 	_npc_data["stat"] = {
 		0:{"sources":0, "progress":0},
 		1:{"sources":0, "progress":0},
@@ -414,6 +488,7 @@ func _new_npc(sector, zona):
 	_npc_data["location"] = {"sector":sector, "zone":zona}
 	_npc_data["spawn"] = {"position":[], "main":"", "mark":"" }
 	_npc_data["item_count"] = {0:[0, 0, 0, 0, 0],1:[0, 0, 0, 0, 0],2:[0, 0, 0, 0, 0],3:[0, 0, 0, 0, 0],4:[0, 0, 0, 0, 0],}
+	_npc_data["global_pos"] = ""
 	AutoloadData.all_npc[_npc_id] = _npc_data
 	AutoloadData.save_data()
 	return _npc_id
@@ -433,7 +508,7 @@ func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code 
 
 	var main_spawn: Button = node_btn_prosed_spawn.duplicate()
 	var spawn_img: TextureRect = main_spawn.get_node("bg")
-	var rng_size = randi_range(75, 500)
+	var radar_size = randi_range(75, 500)
 
 	if is_rng:
 		npc = _new_npc(sector, rng_sector)
@@ -459,7 +534,7 @@ func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code 
 		btn_icon = spawn_data["btn_icon"]
 		radaar_img = spawn_data["radaar_img"]
 	# Set ukuran dan posisi texture background
-	spawn_img.size = Vector2(rng_size, rng_size)
+	spawn_img.size = Vector2(radar_size, radar_size)
 	spawn_img.position = -(spawn_img.size / 2)
 	# Set ikon tombol dan radar
 	spawn_img.texture = load(radaar_img)
@@ -469,6 +544,7 @@ func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code 
 	main_spawn.show()
 	get_sector.add_child(main_spawn)
 	main_spawn.position = Vector2(pos_x, pos_y)
+	
 	# Simpan data
 	AutoloadData.save_data()
 # ---------------------------------------
@@ -538,7 +614,7 @@ func onready_cam_nav():
 func _move_camera(offset: Vector2):
 	_move_camera_instant(offset)
 # Fungsi untuk tombol arah - button_down
-var _nav_speed = 70
+var _nav_speed = 100
 func _on_btn_right_down():
 	_start_continuous_move(Vector2(_nav_speed, 0))
 func _on_btn_left_down():
@@ -576,21 +652,20 @@ func _on_move_timer_timeout():
 # Fungsi untuk menggerakkan kamera secara instant (untuk gerakan berulang)
 func _move_camera_instant(offset: Vector2):
 	# Hentikan tween sebelumnya
-	if tween:
-		tween.kill()
-
+	if tween: tween.kill()
+	# Hitung posisi target dan batasi antara -8000 sampai 8000
+	var raw_target = node_main_cam.position + offset
+	var clamped_target = Vector2(
+		clamp(raw_target.x, -8000, 8000),
+		clamp(raw_target.y, -8000, 8000) )
 	# Buat tween baru
 	tween = create_tween()
 	tween.set_parallel(true)
-
-	# Hitung posisi target
-	var target_cam_pos = node_main_cam.position + offset
-
 	# Tween posisi kamera
-	tween.tween_property(node_main_cam, "position", target_cam_pos, 0.1)
-
+	tween.tween_property(node_main_cam, "position", clamped_target, 0.1)
 	# Setelah selesai, update teks label posisi kamera
 	tween.tween_callback(Callable(self, "_update_cam_loc_label"))
+
 func _update_cam_loc_label():
 	var pos = node_main_cam.position.round()
 	node_cam_loc.text = 'X:%d, Y:%d' % [pos.x, pos.y]
