@@ -8,7 +8,7 @@ func npc_new() -> Dictionary:
 	var age = _generate_age()
 	var birth_year = 1500 - age
 	var birth_data = _generate_birth_date(birth_year)
-	var death_data = _generate_death_date(birth_data, age)
+	#var death_data = _generate_death_date(birth_data, age)
 	var stats = _generate_stats()
 	var basic_stat = _generate_basic_stat(stats.intelligence, stats.wisdom, stats.communication)
 	
@@ -19,7 +19,7 @@ func npc_new() -> Dictionary:
 			"job": null,
 			"gender": gender,
 			"birth_date": birth_data,
-			"death_date": death_data,
+			"death_date": null,
 			"height": _generate_height(gender),
 			"weight": _generate_weight(gender),
 			"hobby": _generate_hobby(stats),

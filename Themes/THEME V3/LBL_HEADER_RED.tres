@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d3exkgafx5pge"]
+
+[ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_103hy"]
+[ext_resource type="Texture2D" uid="uid://i70kotgdddwf" path="res://img/UI (new)/UI_0.png" id="2_uasue"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61iew"]
+texture = ExtResource("2_uasue")
+texture_margin_left = 20.0
+texture_margin_right = 20.4338
+texture_margin_bottom = 19.4528
+region_rect = Rect2(0, 94, 128, 34)
+
+[resource]
+Label/colors/font_outline_color = Color(0, 0, 0, 0.392157)
+Label/constants/outline_size = 12
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_103hy")
+Label/styles/normal = SubResource("StyleBoxTexture_61iew")

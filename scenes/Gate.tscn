@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=85 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -59,9 +59,13 @@
 [ext_resource type="Texture2D" uid="uid://beaaglkwtyhbf" path="res://img/Gate/Job Icon/Miner_3.png" id="61_rol1x"]
 [ext_resource type="Texture2D" uid="uid://bhxtgf82roo7c" path="res://img/Gate/Job Icon/Miner_4.png" id="62_vpkvi"]
 [ext_resource type="Texture2D" uid="uid://roib25hgh620" path="res://img/Gate/Job Icon/Thief_0.png" id="63_cimri"]
+[ext_resource type="Texture2D" uid="uid://yr8uf60wxbej" path="res://img/Gate/Monster Icon/20.png" id="64_1krat"]
+[ext_resource type="Theme" uid="uid://by6pmufsn8s4t" path="res://Themes/THEME V3/PNL_BORDER_10_RED.tres" id="64_7d8u8"]
 [ext_resource type="Texture2D" uid="uid://dyvgi152tbcfp" path="res://img/Gate/Job Icon/Thief_1.png" id="64_8qlsb"]
 [ext_resource type="Texture2D" uid="uid://dqvurkpa5u24w" path="res://img/Gate/Job Icon/Thief_2.png" id="65_0cjsr"]
+[ext_resource type="Theme" uid="uid://d3exkgafx5pge" path="res://Themes/THEME V3/LBL_HEADER_RED.tres" id="65_1n3jq"]
 [ext_resource type="Texture2D" uid="uid://ck5er80fnb2im" path="res://img/Gate/Job Icon/Thief_3.png" id="66_cvi6g"]
+[ext_resource type="Theme" uid="uid://bl8q3cq5l1u4l" path="res://Themes/THEME V3/BTN_ACTIVE_WARNING.tres" id="67_1n3jq"]
 [ext_resource type="Texture2D" uid="uid://dymgg046t4osh" path="res://img/Gate/Job Icon/Thief_4.png" id="67_a7npw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p46fb"]
@@ -1142,6 +1146,7 @@ offset_bottom = -112.0
 text = "RANDOM SPAWN"
 
 [node name="btn_cls_info_people" type="Button" parent="canvas_l"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
 show_behind_parent = true
 z_index = 1
@@ -3579,3 +3584,109 @@ theme = ExtResource("21_rn2v2")
 text = "12:39"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="btn_cls_dg_break" type="Button" parent="canvas_l"]
+self_modulate = Color(1, 1, 1, 0.784314)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -858.0
+offset_top = -858.0
+offset_right = 858.0
+offset_bottom = 858.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("16_ibuj8")
+expand_icon = true
+
+[node name="pnlc" type="PanelContainer" parent="canvas_l/btn_cls_dg_break"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -227.0
+offset_right = 265.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("64_7d8u8")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+layout_mode = 2
+theme = ExtResource("65_1n3jq")
+text = "Dungeon break"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+texture = ExtResource("64_1krat")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+text = "Monster name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrol_c" type="ScrollContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox/scrol_c"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="txt_desc" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox/scrol_c/vbox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+text = "Monster desc"
+autowrap_mode = 3
+
+[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.346577, 0.280009, 1)
+text = "POWER: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_party" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("67_1n3jq")
+text = "SET PARTY"
+
+[node name="txt_cls" type="Label" parent="canvas_l/btn_cls_dg_break"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -520.0
+offset_right = 76.5
+offset_bottom = -488.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"

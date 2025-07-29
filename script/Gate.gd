@@ -149,6 +149,27 @@ const _trade_value = {
 
 var _temp_trade_data = { "item_code":null, "item_price":null, "npc_code":null, "min":0, "max":0 }
 # Utility for trade
+func _calculate_power(physical: int, intelligence: int, communication: int, wisdom: int) -> int:
+	# Clamp semua input agar tetap 0 - 100
+	physical = clamp(physical, 0, 100)
+	intelligence = clamp(intelligence, 0, 100)
+	communication = clamp(communication, 0, 100)
+	wisdom = clamp(wisdom, 0, 100)
+	# Bobot kontribusi tiap atribut
+	var weight_physical = 0.35
+	var weight_intelligence = 0.25
+	var weight_communication = 0.2
+	var weight_wisdom = 0.2
+	# Hitung total power (maksimum 100), lalu skalakan ke 0–10_000
+	var power = (
+		physical * weight_physical +
+		intelligence * weight_intelligence +
+		communication * weight_communication +
+		wisdom * weight_wisdom )
+
+	var scaled_power = power * 100.0
+	return int(round(scaled_power))
+
 func _trade_inspect_reset(_bool:bool=true):
 	if _bool:
 		person_trade["btn_buy"].disabled = true
@@ -159,7 +180,7 @@ func _trade_inspect_reset(_bool:bool=true):
 		person_trade["img"].texture = null
 		person_trade["item_name"].text = str("-")
 		person_trade["desc"].text = str("-")
-		person_trade["count"].text = str("-")       
+		person_trade["count"].text = str("-")
 		var price:Label = person_trade["hbox_price_txt"]
 		var own:Label = person_trade["hbox_price_own"]
 		price.text = "-"
@@ -266,6 +287,7 @@ func onready_person_inspect():
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
 	pause_time(true)
+	print(AutoloadData.all_npc[code]["power"])
 	btn_cls_personinspect.visible = true
 	_trade_inspect_reset()
 	_temp_trade_data["npc_code"]=code
@@ -285,7 +307,7 @@ func person_inspect(code):
 	for i in range(vbox_txt.get_child_count()):
 		var txt:Label = vbox_txt.get_child(i)
 		var temp_data = data[_person_keys_dict[i + 3]]
-		if i in [1, 2]:
+		if i in [1]:
 			var result = "%02d/%02d/%d - %02d:00" % [temp_data["day"], temp_data["month"], temp_data["year"], temp_data["hour"]]
 			txt.text = result
 		elif i == 11:
@@ -470,13 +492,13 @@ func _generate_inventory_for_npc(stats: Dictionary) -> Dictionary:
 				items[i] = randf() < chance
 		result[job] = items
 	return result
-
 # NPC DICT
 func _new_npc(sector, zona):
 	var npc_data = NPC_generator.new()
 	var new_npc:Dictionary = npc_data.npc_new()
 	var _npc_id = new_npc.keys()[0]
 	var _npc_data = new_npc[_npc_id]
+	var keys_code = ['physical', 'intelligence', 'communication', 'wisdom']
 	# add new data dict
 	_npc_data["stat"] = {
 		0:{"sources":0, "progress":0},
@@ -489,10 +511,11 @@ func _new_npc(sector, zona):
 	_npc_data["spawn"] = {"position":[], "main":"", "mark":"" }
 	_npc_data["item_count"] = {0:[0, 0, 0, 0, 0],1:[0, 0, 0, 0, 0],2:[0, 0, 0, 0, 0],3:[0, 0, 0, 0, 0],4:[0, 0, 0, 0, 0],}
 	_npc_data["global_pos"] = ""
+	_npc_data["power"] = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
 	AutoloadData.all_npc[_npc_id] = _npc_data
 	AutoloadData.save_data()
 	return _npc_id
-func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code = ""):
+func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, npc_code = ""):
 	var get_sector_main = nodes_all_sector.get_child(sector)
 	var rng_sector = randi_range(0, get_sector_main.get_child_count() - 1)
 	var get_sector = get_sector_main.get_child(rng_sector) as Panel
@@ -521,8 +544,7 @@ func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code 
 			"position": [pos_x, pos_y],
 			"btn_icon": btn_icon,
 			"radaar_img": radaar_img,
-			"radar_size": 0
-		}
+			"radar_size": 0 }
 	else:
 		npc = npc_code
 		var spawn_data = AutoloadData.all_npc.get(npc_code, {}).get("spawn", null)
@@ -544,8 +566,9 @@ func rng_spawn(is_rng: bool, sector, main, mark: ENUM_ICON_SPAWN_MARK, npc_code 
 	main_spawn.show()
 	get_sector.add_child(main_spawn)
 	main_spawn.position = Vector2(pos_x, pos_y)
-	
 	# Simpan data
+	var gb_pos = Vector2(main_spawn.global_position.x, main_spawn.global_position.y)
+	AutoloadData.all_npc[npc]["global_pos"] = gb_pos
 	AutoloadData.save_data()
 # ---------------------------------------
 # VERTICAL SLIDE ZOOM IN/OUT
