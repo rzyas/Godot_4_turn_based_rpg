@@ -6,7 +6,7 @@ func npc_new() -> Dictionary:
 	var npc_id = _generate_unique_id()
 	var gender = _generate_gender()
 	var age = _generate_age()
-	var birth_year = 1500 - age
+	var birth_year = AutoloadData.gate_date["year"] - age
 	var birth_data = _generate_birth_date(birth_year)
 	#var death_data = _generate_death_date(birth_data, age)
 	var stats = _generate_stats()
@@ -240,7 +240,7 @@ func _generate_gender() -> String:
 	return ["Male", "Female"][randi_range(0, 1)]
 # Generate random age
 func _generate_age() -> int:
-	return randi_range(18, 80)
+	return randi_range(18, 50)
 # Generate Indonesian-style male names
 func _generate_male_names() -> Array:
 	return [

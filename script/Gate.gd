@@ -18,6 +18,8 @@ func _ready() -> void:
 	onready_cam_nav()
 	onready_btn_sector()
 	onready_person_inspect()
+	onready_btn_dg_break()
+	onready_dg_gate()
 	# TIME
 	game_time = AutoloadData.gate_date.duplicate(true)
 	update_time_ui()
@@ -37,6 +39,28 @@ func _process(delta):
 		advance_hour()
 		_time_accumulator -= SECONDS_PER_GAME_HOUR
 		update_time_ui()
+
+# --------------------------------------
+# DUNGEON BREAK
+# --------------------------------------
+@onready var btn_dg_break_switch:Button = $canvas_l/btn_cls_dg_break
+var currect_party = [null, null, null]
+
+func onready_btn_dg_break():
+	# btn switch dg & party
+	var _dg_panel_1:VBoxContainer = btn_dg_break_switch.get_node("pnlc").get_child(0)
+	var _dg_panel_2:VBoxContainer = btn_dg_break_switch.get_node("pnlc").get_child(1)
+	for i in btn_dg_break_switch.get_child_count():
+		var btn:Button = btn_dg_break_switch.get_node("pnlc").get_child(i).get_node("btn_switch")
+		btn.pressed.connect(func():
+			SfxManager.play_click()
+			_dg_panel_1.visible = !_dg_panel_1.visible
+			_dg_panel_2.visible = !_dg_panel_2.visible )
+	# btn main cls
+	btn_dg_break_switch.pressed.connect(func():
+		btn_dg_break_switch.hide() )
+		#await get_tree().create_timer(2).timeout
+		#btn_dg_break_switch.show() )
 # --------------------------------------
 # TIME SIMULATION 1 SEC LOCAL TIME = 1 HOUR IN GAME
 # --------------------------------------
@@ -307,7 +331,7 @@ func person_inspect(code):
 	for i in range(vbox_txt.get_child_count()):
 		var txt:Label = vbox_txt.get_child(i)
 		var temp_data = data[_person_keys_dict[i + 3]]
-		if i in [1]:
+		if i == 1:
 			var result = "%02d/%02d/%d - %02d:00" % [temp_data["day"], temp_data["month"], temp_data["year"], temp_data["hour"]]
 			txt.text = result
 		elif i == 11:
@@ -389,6 +413,99 @@ func sector_inspect(zone, sector):
 			target_value,
 			1.0
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+# --------------------------------------
+# DUNNGEON GATE
+# --------------------------------------
+@onready var btn_cls_dg_gate = $canvas_l/btn_cls_dg_break
+
+@onready var vbox_member = $canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox
+func onready_dg_gate():
+	for i in range(3):
+		var path_btn = str("pnl_party_",i)
+		var btn:Button = vbox_member.get_node(str(path_btn,"/hbox/btn_inspect"))
+		btn.connect("pressed", func():
+			SfxManager.play_click()
+			if currect_party[i]==null: return
+			person_inspect(currect_party[i]) )
+			
+@onready var dg_gate_vbox_main = $canvas_l/btn_cls_dg_break/pnlc/vbox_main
+@onready var dg_gate_vbox_party = $canvas_l/btn_cls_dg_break/pnlc/vbox_party
+@onready var nodes_dg_gate = {
+	"img":dg_gate_vbox_main.get_node("img"),
+	"name":dg_gate_vbox_main.get_node("txt_name"),
+	"desc":dg_gate_vbox_main.get_node("scrol_c/vbox/txt_desc"),
+	"power":dg_gate_vbox_main.get_node("txt_power"),
+	"prog":vbox_member.get_node("hbox_prog/prog_main"),
+	"rwd":dg_gate_vbox_party.get_node("rwd") }
+
+func _update_npcs(code_npc, code_party):
+	dg_gate_vbox_main.show()
+	dg_gate_vbox_party.hide()
+	var dg_desc_data = Gate_desc.new()
+	var main_dg = AutoloadData.gate_party[code_party]
+	var _gate_level = main_dg["gate"]["main"]
+	nodes_dg_gate["img"].texture = load(dg_desc_data.dg_break_data[_gate_level]["img"])
+	nodes_dg_gate["name"].text = str(dg_desc_data.dg_break_data[_gate_level]["name"], " (Monster Level: ",_gate_level,")")
+	nodes_dg_gate["desc"].text = dg_desc_data.dg_break_data[_gate_level]["desc"]
+	nodes_dg_gate["rwd"].text = str("Reward: ", AutoloadData.filter_num_k(dg_desc_data.dg_break_data[_gate_level]["rwd"]))
+	var keys_code = ['physical', 'intelligence', 'communication', 'wisdom']
+	var total_npc_power:int = 0
+	var total_enem_power = AutoloadData.gate_party[code_party]["gate"]["power"]
+	nodes_dg_gate["power"].text = AutoloadData.filter_num_k(total_enem_power)
+	for i in range(3):
+		var _npc_data = AutoloadData.all_npc[code_npc[i]]
+		var pwr = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
+		total_npc_power+=pwr
+		var path_btn = str("pnl_party_",i)
+		var txt_name:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_name") )
+		var txt_power:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_power") )
+		txt_name.text = str(_npc_data["name"])
+		txt_power.text = AutoloadData.filter_num_k(pwr)
+	nodes_dg_gate["power"].text = AutoloadData.filter_num_k(total_enem_power)
+	nodes_dg_gate["prog"].value = compare_power_strength(total_npc_power, total_enem_power)
+		
+func dg_gate_inspect(code_party):
+	if AutoloadData.gate_party.has(code_party)== false:
+		SfxManager.play_system_fail()
+		return
+	SfxManager.play_click()
+	btn_cls_dg_gate.show()
+	var party = AutoloadData.gate_party[code_party]["member"]
+	_update_npcs(party, code_party)
+func compare_power_strength(value_a: int, value_b: int) -> int:
+	if value_a == value_b:
+		return 50
+	if value_a + value_b == 0:
+		return 50  # kasus khusus kalau dua-duanya nol
+
+	var ratio = float(value_a) / float(value_a + value_b)
+	return int(round(ratio * 100))
+# utility func
+func calculate_dg_pct(danger_val: int) -> int:
+	danger_val = clamp(danger_val, 0, 100)
+	var max_level := 5
+
+	if danger_val < 10:
+		max_level = 5
+	elif danger_val < 20:
+		max_level = 10
+	elif danger_val < 40:
+		max_level = 13
+	elif danger_val < 60:
+		max_level = 15
+	elif danger_val < 80:
+		max_level = 17
+	elif danger_val < 100:
+		max_level = 19
+	else:
+		max_level = 20
+
+	# Distribusi berbobot: semakin tinggi danger_val, peluang level tinggi makin besar
+	var curve := danger_val / 100.0
+	var weighted := pow(randf(), 1.0 - curve)
+	return int(weighted * (max_level - 1)) + 1
+
+
 # --------------------------------------
 # SECTOR SWPAN
 # --------------------------------------
@@ -515,60 +632,88 @@ func _new_npc(sector, zona):
 	AutoloadData.all_npc[_npc_id] = _npc_data
 	AutoloadData.save_data()
 	return _npc_id
-func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, npc_code = ""):
+# is rng == true: for first spawn || false: for func _ready (load)
+# npc code: code spawn
+func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_id = ""):
 	var get_sector_main = nodes_all_sector.get_child(sector)
 	var rng_sector = randi_range(0, get_sector_main.get_child_count() - 1)
 	var get_sector = get_sector_main.get_child(rng_sector) as Panel
-
+	# data new spawn
 	var sector_max_x = get_sector.size.x - 50
 	var sector_max_y = get_sector.size.y - 50
-
-	var npc = ""
+	# data temp
 	var pos_x = 0
 	var pos_y = 0
 	var radaar_img = ""
 	var btn_icon = ""
-
+	# data unility
 	var main_spawn: Button = node_btn_prosed_spawn.duplicate()
 	var spawn_img: TextureRect = main_spawn.get_node("bg")
-	var radar_size = randi_range(75, 500)
-
+	var radar_size = randi_range(200, 250)
+	# data db temp
+	var _gate_party:Array = []
+	# make uniq id then save party to db
+	var npc_data = NPC_generator.new()
+	var party_id = npc_data._generate_unique_id()
+	# gate 
+	var rng_gate_locaion = randi_range(0, get_sector_main.get_child_count() - 1)
+	
+	AutoloadData.gate_party[party_id]={}
+	# confirm
 	if is_rng:
-		npc = _new_npc(sector, rng_sector)
-		pos_x = randi_range(0, sector_max_x)
-		pos_y = randi_range(0, sector_max_y)
-		btn_icon = main
-		radaar_img = _path_icon_spawn_mark(mark)
-
-		AutoloadData.all_npc[npc]["spawn"] = {
-			"position": [pos_x, pos_y],
-			"btn_icon": btn_icon,
-			"radaar_img": radaar_img,
-			"radar_size": 0 }
+		# make 3 new npc and assign all to party
+		for i in range(3):
+			# make new npc and auto saved to db: all_npc
+			var _rng_sector = randi_range(0, get_sector_main.get_child_count() - 1)
+			var new_npc = _new_npc(sector, _rng_sector)
+			# new npc return id npc then save to temp arr
+			_gate_party.append(new_npc)
+			# new dict data for every npc
+			AutoloadData.all_npc[new_npc]["spawn"] = {
+				"position": [randi_range(0, sector_max_x), randi_range(0, sector_max_y)] }
+		# save db for party data
+		AutoloadData.gate_party[party_id]["member"] = _gate_party
+		AutoloadData.gate_party[party_id]["btn_icon"] = main
+		AutoloadData.gate_party[party_id]["radar_img"] = _path_icon_spawn_mark(mark)
+		AutoloadData.gate_party[party_id]["radar_size"] = radar_size
+		AutoloadData.gate_party[party_id]["location"] = {"sector":sector, "zone":rng_gate_locaion}
+		AutoloadData.gate_party[party_id]["position"] = [randi_range(0, sector_max_x), randi_range(0, sector_max_y)]
+		var data_gate_desc = Gate_desc.new()
+		var rng_monster = calculate_dg_pct(AutoloadData.sector_data[sector][rng_gate_locaion]["danger"])
+		var rng_rwd = data_gate_desc.dg_break_data[rng_monster]["rwd"]
+		var rng_pwr = data_gate_desc.dg_break_data[rng_monster]["power"]
+		AutoloadData.gate_party[party_id]["gate"] = {"rwd": rng_rwd, "power":rng_pwr, "main":rng_monster}
+		# set local pos
+		pos_x = AutoloadData.gate_party[party_id]["position"][0]
+		pos_y = AutoloadData.gate_party[party_id]["position"][1]
 	else:
-		npc = npc_code
-		var spawn_data = AutoloadData.all_npc.get(npc_code, {}).get("spawn", null)
-		if spawn_data == null:
-			push_error("Spawn data for NPC '%s' not found!" % npc_code)
-			return
-		pos_x = spawn_data["position"][0]
-		pos_y = spawn_data["position"][1]
-		btn_icon = spawn_data["btn_icon"]
-		radaar_img = spawn_data["radaar_img"]
+		if AutoloadData.gate_party.has(get_party_id)==false: return
+		
+			
+	# get icon btn
+	btn_icon = main
+	# get img radar
+	radaar_img = _path_icon_spawn_mark(mark)
 	# Set ukuran dan posisi texture background
 	spawn_img.size = Vector2(radar_size, radar_size)
 	spawn_img.position = -(spawn_img.size / 2)
 	# Set ikon tombol dan radar
 	spawn_img.texture = load(radaar_img)
 	main_spawn.icon = load(btn_icon)
-	# Tambahkan tombol spawn ke sektor
-	main_spawn.connect("pressed", Callable(self, "person_inspect").bind(npc))
+	# connect btn
+	main_spawn.connect("pressed", func():
+		for i in range(3):
+			currect_party[i]=_gate_party[i]
+		dg_gate_inspect(party_id) )
+	# child to parent
 	main_spawn.show()
 	get_sector.add_child(main_spawn)
+	
 	main_spawn.position = Vector2(pos_x, pos_y)
 	# Simpan data
 	var gb_pos = Vector2(main_spawn.global_position.x, main_spawn.global_position.y)
-	AutoloadData.all_npc[npc]["global_pos"] = gb_pos
+	# save new data (global pos)
+	AutoloadData.gate_party[party_id]["global_pos"] = gb_pos
 	AutoloadData.save_data()
 # ---------------------------------------
 # VERTICAL SLIDE ZOOM IN/OUT
