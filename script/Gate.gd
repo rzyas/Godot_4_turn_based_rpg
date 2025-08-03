@@ -41,6 +41,65 @@ func _process(delta):
 		update_time_ui()
 
 # --------------------------------------
+# DATE UNITYLITY
+# --------------------------------------
+# Date confirmation function for Godot 4.4
+# Compares target_date against AutoloadData.gate_date and returns day difference
+
+func date_confirm(target_date: Dictionary) -> int:
+	var target_days = _convert_date_to_days(target_date)
+	var current_days = _convert_date_to_days(AutoloadData.gate_date)
+	# Calculate difference and round to avoid floating point issues
+	var difference = target_days - current_days
+	return int(round(difference))
+
+func _convert_date_to_days(date_dict: Dictionary) -> float:
+	# Fixed month lengths (no leap years)
+	var month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	
+	var total_days: float = 0.0
+	# Add days from complete years (365 days per year)
+	total_days += date_dict.year * 365.0
+	# Add days from complete months in the current year
+	for i in range(date_dict.mounth - 1):  # mounth is 1-based, so subtract 1
+		total_days += month_days[i]
+	# Add days (zero-based indexing, so day 1 becomes 0)
+	total_days += date_dict.day - 1
+	# Add fractional day from day_in
+	#total_days += date_dict.day_in
+	# Add fractional day from hour
+	total_days += date_dict.hour / 24.0
+	return total_days
+	
+func date_increase_day(days_to_add: int) -> Dictionary:
+	var days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	var new_date = AutoloadData.gate_date.duplicate() # duplikat biar data asli tidak berubah
+	
+	# Tambahkan hari yang diminta
+	new_date['day'] += days_to_add
+	
+	# Loop untuk menangani overflow bulan dan tahun
+	while new_date['day'] > days_in_month[new_date['mounth'] - 1]:
+		# Kurangi hari dengan jumlah hari dalam bulan saat ini
+		new_date['day'] -= days_in_month[new_date['mounth'] - 1]
+		new_date['mounth'] += 1
+		
+		# Jika bulan lebih dari 12, reset ke Januari tahun berikutnya
+		if new_date['mounth'] > 12:
+			new_date['mounth'] = 1
+			new_date['year'] += 1
+	
+	# Tangani kasus khusus jika hari menjadi 0 atau negatif
+	while new_date['day'] <= 0:
+		new_date['mounth'] -= 1
+		# Jika bulan menjadi 0, mundur ke Desember tahun sebelumnya
+		if new_date['mounth'] <= 0:
+			new_date['mounth'] = 12
+			new_date['year'] -= 1
+		# Tambahkan jumlah hari dalam bulan sebelumnya
+		new_date['day'] += days_in_month[new_date['mounth'] - 1]
+	return new_date
+# --------------------------------------
 # DUNGEON BREAK
 # --------------------------------------
 @onready var btn_dg_break_switch:Button = $canvas_l/btn_cls_dg_break
@@ -58,6 +117,9 @@ func onready_btn_dg_break():
 			_dg_panel_2.visible = !_dg_panel_2.visible )
 	# btn main cls
 	btn_dg_break_switch.pressed.connect(func():
+		total_paused[1]=false
+		if total_paused[0]==false and total_paused[1]==false:
+			pause_time(false)
 		btn_dg_break_switch.hide() )
 		#await get_tree().create_timer(2).timeout
 		#btn_dg_break_switch.show() )
@@ -115,6 +177,7 @@ func skip_days(amount: int):
 		game_time.hour = 0
 		advance_hour()
 # Paused game
+var total_paused = [false, false]
 var is_time_paused = false
 func pause_time(state: bool) -> void:
 	is_time_paused = state
@@ -276,8 +339,10 @@ func onready_person_inspect():
 				own.text = str( "OWN: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon) ) )
 	# btn close panel
 	btn_cls_personinspect.connect("pressed", func():
+		total_paused[0]=false
+		if total_paused[0]==false and total_paused[1]==false:
+			pause_time(false)
 		btn_cls_personinspect.hide()
-		pause_time(false)
 		update_currency() )
 	# btn switch info and trade
 	var btn_act:Button = person_trade["btn_act"]
@@ -310,8 +375,8 @@ func onready_person_inspect():
 	
 func person_inspect(code):
 	if AutoloadData.all_npc.has(code)== false: return
+	total_paused[0]=true
 	pause_time(true)
-	print(AutoloadData.all_npc[code]["power"])
 	btn_cls_personinspect.visible = true
 	_trade_inspect_reset()
 	_temp_trade_data["npc_code"]=code
@@ -418,6 +483,7 @@ func sector_inspect(zone, sector):
 # --------------------------------------
 @onready var btn_cls_dg_gate = $canvas_l/btn_cls_dg_break
 
+@onready var hbox_party_start = $canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox
 @onready var vbox_member = $canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox
 func onready_dg_gate():
 	for i in range(3):
@@ -436,42 +502,122 @@ func onready_dg_gate():
 	"desc":dg_gate_vbox_main.get_node("scrol_c/vbox/txt_desc"),
 	"power":dg_gate_vbox_main.get_node("txt_power"),
 	"prog":vbox_member.get_node("hbox_prog/prog_main"),
-	"rwd":dg_gate_vbox_party.get_node("rwd") }
-
+	"rwd":dg_gate_vbox_party.get_node("rwd"),
+	"fianl_prog_1":hbox_party_start.get_node("vbox_prog/prog_0"),
+	"fianl_prog_2":hbox_party_start.get_node("vbox_prog/prog_1"),
+	"fianl_prog_3":hbox_party_start.get_node("vbox_prog/prog_2"),
+	"final_count_1":hbox_party_start.get_node("vbox_value/count_1"),
+	"final_count_2":hbox_party_start.get_node("vbox_value/count_2"),
+	"final_count_3":hbox_party_start.get_node("vbox_value/count_3"), }
+	
+func _calculate_preparation(confirm:bool, party_code):
+	var is_already_calculate = AutoloadData.gate_party[party_code]["battle"]["open"]
+	var temp_prog = ["fianl_prog_1", "fianl_prog_2", "fianl_prog_3"]
+	var temp_count = ["final_count_1", "final_count_2", "final_count_3"]
+	var keys = ["formation", "supplies", "survey"]
+	# if already calculate then just updated the nodes
+	if is_already_calculate:
+		for i in range(3):
+			var get_data = AutoloadData.gate_party[party_code]["battle"][keys[i]]
+			nodes_dg_gate[temp_prog[i]].value = get_data
+			nodes_dg_gate[temp_count[i]].text = str(get_data)
+	# before preparation day completed then reset nodes to 0
+	elif confirm == false:
+		for i in range(3):
+			nodes_dg_gate[temp_prog[i]].value = 0
+			nodes_dg_gate[temp_count[i]].text = str(0)
+	# after preparation day is completed then calculate npcs progress
+	else:
+		var data_sources = {
+			0:{0:0, 1:0, 2:0, 3:0, 4:0},
+			1:{0:0, 1:0, 2:0, 3:0, 4:0},
+			2:{0:0, 1:0, 2:0, 3:0, 4:0}, }
+		var data_potentian = {
+			0:{0:0, 1:0, 2:0, 3:0, 4:0},
+			1:{0:0, 1:0, 2:0, 3:0, 4:0},
+			2:{0:0, 1:0, 2:0, 3:0, 4:0}, }
+		for i in range(3):
+			var npc_sources = AutoloadData.all_npc[currect_party[i]]
+			for ii in range(5):
+				data_sources[i][ii] = npc_sources["stat"][ii]["sources"]
+				data_potentian[i][ii] = npc_sources["stat"][ii]["progress"]
+		var total_power:Array = [0, 0, 0]
+		for i in range(3):
+			for ii in range(5):
+				total_power[i] += data_sources[i][ii] * data_potentian[i][ii]
+			nodes_dg_gate[temp_prog[i]].value = total_power[i]/10
+			nodes_dg_gate[temp_count[i]].text = str(total_power[i]/10)
+			AutoloadData.gate_party[party_code]["battle"][keys[i]] = total_power[i]
+		AutoloadData.gate_party[party_code]["battle"]["open"] = true
+		AutoloadData.save_data()
+		
+var gate_available:bool
+func _update_party_battle(code_party):
+	if AutoloadData.gate_party.has(code_party) == false:return
+	var party_date = AutoloadData.gate_party[code_party]["date_spawn"]
+	var node_day:Label = hbox_party_start.get_node("vbox_day/main")
+	var get_day = date_confirm(party_date)
+	gate_available = true if get_day <=0 else false
+	node_day.text = str(get_day)
+	var main_bool = true if get_day >=0 else false
+	# disabled whhen day >= 0
+	for i in range(1, 4):
+		var btn:Button = vbox_member.get_child(i).get_node("hbox/btn_inspect")
+		btn.disabled = !main_bool
+	# disabled btn before day < 0
+	var btn_dg_start:Button = hbox_party_start.get_node("btn_start_dg")
+	btn_dg_start.disabled = main_bool
+	
 func _update_npcs(code_npc, code_party):
 	dg_gate_vbox_main.show()
 	dg_gate_vbox_party.hide()
 	var dg_desc_data = Gate_desc.new()
 	var main_dg = AutoloadData.gate_party[code_party]
 	var _gate_level = main_dg["gate"]["main"]
-	nodes_dg_gate["img"].texture = load(dg_desc_data.dg_break_data[_gate_level]["img"])
-	nodes_dg_gate["name"].text = str(dg_desc_data.dg_break_data[_gate_level]["name"], " (Monster Level: ",_gate_level,")")
-	nodes_dg_gate["desc"].text = dg_desc_data.dg_break_data[_gate_level]["desc"]
-	nodes_dg_gate["rwd"].text = str("Reward: ", AutoloadData.filter_num_k(dg_desc_data.dg_break_data[_gate_level]["rwd"]))
 	var keys_code = ['physical', 'intelligence', 'communication', 'wisdom']
 	var total_npc_power:int = 0
 	var total_enem_power = AutoloadData.gate_party[code_party]["gate"]["power"]
-	nodes_dg_gate["power"].text = AutoloadData.filter_num_k(total_enem_power)
+	if gate_available:
+		nodes_dg_gate["img"].texture = load(dg_desc_data.dg_break_data[_gate_level]["img"])
+		nodes_dg_gate["name"].text = str(dg_desc_data.dg_break_data[_gate_level]["name"], " (Monster Level ",_gate_level,")")
+		nodes_dg_gate["desc"].text = dg_desc_data.dg_break_data[_gate_level]["desc"]
+		nodes_dg_gate["rwd"].text = str("Reward: ", AutoloadData.filter_num_k(dg_desc_data.dg_break_data[_gate_level]["rwd"]))
+		nodes_dg_gate["power"].text = AutoloadData.filter_num_k(total_enem_power)
+		_calculate_preparation(true, code_party)
+	else:
+		nodes_dg_gate["img"].texture = load(dg_desc_data.dg_break_data[0]["img"])
+		nodes_dg_gate["name"].text = str(dg_desc_data.dg_break_data[0]["name"])
+		nodes_dg_gate["desc"].text = dg_desc_data.dg_break_data[0]["desc"]
+		nodes_dg_gate["rwd"].text = "???"
+		nodes_dg_gate["power"].text = "???"
+		nodes_dg_gate["prog"].value = 50
+		_calculate_preparation(false, code_party)
 	for i in range(3):
-		var _npc_data = AutoloadData.all_npc[code_npc[i]]
-		var pwr = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
-		total_npc_power+=pwr
-		var path_btn = str("pnl_party_",i)
-		var txt_name:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_name") )
-		var txt_power:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_power") )
-		txt_name.text = str(_npc_data["name"])
-		txt_power.text = AutoloadData.filter_num_k(pwr)
-	nodes_dg_gate["power"].text = AutoloadData.filter_num_k(total_enem_power)
-	nodes_dg_gate["prog"].value = compare_power_strength(total_npc_power, total_enem_power)
+			var _npc_data = AutoloadData.all_npc[code_npc[i]]
+			var pwr = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
+			total_npc_power+=pwr
+			var path_btn = str("pnl_party_",i)
+			var txt_name:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_name") )
+			var txt_power:Label = vbox_member.get_node( str(path_btn,"/hbox/txt_power") )
+			txt_name.text = str(_npc_data["name"])
+			txt_power.text = AutoloadData.filter_num_k(pwr)
+	if gate_available:
+		nodes_dg_gate["prog"].value = compare_power_strength(total_npc_power, total_enem_power)
 		
 func dg_gate_inspect(code_party):
 	if AutoloadData.gate_party.has(code_party)== false:
 		SfxManager.play_system_fail()
 		return
+	
+	total_paused[1]=true
+	pause_time(true)
+	
 	SfxManager.play_click()
 	btn_cls_dg_gate.show()
 	var party = AutoloadData.gate_party[code_party]["member"]
+	_update_party_battle(code_party)
 	_update_npcs(party, code_party)
+	
 func compare_power_strength(value_a: int, value_b: int) -> int:
 	if value_a == value_b:
 		return 50
@@ -504,8 +650,6 @@ func calculate_dg_pct(danger_val: int) -> int:
 	var curve := danger_val / 100.0
 	var weighted := pow(randf(), 1.0 - curve)
 	return int(weighted * (max_level - 1)) + 1
-
-
 # --------------------------------------
 # SECTOR SWPAN
 # --------------------------------------
@@ -609,6 +753,30 @@ func _generate_inventory_for_npc(stats: Dictionary) -> Dictionary:
 				items[i] = randf() < chance
 		result[job] = items
 	return result
+# NPC job calculate
+func _calculate_npc_job(physical: int, intelligence: int, communication: int, wisdom: int) -> Array:
+	var result = []
+
+	var jobs = {
+		'Farm': [0.2, 0.2, 0.05, 0.05],
+		'Fisher': [0.4, 0.05, 0.05, 0.01],
+		'Hunter': [0.8, 0.3, 0.05, 0.5],
+		'Miner': [0.7, 0.05, 0.05, 0.4],
+		'Thief': [0.05, 0.7, 0.7, 0.05]
+	}
+
+	for job in jobs.keys():
+		var weights = jobs[job]
+		var score = (
+			physical * weights[0] +
+			intelligence * weights[1] +
+			communication * weights[2] +
+			wisdom * weights[3]
+		)
+		result.append(int(clamp(round(score), 0, 100)))
+
+	return result
+
 # NPC DICT
 func _new_npc(sector, zona):
 	var npc_data = NPC_generator.new()
@@ -616,6 +784,15 @@ func _new_npc(sector, zona):
 	var _npc_id = new_npc.keys()[0]
 	var _npc_data = new_npc[_npc_id]
 	var keys_code = ['physical', 'intelligence', 'communication', 'wisdom']
+	
+	_npc_data["inventory"] = _generate_inventory_for_npc(_npc_data)
+	_npc_data["location"] = {"sector":sector, "zone":zona}
+	_npc_data["spawn"] = {"position":[], "main":"", "mark":""}
+	_npc_data["item_count"] = {0:[0, 0, 0, 0, 0],1:[0, 0, 0, 0, 0],2:[0, 0, 0, 0, 0],3:[0, 0, 0, 0, 0],4:[0, 0, 0, 0, 0],}
+	_npc_data["global_pos"] = ""
+	_npc_data["power"] = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
+	AutoloadData.all_npc[_npc_id] = _npc_data
+	
 	# add new data dict
 	_npc_data["stat"] = {
 		0:{"sources":0, "progress":0},
@@ -623,13 +800,12 @@ func _new_npc(sector, zona):
 		2:{"sources":0, "progress":0},
 		3:{"sources":0, "progress":0},
 		4:{"sources":0, "progress":0} }
-	_npc_data["inventory"] = _generate_inventory_for_npc(_npc_data)
-	_npc_data["location"] = {"sector":sector, "zone":zona}
-	_npc_data["spawn"] = {"position":[], "main":"", "mark":"" }
-	_npc_data["item_count"] = {0:[0, 0, 0, 0, 0],1:[0, 0, 0, 0, 0],2:[0, 0, 0, 0, 0],3:[0, 0, 0, 0, 0],4:[0, 0, 0, 0, 0],}
-	_npc_data["global_pos"] = ""
-	_npc_data["power"] = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
-	AutoloadData.all_npc[_npc_id] = _npc_data
+	# loop for add rng potential
+	var npc_loc = [sector, zona] # NEST: NPC AREA POTENTIAL VALUE
+	var npc_potentian = _calculate_npc_job(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
+	for i in range(5):
+		_npc_data["stat"][i]["progress"] = npc_potentian[i]
+	
 	AutoloadData.save_data()
 	return _npc_id
 # is rng == true: for first spawn || false: for func _ready (load)
@@ -672,6 +848,9 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 			AutoloadData.all_npc[new_npc]["spawn"] = {
 				"position": [randi_range(0, sector_max_x), randi_range(0, sector_max_y)] }
 		# save db for party data
+		var get_date = date_increase_day(3)
+		AutoloadData.gate_party[party_id]["battle"] = {"open":false, "formation":0, "supplies":0, "survey":0}
+		AutoloadData.gate_party[party_id]["date_spawn"] = get_date
 		AutoloadData.gate_party[party_id]["member"] = _gate_party
 		AutoloadData.gate_party[party_id]["btn_icon"] = main
 		AutoloadData.gate_party[party_id]["radar_img"] = _path_icon_spawn_mark(mark)
@@ -688,7 +867,6 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 		pos_y = AutoloadData.gate_party[party_id]["position"][1]
 	else:
 		if AutoloadData.gate_party.has(get_party_id)==false: return
-		
 			
 	# get icon btn
 	btn_icon = main

@@ -50,9 +50,16 @@ func tools_path_img(job, item):
 	return main_code
 
 func dg_break_path(code):
-	var limit_code = clamp(code, 1, 20)
+	var limit_code = clamp(code, 0, 20)
 	return str( "res://img/Gate/Monster Icon/",limit_code,".png" )
 var dg_break_data = {
+	0:{
+		"name":"Unidentified Dungeon",
+		"desc":"A place untouched by maps, hidden from time. Its walls breathe with forgotten whispers, and shadows move with purpose. No one knows who built it—or what waits inside. Those who enter are rarely remembered.",
+		"power":"???",
+		"rwd":"???",
+		"img":dg_break_path(0)
+	},
 	1:{
 		"name":"Gloomcap Sprout",
 		"desc":"A glowing mushroom creature from the wet forest, weak but multiplies quickly.",
