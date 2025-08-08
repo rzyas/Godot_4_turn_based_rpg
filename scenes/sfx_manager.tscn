@@ -1,6 +1,7 @@
-[gd_scene load_steps=106 format=3 uid="uid://2ybn8771o6i3"]
+[gd_scene load_steps=130 format=3 uid="uid://2ybn8771o6i3"]
 
 [ext_resource type="Script" uid="uid://ck4gp8ciun1mf" path="res://script/sfx_manager.gd" id="1_mar36"]
+[ext_resource type="AudioStream" uid="uid://clfsriiqop8x6" path="res://SFX/Gate - Monster/1.wav" id="2_1ohi2"]
 [ext_resource type="AudioStream" uid="uid://jvve4swwrchu" path="res://SFX/ENHANCE/Enhance_01.wav" id="2_2koeu"]
 [ext_resource type="AudioStream" uid="uid://bqw8eudx1eisg" path="res://SFX/Lucky Wheel/lucky_wheel_ding.wav" id="2_2xojh"]
 [ext_resource type="AudioStream" uid="uid://df1qutie6ij2k" path="res://SFX/HIT/HIT - Explosoions/sfx_explosion_0.wav" id="2_5g5ae"]
@@ -11,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bsjhyeu44bnia" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_1.wav" id="2_58ki1"]
 [ext_resource type="AudioStream" uid="uid://dwn2mahyo43sw" path="res://SFX/Lucky Wheel/lw_jackpot.mp3" id="2_275hw"]
 [ext_resource type="AudioStream" uid="uid://c7b1j5oh2ct1l" path="res://SFX/Reward/popup.mp3" id="2_bvfxy"]
+[ext_resource type="AudioStream" uid="uid://l3d6un8rdyes" path="res://SFX/Gate - Monster/dg_fail.wav" id="2_cu8rp"]
 [ext_resource type="AudioStream" uid="uid://dulkfxcv8xj6t" path="res://SFX/Lucky Wheel/bgm_gamble_of_light_1.wav" id="2_emkev"]
 [ext_resource type="AudioStream" uid="uid://40avk6wc6l2g" path="res://SFX/Interactive/sfx_click.wav" id="2_gs221"]
 [ext_resource type="AudioStream" uid="uid://cf1tbtg6js68g" path="res://SFX/HIT/Battle BGS/BGS_Battle_0.wav" id="2_h5s8o"]
@@ -20,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dklp3afswockb" path="res://SFX/SELECT/menu_select.wav" id="2_oppp2"]
 [ext_resource type="AudioStream" uid="uid://bx6214ysexxuo" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_0.wav" id="2_oygtb"]
 [ext_resource type="AudioStream" uid="uid://bcqmaa4fgcpqk" path="res://SFX/WIN LOSE/sfx_lose_0.wav" id="2_q5vo2"]
+[ext_resource type="AudioStream" uid="uid://drq2pm43wts5" path="res://SFX/Gate - Monster/dg_open.wav" id="2_rtk7i"]
 [ext_resource type="AudioStream" uid="uid://cnumfhp0wnd1t" path="res://SFX/Roadmap/Roadmap_Soul_0.wav" id="2_tuesr"]
 [ext_resource type="AudioStream" uid="uid://y1ed55unm5fg" path="res://SFX/ENHANCE/Enhance_spell.wav" id="2_v3im6"]
 [ext_resource type="AudioStream" uid="uid://biebkp4u3bqbw" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Market's Melody.wav" id="2_ve3h6"]
@@ -34,6 +37,8 @@
 [ext_resource type="AudioStream" uid="uid://bijgl4l2d6opp" path="res://SFX/Lucky Wheel/bgm_gamble_of_light_2.wav" id="3_lu1vy"]
 [ext_resource type="AudioStream" uid="uid://boklipdmawww" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_2.wav" id="3_oppp2"]
 [ext_resource type="AudioStream" uid="uid://dwf7pbi34pp40" path="res://SFX/Reward/jackpot.wav" id="3_r1ds3"]
+[ext_resource type="AudioStream" uid="uid://go1w6f4rrjae" path="res://SFX/Gate - Monster/2.wav" id="3_rtk7i"]
+[ext_resource type="AudioStream" uid="uid://6e41txiv5uct" path="res://SFX/Gate - Monster/dg_progress.wav" id="3_spw1e"]
 [ext_resource type="AudioStream" uid="uid://b44sfll8fbl2" path="res://SFX/Roadmap/Roadmap_2.wav" id="3_tuesr"]
 [ext_resource type="AudioStream" uid="uid://dtno0mhbe156j" path="res://SFX/Interactive/sfx_item_aquire_0.wav" id="3_uvc1x"]
 [ext_resource type="AudioStream" uid="uid://c1qhpgqq7nmq8" path="res://SFX/Lucky Wheel/NEW/BGM Shop - Jesters' Revelry.wav" id="3_uwwo3"]
@@ -46,11 +51,14 @@
 [ext_resource type="AudioStream" uid="uid://2jsnvakjfq2f" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 3.wav" id="4_8nxo1"]
 [ext_resource type="AudioStream" uid="uid://cw1o0p2qpfxri" path="res://SFX/Lucky Wheel/Lucky_Wheel_fail_2.wav" id="4_cxlqt"]
 [ext_resource type="AudioStream" uid="uid://ds77xwuv1hap8" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_3.wav" id="4_dawnf"]
+[ext_resource type="AudioStream" uid="uid://3lma6ssaxwoo" path="res://SFX/Gate - Monster/dg_win.wav" id="4_elbvt"]
+[ext_resource type="AudioStream" uid="uid://dyc4xh6kgnovi" path="res://SFX/Gate - Monster/3.wav" id="4_ho41d"]
 [ext_resource type="AudioStream" uid="uid://djiccuask2n6s" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_2.wav" id="4_nqaqh"]
 [ext_resource type="AudioStream" uid="uid://d1i0184gyjjv2" path="res://SFX/WIN LOSE/sfx_lose_2.wav" id="4_r0lbx"]
 [ext_resource type="AudioStream" uid="uid://e3q5eud3v5av" path="res://SFX/Interactive/sfx_item_aquire_1.wav" id="4_t6uqj"]
 [ext_resource type="AudioStream" uid="uid://b1lfgvuvw8mio" path="res://SFX/Lucky Wheel/bgm_jackpot_symphony.wav" id="4_ve3h6"]
 [ext_resource type="AudioStream" uid="uid://cdsak3e48anx3" path="res://SFX/Interactive/sfx_item_close.wav" id="5_1rsa4"]
+[ext_resource type="AudioStream" uid="uid://dempcgfoaidqb" path="res://SFX/Gate - Monster/4.wav" id="5_24j72"]
 [ext_resource type="AudioStream" uid="uid://blmwhp6wobywe" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_4.wav" id="5_bxsn6"]
 [ext_resource type="AudioStream" uid="uid://bv8u1m4lpv3tw" path="res://SFX/Reward/jackpot_super.wav" id="5_duc4f"]
 [ext_resource type="AudioStream" uid="uid://bxt6kpsg75202" path="res://SFX/HIT/Battle BGS/BGS_Battle_3.wav" id="5_g1fmx"]
@@ -65,6 +73,7 @@
 [ext_resource type="AudioStream" uid="uid://cuaipddnsiqfp" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - Battle Hymn of the Crimson Blade.wav" id="6_4i04o"]
 [ext_resource type="AudioStream" uid="uid://bewrectsf740e" path="res://SFX/WIN LOSE/sfx_win_0.wav" id="6_c62ct"]
 [ext_resource type="AudioStream" uid="uid://wvox5cdc1v72" path="res://SFX/Interactive/sfx_item_open_0.wav" id="6_cexi1"]
+[ext_resource type="AudioStream" uid="uid://b0x2ld3b507jm" path="res://SFX/Gate - Monster/5.wav" id="6_cu8rp"]
 [ext_resource type="AudioStream" uid="uid://bal0wyaa83vi7" path="res://SFX/Roadmap/Roadmap_5.wav" id="6_go7cx"]
 [ext_resource type="AudioStream" uid="uid://br7ntgtiu166c" path="res://SFX/HIT/Battle BGS/BGS_Battle_BOSS_0.wav" id="6_herj2"]
 [ext_resource type="AudioStream" uid="uid://db1fabhunaq1" path="res://SFX/ENHANCE/Enhance_05.wav" id="6_ttgc2"]
@@ -74,21 +83,36 @@
 [ext_resource type="AudioStream" uid="uid://di0qbpydctmdh" path="res://SFX/ENHANCE/Enhance_06.wav" id="7_fjwa0"]
 [ext_resource type="AudioStream" uid="uid://pmy57jdwdndf" path="res://SFX/WIN LOSE/sfx_win_1.wav" id="7_n6uo0"]
 [ext_resource type="AudioStream" uid="uid://cnnnm6vvp56to" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_0.wav" id="7_sjm52"]
+[ext_resource type="AudioStream" uid="uid://uxfg3h65ry4n" path="res://SFX/Gate - Monster/6.wav" id="7_spw1e"]
 [ext_resource type="AudioStream" uid="uid://byx2qo2n1g0bd" path="res://SFX/WIN LOSE/sfx_win_2.wav" id="8_0dta7"]
+[ext_resource type="AudioStream" uid="uid://dokieynnxr5c8" path="res://SFX/Gate - Monster/7.wav" id="8_elbvt"]
 [ext_resource type="AudioStream" uid="uid://brusllyjgq5y4" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_1.wav" id="8_x0tmi"]
 [ext_resource type="AudioStream" uid="uid://de1hqkxq4vdmb" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_2.wav" id="9_m5suj"]
+[ext_resource type="AudioStream" uid="uid://n2p3g20aswrb" path="res://SFX/Gate - Monster/8.wav" id="9_qcl60"]
+[ext_resource type="AudioStream" uid="uid://d2477d5k2u155" path="res://SFX/Gate - Monster/9.wav" id="10_n3kyc"]
 [ext_resource type="AudioStream" uid="uid://kl41ejtdns1u" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_3.wav" id="10_r0dut"]
 [ext_resource type="AudioStream" uid="uid://d1t37wpufcjas" path="res://SFX/HIT/HIT - Sword Slash/sfx_swordhit_4.wav" id="11_45eja"]
+[ext_resource type="AudioStream" uid="uid://bqctrndilcpml" path="res://SFX/Gate - Monster/10.wav" id="11_icqk4"]
 [ext_resource type="AudioStream" uid="uid://bqxx6txi71jfw" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_00.wav" id="12_2f2sc"]
+[ext_resource type="AudioStream" uid="uid://v53shhbxn1fg" path="res://SFX/Gate - Monster/11.wav" id="12_p12m1"]
+[ext_resource type="AudioStream" uid="uid://di1kji5s1u212" path="res://SFX/Gate - Monster/12.wav" id="13_eeewb"]
 [ext_resource type="AudioStream" uid="uid://cs1mwgp275hco" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_01.wav" id="13_xupd8"]
+[ext_resource type="AudioStream" uid="uid://b3o1y54xtqesj" path="res://SFX/Gate - Monster/13.wav" id="14_5jpcp"]
 [ext_resource type="AudioStream" uid="uid://dhi81uwixltnh" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_02.wav" id="14_epsq2"]
+[ext_resource type="AudioStream" uid="uid://b76866slfq7pm" path="res://SFX/Gate - Monster/14.wav" id="15_bjiu3"]
 [ext_resource type="AudioStream" uid="uid://tyg3dmitpmv8" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_03.wav" id="15_luwpy"]
+[ext_resource type="AudioStream" uid="uid://d22ysesddvbwv" path="res://SFX/Gate - Monster/15.wav" id="16_b1vu8"]
 [ext_resource type="AudioStream" uid="uid://dt2qgwlpw2t80" path="res://SFX/HIT/HIT - Magic Spell/sfx_magicspell_04.wav" id="16_e1rhl"]
 [ext_resource type="AudioStream" uid="uid://ie8itti18xou" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_1.wav" id="17_7hbli"]
+[ext_resource type="AudioStream" uid="uid://c2q2modm7bp7i" path="res://SFX/Gate - Monster/16.wav" id="17_vm0qm"]
 [ext_resource type="AudioStream" uid="uid://dihtjdlb450y5" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_2.wav" id="18_cbpil"]
+[ext_resource type="AudioStream" uid="uid://bwrhomh7n23og" path="res://SFX/Gate - Monster/17.wav" id="18_o06qj"]
 [ext_resource type="AudioStream" uid="uid://bclpq6otrp6mc" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_3.wav" id="19_0507p"]
+[ext_resource type="AudioStream" uid="uid://2hvl3k66ksrc" path="res://SFX/Gate - Monster/18.wav" id="19_i4xq3"]
 [ext_resource type="AudioStream" uid="uid://bpmgo2r70qqwl" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_4.wav" id="20_d0xv4"]
+[ext_resource type="AudioStream" uid="uid://bx7bfie5dls4f" path="res://SFX/Gate - Monster/19.wav" id="20_w4ued"]
 [ext_resource type="AudioStream" uid="uid://dr1jylct85r6g" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_5.wav" id="21_5yej8"]
+[ext_resource type="AudioStream" uid="uid://kbs1duqr1wgr" path="res://SFX/Gate - Monster/20.wav" id="21_x88fk"]
 [ext_resource type="AudioStream" uid="uid://dn83raauysvfg" path="res://SFX/HIT/HIT - Dagger Slash/sfx_dagger_hit_6.wav" id="22_gxfjf"]
 [ext_resource type="AudioStream" uid="uid://bwku6vks5nmmw" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_0.wav" id="23_ojscf"]
 [ext_resource type="AudioStream" uid="uid://b2464pdiqo4e5" path="res://SFX/HIT/HIT - Claw Scratch/sfx_claw_1.wav" id="24_5f3p6"]
@@ -108,6 +132,78 @@
 
 [node name="SFX_Manager" type="Node2D"]
 script = ExtResource("1_mar36")
+
+[node name="DgFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cu8rp")
+
+[node name="DgProgress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_spw1e")
+
+[node name="DgWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_elbvt")
+
+[node name="DgOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rtk7i")
+
+[node name="gate_monster_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1ohi2")
+
+[node name="gate_monster_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rtk7i")
+
+[node name="gate_monster_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ho41d")
+
+[node name="gate_monster_4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_24j72")
+
+[node name="gate_monster_5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cu8rp")
+
+[node name="gate_monster_6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_spw1e")
+
+[node name="gate_monster_7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_elbvt")
+
+[node name="gate_monster_8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qcl60")
+
+[node name="gate_monster_9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_n3kyc")
+
+[node name="gate_monster_10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_icqk4")
+
+[node name="gate_monster_11" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_p12m1")
+
+[node name="gate_monster_12" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_eeewb")
+
+[node name="gate_monster_13" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5jpcp")
+
+[node name="gate_monster_14" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_bjiu3")
+
+[node name="gate_monster_15" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_b1vu8")
+
+[node name="gate_monster_16" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_vm0qm")
+
+[node name="gate_monster_17" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_o06qj")
+
+[node name="gate_monster_18" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_i4xq3")
+
+[node name="gate_monster_19" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_w4ued")
+
+[node name="gate_monster_20" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_x88fk")
 
 [node name="RoadmapSoul0" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tuesr")

@@ -2,6 +2,19 @@ extends Node2D
 func get_random_int(rand_min: int, rand_max: int) -> int:
 	return randi_range(rand_min, rand_max)
 
+# GATE MONSTER
+func play_dg_progress(): $DgProgress.play()
+func play_dg_fail(): $DgFail.play()
+func play_dg_win(): $DgWin.play()
+func play_dg_open():
+	$DgOpen.play()
+func play_gate_monster(code):
+	code = clamp(code, 1, 20)
+	var audio_node = get_node_or_null('gate_monster_' + str(code))
+	if audio_node:
+		audio_node.play()
+
+# ROAD MAP
 func play_roadmap_soul():$RoadmapSoul0.play()
 func play_menu_select():$MenuSelect.play()
 #------------------------------------ BGM:START --------------------------

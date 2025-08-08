@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=102 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -40,6 +40,9 @@
 [ext_resource type="Theme" uid="uid://dftiwo3knjhjn" path="res://Themes/THEME V3/PNL_LINE_RED.tres" id="35_af2bq"]
 [ext_resource type="Theme" uid="uid://cdtmi13mggxcf" path="res://Themes/THEME V3/LBL_SIDE_RED.tres" id="37_rr3x4"]
 [ext_resource type="Texture2D" uid="uid://bkrb41ps4e2tk" path="res://img/Gate/start_dg.png" id="37_wk8cj"]
+[ext_resource type="Texture2D" uid="uid://bjqcyflbxd5a7" path="res://img/Gate/bg_result.png" id="39_62x48"]
+[ext_resource type="Texture2D" uid="uid://dse0utd63vrde" path="res://img/Gate/Prog Result/prog_0.png" id="40_1yyhv"]
+[ext_resource type="Texture2D" uid="uid://cunovrrwwbrg7" path="res://img/Gate/Prog Result/prog_1.png" id="41_ajp5b"]
 [ext_resource type="Texture2D" uid="uid://7otmc7cajl6j" path="res://img/Gate/Job Icon/Farm_0.png" id="43_vrl8x"]
 [ext_resource type="Texture2D" uid="uid://c4aa7fukcx335" path="res://img/Gate/Job Icon/Farm_1.png" id="44_81qaa"]
 [ext_resource type="Texture2D" uid="uid://7ori2et1bvaa" path="res://img/Gate/Job Icon/Farm_2.png" id="45_dyt46"]
@@ -135,6 +138,19 @@ region = Rect2(267, 21, 102, 102)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3egsp"]
 atlas = ExtResource("37_wk8cj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqqb7"]
+atlas = ExtResource("40_1yyhv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itrlk"]
+atlas = ExtResource("41_ajp5b")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj33a"]
+atlas = ExtResource("16_ibuj8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62x48"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1p2sl"]
 atlas = ExtResource("16_ibuj8")
 region = Rect2(0, 0, 100, 100)
@@ -160,6 +176,8 @@ region = Rect2(267, 21, 102, 102)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rr3x4"]
 load_path = "res://.godot/imported/2.png-a940e1464d4e9c6ddac16bd226b80a32.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yyhv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uvwl4")
@@ -325,6 +343,32 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_rq62h")
 stretch_mode = 5
+
+[node name="sector_name" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sector_0" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -44.0
+offset_right = 146.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "SECTOR 0"
 
 [node name="all_sector" type="Panel" parent="."]
 
@@ -1227,6 +1271,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="btn_cls_dg_break" type="Button" parent="canvas_l"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1321,6 +1366,7 @@ theme = ExtResource("67_1n3jq")
 text = "PARTY"
 
 [node name="vbox_party" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+visible = false
 layout_mode = 2
 
 [node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
@@ -1603,7 +1649,7 @@ size_flags_vertical = 3
 theme = ExtResource("17_7t806")
 theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
 theme_override_font_sizes/font_size = 14
-text = "Survey"
+text = "Equipment"
 vertical_alignment = 1
 uppercase = true
 
@@ -1699,6 +1745,128 @@ layout_mode = 2
 theme = ExtResource("4_mec7e")
 theme_override_font_sizes/font_size = 21
 text = "BACK"
+
+[node name="vbox_result" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 2
+texture = ExtResource("39_62x48")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="txt_main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+text = "in adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 60.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_aqqb7")
+texture_progress = SubResource("AtlasTexture_itrlk")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+
+[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Party Health"
+vertical_alignment = 1
+
+[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Mental"
+vertical_alignment = 1
+
+[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Reward"
+vertical_alignment = 1
+
+[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="prog_0" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="prog_1" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="prog_2" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="vbox_count" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+
+[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="btn_cls" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("67_1n3jq")
+theme_override_colors/font_color = Color(1, 0.595182, 0.535183, 1)
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "EXIT"
 
 [node name="txt_cls" type="Label" parent="canvas_l/btn_cls_dg_break"]
 layout_mode = 1
@@ -4100,3 +4268,20 @@ uppercase = true
 layout_mode = 2
 theme = ExtResource("28_pgr5m")
 text = "TRADE"
+
+[node name="pnl_block" type="Panel" parent="canvas_l"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -906.0
+offset_top = -531.0
+offset_right = 906.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1yyhv")
+
+[connection signal="pressed" from="canvas_l/btn_cls_dg_break/pnlc/vbox_result/btn_cls" to="." method="_gate_result_exit"]

@@ -19,6 +19,16 @@ func set_pct(total: int, angka_utama: int) -> int:
 	if total == 0:
 		return 0 # Hindari pembagian oleh nol
 	return int((angka_utama * 100.0) / total)
+func get_relative_ratio(param1, param2) -> int:
+	var p1 := float(param1)
+	var p2 := float(param2)
+	var total := p1 + p2
+
+	if total == 0:
+		return 50  # Sama-sama nol dianggap seimbang
+
+	var ratio := p1 / total
+	return int(round(ratio * 100))
 
 var scene_data: String = ""
 var player_set_nickname=false

@@ -20,6 +20,7 @@ func _ready() -> void:
 	onready_person_inspect()
 	onready_btn_dg_break()
 	onready_dg_gate()
+	onready_result()
 	# TIME
 	game_time = AutoloadData.gate_date.duplicate(true)
 	update_time_ui()
@@ -28,7 +29,15 @@ func _ready() -> void:
 	
 	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
-		rng_spawn(true, 0, _path_icon_spawn_blue(randi_range(0, 13)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
+		if AutoloadData.gate_coin_cummon < 250 or AutoloadData.gate_party.size() >= 6:
+			SfxManager.play_system_fail()
+			return
+		SfxManager.play_count()
+		if AutoloadData.gate_party.is_empty()==false:
+			AutoloadData.gate_coin_cummon -= 250
+			update_currency()
+			AutoloadData.save_data()
+		rng_spawn(true, 0, _path_icon_spawn_red(randi_range(0, 8)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
 
 func _process(delta):
 	if is_time_paused:
@@ -103,7 +112,7 @@ func date_increase_day(days_to_add: int) -> Dictionary:
 # DUNGEON BREAK
 # --------------------------------------
 @onready var btn_dg_break_switch:Button = $canvas_l/btn_cls_dg_break
-var currect_party = [null, null, null]
+var current_party = [null, null, null]
 
 func onready_btn_dg_break():
 	# btn switch dg & party
@@ -447,6 +456,7 @@ func onready_btn_sector():
 			btn.connect("pressed", sector_inspect.bind(i, ii) )
 # sector data
 func sector_inspect(zone, sector):
+	SfxManager.play_popup()
 	var node_sector_header:Label = nodes_sector_inspect.get_node("vbox/name")
 	var node_sector_size:Label = nodes_sector_inspect.get_node("vbox/size")
 	var _island_x_size = nodes_all_sector.get_child(zone).get_child(sector).size.x * 2
@@ -466,12 +476,12 @@ func sector_inspect(zone, sector):
 		# Ambil target value
 		var target_value = AutoloadData.sector_data[zone][sector][_dict_key[i]]
 		# Buat tween paralel
-		var tween_prog = create_tween()
-		tween_prog.set_parallel(true)
+		var _tween_prog = create_tween()
+		_tween_prog.set_parallel(true)
 		# Tween prog.value dari 0 ke target
-		tween_prog.tween_property(prog, 'value', target_value, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		_tween_prog.tween_property(prog, 'value', target_value, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		# Tween dummy untuk update count.text saat prog.value berubah
-		tween_prog.tween_method(
+		_tween_prog.tween_method(
 			func(v):
 				count.text = str(int(v)),
 			0.0,
@@ -491,11 +501,12 @@ func onready_dg_gate():
 		var btn:Button = vbox_member.get_node(str(path_btn,"/hbox/btn_inspect"))
 		btn.connect("pressed", func():
 			SfxManager.play_click()
-			if currect_party[i]==null: return
-			person_inspect(currect_party[i]) )
+			if current_party[i]==null: return
+			person_inspect(current_party[i]) )
 			
 @onready var dg_gate_vbox_main = $canvas_l/btn_cls_dg_break/pnlc/vbox_main
 @onready var dg_gate_vbox_party = $canvas_l/btn_cls_dg_break/pnlc/vbox_party
+@onready var dg_gate_vbox_result = $canvas_l/btn_cls_dg_break/pnlc/vbox_result
 @onready var nodes_dg_gate = {
 	"img":dg_gate_vbox_main.get_node("img"),
 	"name":dg_gate_vbox_main.get_node("txt_name"),
@@ -508,8 +519,204 @@ func onready_dg_gate():
 	"fianl_prog_3":hbox_party_start.get_node("vbox_prog/prog_2"),
 	"final_count_1":hbox_party_start.get_node("vbox_value/count_1"),
 	"final_count_2":hbox_party_start.get_node("vbox_value/count_2"),
-	"final_count_3":hbox_party_start.get_node("vbox_value/count_3"), }
-	
+	"final_count_3":hbox_party_start.get_node("vbox_value/count_3"),
+	"btn_start_dg": dg_gate_vbox_party.get_node("hbox/btn_start_dg") }
+@onready var nodes_dg_result = {
+	"prog_0": dg_gate_vbox_result.get_node("hbox/vbox_prog/prog_0"),
+	"prog_1": dg_gate_vbox_result.get_node("hbox/vbox_prog/prog_1"),
+	"prog_2": dg_gate_vbox_result.get_node("hbox/vbox_prog/prog_2"),
+	"count_0": dg_gate_vbox_result.get_node("hbox/vbox_count/desc_0"),
+	"count_1": dg_gate_vbox_result.get_node("hbox/vbox_count/desc_1"),
+	"count_2": dg_gate_vbox_result.get_node("hbox/vbox_count/desc_2"),
+	"prog_main": dg_gate_vbox_result.get_node("prog"),
+	"btn_exit": dg_gate_vbox_result.get_node("btn_cls"),
+}
+
+func onready_result():
+	var btn_start_dg:Button = nodes_dg_gate["btn_start_dg"]
+	btn_start_dg.pressed.connect(func():
+		_calculate_result(current_gate))
+# btn reulst (exit)
+func _gate_result_exit() -> void:
+	var btn_exit:Button = nodes_dg_result["btn_exit"]
+	btn_exit.disabled = true
+	btn_dg_break_switch.hide()
+	delete_gate()
+	update_currency()
+	btn_dg_break_switch.disabled = false
+	total_paused[1]=false
+	if total_paused[0]==false and total_paused[1]==false:
+		pause_time(false)
+# delete spawn (gate)
+func delete_gate():
+	var get_gate_to_del:Dictionary = AutoloadData.gate_party[current_gate]["node_to_del"].duplicate()
+	var sector = get_gate_to_del["sector"]
+	var zone = get_gate_to_del["zone"]
+	var gate_name = get_gate_to_del["name"]
+	nodes_all_sector.get_child(sector).get_child(zone).get_node(gate_name).queue_free()
+	var all_npc_to_del:Array = AutoloadData.gate_party[current_gate]["member"].duplicate()
+	for npc_code in all_npc_to_del:
+		AutoloadData.all_npc.erase(npc_code)
+	AutoloadData.gate_party.erase(current_gate)
+	AutoloadData.save_data()
+# tween progress textured
+func tween_prog(node_path, from_value: float, to_value: float) -> void:
+	var target = node_path
+	if not target:
+		print('Node not found:', node_path)
+		return
+
+	var _tween := create_tween()
+	target.value = from_value
+	_tween.tween_property(target, 'value', to_value, 0.2)
+# tween label
+func tween_label(node_path, from_value: float, to_value: float, prefix := '') -> void:
+	var target = node_path
+	if not target:
+		print('Node not found:', node_path)
+		return
+
+	var _tween := create_tween()
+	_tween.tween_method(func(v):
+		target.text = prefix + str(round(int(v))),
+	from_value, to_value, 0.2)
+# result battle npc
+func _calculate_result(party_code):
+	# Sembunyikan tampilan utama dan party, tampilkan hasil
+	nodes_dg_result["btn_exit"].disabled = true
+	btn_dg_break_switch.disabled=true
+	dg_gate_vbox_main.hide()
+	dg_gate_vbox_party.hide()
+	dg_gate_vbox_result.show()
+	# Ambil data party dari Autoload
+	var party_data = AutoloadData.gate_party[party_code]
+	# Ambil nilai formasi, suplai, dan peralatan (survey) dari data battle
+	var get_formation = party_data["battle"]["formation"]
+	var get_supplies = party_data["battle"]["supplies"]
+	var get_eq = party_data["battle"]["survey"]
+	# Hitung bonus power dari persiapan formasi & survey
+	var npc_pwrc_inc = int((get_formation + get_eq) / 500)
+	# Ambil kekuatan dan level monster dari data gate
+	var get_monster_power = party_data["gate"]["power"]
+	var get_monster_level = party_data["gate"]["main"]
+	# Suplai minimal untuk bertahan 5 langkah
+	get_supplies = max(get_supplies, (10 * get_monster_level) * 5)
+	# Siapkan variabel untuk total HP dan power party
+	var party_hp: int = 0
+	var party_power: int = 0
+	# Ambil daftar anggota party
+	var _party_member: Array = party_data["member"]
+	# Loop 3 anggota party: jumlahkan HP dan power mereka
+	for i in range(3):
+		var npc = AutoloadData.all_npc[_party_member[i]]
+		party_hp += npc["stat_health"]
+		party_power += npc["power"]
+	# Tambahkan bonus power dari persiapan
+	party_power += npc_pwrc_inc
+	# Nilai awal mental party
+	var party_mental = 100
+	# Ambil reward dari gate
+	var party_reward = party_data["gate"]["rwd"]
+	# Store initial values for progress bars
+	var initial_hp = party_hp
+	var initial_mental = party_mental
+	var initial_reward = party_reward
+	# Persentase tahapan kekuatan musuh
+	var step_pwr = [40, 60, 80, 100, 150]
+	var step_rwd = [1, 10, 30, 60, 100]
+	var step_main = [0, 20, 40, 60, 80, 100]
+	# Loop 5 tahap serangan musuh
+	var _total_win:int = 0
+	for i in range(5):
+		# Tiap langkah, suplai dikurangi sesuai level monster
+		get_supplies -= (10 * get_monster_level)
+		# Hitung kekuatan musuh untuk tahap ini (persentase dari total power)
+		var _step_enem_pwr = AutoloadData.get_pct(get_monster_power, step_pwr[i])
+		# Hitung selisih kekuatan (dalam persen) antara party dan musuh
+		var pwr_diff = AutoloadData.get_relative_ratio(party_power, _step_enem_pwr)
+		# Jika suplai habis, mental berkurang acak tergantung level musuh
+		if get_supplies <= 0: 
+			party_mental -= randi_range(0, get_monster_level + 1)
+			party_hp -= randi_range(1, 15)
+		# Store current values before changes
+		var _temp_hp: int = party_hp
+		var _temp_mental: int = party_mental
+		var _temp_rwd: int = party_reward
+		# Jika kekuatan party = 0% dari musuh → mental langsung habis, HP dikurangi besar
+		if pwr_diff == 0:
+			party_mental = 0
+			party_hp -= AutoloadData.get_pct(party_hp, randi_range(60, 90))
+			party_reward = 0
+		else:
+			# Jika masih ada kekuatan, turunkan mental berdasarkan jarak kekuatan
+			var _min_dec: int = 0
+			var _max_dec: int = 0
+			var _level_changes = [null, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+			# mengurangi hp karena pertempuran
+			var _party_hp_pct = AutoloadData.get_pct(party_hp, get_monster_level)
+			party_hp -= randi_range(AutoloadData.get_pct(_party_hp_pct, 20), _party_hp_pct)
+			# loop untuk mengurangi mental
+			for ii in range(1, 11):
+				if pwr_diff <= ii * 10:
+					_min_dec = int(_level_changes[ii] / 3)
+					_max_dec = int(_level_changes[ii])
+					party_mental -= randi_range(_min_dec, _max_dec)
+					break
+		# Jika mental party habis, hentikan pertempuran
+		if party_mental <= 0 or party_hp <= 0:
+			break
+		# Set total reward berdasarkan progress
+		party_reward = AutoloadData.get_pct(initial_reward, step_rwd[i])
+		# Ensure values don't go below 0
+		party_hp = max(0, party_hp)
+		party_mental = max(0, party_mental)
+		party_reward = max(0, party_reward)
+		# Hitung nilai progress bar utama (dari 0 → 20 → 40 → dst.)
+		var _prog_value = 0 if i == 0 else step_pwr[i - 1]
+		tween_prog(nodes_dg_result["prog_main"], step_main[i], step_main[i+1])
+		# Calculate progress bar values (0-100)
+		var _temp_prog_hp = calculate_progress_percentage(_temp_hp, initial_hp)
+		var _temp_prog_mental = calculate_progress_percentage(_temp_mental, initial_mental)
+		var _temp_prog_rwd = calculate_progress_percentage(_temp_rwd, initial_reward)
+		
+		var _new_prog_hp = calculate_progress_percentage(party_hp, initial_hp)
+		var _new_prog_mental = calculate_progress_percentage(party_mental, initial_mental)
+		var _new_prog_rwd = calculate_progress_percentage(party_reward, initial_reward)
+		# Update progress bars _temp_hp, party_hp
+		tween_prog(nodes_dg_result["prog_0"], _temp_prog_hp, _new_prog_hp)
+		tween_prog(nodes_dg_result["prog_1"], _temp_prog_mental, _new_prog_mental)
+		tween_prog(nodes_dg_result["prog_2"], _temp_prog_rwd, _new_prog_rwd)
+		# Update labels with actual values
+		tween_label(nodes_dg_result["count_0"], _temp_hp, party_hp)
+		tween_label(nodes_dg_result["count_1"], _temp_mental, party_mental)
+		tween_label(nodes_dg_result["count_2"], _temp_rwd, party_reward)
+		
+		_total_win+=1
+		SfxManager.play_dg_progress()
+		# Delay sebelum lanjut ke langkah berikutnya (0.5 detik)
+		await get_tree().create_timer(0.5).timeout
+	var rng_coin = randi_range(5, 10) * get_monster_level
+	if _total_win == 5:
+		SfxManager.play_dg_win()
+		AutoloadData.gate_coin_star += rng_coin
+	else:
+		SfxManager.play_dg_fail()
+		AutoloadData.gate_coin_skull += rng_coin
+	update_currency()
+	# afater looping done waiting 1 sec
+	AutoloadData.gate_coin_cummon += party_reward
+	AutoloadData.save_data()
+	await get_tree().create_timer(1).timeout
+	nodes_dg_result["btn_exit"].disabled = false
+# Helper function untuk menghitung persentase progress bar
+func calculate_progress_percentage(current_value: int, max_value: int) -> int:
+	if max_value == 0:
+		return 0
+	return int((float(current_value) / float(max_value)) * 100.0)
+
+func prog_relaative(own_value, main_value):
+	return AutoloadData.get_relative_ratio(int(own_value), int(main_value))
+
 func _calculate_preparation(confirm:bool, party_code):
 	var is_already_calculate = AutoloadData.gate_party[party_code]["battle"]["open"]
 	var temp_prog = ["fianl_prog_1", "fianl_prog_2", "fianl_prog_3"]
@@ -520,7 +727,7 @@ func _calculate_preparation(confirm:bool, party_code):
 		for i in range(3):
 			var get_data = AutoloadData.gate_party[party_code]["battle"][keys[i]]
 			nodes_dg_gate[temp_prog[i]].value = get_data
-			nodes_dg_gate[temp_count[i]].text = str(get_data)
+			nodes_dg_gate[temp_count[i]].text = AutoloadData.filter_num_k(get_data)
 	# before preparation day completed then reset nodes to 0
 	elif confirm == false:
 		for i in range(3):
@@ -537,16 +744,16 @@ func _calculate_preparation(confirm:bool, party_code):
 			1:{0:0, 1:0, 2:0, 3:0, 4:0},
 			2:{0:0, 1:0, 2:0, 3:0, 4:0}, }
 		for i in range(3):
-			var npc_sources = AutoloadData.all_npc[currect_party[i]]
+			var npc_sources = AutoloadData.all_npc[current_party[i]]
 			for ii in range(5):
 				data_sources[i][ii] = npc_sources["stat"][ii]["sources"]
 				data_potentian[i][ii] = npc_sources["stat"][ii]["progress"]
 		var total_power:Array = [0, 0, 0]
 		for i in range(3):
 			for ii in range(5):
-				total_power[i] += data_sources[i][ii] * data_potentian[i][ii]
-			nodes_dg_gate[temp_prog[i]].value = total_power[i]/10
-			nodes_dg_gate[temp_count[i]].text = str(total_power[i]/10)
+				total_power[i] += (data_sources[i][ii] * data_potentian[i][ii])/10
+			nodes_dg_gate[temp_prog[i]].value = total_power[i]
+			nodes_dg_gate[temp_count[i]].text = AutoloadData.filter_num_k(total_power[i])
 			AutoloadData.gate_party[party_code]["battle"][keys[i]] = total_power[i]
 		AutoloadData.gate_party[party_code]["battle"]["open"] = true
 		AutoloadData.save_data()
@@ -571,6 +778,7 @@ func _update_party_battle(code_party):
 func _update_npcs(code_npc, code_party):
 	dg_gate_vbox_main.show()
 	dg_gate_vbox_party.hide()
+	dg_gate_vbox_result.hide()
 	var dg_desc_data = Gate_desc.new()
 	var main_dg = AutoloadData.gate_party[code_party]
 	var _gate_level = main_dg["gate"]["main"]
@@ -578,6 +786,7 @@ func _update_npcs(code_npc, code_party):
 	var total_npc_power:int = 0
 	var total_enem_power = AutoloadData.gate_party[code_party]["gate"]["power"]
 	if gate_available:
+		SfxManager.play_gate_monster(_gate_level)
 		nodes_dg_gate["img"].texture = load(dg_desc_data.dg_break_data[_gate_level]["img"])
 		nodes_dg_gate["name"].text = str(dg_desc_data.dg_break_data[_gate_level]["name"], " (Monster Level ",_gate_level,")")
 		nodes_dg_gate["desc"].text = dg_desc_data.dg_break_data[_gate_level]["desc"]
@@ -603,11 +812,14 @@ func _update_npcs(code_npc, code_party):
 			txt_power.text = AutoloadData.filter_num_k(pwr)
 	if gate_available:
 		nodes_dg_gate["prog"].value = compare_power_strength(total_npc_power, total_enem_power)
-		
+
+var current_gate = null
 func dg_gate_inspect(code_party):
+	current_gate = code_party
 	if AutoloadData.gate_party.has(code_party)== false:
 		SfxManager.play_system_fail()
 		return
+	SfxManager.play_dg_open()
 	
 	total_paused[1]=true
 	pause_time(true)
@@ -627,29 +839,21 @@ func compare_power_strength(value_a: int, value_b: int) -> int:
 	var ratio = float(value_a) / float(value_a + value_b)
 	return int(round(ratio * 100))
 # utility func
-func calculate_dg_pct(danger_val: int) -> int:
-	danger_val = clamp(danger_val, 0, 100)
-	var max_level := 5
-
-	if danger_val < 10:
-		max_level = 5
-	elif danger_val < 20:
-		max_level = 10
-	elif danger_val < 40:
-		max_level = 13
-	elif danger_val < 60:
-		max_level = 15
-	elif danger_val < 80:
-		max_level = 17
-	elif danger_val < 100:
-		max_level = 19
+func calculate_dg_pct(danger_zone: int) -> int:
+	danger_zone = clamp(danger_zone, 0, 100)
+	var min_level:int = 0
+	var max_level:int = 0
+	
+	if danger_zone <= 5: return 1
 	else:
-		max_level = 20
-
-	# Distribusi berbobot: semakin tinggi danger_val, peluang level tinggi makin besar
-	var curve := danger_val / 100.0
-	var weighted := pow(randf(), 1.0 - curve)
-	return int(weighted * (max_level - 1)) + 1
+		danger_zone /= 5
+		max_level = int(danger_zone)
+		min_level = clamp(max_level, 1, max_level-5)
+	
+	min_level = clamp(min_level, 1, 20)
+	max_level = clamp(max_level, 1, 20)
+	
+	return randi_range(min_level, max_level)
 # --------------------------------------
 # SECTOR SWPAN
 # --------------------------------------
@@ -754,29 +958,49 @@ func _generate_inventory_for_npc(stats: Dictionary) -> Dictionary:
 		result[job] = items
 	return result
 # NPC job calculate
-func _calculate_npc_job(physical: int, intelligence: int, communication: int, wisdom: int) -> Array:
+func _calculate_npc_job(physical: int, intelligence: int, communication: int, wisdom: int, sector, zone) -> Array:
 	var result = []
 
-	var jobs = {
-		'Farm': [0.2, 0.2, 0.05, 0.05],
-		'Fisher': [0.4, 0.05, 0.05, 0.01],
-		'Hunter': [0.8, 0.3, 0.05, 0.5],
-		'Miner': [0.7, 0.05, 0.05, 0.4],
-		'Thief': [0.05, 0.7, 0.7, 0.05]
-	}
+	var zone_hunting = AutoloadData.sector_data[sector][zone]["danger"] / 100.0
+	var zone_mining = AutoloadData.sector_data[sector][zone]["mining"] / 100.0
+	var zone_soil_index = AutoloadData.sector_data[sector][zone]["soil_index"] / 100.0
+	var zone_treasure = AutoloadData.sector_data[sector][zone]["treasure"] / 100.0
+	var zone_fishing = AutoloadData.sector_data[sector][zone]["water_index"] / 100.0
 
-	for job in jobs.keys():
-		var weights = jobs[job]
-		var score = (
-			physical * weights[0] +
-			intelligence * weights[1] +
-			communication * weights[2] +
-			wisdom * weights[3]
-		)
-		result.append(int(clamp(round(score), 0, 100)))
+	var farm = (
+		(wisdom * 0.6 + physical * 0.3 - intelligence * 0.2) * zone_soil_index
+		- (1.0 - zone_soil_index) * 15
+	)
+
+	var fisher = (
+		(physical * 0.5 + wisdom * 0.4 - communication * 0.1) * zone_fishing
+		- (1.0 - zone_fishing) * 20
+	)
+
+	var hunter = (
+		(physical * 0.6 + intelligence * 0.3 + wisdom * 0.2) * zone_hunting
+		- (1.0 - zone_hunting) * 25
+	)
+
+	var miner = (
+		(physical * 0.7 + intelligence * 0.4 - communication * 0.2) * zone_mining
+		- (1.0 - zone_mining) * 30
+	)
+
+	var thief = (
+		(intelligence * 0.6 + communication * 0.6 + wisdom * 0.2 - physical * 0.3) * zone_treasure
+		- (1.0 - zone_treasure) * 25
+	)
+
+	result = [
+		clamp(round(farm), 0, 100),
+		clamp(round(fisher), 0, 100),
+		clamp(round(hunter), 0, 100),
+		clamp(round(miner), 0, 100),
+		clamp(round(thief), 0, 100),
+	]
 
 	return result
-
 # NPC DICT
 func _new_npc(sector, zona):
 	var npc_data = NPC_generator.new()
@@ -792,7 +1016,6 @@ func _new_npc(sector, zona):
 	_npc_data["global_pos"] = ""
 	_npc_data["power"] = _calculate_power(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
 	AutoloadData.all_npc[_npc_id] = _npc_data
-	
 	# add new data dict
 	_npc_data["stat"] = {
 		0:{"sources":0, "progress":0},
@@ -801,18 +1024,30 @@ func _new_npc(sector, zona):
 		3:{"sources":0, "progress":0},
 		4:{"sources":0, "progress":0} }
 	# loop for add rng potential
-	var npc_loc = [sector, zona] # NEST: NPC AREA POTENTIAL VALUE
-	var npc_potentian = _calculate_npc_job(_npc_data[keys_code[0]], _npc_data[keys_code[1]], _npc_data[keys_code[2]], _npc_data[keys_code[3]])
+	var npc_potentian = _calculate_npc_job(
+			_npc_data[keys_code[0]],
+			_npc_data[keys_code[1]],
+			_npc_data[keys_code[2]],
+			_npc_data[keys_code[3]],
+			sector, zona)
 	for i in range(5):
 		_npc_data["stat"][i]["progress"] = npc_potentian[i]
 	
 	AutoloadData.save_data()
 	return _npc_id
+	
+# cam snap
+func cam_snap(cam: Node, x: float, y: float) -> void:
+	var cam_tween := create_tween()
+	cam_tween.tween_property(cam, 'position', Vector2(x, y), 0.3)
 # is rng == true: for first spawn || false: for func _ready (load)
 # npc code: code spawn
 func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_id = ""):
+	# get sector main and save all child
 	var get_sector_main = nodes_all_sector.get_child(sector)
+	# get rng for all own child
 	var rng_sector = randi_range(0, get_sector_main.get_child_count() - 1)
+	# get new rng sector
 	var get_sector = get_sector_main.get_child(rng_sector) as Panel
 	# data new spawn
 	var sector_max_x = get_sector.size.x - 50
@@ -831,8 +1066,9 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 	# make uniq id then save party to db
 	var npc_data = NPC_generator.new()
 	var party_id = npc_data._generate_unique_id()
+	main_spawn.name = str("gate_",party_id)
 	# gate 
-	var rng_gate_locaion = randi_range(0, get_sector_main.get_child_count() - 1)
+	#var rng_gate_locaion = randi_range(0, get_sector_main.get_child_count() - 1)
 	
 	AutoloadData.gate_party[party_id]={}
 	# confirm
@@ -848,17 +1084,18 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 			AutoloadData.all_npc[new_npc]["spawn"] = {
 				"position": [randi_range(0, sector_max_x), randi_range(0, sector_max_y)] }
 		# save db for party data
-		var get_date = date_increase_day(3)
+		var get_date = date_increase_day(2) # CUSTOM DAY WAITING BEFORE ENTER GATE
 		AutoloadData.gate_party[party_id]["battle"] = {"open":false, "formation":0, "supplies":0, "survey":0}
 		AutoloadData.gate_party[party_id]["date_spawn"] = get_date
 		AutoloadData.gate_party[party_id]["member"] = _gate_party
 		AutoloadData.gate_party[party_id]["btn_icon"] = main
 		AutoloadData.gate_party[party_id]["radar_img"] = _path_icon_spawn_mark(mark)
 		AutoloadData.gate_party[party_id]["radar_size"] = radar_size
-		AutoloadData.gate_party[party_id]["location"] = {"sector":sector, "zone":rng_gate_locaion}
+		AutoloadData.gate_party[party_id]["location"] = {"sector":sector, "zone":rng_sector}
+		AutoloadData.gate_party[party_id]["node_to_del"] = {"sector":sector, "zone":rng_sector, "name":str("gate_",party_id)}
 		AutoloadData.gate_party[party_id]["position"] = [randi_range(0, sector_max_x), randi_range(0, sector_max_y)]
 		var data_gate_desc = Gate_desc.new()
-		var rng_monster = calculate_dg_pct(AutoloadData.sector_data[sector][rng_gate_locaion]["danger"])
+		var rng_monster = calculate_dg_pct(AutoloadData.sector_data[sector][rng_sector]["danger"])
 		var rng_rwd = data_gate_desc.dg_break_data[rng_monster]["rwd"]
 		var rng_pwr = data_gate_desc.dg_break_data[rng_monster]["power"]
 		AutoloadData.gate_party[party_id]["gate"] = {"rwd": rng_rwd, "power":rng_pwr, "main":rng_monster}
@@ -881,11 +1118,11 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 	# connect btn
 	main_spawn.connect("pressed", func():
 		for i in range(3):
-			currect_party[i]=_gate_party[i]
+			current_party[i]=_gate_party[i]
 		dg_gate_inspect(party_id) )
 	# child to parent
 	main_spawn.show()
-	get_sector.add_child(main_spawn)
+	nodes_all_sector.get_child(sector).get_child(rng_sector).add_child(main_spawn)
 	
 	main_spawn.position = Vector2(pos_x, pos_y)
 	# Simpan data
@@ -893,6 +1130,7 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 	# save new data (global pos)
 	AutoloadData.gate_party[party_id]["global_pos"] = gb_pos
 	AutoloadData.save_data()
+	cam_snap(node_main_cam, main_spawn.global_position.x, main_spawn.global_position.y)
 # ---------------------------------------
 # VERTICAL SLIDE ZOOM IN/OUT
 # ---------------------------------------
