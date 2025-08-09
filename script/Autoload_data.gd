@@ -54,9 +54,54 @@ var sector_data = {
 		9:{ "danger":11,"mining":80,"soil_index":0,"treasure":10,"water_index":73,"name":"Kalandro Isle" },
 		10:{ "danger":100,"mining":30,"soil_index":30,"treasure":0,"water_index":82,"name":"Ombanai Island" },
 		11:{ "danger":21,"mining":35,"soil_index":5,"treasure":0,"water_index":92,"name":"Silurak Islet" },
-		12:{ "danger":6,"mining":20,"soil_index":1,"treasure":0,"water_index":86,"name":"Rintalo Islet" },
-	},
-}
+		12:{ "danger":6,"mining":20,"soil_index":1,"treasure":0,"water_index":86,"name":"Rintalo Islet" }, },
+	1:{
+		0:{ "danger":14,"mining":5,"soil_index":80,"treasure":10,"water_index":60,"name":"Samantara Bay" },
+		1:{ "danger":12,"mining":7,"soil_index":90,"treasure":12,"water_index":67,"name":"Toramuka Cliffs" },
+		2:{ "danger":21,"mining":40,"soil_index":60,"treasure":40,"water_index":90,"name":"Lumora Falls" },
+		3:{ "danger":30,"mining":20,"soil_index":75,"treasure":10,"water_index":21,"name":"Bantula Marsh" },
+		4:{ "danger":26,"mining":2,"soil_index":93,"treasure":17,"water_index":37,"name":"Rinatu Highlands" },
+		5:{ "danger":76,"mining":6,"soil_index":86,"treasure":32,"water_index":16,"name":"Pelebara Coast" },
+		6:{ "danger":2,"mining":85,"soil_index":12,"treasure":96,"water_index":94,"name":"Kantoro Hollow" },
+		7:{ "danger":62,"mining":5,"soil_index":97,"treasure":28,"water_index":11,"name":"Marinti Grove" },
+		8:{ "danger":37,"mining":0,"soil_index":17,"treasure":11,"water_index":88,"name":"Goraya Peaks" },
+		9:{ "danger":63,"mining":34,"soil_index":98,"treasure":43,"water_index":100,"name":"Gian Samuri" }, },
+	2:{
+		0:{ "danger":21,"mining":12,"soil_index":76,"treasure":1,"water_index":83,"name":"Tawenja Reef" },
+		1:{ "danger":16,"mining":18,"soil_index":81,"treasure":3,"water_index":68,"name":"Miraku Plateau" },
+		2:{ "danger":12,"mining":2,"soil_index":96,"treasure":5,"water_index":74,"name":"Keloru Crater" },
+		3:{ "danger":15,"mining":13,"soil_index":94,"treasure":12,"water_index":42,"name":"Sundaro Dunes" },
+		4:{ "danger":34,"mining":57,"soil_index":67,"treasure":75,"water_index":34,"name":"Lembira Gorge" },
+		5:{ "danger":63,"mining":68,"soil_index":83,"treasure":22,"water_index":80,"name":"Parintu Wetlands" },
+		6:{ "danger":100,"mining":0,"soil_index":80,"treasure":90,"water_index":100,"name":"Varuna Spires" },
+		7:{ "danger":50,"mining":30,"soil_index":98,"treasure":40,"water_index":88,"name":"Namboro Caverns" }, },
+	3:{
+		0:{ "danger":43,"mining":20,"soil_index":79,"treasure":30,"water_index":83,"name":"Selindra Isles" },
+		1:{ "danger":1,"mining":0,"soil_index":56,"treasure":100,"water_index":25,"name":"Makuru Basin" },
+		2:{ "danger":21,"mining":37,"soil_index":72,"treasure":12,"water_index":65,"name":"Zantara Ridge" },
+		3:{ "danger":34,"mining":32,"soil_index":76,"treasure":43,"water_index":85,"name":"Korandu Steppe" },
+		4:{ "danger":67,"mining":0,"soil_index":56,"treasure":60,"water_index":94,"name":"Beluva Mangroves" } },
+	4:{
+		0:{ "danger":89,"mining":0,"soil_index":0,"treasure":90,"water_index":67,"name":"Ranulo Shoals" },
+		1:{ "danger":90,"mining":100,"soil_index":20,"treasure":30,"water_index":12,"name":"Telura Mesa" },
+		2:{ "danger":50,"mining":70,"soil_index":12,"treasure":78,"water_index":72,"name":"Vandora Crags" },
+		3:{ "danger":40,"mining":40,"soil_index":39,"treasure":47,"water_index":65,"name":"Morinta Vale" },
+		4:{ "danger":80,"mining":59,"soil_index":21,"treasure":34,"water_index":50,"name":"Jelora Sound" },
+		5:{ "danger":100,"mining":90,"soil_index":40,"treasure":100,"water_index":45,"name":"Kandiri Bluff" },
+		6:{ "danger":96,"mining":100,"soil_index":10,"treasure":50,"water_index":18,"name":"Sulvara Swamp" },
+		7:{ "danger":70,"mining":40,"soil_index":5,"treasure":30,"water_index":56,"name":"Panura Strand" },
+		8:{ "danger":94,"mining":60,"soil_index":8,"treasure":100,"water_index":50,"name":"Dravula Foothills" },
+		9:{ "danger":70,"mining":70,"soil_index":21,"treasure":40,"water_index":70,"name":"Lumaka Tors" },
+		10:{ "danger":93,"mining":100,"soil_index":9,"treasure":30,"water_index":12,"name":"Maruva Delta" } },
+	5:{
+		0:{ "danger":11,"mining":20,"soil_index":69,"treasure":40,"water_index":70,"name":"Sambura Reach" },
+		1:{ "danger":15,"mining":30,"soil_index":89,"treasure":30,"water_index":90,"name":"Pelawi Basin" },
+		2:{ "danger":2,"mining":20,"soil_index":80,"treasure":50,"water_index":40,"name":"Tandoro Heights" },
+		3:{ "danger":21,"mining":40,"soil_index":92,"treasure":10,"water_index":70,"name":"Korava Flats" },
+		4:{ "danger":13,"mining":20,"soil_index":84,"treasure":13,"water_index":49,"name":"Miruna Caves" },
+		5:{ "danger":30,"mining":0,"soil_index":49,"treasure":100,"water_index":100,"name":"Banturi Keys" },
+		6:{ "danger":17,"mining":90,"soil_index":67,"treasure":90,"water_index":31,"name":"Lumora Mire" },
+		7:{ "danger":12,"mining":100,"soil_index":40,"treasure":100,"water_index":93,"name":"Garanta Rise" },},}
 var all_npc:Dictionary = {}
 # =====================================================
 # DECLARATIVE DATA STRUCTURE - Tambah data baru di sini saja!
@@ -171,8 +216,7 @@ var roadmap_data = {
 	9:{"quest":1, "increment":1, "rwd":ENUM_ROADMAP_REWARD.SPIN, "count":1},
 	10:{"quest":10, "increment":10, "rwd":ENUM_ROADMAP_REWARD.TICKET, "count":300},
 	11:{"quest":10, "increment":10, "rwd":ENUM_ROADMAP_REWARD.TICKET, "count":2000},
-	12:{"quest":10, "increment":10, "rwd":ENUM_ROADMAP_REWARD.GOLD, "count":500000},
-}
+	12:{"quest":10, "increment":10, "rwd":ENUM_ROADMAP_REWARD.GOLD, "count":500000},}
 # ======================================================
 # STORY MANAGER
 # ======================================================

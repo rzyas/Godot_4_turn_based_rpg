@@ -21,24 +21,23 @@ func _ready() -> void:
 	onready_btn_dg_break()
 	onready_dg_gate()
 	onready_result()
+	onready_btn_spawn()
+	onready_snaploc()
+	update_gate_price()
 	# TIME
 	game_time = AutoloadData.gate_date.duplicate(true)
 	update_time_ui()
 	# BTN
 	node_sldv_cam.value_changed.connect(onready_cam_zoom)
 	
-	var main_btn:Button = $canvas_l/parent_btn_move/Button
-	main_btn.connect("pressed", func():
-		if AutoloadData.gate_coin_cummon < 250 or AutoloadData.gate_party.size() >= 6:
-			SfxManager.play_system_fail()
-			return
-		SfxManager.play_count()
-		if AutoloadData.gate_party.is_empty()==false:
-			AutoloadData.gate_coin_cummon -= 250
-			update_currency()
-			AutoloadData.save_data()
-		rng_spawn(true, 0, _path_icon_spawn_red(randi_range(0, 8)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
-
+	# turn off dev mode untuk inspect zone
+	var get_sector_count = nodes_all_sector.get_child_count()
+	for i in get_sector_count:
+		var get_zone_count = nodes_all_sector.get_child(i).get_child_count()
+		for ii in get_zone_count:
+			var get_zone:Panel = nodes_all_sector.get_child(i).get_child(ii)
+			get_zone.self_modulate.a = 0.0/255
+	
 func _process(delta):
 	if is_time_paused:
 		return
@@ -48,13 +47,11 @@ func _process(delta):
 		advance_hour()
 		_time_accumulator -= SECONDS_PER_GAME_HOUR
 		update_time_ui()
-
 # --------------------------------------
 # DATE UNITYLITY
 # --------------------------------------
 # Date confirmation function for Godot 4.4
 # Compares target_date against AutoloadData.gate_date and returns day difference
-
 func date_confirm(target_date: Dictionary) -> int:
 	var target_days = _convert_date_to_days(target_date)
 	var current_days = _convert_date_to_days(AutoloadData.gate_date)
@@ -108,6 +105,68 @@ func date_increase_day(days_to_add: int) -> Dictionary:
 		# Tambahkan jumlah hari dalam bulan sebelumnya
 		new_date['day'] += days_in_month[new_date['mounth'] - 1]
 	return new_date
+# --------------------------------------
+# SNAP LOCATION
+# --------------------------------------
+@onready var vbox_allbtn_snap = $canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox
+@onready var parent_btn_allsector = $canvas_l/pnl_snap_map/vbox/scrol_c_sector/vbox
+@onready var prosed_btn_allsector = $canvas_l/pnl_snap_map/vbox/scrol_c_sector/vbox/vbox_prosed
+@onready var node_sector_name = $sector_name
+
+var all_gate_loc = {0:[0,0],1:[0,0],2:[0,0],3:[0,0],4:[0,0],5:[0,0],6:[0,0],7:[0,0],8:[0,0],9:[0,0]}
+func onready_snaploc():
+	update_available_gate_snap()
+	for i in range(10):
+		var btn:Button = vbox_allbtn_snap.get_child(i).get_node("btn")
+		btn.pressed.connect(func():
+			cam_snap(node_main_cam, all_gate_loc[i][0], all_gate_loc[i][1]))
+	
+	# prosed all snap btn sector
+	var get_allbtn_sector = nodes_all_btn_sector.get_child_count()
+	for i in range(get_allbtn_sector):
+		# buat btn sector
+		var sector_gb_pos = node_sector_name.get_child(i).global_position
+		var new_btn_sector = prosed_btn_allsector.duplicate()
+		new_btn_sector.show()
+		parent_btn_allsector.add_child(new_btn_sector)
+		var sector_name = str("SECTOR ",i)
+		var btn_sector:Button = new_btn_sector.get_child(0)
+		var btn_zone:Button = new_btn_sector.get_child(1)
+		btn_zone.hide()
+		btn_sector.pressed.connect(func():
+			cam_snap(node_main_cam, sector_gb_pos.x, sector_gb_pos.y))
+		btn_sector.text = sector_name
+		var zone_size = nodes_all_btn_sector.get_child(i).get_child_count()
+		for ii in range(zone_size):
+			# buat btn zone
+			var new_btn_zone:Button = btn_zone.duplicate()
+			new_btn_sector.add_child(new_btn_zone)
+			new_btn_zone.show()
+			var zone_name = AutoloadData.sector_data[i][ii]["name"]
+			var zone_gb_pos = nodes_all_btn_sector.get_child(i).get_child(ii).global_position
+			new_btn_zone.text = zone_name
+			new_btn_zone.pressed.connect(func():
+				cam_snap(node_main_cam, zone_gb_pos.x, zone_gb_pos.y))
+			
+	
+func update_available_gate_snap():
+	all_gate_loc = {0:[0,0],1:[0,0],2:[0,0],3:[0,0],4:[0,0],5:[0,0],6:[0,0],7:[0,0],8:[0,0],9:[0,0]}
+	for i in range(10):
+		var btn:Button = vbox_allbtn_snap.get_child(i).get_node("btn")
+		btn.disabled = true
+		btn.hide()
+		btn.text = "GATE"
+	var get_all_gate = AutoloadData.gate_party.size()
+	for i in range(get_all_gate):
+		var key_name = AutoloadData.gate_party.keys()[i]
+		var gb_pos = AutoloadData.gate_party[key_name]["global_pos"]
+		all_gate_loc[i] = [gb_pos[0], gb_pos[1]]
+		var btn:Button = vbox_allbtn_snap.get_child(i).get_node("btn")
+		btn.disabled = false
+		btn.show()
+		var data_loc = AutoloadData.gate_party[key_name]["location"]
+		var island_name = AutoloadData.sector_data[data_loc["sector"]][data_loc["zone"]]["name"]
+		btn.text = str("GATE: ",island_name)
 # --------------------------------------
 # DUNGEON BREAK
 # --------------------------------------
@@ -530,8 +589,9 @@ func onready_dg_gate():
 	"count_2": dg_gate_vbox_result.get_node("hbox/vbox_count/desc_2"),
 	"prog_main": dg_gate_vbox_result.get_node("prog"),
 	"btn_exit": dg_gate_vbox_result.get_node("btn_cls"),
-}
+	"txt_main": dg_gate_vbox_result.get_node("txt_main"), }
 
+var stage_progress_desc = ["The Beginning", "First Encounter", "Trial Grounds", "Boss Chamber", "Final Breakthrough (Victory)"]
 func onready_result():
 	var btn_start_dg:Button = nodes_dg_gate["btn_start_dg"]
 	btn_start_dg.pressed.connect(func():
@@ -547,6 +607,51 @@ func _gate_result_exit() -> void:
 	total_paused[1]=false
 	if total_paused[0]==false and total_paused[1]==false:
 		pause_time(false)
+# update price
+var current_spawn_code:int=0
+@onready var vbox_price = $canvas_l/parent_btn_move/Button/vbox_btn_spawn
+@onready var nodes_price = {
+	"txt_price": vbox_price.get_node("price"),
+	"btn_add": vbox_price.get_node("hbox/btn_add"),
+	"btn_dec": vbox_price.get_node("hbox/btn_dec"),
+	"txt_spawn": vbox_price.get_node("hbox/desc"), }
+func onready_btn_spawn():
+	# btn spawn
+	var main_btn:Button = $canvas_l/parent_btn_move/Button
+	main_btn.connect("pressed", func():
+		if AutoloadData.gate_party.size() > 10:
+			SfxManager.play_system_fail()
+			return
+		SfxManager.play_count()
+		if AutoloadData.gate_party.is_empty()==false:
+			if AutoloadData.gate_coin_cummon < 250:
+				SfxManager.play_system_fail()
+				return
+			AutoloadData.gate_coin_cummon -= 250
+			AutoloadData.save_data()
+			update_currency()
+		rng_spawn(true, current_spawn_code, _path_icon_spawn_red(randi_range(0, 8)), randi_range(0, 2) as ENUM_ICON_SPAWN_MARK) )
+
+	# btn add and etc.
+	var btn_add:Button = nodes_price["btn_add"]
+	var btn_dec:Button = nodes_price["btn_dec"]
+	var spawn:Label = nodes_price["txt_spawn"]
+	btn_add.pressed.connect(func():
+		SfxManager.play_click()
+		current_spawn_code += 1
+		current_spawn_code = clamp(current_spawn_code, 0, 5)
+		spawn.text = str("SPAWN IN SECTOR: ",current_spawn_code) )
+	btn_dec.pressed.connect(func():
+		SfxManager.play_click()
+		current_spawn_code -= 1
+		current_spawn_code = clamp(current_spawn_code, 0, 5)
+		spawn.text = str("SPAWN IN SECTOR: ",current_spawn_code) )
+func update_gate_price():
+	var price:Label = nodes_price["txt_price"]
+	if AutoloadData.gate_party.is_empty():
+		price.text = str("PRICE: FREE")
+	else:
+		price.text = str("PRICE: 250")
 # delete spawn (gate)
 func delete_gate():
 	var get_gate_to_del:Dictionary = AutoloadData.gate_party[current_gate]["node_to_del"].duplicate()
@@ -559,6 +664,8 @@ func delete_gate():
 		AutoloadData.all_npc.erase(npc_code)
 	AutoloadData.gate_party.erase(current_gate)
 	AutoloadData.save_data()
+	update_gate_price()
+	update_available_gate_snap()
 # tween progress textured
 func tween_prog(node_path, from_value: float, to_value: float) -> void:
 	var target = node_path
@@ -691,6 +798,7 @@ func _calculate_result(party_code):
 		tween_label(nodes_dg_result["count_1"], _temp_mental, party_mental)
 		tween_label(nodes_dg_result["count_2"], _temp_rwd, party_reward)
 		
+		nodes_dg_result["txt_main"].text = stage_progress_desc[i]
 		_total_win+=1
 		SfxManager.play_dg_progress()
 		# Delay sebelum lanjut ke langkah berikutnya (0.5 detik)
@@ -1126,11 +1234,14 @@ func rng_spawn(is_rng: bool, sector, main, mark:ENUM_ICON_SPAWN_MARK, get_party_
 	
 	main_spawn.position = Vector2(pos_x, pos_y)
 	# Simpan data
-	var gb_pos = Vector2(main_spawn.global_position.x, main_spawn.global_position.y)
+	#var gb_pos = Vector2(main_spawn.global_position.x, main_spawn.global_position.y)
+	var gb_pos = [main_spawn.global_position.x, main_spawn.global_position.y]
 	# save new data (global pos)
 	AutoloadData.gate_party[party_id]["global_pos"] = gb_pos
 	AutoloadData.save_data()
 	cam_snap(node_main_cam, main_spawn.global_position.x, main_spawn.global_position.y)
+	update_gate_price()
+	update_available_gate_snap()
 # ---------------------------------------
 # VERTICAL SLIDE ZOOM IN/OUT
 # ---------------------------------------

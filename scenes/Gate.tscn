@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=106 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -37,6 +37,7 @@
 [ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="27_a2iyx"]
 [ext_resource type="Theme" uid="uid://dqkbqtltov57a" path="res://Themes/THEME V3/PNL_BORDER_10_BLUE.tres" id="27_sb342"]
 [ext_resource type="Theme" uid="uid://8vb4t47xb2p0" path="res://Themes/THEME V3/BTN_ACTIVE_BLUE.tres" id="28_pgr5m"]
+[ext_resource type="Texture2D" uid="uid://dxkhqr54mrueb" path="res://img/Gate/btn_find.png" id="31_mj33a"]
 [ext_resource type="Theme" uid="uid://dftiwo3knjhjn" path="res://Themes/THEME V3/PNL_LINE_RED.tres" id="35_af2bq"]
 [ext_resource type="Theme" uid="uid://cdtmi13mggxcf" path="res://Themes/THEME V3/LBL_SIDE_RED.tres" id="37_rr3x4"]
 [ext_resource type="Texture2D" uid="uid://bkrb41ps4e2tk" path="res://img/Gate/start_dg.png" id="37_wk8cj"]
@@ -73,11 +74,17 @@
 [ext_resource type="Texture2D" uid="uid://ck5er80fnb2im" path="res://img/Gate/Job Icon/Thief_3.png" id="66_cvi6g"]
 [ext_resource type="Theme" uid="uid://bl8q3cq5l1u4l" path="res://Themes/THEME V3/BTN_ACTIVE_WARNING.tres" id="67_1n3jq"]
 [ext_resource type="Texture2D" uid="uid://dymgg046t4osh" path="res://img/Gate/Job Icon/Thief_4.png" id="67_a7npw"]
+[ext_resource type="Theme" uid="uid://srh11jnyhheh" path="res://Themes/THEME V3/BTN_SELECT.tres" id="75_62x48"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p46fb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3egsp"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlf3w"]
 atlas = ExtResource("12_sb342")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj33a"]
+content_margin_left = 5.0
+bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uykja"]
 texture = ExtResource("13_p46fb")
@@ -118,6 +125,9 @@ region = Rect2(9, 9, 132, 132)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2on8l"]
 atlas = ExtResource("7_xld3y")
 region = Rect2(159, 9, 132, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yyhv"]
+atlas = ExtResource("31_mj33a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rr3x4"]
 atlas = ExtResource("20_dyt46")
@@ -354,21 +364,124 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="sector_0" type="Label" parent="sector_name"]
-modulate = Color(1, 1, 1, 0.392157)
+modulate = Color(1, 1, 1, 0.294118)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -44.0
-offset_right = 146.0
-offset_bottom = 44.0
+offset_left = -376.0
+offset_top = -154.0
+offset_right = 376.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
 text = "SECTOR 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sector_1" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1832.0
+offset_top = 38.0
+offset_right = -1080.0
+offset_bottom = 346.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "SECTOR 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sector_2" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1081.0
+offset_top = 455.0
+offset_right = 1833.0
+offset_bottom = 763.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "SECTOR 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sector_3" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1786.0
+offset_top = 2099.0
+offset_right = 2538.0
+offset_bottom = 2407.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "SECTOR 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sector_4" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2202.0
+offset_top = -302.0
+offset_right = 2954.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "SECTOR 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sector_5" type="Label" parent="sector_name"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -843.0
+offset_top = 2535.0
+offset_right = -91.0
+offset_bottom = 2843.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "SECTOR 5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="all_sector" type="Panel" parent="."]
 
@@ -377,108 +490,539 @@ layout_mode = 0
 mouse_filter = 2
 
 [node name="sector_0_0" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 8.0
 offset_top = 171.0
 offset_right = 127.0
 offset_bottom = 682.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_1" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 130.0
 offset_top = 170.0
 offset_right = 219.0
 offset_bottom = 546.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_2" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -189.0
 offset_top = 172.0
 offset_right = 3.0
 offset_bottom = 422.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_3" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -495.0
 offset_top = -164.0
 offset_right = 247.0
 offset_bottom = 163.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_4" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 257.0
 offset_top = -265.0
 offset_right = 457.0
 offset_bottom = 73.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_5" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 460.0
 offset_top = -547.0
 offset_right = 604.0
 offset_bottom = -210.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_6" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -66.0
 offset_top = -610.0
 offset_right = 253.0
 offset_bottom = -171.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_7" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -394.0
 offset_top = -357.0
 offset_right = -75.0
 offset_bottom = -171.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_8" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 260.0
 offset_top = -607.0
 offset_right = 456.0
 offset_bottom = -273.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_9" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -420.0
 offset_top = -754.0
 offset_right = -71.0
 offset_bottom = -628.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_10" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = -778.0
 offset_top = -498.0
 offset_right = -503.0
 offset_bottom = -126.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_11" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 607.0
 offset_top = -253.0
 offset_right = 773.0
 offset_bottom = 4.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="sector_0_12" type="Panel" parent="all_sector/sector_0"]
+self_modulate = Color(1, 1, 1, 0.254902)
 layout_mode = 0
 offset_left = 352.0
 offset_top = 112.0
 offset_right = 452.0
 offset_bottom = 289.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p46fb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1" type="Panel" parent="all_sector"]
+layout_mode = 0
+offset_left = -1409.0
+offset_top = 342.0
+offset_right = -1409.0
+offset_bottom = 342.0
+mouse_filter = 2
+
+[node name="sector_1_0" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -616.0
+offset_top = -824.0
+offset_right = -269.0
+offset_bottom = -391.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_1" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -258.0
+offset_top = -856.0
+offset_right = 89.0
+offset_bottom = -404.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_2" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 111.0
+offset_top = -860.0
+offset_right = 458.0
+offset_bottom = -408.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_3" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 489.0
+offset_top = -391.0
+offset_right = 861.0
+offset_bottom = 406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_4" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 97.0
+offset_top = -397.0
+offset_right = 469.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_5" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -286.0
+offset_top = -388.0
+offset_right = 86.0
+offset_bottom = 409.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_6" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -678.0
+offset_top = -379.0
+offset_right = -306.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_7" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -888.0
+offset_top = -533.0
+offset_right = -688.0
+offset_bottom = -110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_8" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -571.0
+offset_top = 106.0
+offset_right = -305.0
+offset_bottom = 426.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_1_9" type="Panel" parent="all_sector/sector_1"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -304.0
+offset_top = 430.0
+offset_right = 514.0
+offset_bottom = 750.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2" type="Panel" parent="all_sector"]
+layout_mode = 0
+offset_left = 1463.0
+offset_top = 662.0
+offset_right = 1463.0
+offset_bottom = 662.0
+mouse_filter = 2
+
+[node name="sector_2_0" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -84.0
+offset_top = -890.0
+offset_right = 263.0
+offset_bottom = -388.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_1" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -440.0
+offset_top = -816.0
+offset_right = -93.0
+offset_bottom = -383.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_2" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -909.0
+offset_top = -592.0
+offset_right = -451.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_3" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -431.0
+offset_top = -369.0
+offset_right = 20.0
+offset_bottom = 229.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_4" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 28.0
+offset_top = -373.0
+offset_right = 284.0
+offset_bottom = 253.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_5" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 285.0
+offset_top = -497.0
+offset_right = 700.0
+offset_bottom = 245.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_6" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -725.0
+offset_top = 249.0
+offset_right = -341.0
+offset_bottom = 567.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_2_7" type="Panel" parent="all_sector/sector_2"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -274.0
+offset_top = 255.0
+offset_right = 569.0
+offset_bottom = 730.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_3" type="Panel" parent="all_sector"]
+layout_mode = 0
+offset_left = 2151.0
+offset_top = 2262.0
+offset_right = 2151.0
+offset_bottom = 2262.0
+mouse_filter = 2
+
+[node name="sector_3_0" type="Panel" parent="all_sector/sector_3"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -411.0
+offset_top = -845.0
+offset_right = 653.0
+offset_bottom = -398.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_3_1" type="Panel" parent="all_sector/sector_3"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -412.0
+offset_top = -388.0
+offset_right = 488.0
+offset_bottom = 333.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_3_2" type="Panel" parent="all_sector/sector_3"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 507.0
+offset_top = -375.0
+offset_right = 847.0
+offset_bottom = 434.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_3_3" type="Panel" parent="all_sector/sector_3"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -674.0
+offset_top = 341.0
+offset_right = 481.0
+offset_bottom = 861.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_3_4" type="Panel" parent="all_sector/sector_3"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -937.0
+offset_top = -455.0
+offset_right = -421.0
+offset_bottom = 325.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4" type="Panel" parent="all_sector"]
+layout_mode = 0
+offset_left = 2535.0
+offset_top = -122.0
+offset_right = 2535.0
+offset_bottom = -122.0
+mouse_filter = 2
+
+[node name="sector_4_0" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -257.0
+offset_top = -763.0
+offset_right = 578.0
+offset_bottom = -398.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_1" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -323.0
+offset_top = -378.0
+offset_right = 567.0
+offset_bottom = -13.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_2" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 587.0
+offset_top = -250.0
+offset_right = 926.0
+offset_bottom = 249.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_3" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 235.0
+offset_top = -11.0
+offset_right = 574.0
+offset_bottom = 422.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_4" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -63.0
+offset_top = 427.0
+offset_right = 392.0
+offset_bottom = 694.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_5" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -231.0
+offset_top = 700.0
+offset_right = 224.0
+offset_bottom = 923.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_6" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -332.0
+offset_top = -9.0
+offset_right = 230.0
+offset_bottom = 398.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_7" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -323.0
+offset_top = 404.0
+offset_right = -79.0
+offset_bottom = 609.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_8" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -781.0
+offset_top = -63.0
+offset_right = -348.0
+offset_bottom = 251.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_9" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -889.0
+offset_top = -548.0
+offset_right = -337.0
+offset_bottom = -248.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_4_10" type="Panel" parent="all_sector/sector_4"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -788.0
+offset_top = -233.0
+offset_right = -341.0
+offset_bottom = -81.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5" type="Panel" parent="all_sector"]
+layout_mode = 0
+offset_left = -566.0
+offset_top = 2402.0
+offset_right = -566.0
+offset_bottom = 2402.0
+mouse_filter = 2
+
+[node name="sector_5_0" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -649.0
+offset_top = -1216.0
+offset_right = 914.0
+offset_bottom = -692.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_1" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 99.0
+offset_top = -673.0
+offset_right = 1365.0
+offset_bottom = -149.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_2" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 87.0
+offset_top = -127.0
+offset_right = 1284.0
+offset_bottom = 397.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_3" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = 110.0
+offset_top = 411.0
+offset_right = 1307.0
+offset_bottom = 1198.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_4" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -683.0
+offset_top = 148.0
+offset_right = 75.0
+offset_bottom = 935.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_5" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -554.0
+offset_top = 931.0
+offset_right = 80.0
+offset_bottom = 1625.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_6" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -564.0
+offset_top = -658.0
+offset_right = 70.0
+offset_bottom = 102.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
+
+[node name="sector_5_7" type="Panel" parent="all_sector/sector_5"]
+self_modulate = Color(1, 1, 1, 0.254902)
+layout_mode = 0
+offset_left = -1271.0
+offset_top = -911.0
+offset_right = -711.0
+offset_bottom = 557.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3egsp")
 
 [node name="island_name" type="Panel" parent="."]
 anchors_preset = 8
@@ -687,18 +1231,684 @@ flat = true
 alignment = 0
 expand_icon = true
 
+[node name="1" type="Panel" parent="island_name"]
+layout_mode = 0
+offset_left = -1392.0
+offset_top = 128.0
+offset_right = -1392.0
+offset_bottom = 128.0
+
+[node name="0" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -528.0
+offset_top = -404.0
+offset_right = -353.0
+offset_bottom = -374.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Samantara Bay"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -181.0
+offset_top = -408.0
+offset_right = -6.0
+offset_bottom = -378.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Toramuka Cliffs"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 201.0
+offset_top = -414.0
+offset_right = 376.0
+offset_bottom = -384.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Lumora Falls"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 586.0
+offset_top = 207.0
+offset_right = 761.0
+offset_bottom = 237.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Bantula Marsh"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 190.0
+offset_top = 230.0
+offset_right = 365.0
+offset_bottom = 260.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Rinatu Highlands"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -196.0
+offset_top = 254.0
+offset_right = -21.0
+offset_bottom = 284.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Pelebara Coast"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="6" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -873.0
+offset_top = -145.0
+offset_right = -698.0
+offset_bottom = -115.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Kantoro Hollow"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="7" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -595.0
+offset_top = 65.0
+offset_right = -420.0
+offset_bottom = 95.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Marinti Grove"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="8" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -536.0
+offset_top = 460.0
+offset_right = -361.0
+offset_bottom = 490.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Goraya Peaks"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="9" type="Button" parent="island_name/1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -15.0
+offset_top = 759.0
+offset_right = 160.0
+offset_bottom = 789.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Gian Samuri"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Panel" parent="island_name"]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 648.0
+offset_right = 1440.0
+offset_bottom = 648.0
+
+[node name="0" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 29.0
+offset_top = -634.0
+offset_right = 204.0
+offset_bottom = -604.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Tawenja Reef"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -306.0
+offset_top = -644.0
+offset_right = -131.0
+offset_bottom = -614.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Miraku Plateau"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -735.0
+offset_top = -274.0
+offset_right = -560.0
+offset_bottom = -244.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Keloru Crater"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -213.0
+offset_top = -47.0
+offset_right = -38.0
+offset_bottom = -17.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Sundaro Dunes"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 91.0
+offset_top = -131.0
+offset_right = 266.0
+offset_bottom = -101.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Lembira Gorge"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 417.0
+offset_top = -145.0
+offset_right = 592.0
+offset_bottom = -115.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Parintu Wetlands"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="6" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -572.0
+offset_top = 411.0
+offset_right = -397.0
+offset_bottom = 441.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Varuna Spires"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="7" type="Button" parent="island_name/2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 77.0
+offset_top = 445.0
+offset_right = 252.0
+offset_bottom = 475.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Namboro Caverns"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Panel" parent="island_name"]
+layout_mode = 0
+offset_left = 2152.0
+offset_top = 2296.0
+offset_right = 2152.0
+offset_bottom = 2296.0
+
+[node name="0" type="Button" parent="island_name/3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 29.0
+offset_top = -634.0
+offset_right = 204.0
+offset_bottom = -604.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Selindra Isles"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -68.0
+offset_top = -35.0
+offset_right = 107.0
+offset_bottom = -5.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Makuru Basin"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 597.0
+offset_top = -37.0
+offset_right = 772.0
+offset_bottom = -7.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Zantara Ridge"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -154.0
+offset_top = 450.0
+offset_right = 21.0
+offset_bottom = 480.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Korandu Steppe"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -755.0
+offset_top = -90.0
+offset_right = -580.0
+offset_bottom = -60.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Beluva Mangroves"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Panel" parent="island_name"]
+layout_mode = 0
+offset_left = 2584.0
+offset_top = -65.0
+offset_right = 2584.0
+offset_bottom = -65.0
+
+[node name="0" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 29.0
+offset_top = -634.0
+offset_right = 204.0
+offset_bottom = -604.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Ranulo Shoals"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 32.0
+offset_top = -266.0
+offset_right = 207.0
+offset_bottom = -236.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Telura Mesa"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 628.0
+offset_top = -58.0
+offset_right = 803.0
+offset_bottom = -28.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Vandora Crags"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 283.0
+offset_top = 97.0
+offset_right = 458.0
+offset_bottom = 127.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Morinta Vale"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 462.0
+offset_right = 218.0
+offset_bottom = 492.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Jelora Sound"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -98.0
+offset_top = 719.0
+offset_right = 77.0
+offset_bottom = 749.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Kandiri Bluff"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="6" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -150.0
+offset_top = 122.0
+offset_right = 25.0
+offset_bottom = 152.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Sulvara Swamp"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="7" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -324.0
+offset_top = 437.0
+offset_right = -149.0
+offset_bottom = 467.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Panura Strand"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="8" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -675.0
+offset_top = 9.0
+offset_right = -500.0
+offset_bottom = 39.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Dravula Foothills"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="9" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -709.0
+offset_top = -473.0
+offset_right = -534.0
+offset_bottom = -443.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Lumaka Tors"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="10" type="Button" parent="island_name/4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -665.0
+offset_top = -229.0
+offset_right = -490.0
+offset_bottom = -199.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Maruva Delta6"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Panel" parent="island_name"]
+layout_mode = 0
+offset_left = -596.0
+offset_top = 2582.0
+offset_right = -596.0
+offset_bottom = 2582.0
+
+[node name="0" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 88.0
+offset_top = -1131.0
+offset_right = 263.0
+offset_bottom = -1101.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Sambura Reach"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="1" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 679.0
+offset_top = -575.0
+offset_right = 854.0
+offset_bottom = -545.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Pelawi Basin"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="2" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 628.0
+offset_top = -58.0
+offset_right = 803.0
+offset_bottom = -28.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Tandoro Heights"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="3" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 598.0
+offset_top = 519.0
+offset_right = 773.0
+offset_bottom = 549.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Korava Flats"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="4" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -319.0
+offset_top = 372.0
+offset_right = -144.0
+offset_bottom = 402.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Miruna Caves"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="5" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -302.0
+offset_top = 1112.0
+offset_right = -127.0
+offset_bottom = 1142.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Banturi Keys "
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="6" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -325.0
+offset_top = -479.0
+offset_right = -150.0
+offset_bottom = -449.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Lumora Mire"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="7" type="Button" parent="island_name/5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = -1021.0
+offset_top = -382.0
+offset_right = -846.0
+offset_bottom = -352.0
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "Garanta Rise"
+icon = SubResource("AtlasTexture_jlf3w")
+flat = true
+alignment = 0
+expand_icon = true
+
 [node name="main_cam" type="Camera2D" parent="."]
 
 [node name="canvas_l" type="CanvasLayer" parent="."]
 process_priority = 1
 
-[node name="vbox_currecy" type="VBoxContainer" parent="canvas_l"]
+[node name="vbox_currecy" type="HBoxContainer" parent="canvas_l"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -217.0
+offset_left = -494.0
 offset_top = 16.0
-offset_bottom = 120.0
+offset_right = -24.0
+offset_bottom = 66.0
 grow_horizontal = 0
 
 [node name="hbox_0" type="HBoxContainer" parent="canvas_l/vbox_currecy"]
@@ -712,10 +1922,11 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_0"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mj33a")
 text = "0"
 vertical_alignment = 1
 
@@ -730,10 +1941,11 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_1"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mj33a")
 text = "0"
 vertical_alignment = 1
 
@@ -748,23 +1960,25 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="count" type="Label" parent="canvas_l/vbox_currecy/hbox_2"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("17_7t806")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mj33a")
 text = "0"
 vertical_alignment = 1
 
 [node name="pnl_sector" type="PanelContainer" parent="canvas_l"]
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = -242.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -361.0
+offset_bottom = -119.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_sector"]
@@ -1207,12 +2421,72 @@ texture_under = SubResource("AtlasTexture_neh4c")
 texture_progress = SubResource("AtlasTexture_2on8l")
 
 [node name="Button" type="Button" parent="canvas_l/parent_btn_move"]
-layout_mode = 0
-offset_left = -42.0
-offset_top = -177.0
-offset_right = 142.0
-offset_bottom = -112.0
-text = "RANDOM SPAWN"
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 394.0
+offset_top = -110.0
+offset_right = 876.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_mec7e")
+icon = SubResource("AtlasTexture_1yyhv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="vbox_btn_spawn" type="VBoxContainer" parent="canvas_l/parent_btn_move/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = 52.0
+offset_right = 241.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="price" type="Label" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+theme_override_font_sizes/font_size = 21
+text = "PRICE: 250"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_dec" type="Button" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("28_pgr5m")
+text = "-"
+
+[node name="desc" type="Label" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "SPAWN IN SECTOR: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_add" type="Button" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("28_pgr5m")
+text = "+"
 
 [node name="cam_loc" type="Label" parent="canvas_l"]
 anchors_preset = 3
@@ -1220,10 +2494,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -236.0
-offset_right = -6.0
-offset_bottom = -217.0
+offset_left = -131.0
+offset_top = -802.0
+offset_right = -9.0
+offset_bottom = -783.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("17_7t806")
@@ -1269,6 +2543,273 @@ theme = ExtResource("21_rn2v2")
 text = "12:39"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pnl_snap_map" type="PanelContainer" parent="canvas_l"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -113.0
+offset_bottom = 436.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_snap_map"]
+layout_mode = 2
+
+[node name="txt_spawn" type="Label" parent="canvas_l/pnl_snap_map/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_2lgv5")
+text = "all gate"
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="scrol_c_spawn" type="ScrollContainer" parent="canvas_l/pnl_snap_map/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="hbox_1" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_1"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 1"
+
+[node name="hbox_2" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 2"
+
+[node name="hbox_3" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_3"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 3"
+
+[node name="hbox_4" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_4"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 4"
+
+[node name="hbox_5" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_5"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 5"
+
+[node name="hbox_6" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 6"
+
+[node name="hbox_7" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_7"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 7"
+
+[node name="hbox_8" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_8"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_8"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 8"
+
+[node name="hbox_9" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_9"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_9"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 9"
+
+[node name="hbox_10" type="HBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox"]
+layout_mode = 2
+
+[node name="no" type="Label" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_10"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn/vbox/hbox_10"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("28_pgr5m")
+theme_override_font_sizes/font_size = 14
+text = "GATE 10"
+
+[node name="txt_sector" type="Label" parent="canvas_l/pnl_snap_map/vbox"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_2lgv5")
+text = "all sector"
+vertical_alignment = 2
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="scrol_c_sector" type="ScrollContainer" parent="canvas_l/pnl_snap_map/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_sector"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vbox_prosed" type="VBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_sector/vbox"]
+visible = false
+layout_mode = 2
+
+[node name="prosed_sector" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_sector/vbox/vbox_prosed"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("75_62x48")
+theme_override_font_sizes/font_size = 21
+text = "SECTOR NAME"
+alignment = 0
+
+[node name="prosed_zone" type="Button" parent="canvas_l/pnl_snap_map/vbox/scrol_c_sector/vbox/vbox_prosed"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("75_62x48")
+theme_override_colors/font_color = Color(0.633757, 0.633757, 0.633757, 1)
+theme_override_font_sizes/font_size = 14
+text = "ZONE NAME"
+alignment = 0
+text_overrun_behavior = 3
 
 [node name="btn_cls_dg_break" type="Button" parent="canvas_l"]
 visible = false
@@ -1758,10 +3299,8 @@ stretch_mode = 2
 
 [node name="txt_main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
 layout_mode = 2
-theme = ExtResource("17_7t806")
+theme = ExtResource("37_rr3x4")
 text = "in adventure"
-horizontal_alignment = 1
-vertical_alignment = 1
 uppercase = true
 
 [node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
