@@ -177,6 +177,7 @@ var _desc_key = {
 	"s3":["skill_code_ulti","pct_req_ulti","skill_ulti_lv","skill_ulti_dmg","skill_ulti_target","skill_ulti_cd"],
 }
 enum ENUM_SET_DES{S0, S1, S2, S3}
+# GET DESC SKILL
 func set_desc_card(skill_code:ENUM_SET_DES, card_code) -> Dictionary :
 	if dict_all_card_s1.has(card_code)==false:
 		return {"desc":"CODE SALAH", "cd":"CODE SALAH"}

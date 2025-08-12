@@ -13,7 +13,7 @@ func play_gate_monster(code):
 	var audio_node = get_node_or_null('gate_monster_' + str(code))
 	if audio_node:
 		audio_node.play()
-
+func play_whoosh(): $Whoosh.play()
 # ROAD MAP
 func play_roadmap_soul():$RoadmapSoul0.play()
 func play_menu_select():$MenuSelect.play()
@@ -24,7 +24,7 @@ var all_tracks: Array[AudioStreamPlayer] = []
 var current_track: AudioStreamPlayer = null
 var played_indices: Array[int] = []
 
-enum ENUM_BGM {LOBBY, SHOP, BATTLE, ROADMAP}
+enum ENUM_BGM {LOBBY, SHOP, BATTLE, ROADMAP, GATE}
 
 func lw_onready_bgm(bgm: ENUM_BGM):
 	# Reset semua track yang ada (hentikan semua BGM apapun yang sedang bermain)

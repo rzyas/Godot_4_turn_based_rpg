@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c6kfv7bufco15"]
+[gd_scene load_steps=126 format=3 uid="uid://c6kfv7bufco15"]
 
 [ext_resource type="Script" uid="uid://b1hydlyoq1cgs" path="res://script/Gate.gd" id="1_uvwl4"]
 [ext_resource type="Texture2D" uid="uid://bbyxgh0w2u03c" path="res://img/Gate/tiled_ocean.png" id="2_ssit8"]
@@ -75,6 +75,19 @@
 [ext_resource type="Theme" uid="uid://bl8q3cq5l1u4l" path="res://Themes/THEME V3/BTN_ACTIVE_WARNING.tres" id="67_1n3jq"]
 [ext_resource type="Texture2D" uid="uid://dymgg046t4osh" path="res://img/Gate/Job Icon/Thief_4.png" id="67_a7npw"]
 [ext_resource type="Theme" uid="uid://srh11jnyhheh" path="res://Themes/THEME V3/BTN_SELECT.tres" id="75_62x48"]
+[ext_resource type="Texture2D" uid="uid://c8tbbyy5tgcnn" path="res://img/Item/Card/001.png" id="76_1yyhv"]
+[ext_resource type="Texture2D" uid="uid://d26tkvi1kx125" path="res://img/Item/Card/002.png" id="77_itrlk"]
+[ext_resource type="Texture2D" uid="uid://p7nr07fdh4ox" path="res://img/Item/Card/003.png" id="78_rol1x"]
+[ext_resource type="Texture2D" uid="uid://c1mcwg6tecaxw" path="res://img/Item/Card/004.png" id="79_vpkvi"]
+[ext_resource type="Texture2D" uid="uid://dv6ws4qadegtp" path="res://img/Item/Card/005.png" id="80_cimri"]
+[ext_resource type="Texture2D" uid="uid://bgccqma63pbu4" path="res://img/Item/Card/006.png" id="81_8qlsb"]
+[ext_resource type="Texture2D" uid="uid://bws0o5swwo3v8" path="res://img/Hero/icon/N_BEAST_2_Tenbony.png" id="82_a7npw"]
+[ext_resource type="Texture2D" uid="uid://dw0nfuqrxar2y" path="res://img/UI (new)/UI Panel Popup.png" id="82_rol1x"]
+[ext_resource type="Texture2D" uid="uid://c4f3gtkqr81dy" path="res://img/Gate/Icon/card_inspect/star_icon.png" id="83_ma7ce"]
+[ext_resource type="Texture2D" uid="uid://ce3ski03pyovi" path="res://img/Icon Class/icn_job_abbys.png" id="84_uij2v"]
+[ext_resource type="Texture2D" uid="uid://r0lxpdrhgc74" path="res://img/Icon Jobs/New icon elements/icn_class_dark.png" id="85_4nn1h"]
+[ext_resource type="Texture2D" uid="uid://qq8owx2agde" path="res://img/Hero/D_BEAST_2_Drelmora.png" id="86_50no1"]
+[ext_resource type="Theme" uid="uid://46evkqyxo8d5" path="res://Themes/THEME V3/LBL2_READ.tres" id="87_pir4p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3egsp"]
 bg_color = Color(0, 0, 0, 1)
@@ -187,7 +200,34 @@ region = Rect2(267, 21, 102, 102)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rr3x4"]
 load_path = "res://.godot/imported/2.png-a940e1464d4e9c6ddac16bd226b80a32.ctex"
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yyhv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajp5b"]
+atlas = ExtResource("76_1yyhv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cjsr"]
+atlas = ExtResource("77_itrlk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvi6g"]
+atlas = ExtResource("78_rol1x")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7npw"]
+atlas = ExtResource("79_vpkvi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma7ce"]
+atlas = ExtResource("80_cimri")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uij2v"]
+atlas = ExtResource("81_8qlsb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpkvi"]
+atlas = ExtResource("16_ibuj8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cimri"]
+texture = ExtResource("82_rol1x")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(3, 44, 39, 39)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uvwl4")
@@ -2428,9 +2468,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 394.0
+offset_left = 479.0
 offset_top = -110.0
-offset_right = 876.0
+offset_right = 791.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -2440,21 +2480,21 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="vbox_btn_spawn" type="VBoxContainer" parent="canvas_l/parent_btn_move/Button"]
+[node name="vbox_btn_spawn" type="VBoxContainer" parent="canvas_l/parent_btn_move"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -241.0
-offset_top = 52.0
-offset_right = 241.0
-offset_bottom = 141.0
+offset_left = 394.0
+offset_top = 40.0
+offset_right = 876.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="price" type="Label" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn"]
+[node name="price" type="Label" parent="canvas_l/parent_btn_move/vbox_btn_spawn"]
 layout_mode = 2
 theme = ExtResource("19_rasxx")
 theme_override_font_sizes/font_size = 21
@@ -2462,17 +2502,17 @@ text = "PRICE: 250"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="hbox" type="HBoxContainer" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn"]
+[node name="hbox" type="HBoxContainer" parent="canvas_l/parent_btn_move/vbox_btn_spawn"]
 layout_mode = 2
 alignment = 1
 
-[node name="btn_dec" type="Button" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+[node name="btn_dec" type="Button" parent="canvas_l/parent_btn_move/vbox_btn_spawn/hbox"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme = ExtResource("28_pgr5m")
 text = "-"
 
-[node name="desc" type="Label" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+[node name="desc" type="Label" parent="canvas_l/parent_btn_move/vbox_btn_spawn/hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -2482,7 +2522,7 @@ text = "SPAWN IN SECTOR: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="btn_add" type="Button" parent="canvas_l/parent_btn_move/Button/vbox_btn_spawn/hbox"]
+[node name="btn_add" type="Button" parent="canvas_l/parent_btn_move/vbox_btn_spawn/hbox"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme = ExtResource("28_pgr5m")
@@ -2545,14 +2585,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="pnl_snap_map" type="PanelContainer" parent="canvas_l"]
+custom_minimum_size = Vector2(350, 0)
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -350.0
-offset_top = -113.0
-offset_bottom = 436.0
+offset_top = -63.0
+offset_bottom = 390.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
@@ -2571,8 +2612,8 @@ text_overrun_behavior = 3
 uppercase = true
 
 [node name="scrol_c_spawn" type="ScrollContainer" parent="canvas_l/pnl_snap_map/vbox"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="vbox" type="VBoxContainer" parent="canvas_l/pnl_snap_map/vbox/scrol_c_spawn"]
 layout_mode = 2
@@ -5808,19 +5849,701 @@ layout_mode = 2
 theme = ExtResource("28_pgr5m")
 text = "TRADE"
 
-[node name="pnl_block" type="Panel" parent="canvas_l"]
+[node name="btn_lobby" type="Button" parent="canvas_l"]
+custom_minimum_size = Vector2(350, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -56.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("75_62x48")
+text = "GO TO LOBBY"
+
+[node name="btn_exchange" type="Button" parent="canvas_l"]
+custom_minimum_size = Vector2(350, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -564.0
+offset_bottom = -518.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("75_62x48")
+text = "EXCHANGE"
+
+[node name="btn_cls_exchange" type="Button" parent="canvas_l"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(2000, 2000)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -906.0
-offset_top = -531.0
-offset_right = 906.0
-offset_bottom = 530.0
+offset_left = -526.0
+offset_top = -539.0
+offset_right = 526.0
+offset_bottom = 539.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_1yyhv")
+icon = ExtResource("16_ibuj8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="txt_cls" type="Label" parent="canvas_l/btn_cls_exchange"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = 360.0
+offset_right = 76.5
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pnl_c" type="PanelContainer" parent="canvas_l/btn_cls_exchange"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -224.0
+offset_right = 525.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c"]
+layout_mode = 2
+
+[node name="vbox_item" type="VBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+theme_override_font_sizes/font_size = 32
+text = "EXCHANGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrol_c_item" type="ScrollContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="card_1" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.266667, 0.8, 0.968627, 1)
+theme_override_font_sizes/font_size = 21
+text = "WATER ELEMENT"
+icon = SubResource("AtlasTexture_ajp5b")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="card_2" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.270588, 0.701961, 0.458824, 1)
+theme_override_font_sizes/font_size = 21
+text = "NATURE ELEMENT"
+icon = SubResource("AtlasTexture_0cjsr")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="card_3" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.971961, 0.415138, 0.369798, 1)
+theme_override_font_sizes/font_size = 21
+text = "FIRE ELEMENT"
+icon = SubResource("AtlasTexture_cvi6g")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="card_4" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.972549, 0.87451, 0.607843, 1)
+theme_override_font_sizes/font_size = 21
+text = "LIGHT ELEMENT"
+icon = SubResource("AtlasTexture_a7npw")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="card_5" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.623529, 0.439216, 0.898039, 1)
+theme_override_font_sizes/font_size = 21
+text = "DARK ELEMENT"
+icon = SubResource("AtlasTexture_ma7ce")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="card_6" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(0.878372, 0.197034, 0.19422, 1)
+theme_override_font_sizes/font_size = 21
+text = "SUPER CARD"
+icon = SubResource("AtlasTexture_uij2v")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="txt_own" type="Label" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item"]
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pnl_c" type="PanelContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="btn_help" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/img"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 30.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme = ExtResource("75_62x48")
+theme_override_font_sizes/font_size = 14
+text = "?"
+icon_alignment = 1
+expand_icon = true
+
+[node name="hbox_price" type="HBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+layout_mode = 2
+
+[node name="price_img" type="TextureRect" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/hbox_price"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("14_2lgv5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="price_txt" type="Label" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/hbox_price"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_colors/font_color = Color(0.984314, 0.858824, 0.533333, 1)
+theme_override_font_sizes/font_size = 14
+text = "Price: 100"
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="desc_item" type="Label" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "Spirit cards can unlock locked heroes, go to the roadmap after getting them to awaken the heroes."
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+layout_mode = 2
+
+[node name="btn_dec" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("75_62x48")
+text = "-"
+icon_alignment = 1
+
+[node name="count" type="Label" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="btn_add" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("75_62x48")
+text = "+"
+icon_alignment = 1
+
+[node name="btn_buy" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+layout_mode = 2
+theme = ExtResource("75_62x48")
+text = "BUY"
+
+[node name="btn_open" type="Button" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc"]
+layout_mode = 2
+theme = ExtResource("75_62x48")
+text = "OPEN"
+
+[node name="btn_cls_open_card" type="Button" parent="canvas_l"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(2000, 2000)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -539.0
+offset_right = 526.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("16_ibuj8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="txt_cls" type="Label" parent="canvas_l/btn_cls_open_card"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = 360.0
+offset_right = 76.5
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pnl_c" type="PanelContainer" parent="canvas_l/btn_cls_open_card"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -656.0
+offset_top = -343.0
+offset_right = 656.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c"]
+layout_mode = 2
+
+[node name="header_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+text = "RESULT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hbox_result" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="card_1" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_2" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_3" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_4" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_5" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_6" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_7" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_8" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_9" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="card_10" type="Button" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("82_a7npw")
+flat = true
+expand_icon = true
+
+[node name="lbl_return_coin" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "Return coin +10000"
+horizontal_alignment = 1
+
+[node name="header_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+text = "DETAIL"
+vertical_alignment = 1
+
+[node name="hbox_name" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("17_7t806")
+text = "Card name"
+vertical_alignment = 1
+uppercase = true
+
+[node name="star_1" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="star_2" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="star_3" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="star_4" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="star_5" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="star_6" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+self_modulate = Color(1, 0.85, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("83_ma7ce")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="job" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("84_uij2v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="elem" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("85_4nn1h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="hbox_skill" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+texture = ExtResource("86_50no1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="pnl_0" type="PanelContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "BASIC"
+
+[node name="skill_0" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("87_pir4p")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "-"
+
+[node name="header_skill_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "SKILL 1"
+
+[node name="skill_1" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("87_pir4p")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="pnl_1" type="PanelContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "SKILL 2"
+
+[node name="skill_0" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("87_pir4p")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="header_skill_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+layout_mode = 2
+theme = ExtResource("20_3cji6")
+theme_override_font_sizes/font_size = 14
+text = "ULTIMATE"
+
+[node name="skill_1" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("87_pir4p")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="btn_cls_notification" type="Button" parent="canvas_l"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -844.0
+offset_top = -844.0
+offset_right = 844.0
+offset_bottom = 844.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mec7e")
+icon = SubResource("AtlasTexture_vpkvi")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="canvas_l/btn_cls_notification"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = 360.0
+offset_right = 76.5
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
+
+[node name="pnl_c" type="PanelContainer" parent="canvas_l/btn_cls_notification"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -106.0
+offset_right = 435.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cimri")
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_notification/pnl_c"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_notification/pnl_c/vbox"]
+layout_mode = 2
+theme = ExtResource("19_rasxx")
+text = "NOTIFICATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrol_c" type="ScrollContainer" parent="canvas_l/btn_cls_notification/pnl_c/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="desc" type="Label" parent="canvas_l/btn_cls_notification/pnl_c/vbox/scrol_c"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("21_rn2v2")
+autowrap_mode = 3
 
 [connection signal="pressed" from="canvas_l/btn_cls_dg_break/pnlc/vbox_result/btn_cls" to="." method="_gate_result_exit"]

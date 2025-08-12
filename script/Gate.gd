@@ -24,12 +24,16 @@ func _ready() -> void:
 	onready_btn_spawn()
 	onready_snaploc()
 	update_gate_price()
+	onready_card_exchange()
+	onready_notif()
+	_check_card_availabel()
 	# TIME
 	game_time = AutoloadData.gate_date.duplicate(true)
 	update_time_ui()
 	# BTN
 	node_sldv_cam.value_changed.connect(onready_cam_zoom)
-	
+	$canvas_l/btn_lobby.pressed.connect(func():
+		SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY))
 	# turn off dev mode untuk inspect zone
 	var get_sector_count = nodes_all_sector.get_child_count()
 	for i in get_sector_count:
@@ -37,6 +41,9 @@ func _ready() -> void:
 		for ii in get_zone_count:
 			var get_zone:Panel = nodes_all_sector.get_child(i).get_child(ii)
 			get_zone.self_modulate.a = 0.0/255
+	AutoloadData.gate_party.clear()
+	AutoloadData.all_npc.clear()
+	AutoloadData.save_data()
 	
 func _process(delta):
 	if is_time_paused:
@@ -47,6 +54,203 @@ func _process(delta):
 		advance_hour()
 		_time_accumulator -= SECONDS_PER_GAME_HOUR
 		update_time_ui()
+
+# --------------------------------------
+# NOTIFICATION
+# --------------------------------------
+@onready var main_notification:Button = $canvas_l/btn_cls_notification
+@onready var notif_desc:Label = main_notification.get_node("pnl_c/vbox/scrol_c/desc")
+func onready_notif():
+	main_notification.pressed.connect(func():
+		main_notification.hide())
+func set_notif(value):
+	main_notification.show()
+	notif_desc.text = str(value)
+# --------------------------------------
+# EXCHANGE
+# --------------------------------------
+@onready var main_exchange:Button = $canvas_l/btn_cls_exchange
+@onready var main_open_card:Button = $canvas_l/btn_cls_open_card 
+@onready var parent_card_exchange = $canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item/hbox
+@onready var parent_utility_exchange = $canvas_l/btn_cls_exchange/pnl_c/hbox/pnl_c/vbox_desc
+@onready var nodes_utility_exchange = {
+	"img_main":parent_utility_exchange.get_node("img"),
+	"price_img":parent_utility_exchange.get_node("hbox_price/price_img"),
+	"price_txt":parent_utility_exchange.get_node("hbox_price/price_txt"),
+	"btn_dec":parent_utility_exchange.get_node("hbox/btn_dec"),
+	"btn_add":parent_utility_exchange.get_node("hbox/btn_add"),
+	"count":parent_utility_exchange.get_node("hbox/count"),
+	"btn_buy":parent_utility_exchange.get_node("btn_buy"),
+	"btn_open":parent_utility_exchange.get_node("btn_open"),
+	"btn_help":parent_utility_exchange.get_node("img/btn_help"),
+	"txt_own":main_exchange.get_node("pnl_c/hbox/vbox_item/txt_own"),
+}
+var current_card_access: int = 1
+var current_exchange_count:int = 0
+var exchange_price = [5000, 2500, 2000]
+var current_coin = null
+
+func onready_card_exchange():
+	# btn show exchange
+	$canvas_l/btn_exchange.pressed.connect(func():
+		main_exchange.show())
+	# btn help
+	nodes_utility_exchange["btn_help"].pressed.connect(func():
+		var data_desc = Gate_desc.new()
+		set_notif(data_desc.desc_soulcard(current_card_access)))
+	# btn main cls
+	main_exchange.pressed.connect(func():
+		_reset_exchanged(true)
+		current_exchange_count=0
+		main_exchange.hide())
+	# select card access and show img
+	var img_main:TextureRect = nodes_utility_exchange["img_main"]
+	var price_img:TextureRect = nodes_utility_exchange["price_img"]
+	var price_txt:Label = nodes_utility_exchange["price_txt"]
+	var txt_own:Label = nodes_utility_exchange["txt_own"]
+	for i in parent_card_exchange.get_child_count():
+		var btn:Button = parent_card_exchange.get_child(i)
+		btn.pressed.connect(func():
+			_reset_exchanged(true)
+			_reset_exchanged(false)
+			txt_own.text = str("Soul Card Own: ", AutoloadData.filter_num_k(AutoloadData.player_inventory_card_gacha[i+1]))
+			if i in [0, 1, 2]:
+				price_img.texture = load(_path_img_gate_coin(2))
+				price_txt.text = str(exchange_price[0], "(own: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_cummon),")")
+				current_coin = 0
+			elif i in [3, 4]:
+				price_img.texture = load(_path_img_gate_coin(1))
+				price_txt.text = str(exchange_price[1], "(own: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_skull),")")
+				current_coin = 1
+			else:
+				price_img.texture = load(_path_img_gate_coin(0))
+				price_txt.text = str(exchange_price[2], "(own: ",AutoloadData.filter_num_k(AutoloadData.gate_coin_star),")")
+				current_coin = 2
+			var code = i+1
+			img_main.texture = load(_path_img_card_exchange(code))
+			current_card_access=code
+			_check_open())
+	# btn dec, add and count label
+	var btn_dec:Button = nodes_utility_exchange["btn_dec"]
+	var btn_add:Button = nodes_utility_exchange["btn_add"]
+	var count:Label = nodes_utility_exchange["count"]
+	btn_dec.pressed.connect(func():
+		SfxManager.play_click()
+		current_exchange_count-=1
+		current_exchange_count = clamp(current_exchange_count, 0, 9999)
+		count.text = AutoloadData.filter_num_k(current_exchange_count))
+	btn_add.pressed.connect(func():
+		SfxManager.play_click()
+		current_exchange_count+=1
+		current_exchange_count = clamp(current_exchange_count, 0, 9999)
+		count.text = AutoloadData.filter_num_k(current_exchange_count))
+	# btn buy
+	var btn_buy:Button = nodes_utility_exchange["btn_buy"]
+	btn_buy.pressed.connect(func():
+		if current_exchange_count == 0:
+			SfxManager.play_system_fail()
+			return
+		var total_price = current_exchange_count*exchange_price[current_coin]
+		if current_coin == 0 and AutoloadData.gate_coin_cummon >= total_price:
+			AutoloadData.gate_coin_cummon -= total_price
+		elif current_coin == 1 and AutoloadData.gate_coin_star >= total_price:
+			AutoloadData.gate_coin_star -= total_price
+		elif current_coin == 2 and AutoloadData.gate_coin_skull >= total_price:
+			AutoloadData.gate_coin_skull -= total_price
+		else:
+			SfxManager.play_system_fail()
+			return
+			
+		SfxManager.play_money()
+		AutoloadData.player_inventory_card_gacha[current_card_access]+=current_exchange_count
+		AutoloadData.save_data()
+		_reset_exchanged(true)
+		update_currency() )
+	# btn open
+	# btn cls
+	main_open_card.pressed.connect(func():
+		main_open_card.hide() )
+	var btn_open:Button = nodes_utility_exchange["btn_open"]
+	# btn show
+	btn_open.pressed.connect(func():
+		main_open_card.show() )
+	
+func open_card():
+	pass
+
+var current_card_code:Array = [null, null, null, null, null, null, null, null, null, null]
+var all_card_available = {
+	0:{ # light
+		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
+		"code":{0:[],1:[],2:[],4:[],5:[]} },
+	1:{ # nature
+		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
+		"code":{0:[],1:[],2:[],4:[],5:[]} },
+	2:{ # water
+		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
+		"code":{0:[],1:[],2:[],4:[],5:[]} },
+	3:{ # dark
+		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
+		"code":{0:[],1:[],2:[],4:[],5:[]} },
+	4:{ # fir
+		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
+		"code":{0:[],1:[],2:[],4:[],5:[]} }, }
+		
+func _check_card_availabel():
+	var card_data = Card_data_s1.new()
+	var total_card = card_data.dict_all_card_s1.size()
+	for i in range(total_card):
+		var card_code = card_data.dict_all_card_s1.keys()[i]
+		var card_elem = card_data.dict_all_card_s1[card_code]["elem"]
+		var card_star = card_data.dict_all_card_s1[card_code]["rank"]
+		all_card_available[card_elem]["star"][card_star]+=1
+		all_card_available[card_elem]["code"][card_star].append(card_code)
+	
+var current_open:int = 0
+func _check_open():
+	var btn_open:Button = nodes_utility_exchange["btn_open"]
+	if AutoloadData.player_inventory_card_gacha[current_card_access] == 0:
+		btn_open.disabled = true
+		btn_open.text = "NOT AVAILABLE"
+		current_open = 0
+		return
+	if AutoloadData.player_inventory_card_gacha[current_card_access] >=10:
+		current_open = 10
+	elif AutoloadData.player_inventory_card_gacha[current_card_access] >=5:
+		current_open = 5
+	elif AutoloadData.player_inventory_card_gacha[current_card_access] <5:
+		current_open = 1
+	
+	btn_open.text = "OPEN X%d" %[current_open]
+	btn_open.disabled = false
+	
+func _reset_exchanged(_bool:bool):
+	current_exchange_count = 0
+	current_coin = 0
+	if _bool:
+		nodes_utility_exchange["img_main"].texture = null
+		nodes_utility_exchange["price_img"].texture = null
+		nodes_utility_exchange["price_txt"].text = str(0)
+		nodes_utility_exchange["btn_dec"].disabled = true
+		nodes_utility_exchange["btn_add"].disabled = true
+		nodes_utility_exchange["count"].text = str(0)
+		nodes_utility_exchange["btn_buy"].disabled = true
+		nodes_utility_exchange["btn_open"].disabled = true
+		nodes_utility_exchange["txt_own"].text = str(0)
+		return
+	nodes_utility_exchange["btn_buy"].disabled = false
+	nodes_utility_exchange["btn_open"].disabled = false
+	nodes_utility_exchange["btn_dec"].disabled = false
+	nodes_utility_exchange["btn_add"].disabled = false
+func _path_img_card_exchange(code):
+	code = clamp(code, 1, 6)
+	var path = "res://img/Item/Card/%03d.png" % code
+	return path
+func _path_img_gate_coin(code):
+	code = clamp(code, 0, 2)
+	var path = "res://img/Gate/Gate Coin/%d.png" % code
+	return path
+
 # --------------------------------------
 # DATE UNITYLITY
 # --------------------------------------
@@ -148,11 +352,12 @@ func onready_snaploc():
 			new_btn_zone.pressed.connect(func():
 				cam_snap(node_main_cam, zone_gb_pos.x, zone_gb_pos.y))
 			
-	
 func update_available_gate_snap():
 	all_gate_loc = {0:[0,0],1:[0,0],2:[0,0],3:[0,0],4:[0,0],5:[0,0],6:[0,0],7:[0,0],8:[0,0],9:[0,0]}
 	for i in range(10):
 		var btn:Button = vbox_allbtn_snap.get_child(i).get_node("btn")
+		var lbl_num:Label = vbox_allbtn_snap.get_child(i).get_node("no")
+		lbl_num.hide()
 		btn.disabled = true
 		btn.hide()
 		btn.text = "GATE"
@@ -164,9 +369,12 @@ func update_available_gate_snap():
 		var btn:Button = vbox_allbtn_snap.get_child(i).get_node("btn")
 		btn.disabled = false
 		btn.show()
+		var lbl_num:Label = vbox_allbtn_snap.get_child(i).get_node("no")
+		lbl_num.show()
 		var data_loc = AutoloadData.gate_party[key_name]["location"]
 		var island_name = AutoloadData.sector_data[data_loc["sector"]][data_loc["zone"]]["name"]
-		btn.text = str("GATE: ",island_name)
+		var _sector = data_loc["sector"]
+		btn.text = str("GATE S-",_sector,": ",island_name)
 # --------------------------------------
 # DUNGEON BREAK
 # --------------------------------------
@@ -609,7 +817,7 @@ func _gate_result_exit() -> void:
 		pause_time(false)
 # update price
 var current_spawn_code:int=0
-@onready var vbox_price = $canvas_l/parent_btn_move/Button/vbox_btn_spawn
+@onready var vbox_price = $canvas_l/parent_btn_move/vbox_btn_spawn
 @onready var nodes_price = {
 	"txt_price": vbox_price.get_node("price"),
 	"btn_add": vbox_price.get_node("hbox/btn_add"),
@@ -619,8 +827,9 @@ func onready_btn_spawn():
 	# btn spawn
 	var main_btn:Button = $canvas_l/parent_btn_move/Button
 	main_btn.connect("pressed", func():
-		if AutoloadData.gate_party.size() > 10:
+		if AutoloadData.gate_party.size() >= 10:
 			SfxManager.play_system_fail()
+			set_notif("Only 10 gate breaks can be found at most. Complete one to find another gate break.")
 			return
 		SfxManager.play_count()
 		if AutoloadData.gate_party.is_empty()==false:
@@ -1146,6 +1355,7 @@ func _new_npc(sector, zona):
 	
 # cam snap
 func cam_snap(cam: Node, x: float, y: float) -> void:
+	SfxManager.play_whoosh()
 	var cam_tween := create_tween()
 	cam_tween.tween_property(cam, 'position', Vector2(x, y), 0.3)
 # is rng == true: for first spawn || false: for func _ready (load)

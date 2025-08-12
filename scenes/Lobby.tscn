@@ -2118,7 +2118,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label2" type="Label" parent="ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon/VBoxContainer4"]
-self_modulate = Color(0.552956, 0.552956, 0.552956, 1)
 layout_mode = 2
 size_flags_vertical = 10
 theme = ExtResource("4_h77bf")

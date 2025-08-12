@@ -86,9 +86,6 @@ func onready_slide_story():
 enum ENUM_SET_NOTIF{RED, ORANGE, BLUE}
 
 func onreadt_btn_unlocked_level():
-	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon/VBoxContainer4/dungeon.connect("pressed", func():
-		set_notification(ENUM_SET_NOTIF.RED, "Under developing !") )
-	
 	$btn_lock_shop.connect("pressed", func():
 		if AutoloadData.player_level >= 5:
 			$btn_lock_shop.hide()
@@ -506,10 +503,13 @@ func on_setting_pressed():
 	panel_cls_setting(true)
 	hide_prosedural_select_stage()
 func on_gate_pressed():
+	#if AutoloadData.story_stage[0]["clear"]==false:
+		#set_notification(ENUM_SET_NOTIF.RED, "Under developing !")
+		#return
 	SfxManager.play_click()
-	#hide_prosedural_select_stage()
-	#lobby_action(ENUM_LOBBY_ACTION.GATE)
-	pass
+	hide_prosedural_select_stage()
+	lobby_action(ENUM_LOBBY_ACTION.GATE)
+	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.GATE)
 
 # ----------- BTN GATE -----------
 @onready var arr_btn_gate = [

@@ -1,6 +1,6 @@
 extends Node
 
-enum ENUM_SCENE { LOBBY, BATTLE, SHOP, ROADMAP, START }
+enum ENUM_SCENE { LOBBY, BATTLE, SHOP, ROADMAP, START, GATE }
 
 var list_scene = {
 	ENUM_SCENE.LOBBY: 'res://scenes/Lobby.tscn',
@@ -8,6 +8,7 @@ var list_scene = {
 	ENUM_SCENE.SHOP: 'res://scenes/Shop.tscn',
 	ENUM_SCENE.ROADMAP: 'res://scenes/Roadmap.tscn',
 	ENUM_SCENE.START: 'res://scenes/Player_nickname.tscn',
+	ENUM_SCENE.GATE: 'res://scenes/Gate.tscn',
 }
 
 func move_to_scene(set_scene: ENUM_SCENE):

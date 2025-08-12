@@ -200,3 +200,10 @@ var dg_break_data = {
 		"rwd":randi_range(12500, 15000),
 		"img":dg_break_path(20)
 	}, }
+
+func desc_soulcard(code):
+	code = clamp(code, 1, 6)
+	var elem = ['WATER', 'NATURE', 'FIRE', 'LIGHT', 'DARK']
+	if code != 6:
+		return "Obtain the soul of a random %s spirit from 1 to 5 stars, waiting to be resurrected to serve you!\nNote: After obtaining the soul, go to the roadmap and complete the resurrection to get the card!" % elem[code-1]
+	else: return "Obtain the soul of a powerful spirit randomly, ranging from 3 to 6 stars, waiting to be resurrected to serve you!\nNote: After obtaining the soul, go to the roadmap and complete the resurrection to get the card!"
