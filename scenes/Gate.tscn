@@ -5950,6 +5950,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_vertical = 3
+scroll_horizontal = 100
 
 [node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_exchange/pnl_c/hbox/vbox_item/scrol_c_item"]
 layout_mode = 2
@@ -6144,6 +6145,7 @@ theme = ExtResource("75_62x48")
 text = "OPEN"
 
 [node name="btn_cls_open_card" type="Button" parent="canvas_l"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.784314)
 custom_minimum_size = Vector2(2000, 2000)
 anchors_preset = 8
@@ -6187,9 +6189,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -656.0
-offset_top = -343.0
+offset_top = -401.0
 offset_right = 656.0
-offset_bottom = 297.0
+offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
@@ -6304,7 +6306,7 @@ vertical_alignment = 1
 [node name="hbox_name" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
 layout_mode = 2
 
-[node name="name" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
+[node name="card_name" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 1
@@ -6392,7 +6394,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill"]
+[node name="main_img" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill"]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = ExtResource("86_50no1")
@@ -6412,11 +6414,25 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+[node name="hbox_s0" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
 layout_mode = 2
+
+[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s0"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("20_3cji6")
 theme_override_font_sizes/font_size = 14
 text = "BASIC"
+
+[node name="cd_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "Cooldown: 0 turn"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="skill_0" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
 layout_mode = 2
@@ -6424,13 +6440,26 @@ size_flags_vertical = 3
 theme = ExtResource("87_pir4p")
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "-"
 
-[node name="header_skill_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
+[node name="hbox_s1" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
 layout_mode = 2
+
+[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s1"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("20_3cji6")
 theme_override_font_sizes/font_size = 14
 text = "SKILL 1"
+
+[node name="cd_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "Cooldown: 0 turn"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="skill_1" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox"]
 layout_mode = 2
@@ -6448,26 +6477,54 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_uykja")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="header_skill_0" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+[node name="hbox_s2" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
 layout_mode = 2
+
+[node name="header_skill_2" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s2"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("20_3cji6")
 theme_override_font_sizes/font_size = 14
-text = "SKILL 2"
+text = "SKILL 3"
 
-[node name="skill_0" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+[node name="cd_2" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "Cooldown: 0 turn"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="skill_2" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("87_pir4p")
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 
-[node name="header_skill_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+[node name="hbox_s3" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
 layout_mode = 2
+
+[node name="header_skill_3" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s3"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("20_3cji6")
 theme_override_font_sizes/font_size = 14
 text = "ULTIMATE"
 
-[node name="skill_1" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
+[node name="cd_3" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "Cooldown: 0 turn"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="skill_3" type="RichTextLabel" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("87_pir4p")

@@ -27,6 +27,7 @@ func _ready() -> void:
 	onready_card_exchange()
 	onready_notif()
 	_check_card_availabel()
+	reset_card_inspect()
 	# TIME
 	game_time = AutoloadData.gate_date.duplicate(true)
 	update_time_ui()
@@ -111,6 +112,7 @@ func onready_card_exchange():
 	for i in parent_card_exchange.get_child_count():
 		var btn:Button = parent_card_exchange.get_child(i)
 		btn.pressed.connect(func():
+			SfxManager.play_click()
 			_reset_exchanged(true)
 			_reset_exchanged(false)
 			txt_own.text = str("Soul Card Own: ", AutoloadData.filter_num_k(AutoloadData.player_inventory_card_gacha[i+1]))
@@ -167,16 +169,234 @@ func onready_card_exchange():
 		_reset_exchanged(true)
 		update_currency() )
 	# btn open
-	# btn cls
 	main_open_card.pressed.connect(func():
-		main_open_card.hide() )
+		reset_card_inspect()
+		update_currency()
+		main_open_card.hide()
+		current_gacha['total']=0
+		current_gacha['available']=0
+		last_click_gacha = null )
 	var btn_open:Button = nodes_utility_exchange["btn_open"]
-	# btn show
 	btn_open.pressed.connect(func():
-		main_open_card.show() )
+		_reset_exchanged(true)
+		var data_card = Card_data_s1.new()
+		main_open_card.show()
+		var data_gacha = _open_card()
+		update_currency()
+		current_gacha['total']=data_gacha['total']
+		current_gacha['available']=data_gacha['available']
+		# return coin
+		nodes_hero_inspect["return_coin"].text = str("Return Coin +", AutoloadData.filter_num_k(data_gacha['total']))
+		# auto disabled btn card
+		if AutoloadData.player_inventory_card_gacha[current_card_access] < current_open:
+			SfxManager.play_system_fail()
+			return
+		else:
+			AutoloadData.player_inventory_card_gacha[current_card_access]-=current_open
+			AutoloadData.save_data()
+		SfxManager.play_item_open()
+		
+		for i in range(10):
+			var keys = nodes_gacha_allbtn.keys()[i]
+			var btn:Button = nodes_gacha_allbtn[keys]
+			btn.visible = i <= current_open-1
+			if current_card_code[i]==null:
+				btn.icon = load(img_not_in_db)
+				btn.disabled=true
+			else:
+				var icon = data_card.dict_all_card_s1[ current_card_code[i] ]["icon"]
+				btn.icon = load(icon)
+				btn.disabled=false )
+	# btn all card
+	for i in parent_card_allbtn.get_child_count():
+		var btn:Button = parent_card_allbtn.get_child(i)
+		btn.pressed.connect(func():
+			card_inspect(current_card_code[i]) )
+
+@onready var parent_card_allbtn = $canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result
+@onready var nodes_gacha_allbtn = {
+	"btn_1":parent_card_allbtn.get_node("card_1"),
+	"btn_2":parent_card_allbtn.get_node("card_2"),
+	"btn_3":parent_card_allbtn.get_node("card_3"),
+	"btn_4":parent_card_allbtn.get_node("card_4"),
+	"btn_5":parent_card_allbtn.get_node("card_5"),
+	"btn_6":parent_card_allbtn.get_node("card_6"),
+	"btn_7":parent_card_allbtn.get_node("card_7"),
+	"btn_8":parent_card_allbtn.get_node("card_8"),
+	"btn_9":parent_card_allbtn.get_node("card_9"),
+	"btn_10":parent_card_allbtn.get_node("card_10") }
+@onready var nodes_hero_inspect = {
+	"return_coin":main_open_card.get_node("pnl_c/vbox/lbl_return_coin"),
+	"star_1":main_open_card.get_node("pnl_c/vbox/hbox_name/star_1"),
+	"star_2":main_open_card.get_node("pnl_c/vbox/hbox_name/star_2"),
+	"star_3":main_open_card.get_node("pnl_c/vbox/hbox_name/star_3"),
+	"star_4":main_open_card.get_node("pnl_c/vbox/hbox_name/star_4"),
+	"star_5":main_open_card.get_node("pnl_c/vbox/hbox_name/star_5"),
+	"star_6":main_open_card.get_node("pnl_c/vbox/hbox_name/star_6"),
+	"card_name":main_open_card.get_node("pnl_c/vbox/hbox_name/card_name"),
+	"job":main_open_card.get_node("pnl_c/vbox/hbox_name/job"),
+	"elem":main_open_card.get_node("pnl_c/vbox/hbox_name/elem"),
+	"main_img":main_open_card.get_node("pnl_c/vbox/hbox_skill/main_img"),
+	"skill_1":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/skill_0"),
+	"skill_2":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/skill_1"),
+	"skill_3":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/skill_2"),
+	"skill_4":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/skill_3"),
+	"cd_1":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s1/cd_1"), 
+	"cd_2":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s2/cd_2"), 
+	"cd_3":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s3/cd_3"),  }
+
+var last_click_gacha = null
+func reset_card_inspect():
+	#star
+	for i in range(1, 6):
+		var code = str("star_",i)
+		nodes_hero_inspect[code].visible = false
+	# name
+	nodes_hero_inspect['card_name'].text = ""
+	nodes_hero_inspect['job'].texture = null
+	nodes_hero_inspect['elem'].texture = null
+	nodes_hero_inspect['main_img'].texture = null
+	# skill
+	for i in range(4):
+		var path_desc = "skill_%d" %[i+1]
+		nodes_hero_inspect[path_desc].text = ""
+		if i !=0:
+			var path_cd = str("cd_",i)
+			nodes_hero_inspect[path_cd].text = ""
+func card_inspect(card_code):
+	SfxManager.play_count()
+	if last_click_gacha == card_code or card_code ==  null: return
+	last_click_gacha = card_code
+	var data_card = Card_data_s1.new()
+	# set star rank 1-6
+	var get_star = data_card.dict_all_card_s1[card_code]['rank']+1
+	for i in range(1, 6):
+		var code = str("star_",i)
+		nodes_hero_inspect[code].visible = i < get_star
+	# set name
+	var card_name = data_card.dict_all_card_s1[card_code]['name']
+	var img_job = data_card.dict_all_card_s1[card_code]['job']
+	var img_elem = data_card.dict_all_card_s1[card_code]['elem']
+	var img_main = data_card.dict_all_card_s1[card_code]['img']
+	nodes_hero_inspect['card_name'].text = card_name
+	nodes_hero_inspect['job'].texture = load(_path_icon_class(img_job))
+	nodes_hero_inspect['elem'].texture = load(_path_icon_elem(img_elem))
+	nodes_hero_inspect['main_img'].texture = load(img_main)
+	# set skill
+	for i in range(4):
+		var path_desc = "skill_%d" %[i+1]
+		var desc_skill = data_card.set_desc_card(i, card_code)
+		nodes_hero_inspect[path_desc].text = desc_skill['desc']
+		if i !=0:
+			var path_cd = str("cd_",i)
+			var desc_cd = desc_skill['cd']
+			nodes_hero_inspect[path_cd].text = desc_cd
 	
-func open_card():
-	pass
+func _path_icon_class(code):
+	code = clamp(code, 0, 8)
+	var path = "res://img/Gate/Icon/card_inspect/class/%d.png" %[code]
+	return path
+func _path_icon_elem(code):
+	code = clamp(code, 0, 4)
+	var path = "res://img/Gate/Icon/card_inspect/elem/%d.png" %[code]
+	return path
+@onready var img_not_in_db = "res://img/Gate/Icon/sc/not_in_db.png"
+
+var current_gacha = {
+	"total":0,
+	"available":0  }
+func _open_card() -> Dictionary:
+	current_card_code = [null, null, null, null, null, null, null, null, null, null]
+	var total_cashback:int = 0
+	var total_availbale:int = 0
+	#var total_loop = 1 if current_open == 0 else current_open
+	for i in range(current_open):
+		var data = _card_gacha_rules()
+		var _get_confirm = data["available"]
+		var _get_cardcode = data["result"]
+		var _get_count = data["cash_back"]
+		# save in db
+		if _get_cardcode != null:
+			if AutoloadData.player_cardAvailable.has(_get_cardcode) == false:
+				AutoloadData.player_cardAvailable.append(_get_cardcode)
+			
+		current_card_code[i]=_get_cardcode
+		total_cashback += _get_count
+		if _get_confirm == false: total_availbale +=1
+	AutoloadData.save_data()
+	return {
+		"total":total_cashback,
+		"available":total_availbale }
+func _card_gacha_rules() -> Dictionary:
+	# Mapping current_card_access ke (cash_back_code, elem_code)
+	var access_map = {
+		1: { "cash": 1, "elem": 2 },
+		2: { "cash": 1, "elem": 1 },
+		3: { "cash": 1, "elem": 4 },
+		4: { "cash": 2, "elem": 0 },
+		5: { "cash": 2, "elem": 3 },
+		6: { "cash": 1, "elem": 5 } }
+	# Ambil setting awal dari mapping (default cash=0, elem=0 jika tidak ada di map)
+	var cash_back_code = access_map.get(current_card_access, { "cash": 0, "elem": 0 }).cash
+	var elem_code = access_map.get(current_card_access, { "cash": 0, "elem": 0 }).elem
+	# Random untuk rarity (1-100)
+	var rng = randi_range(1, 100)
+	# Jika elem_code = 5 → random elemen 0–4
+	if elem_code == 5:
+		elem_code = randi_range(0, 4)
+	# Tentukan star_code berdasarkan jenis gacha
+	var star_code = 0
+	if current_card_access == 7:
+		if rng == 1: star_code = 5    # bintang 6
+		elif rng <= 5: star_code = 4 # bintang 5
+		elif rng <= 20: star_code = 3 # bintang 4
+		else: star_code = 2           # bintang 3
+	else:
+		if rng <= 5: star_code = 4    # bintang 5
+		elif rng <= 10: star_code = 3 # bintang 4
+		elif rng <= 20: star_code = 2 # bintang 3
+		elif rng <= 40: star_code = 1 # bintang 2
+		else: star_code = 0           # bintang 1
+	# Cek ketersediaan kartu
+	var max_count = all_card_available[elem_code]["star"][star_code]
+	var available = max_count > 0
+	var card_code = null
+	# Jika ada, pilih kartu secara acak (index mulai 0 sampai max_count-1)
+	var cash_back = 0
+	if available:
+		var gacha_index = randi_range(0, max_count - 1)
+		card_code = all_card_available[elem_code]["code"][star_code][gacha_index]
+	# kembalikan uang player jika hero sydah tersedia max 0-50%
+	if card_code == null:
+		# Hitung cashback sesuai tipe
+		match cash_back_code:
+			1:
+				cash_back = 5000
+				AutoloadData.gate_coin_cummon += cash_back
+			2:
+				cash_back = 2500
+				AutoloadData.gate_coin_skull += cash_back
+			3:
+				cash_back = 2000
+				AutoloadData.gate_coin_star += cash_back
+	elif AutoloadData.player_cardAvailable.has(card_code):
+		# Hitung cashback sesuai tipe
+		match cash_back_code:
+			1:
+				cash_back = randi_range(0, 2500)
+				AutoloadData.gate_coin_cummon += cash_back
+			2:
+				cash_back = randi_range(0, 1250)
+				AutoloadData.gate_coin_skull += cash_back
+			3:
+				cash_back = randi_range(0, 1000)
+				AutoloadData.gate_coin_star += cash_back
+	AutoloadData.save_data()
+	# Return hasil gacha
+	return {
+		"available": available,  # true/false apakah ada kartu
+		"result": card_code,     # kode kartu terpilih (null jika tidak ada)
+		"cash_back": cash_back } # jumlah cashback yang diperoleh
 
 var current_card_code:Array = [null, null, null, null, null, null, null, null, null, null]
 var all_card_available = {
@@ -195,7 +415,6 @@ var all_card_available = {
 	4:{ # fir
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
 		"code":{0:[],1:[],2:[],4:[],5:[]} }, }
-		
 func _check_card_availabel():
 	var card_data = Card_data_s1.new()
 	var total_card = card_data.dict_all_card_s1.size()
