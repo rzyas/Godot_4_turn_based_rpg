@@ -1,0 +1,1 @@
+class_name main_story_en_s1

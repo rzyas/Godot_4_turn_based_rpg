@@ -361,10 +361,11 @@ func spin():
 	AutoloadData.save_data()
 	$spin/history_senoak/vbox/hbox/count/spin_coin.text = str(AutoloadData.player_spin_coin)
 	get_wheel_coin.text = str("SPIN COIN: ",AutoloadData.player_spin_coin)
-	
+
 func update_spin_exhance():
+	@warning_ignore("integer_division")
 	$spin/fixed_reward/hbox/vbox_2/prog_r.value = int( AutoloadData.spin_exhance_common )
-	$spin/fixed_reward/hbox/vbox_2/prog_s.value = int( AutoloadData.spin_exhance_special/5 )
+	$spin/fixed_reward/hbox/vbox_2/prog_s.value = int( AutoloadData.spin_exhance_special/5.0 )
 	$spin/fixed_reward/hbox/vbox_3/Label.text = str(AutoloadData.spin_exhance_common,"/100")
 	$spin/fixed_reward/hbox/vbox_3/Label2.text = str(AutoloadData.spin_exhance_special,"/500")
 	

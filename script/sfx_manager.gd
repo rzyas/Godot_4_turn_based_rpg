@@ -40,6 +40,8 @@ func lw_onready_bgm(bgm: ENUM_BGM):
 			bgm_list = [$BgmBattle1, $BgmBattle2, $BgmBattle3, $BgmBattle4, $BgmBattle5, $BgmBattle6]
 		ENUM_BGM.ROADMAP:
 			bgm_list = [$Roadmap1, $Roadmap2, $Roadmap3, $Roadmap4, $Roadmap5]
+		ENUM_BGM.GATE:
+			bgm_list = [$GateBg00, $GateBg01, $GateBg02, $GateBg03]
 	# Register semua track ke list total untuk reset di masa depan
 	all_tracks = []
 	for track in bgm_list:

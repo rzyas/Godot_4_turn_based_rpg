@@ -86,8 +86,8 @@
 [ext_resource type="Texture2D" uid="uid://c4f3gtkqr81dy" path="res://img/Gate/Icon/card_inspect/star_icon.png" id="83_ma7ce"]
 [ext_resource type="Texture2D" uid="uid://ce3ski03pyovi" path="res://img/Icon Class/icn_job_abbys.png" id="84_uij2v"]
 [ext_resource type="Texture2D" uid="uid://r0lxpdrhgc74" path="res://img/Icon Jobs/New icon elements/icn_class_dark.png" id="85_4nn1h"]
-[ext_resource type="Texture2D" uid="uid://qq8owx2agde" path="res://img/Hero/D_BEAST_2_Drelmora.png" id="86_50no1"]
 [ext_resource type="Theme" uid="uid://46evkqyxo8d5" path="res://Themes/THEME V3/LBL2_READ.tres" id="87_pir4p"]
+[ext_resource type="Texture2D" uid="uid://dt0coxjqidawr" path="res://img/Gate/Icon/sc/bg_empty.png" id="88_ma7ce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3egsp"]
 bg_color = Color(0, 0, 0, 1)
@@ -142,38 +142,6 @@ region = Rect2(159, 9, 132, 132)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yyhv"]
 atlas = ExtResource("31_mj33a")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rr3x4"]
-atlas = ExtResource("20_dyt46")
-region = Rect2(145, 267, 102, 102)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wk8cj"]
-atlas = ExtResource("20_dyt46")
-region = Rect2(267, 21, 102, 102)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycqo8"]
-atlas = ExtResource("20_dyt46")
-region = Rect2(21, 267, 102, 102)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ub7aj"]
-atlas = ExtResource("20_dyt46")
-region = Rect2(267, 21, 102, 102)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3egsp"]
-atlas = ExtResource("37_wk8cj")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aqqb7"]
-atlas = ExtResource("40_1yyhv")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_itrlk"]
-atlas = ExtResource("41_ajp5b")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mj33a"]
-atlas = ExtResource("16_ibuj8")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_62x48"]
-atlas = ExtResource("20_dyt46")
-region = Rect2(267, 21, 102, 102)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1p2sl"]
 atlas = ExtResource("16_ibuj8")
 region = Rect2(0, 0, 100, 100)
@@ -217,6 +185,38 @@ atlas = ExtResource("80_cimri")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uij2v"]
 atlas = ExtResource("81_8qlsb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr3x4"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(145, 267, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk8cj"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycqo8"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(21, 267, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub7aj"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3egsp"]
+atlas = ExtResource("37_wk8cj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqqb7"]
+atlas = ExtResource("40_1yyhv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itrlk"]
+atlas = ExtResource("41_ajp5b")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj33a"]
+atlas = ExtResource("16_ibuj8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62x48"]
+atlas = ExtResource("20_dyt46")
+region = Rect2(267, 21, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpkvi"]
 atlas = ExtResource("16_ibuj8")
@@ -2468,9 +2468,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 479.0
+offset_left = 511.0
 offset_top = -110.0
-offset_right = 791.0
+offset_right = 823.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -2487,9 +2487,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 394.0
+offset_left = 426.0
 offset_top = 40.0
-offset_right = 876.0
+offset_right = 908.0
 offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2851,619 +2851,6 @@ theme_override_font_sizes/font_size = 14
 text = "ZONE NAME"
 alignment = 0
 text_overrun_behavior = 3
-
-[node name="btn_cls_dg_break" type="Button" parent="canvas_l"]
-visible = false
-self_modulate = Color(1, 1, 1, 0.784314)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -858.0
-offset_top = -858.0
-offset_right = 858.0
-offset_bottom = 858.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_mec7e")
-icon = ExtResource("16_ibuj8")
-expand_icon = true
-
-[node name="pnlc" type="PanelContainer" parent="canvas_l/btn_cls_dg_break"]
-custom_minimum_size = Vector2(530, 442)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -265.0
-offset_top = -221.0
-offset_right = 265.0
-offset_bottom = 221.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("64_7d8u8")
-
-[node name="vbox_main" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
-visible = false
-layout_mode = 2
-
-[node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-layout_mode = 2
-theme = ExtResource("65_1n3jq")
-text = "Dungeon break"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-custom_minimum_size = Vector2(500, 150)
-layout_mode = 2
-texture = ExtResource("64_1krat")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "Monster name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="scrol_c" type="ScrollContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-custom_minimum_size = Vector2(0, 65)
-layout_mode = 2
-
-[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main/scrol_c"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="txt_desc" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main/scrol_c/vbox"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("21_rn2v2")
-theme_override_font_sizes/font_size = 16
-text = "Monster desc"
-autowrap_mode = 3
-
-[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(1, 0.346577, 0.280009, 1)
-theme_override_font_sizes/font_size = 16
-text = "POWER: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="btn_switch" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
-custom_minimum_size = Vector2(0, 75)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("67_1n3jq")
-text = "PARTY"
-
-[node name="vbox_party" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
-visible = false
-layout_mode = 2
-
-[node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
-layout_mode = 2
-theme = ExtResource("65_1n3jq")
-text = "PARTY"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="hbox_header" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
-layout_mode = 2
-
-[node name="header_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-theme = ExtResource("21_rn2v2")
-text = "no"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="header_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("21_rn2v2")
-text = "name"
-vertical_alignment = 1
-
-[node name="header_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("21_rn2v2")
-text = "power"
-vertical_alignment = 1
-
-[node name="pnl_party_0" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
-layout_mode = 2
-theme = ExtResource("35_af2bq")
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0"]
-layout_mode = 2
-
-[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "1"
-vertical_alignment = 1
-
-[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Name"
-vertical_alignment = 1
-
-[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme = ExtResource("67_1n3jq")
-theme_override_font_sizes/font_size = 14
-text = "Detail"
-icon_alignment = 1
-
-[node name="pnl_party_1" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
-layout_mode = 2
-theme = ExtResource("35_af2bq")
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1"]
-layout_mode = 2
-
-[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "2"
-vertical_alignment = 1
-
-[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Name"
-vertical_alignment = 1
-
-[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme = ExtResource("67_1n3jq")
-theme_override_font_sizes/font_size = 14
-text = "Detail"
-icon_alignment = 1
-
-[node name="pnl_party_2" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
-layout_mode = 2
-theme = ExtResource("35_af2bq")
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2"]
-layout_mode = 2
-
-[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "3"
-vertical_alignment = 1
-
-[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Name"
-vertical_alignment = 1
-
-[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme = ExtResource("67_1n3jq")
-theme_override_font_sizes/font_size = 14
-text = "Detail"
-icon_alignment = 1
-
-[node name="hbox_prog" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="txt_party" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-theme = ExtResource("21_rn2v2")
-theme_override_font_sizes/font_size = 14
-text = "PARTY"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="prog_main" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 40.0
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_rr3x4")
-texture_progress = SubResource("AtlasTexture_wk8cj")
-
-[node name="VS" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog/prog_main"]
-self_modulate = Color(1, 1, 1, 0.588235)
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -28.0
-offset_right = 60.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 21
-text = "VS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="txt_enemy" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-theme = ExtResource("21_rn2v2")
-theme_override_font_sizes/font_size = 14
-text = "ENEMY"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="vbox_day" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
-layout_mode = 2
-
-[node name="indic2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "PERPARATION"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 44
-text = "30"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="indic" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
-layout_mode = 2
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "DAYS"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
-layout_mode = 2
-
-[node name="header_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "Formation"
-vertical_alignment = 1
-uppercase = true
-
-[node name="header_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "Supplies"
-vertical_alignment = 1
-uppercase = true
-
-[node name="header_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "Equipment"
-vertical_alignment = 1
-uppercase = true
-
-[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="prog_0" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_ycqo8")
-texture_progress = SubResource("AtlasTexture_ub7aj")
-
-[node name="prog_1" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_ycqo8")
-texture_progress = SubResource("AtlasTexture_ub7aj")
-
-[node name="prog_2" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_ycqo8")
-texture_progress = SubResource("AtlasTexture_ub7aj")
-
-[node name="vbox_value" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
-layout_mode = 2
-
-[node name="count_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "0"
-vertical_alignment = 1
-uppercase = true
-
-[node name="count_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "0"
-vertical_alignment = 1
-uppercase = true
-
-[node name="count_3" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("17_7t806")
-theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_font_sizes/font_size = 14
-text = "0"
-vertical_alignment = 1
-uppercase = true
-
-[node name="btn_start_dg" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("4_mec7e")
-theme_override_colors/font_color = Color(1, 0.632592, 0.576464, 1)
-theme_override_font_sizes/font_size = 14
-disabled = true
-text = "ENTER"
-icon = SubResource("AtlasTexture_3egsp")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
-[node name="rwd" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
-layout_mode = 2
-theme = ExtResource("37_rr3x4")
-theme_override_font_sizes/font_size = 14
-text = "REAWRD: 100"
-
-[node name="btn_switch" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
-layout_mode = 2
-theme = ExtResource("4_mec7e")
-theme_override_font_sizes/font_size = 21
-text = "BACK"
-
-[node name="vbox_result" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
-layout_mode = 2
-
-[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
-custom_minimum_size = Vector2(0, 165)
-layout_mode = 2
-texture = ExtResource("39_62x48")
-expand_mode = 1
-stretch_mode = 2
-
-[node name="txt_main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
-layout_mode = 2
-theme = ExtResource("37_rr3x4")
-text = "in adventure"
-uppercase = true
-
-[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-value = 60.0
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_aqqb7")
-texture_progress = SubResource("AtlasTexture_itrlk")
-
-[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
-layout_mode = 2
-
-[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Party Health"
-vertical_alignment = 1
-
-[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Mental"
-vertical_alignment = 1
-
-[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "Reward"
-vertical_alignment = 1
-
-[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="prog_0" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_vertical = 6
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_mj33a")
-texture_progress = SubResource("AtlasTexture_62x48")
-
-[node name="prog_1" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_vertical = 6
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_mj33a")
-texture_progress = SubResource("AtlasTexture_62x48")
-
-[node name="prog_2" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_vertical = 6
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_mj33a")
-texture_progress = SubResource("AtlasTexture_62x48")
-
-[node name="vbox_count" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
-layout_mode = 2
-
-[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("17_7t806")
-theme_override_font_sizes/font_size = 16
-text = "0"
-vertical_alignment = 1
-
-[node name="btn_cls" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
-custom_minimum_size = Vector2(0, 75)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("67_1n3jq")
-theme_override_colors/font_color = Color(1, 0.595182, 0.535183, 1)
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "EXIT"
-
-[node name="txt_cls" type="Label" parent="canvas_l/btn_cls_dg_break"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.5
-offset_top = -520.0
-offset_right = 76.5
-offset_bottom = -488.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-theme = ExtResource("17_7t806")
-text = "TAP TO CLOSE"
 
 [node name="btn_cls_info_people" type="Button" parent="canvas_l"]
 visible = false
@@ -6298,12 +5685,14 @@ text = "Return coin +10000"
 horizontal_alignment = 1
 
 [node name="header_1" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+visible = false
 layout_mode = 2
 theme = ExtResource("20_3cji6")
 text = "DETAIL"
 vertical_alignment = 1
 
 [node name="hbox_name" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+visible = false
 layout_mode = 2
 
 [node name="card_name" type="Label" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_name"]
@@ -6391,13 +5780,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="hbox_skill" type="HBoxContainer" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="main_img" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_skill"]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
-texture = ExtResource("86_50no1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -6530,6 +5919,627 @@ size_flags_vertical = 3
 theme = ExtResource("87_pir4p")
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
+
+[node name="img_emty" type="TextureRect" parent="canvas_l/btn_cls_open_card/pnl_c/vbox"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("88_ma7ce")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="btn_cls_dg_break" type="Button" parent="canvas_l"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -858.0
+offset_top = -858.0
+offset_right = 858.0
+offset_bottom = 858.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mec7e")
+icon = ExtResource("16_ibuj8")
+expand_icon = true
+
+[node name="pnlc" type="PanelContainer" parent="canvas_l/btn_cls_dg_break"]
+custom_minimum_size = Vector2(530, 442)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -221.0
+offset_right = 265.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("64_7d8u8")
+
+[node name="vbox_main" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+visible = false
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+layout_mode = 2
+theme = ExtResource("65_1n3jq")
+text = "Dungeon break"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+texture = ExtResource("64_1krat")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "Monster name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrol_c" type="ScrollContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main/scrol_c"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="txt_desc" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main/scrol_c/vbox"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 16
+text = "Monster desc"
+autowrap_mode = 3
+
+[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(1, 0.346577, 0.280009, 1)
+theme_override_font_sizes/font_size = 16
+text = "POWER: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_switch" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_main"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("67_1n3jq")
+text = "PARTY"
+
+[node name="vbox_party" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+visible = false
+layout_mode = 2
+
+[node name="header" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
+layout_mode = 2
+theme = ExtResource("65_1n3jq")
+text = "PARTY"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="vbox" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="hbox_header" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
+layout_mode = 2
+
+[node name="header_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+text = "no"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="header_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_rn2v2")
+text = "name"
+vertical_alignment = 1
+
+[node name="header_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("21_rn2v2")
+text = "power"
+vertical_alignment = 1
+
+[node name="pnl_party_0" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
+layout_mode = 2
+theme = ExtResource("35_af2bq")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0"]
+layout_mode = 2
+
+[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "1"
+vertical_alignment = 1
+
+[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+vertical_alignment = 1
+
+[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_0/hbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("67_1n3jq")
+theme_override_font_sizes/font_size = 14
+text = "Detail"
+icon_alignment = 1
+
+[node name="pnl_party_1" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
+layout_mode = 2
+theme = ExtResource("35_af2bq")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1"]
+layout_mode = 2
+
+[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "2"
+vertical_alignment = 1
+
+[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+vertical_alignment = 1
+
+[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_1/hbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("67_1n3jq")
+theme_override_font_sizes/font_size = 14
+text = "Detail"
+icon_alignment = 1
+
+[node name="pnl_party_2" type="PanelContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
+layout_mode = 2
+theme = ExtResource("35_af2bq")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2"]
+layout_mode = 2
+
+[node name="txt_num" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="txt_name" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+vertical_alignment = 1
+
+[node name="txt_power" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="btn_inspect" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/pnl_party_2/hbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("67_1n3jq")
+theme_override_font_sizes/font_size = 14
+text = "Detail"
+icon_alignment = 1
+
+[node name="hbox_prog" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="txt_party" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "PARTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="prog_main" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 40.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_rr3x4")
+texture_progress = SubResource("AtlasTexture_wk8cj")
+
+[node name="VS" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog/prog_main"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -28.0
+offset_right = 60.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 21
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="txt_enemy" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/vbox/hbox_prog"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("21_rn2v2")
+theme_override_font_sizes/font_size = 14
+text = "ENEMY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox_day" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
+layout_mode = 2
+
+[node name="indic2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "PERPARATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 44
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="indic" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_day"]
+layout_mode = 2
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "DAYS"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
+layout_mode = 2
+
+[node name="header_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "Formation"
+vertical_alignment = 1
+uppercase = true
+
+[node name="header_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "Supplies"
+vertical_alignment = 1
+uppercase = true
+
+[node name="header_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_desc"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "Equipment"
+vertical_alignment = 1
+uppercase = true
+
+[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="prog_0" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ycqo8")
+texture_progress = SubResource("AtlasTexture_ub7aj")
+
+[node name="prog_1" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ycqo8")
+texture_progress = SubResource("AtlasTexture_ub7aj")
+
+[node name="prog_2" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ycqo8")
+texture_progress = SubResource("AtlasTexture_ub7aj")
+
+[node name="vbox_value" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
+layout_mode = 2
+
+[node name="count_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="count_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="count_3" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox/vbox_value"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("17_7t806")
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_font_sizes/font_size = 14
+text = "0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="btn_start_dg" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party/hbox"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_colors/font_color = Color(1, 0.632592, 0.576464, 1)
+theme_override_font_sizes/font_size = 14
+disabled = true
+text = "ENTER"
+icon = SubResource("AtlasTexture_3egsp")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="rwd" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
+layout_mode = 2
+theme = ExtResource("37_rr3x4")
+theme_override_font_sizes/font_size = 14
+text = "REAWRD: 100"
+
+[node name="btn_switch" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_party"]
+layout_mode = 2
+theme = ExtResource("4_mec7e")
+theme_override_font_sizes/font_size = 21
+text = "BACK"
+
+[node name="vbox_result" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 2
+texture = ExtResource("39_62x48")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="txt_main" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+layout_mode = 2
+theme = ExtResource("37_rr3x4")
+text = "in adventure"
+uppercase = true
+
+[node name="prog" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 60.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_aqqb7")
+texture_progress = SubResource("AtlasTexture_itrlk")
+
+[node name="hbox" type="HBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vbox_desc" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+
+[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Party Health"
+vertical_alignment = 1
+
+[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Mental"
+vertical_alignment = 1
+
+[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_desc"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "Reward"
+vertical_alignment = 1
+
+[node name="vbox_prog" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="prog_0" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="prog_1" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="prog_2" type="TextureProgressBar" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_prog"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_mj33a")
+texture_progress = SubResource("AtlasTexture_62x48")
+
+[node name="vbox_count" type="VBoxContainer" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox"]
+layout_mode = 2
+
+[node name="desc_0" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="desc_1" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="desc_2" type="Label" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result/hbox/vbox_count"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("17_7t806")
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="btn_cls" type="Button" parent="canvas_l/btn_cls_dg_break/pnlc/vbox_result"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("67_1n3jq")
+theme_override_colors/font_color = Color(1, 0.595182, 0.535183, 1)
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "EXIT"
+
+[node name="txt_cls" type="Label" parent="canvas_l/btn_cls_dg_break"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -520.0
+offset_right = 76.5
+offset_bottom = -488.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("17_7t806")
+text = "TAP TO CLOSE"
 
 [node name="btn_cls_notification" type="Button" parent="canvas_l"]
 visible = false

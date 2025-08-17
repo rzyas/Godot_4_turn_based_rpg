@@ -1,0 +1,1 @@
+class_name main_story_id_s1

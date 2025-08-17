@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://2ybn8771o6i3"]
+[gd_scene load_steps=135 format=3 uid="uid://2ybn8771o6i3"]
 
 [ext_resource type="Script" uid="uid://ck4gp8ciun1mf" path="res://script/sfx_manager.gd" id="1_mar36"]
 [ext_resource type="AudioStream" uid="uid://clfsriiqop8x6" path="res://SFX/Gate - Monster/1.wav" id="2_1ohi2"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://40avk6wc6l2g" path="res://SFX/Interactive/sfx_click.wav" id="2_gs221"]
 [ext_resource type="AudioStream" uid="uid://cf1tbtg6js68g" path="res://SFX/HIT/Battle BGS/BGS_Battle_0.wav" id="2_h5s8o"]
 [ext_resource type="AudioStream" uid="uid://cq1bibc6i8k35" path="res://SFX/Roadmap/Roadmap_1.wav" id="2_hjoh6"]
+[ext_resource type="AudioStream" uid="uid://bjk2hogmg2p7d" path="res://SFX/GATE/gate_bg_00.wav" id="2_icqk4"]
 [ext_resource type="AudioStream" uid="uid://cxlmjdsp10jd7" path="res://SFX/Lucky Wheel/NEW/BGM Shop - The Jester's Dance 2.wav" id="2_k4o6y"]
 [ext_resource type="AudioStream" uid="uid://cpvkp3iel780a" path="res://SFX/Lucky Wheel/lw_reward_mana.wav" id="2_lvtmo"]
 [ext_resource type="AudioStream" uid="uid://dklp3afswockb" path="res://SFX/SELECT/menu_select.wav" id="2_oppp2"]
@@ -37,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://c63685g61rxkw" path="res://SFX/Lucky Wheel/NEW/BGM Shop - The Jester's Dance.wav" id="3_k4o6y"]
 [ext_resource type="AudioStream" uid="uid://bijgl4l2d6opp" path="res://SFX/Lucky Wheel/bgm_gamble_of_light_2.wav" id="3_lu1vy"]
 [ext_resource type="AudioStream" uid="uid://boklipdmawww" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_2.wav" id="3_oppp2"]
+[ext_resource type="AudioStream" uid="uid://b354qhwrygb8" path="res://SFX/GATE/gate_bg_01.wav" id="3_p12m1"]
 [ext_resource type="AudioStream" uid="uid://dwf7pbi34pp40" path="res://SFX/Reward/jackpot.wav" id="3_r1ds3"]
 [ext_resource type="AudioStream" uid="uid://go1w6f4rrjae" path="res://SFX/Gate - Monster/2.wav" id="3_rtk7i"]
 [ext_resource type="AudioStream" uid="uid://6e41txiv5uct" path="res://SFX/Gate - Monster/dg_progress.wav" id="3_spw1e"]
@@ -52,6 +54,7 @@
 [ext_resource type="AudioStream" uid="uid://2jsnvakjfq2f" path="res://SFX/Lucky Wheel/NEW/BGM Lobby - The Clash of Crowns 3.wav" id="4_8nxo1"]
 [ext_resource type="AudioStream" uid="uid://cw1o0p2qpfxri" path="res://SFX/Lucky Wheel/Lucky_Wheel_fail_2.wav" id="4_cxlqt"]
 [ext_resource type="AudioStream" uid="uid://ds77xwuv1hap8" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_3.wav" id="4_dawnf"]
+[ext_resource type="AudioStream" uid="uid://deo7rgkr0ch2w" path="res://SFX/GATE/gate_bg_02.wav" id="4_eeewb"]
 [ext_resource type="AudioStream" uid="uid://3lma6ssaxwoo" path="res://SFX/Gate - Monster/dg_win.wav" id="4_elbvt"]
 [ext_resource type="AudioStream" uid="uid://dyc4xh6kgnovi" path="res://SFX/Gate - Monster/3.wav" id="4_ho41d"]
 [ext_resource type="AudioStream" uid="uid://djiccuask2n6s" path="res://SFX/HIT/HIT - Arrow/sfx_arrow_2.wav" id="4_nqaqh"]
@@ -59,6 +62,7 @@
 [ext_resource type="AudioStream" uid="uid://e3q5eud3v5av" path="res://SFX/Interactive/sfx_item_aquire_1.wav" id="4_t6uqj"]
 [ext_resource type="AudioStream" uid="uid://b1lfgvuvw8mio" path="res://SFX/Lucky Wheel/bgm_jackpot_symphony.wav" id="4_ve3h6"]
 [ext_resource type="AudioStream" uid="uid://cdsak3e48anx3" path="res://SFX/Interactive/sfx_item_close.wav" id="5_1rsa4"]
+[ext_resource type="AudioStream" uid="uid://ee72yf78uhqy" path="res://SFX/GATE/gate_bg_03.wav" id="5_5jpcp"]
 [ext_resource type="AudioStream" uid="uid://dempcgfoaidqb" path="res://SFX/Gate - Monster/4.wav" id="5_24j72"]
 [ext_resource type="AudioStream" uid="uid://blmwhp6wobywe" path="res://SFX/Lucky Wheel/NEW/BGM_Battle_4.wav" id="5_bxsn6"]
 [ext_resource type="AudioStream" uid="uid://bv8u1m4lpv3tw" path="res://SFX/Reward/jackpot_super.wav" id="5_duc4f"]
@@ -133,6 +137,18 @@
 
 [node name="SFX_Manager" type="Node2D"]
 script = ExtResource("1_mar36")
+
+[node name="GateBg00" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_icqk4")
+
+[node name="GateBg01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p12m1")
+
+[node name="GateBg02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eeewb")
+
+[node name="GateBg03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5jpcp")
 
 [node name="Whoosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_spw1e")

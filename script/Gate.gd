@@ -14,6 +14,12 @@ enum ENUM_NPC_JOB_MINER {HELM, PICKEXE, LENTERA, CART, OKSIGEN}
 enum ENUM_NPC_JOB_THIEF {DAGGER, POISON, BOW, FOODO, BOM_ASAP}
 
 func _ready() -> void:
+	# FIRST NOTIF
+	set_notif("After entering the lobby (changing scenes), all gate break data will be lost. Make sure to complete it 
+	before changing scenes. Only the gate data will be reset, not your gate currency or total days.")
+	# BGM
+	SfxManager.lw_onready_bgm(SfxManager.ENUM_BGM.GATE)
+	# GAME SYSTEM
 	update_currency()
 	onready_cam_nav()
 	onready_btn_sector()
@@ -34,6 +40,9 @@ func _ready() -> void:
 	# BTN
 	node_sldv_cam.value_changed.connect(onready_cam_zoom)
 	$canvas_l/btn_lobby.pressed.connect(func():
+		AutoloadData.all_npc.clear()
+		AutoloadData.gate_party.clear()
+		AutoloadData.save_data()
 		SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY))
 	# turn off dev mode untuk inspect zone
 	var get_sector_count = nodes_all_sector.get_child_count()
@@ -42,9 +51,6 @@ func _ready() -> void:
 		for ii in get_zone_count:
 			var get_zone:Panel = nodes_all_sector.get_child(i).get_child(ii)
 			get_zone.self_modulate.a = 0.0/255
-	AutoloadData.gate_party.clear()
-	AutoloadData.all_npc.clear()
-	AutoloadData.save_data()
 	
 func _process(delta):
 	if is_time_paused:
@@ -178,6 +184,7 @@ func onready_card_exchange():
 		last_click_gacha = null )
 	var btn_open:Button = nodes_utility_exchange["btn_open"]
 	btn_open.pressed.connect(func():
+		hide_gacha_detail(true)
 		_reset_exchanged(true)
 		var data_card = Card_data_s1.new()
 		main_open_card.show()
@@ -211,6 +218,7 @@ func onready_card_exchange():
 	for i in parent_card_allbtn.get_child_count():
 		var btn:Button = parent_card_allbtn.get_child(i)
 		btn.pressed.connect(func():
+			hide_gacha_detail(false)
 			card_inspect(current_card_code[i]) )
 
 @onready var parent_card_allbtn = $canvas_l/btn_cls_open_card/pnl_c/vbox/hbox_result
@@ -243,7 +251,19 @@ func onready_card_exchange():
 	"skill_4":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/skill_3"),
 	"cd_1":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_0/vbox/hbox_s1/cd_1"), 
 	"cd_2":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s2/cd_2"), 
-	"cd_3":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s3/cd_3"),  }
+	"cd_3":main_open_card.get_node("pnl_c/vbox/hbox_skill/hbox/pnl_1/vbox/hbox_s3/cd_3"),
+	"img_empty":main_open_card.get_node("pnl_c/vbox/img_emty"),
+	"hbox_name":main_open_card.get_node("pnl_c/vbox/hbox_name"),
+	"hbox_skill":main_open_card.get_node("pnl_c/vbox/hbox_skill"),
+	"header_1":main_open_card.get_node("pnl_c/vbox/header_1"),
+	
+	}
+
+func hide_gacha_detail(_bool:bool):
+	nodes_hero_inspect['img_empty'].visible = _bool
+	nodes_hero_inspect['hbox_name'].visible = !_bool
+	nodes_hero_inspect['hbox_skill'].visible = !_bool
+	nodes_hero_inspect['header_1'].visible = !_bool
 
 var last_click_gacha = null
 func reset_card_inspect():
@@ -315,9 +335,9 @@ func _open_card() -> Dictionary:
 		var _get_confirm = data["available"]
 		var _get_cardcode = data["result"]
 		var _get_count = data["cash_back"]
-		# save in db
+		# save in db when do not have the card
 		if _get_cardcode != null:
-			if AutoloadData.player_cardAvailable.has(_get_cardcode) == false:
+			if AutoloadData.player_cardAvailable.has(_get_cardcode) == false and AutoloadData.player_cardCollection.has(_get_cardcode)==false:
 				AutoloadData.player_cardAvailable.append(_get_cardcode)
 			
 		current_card_code[i]=_get_cardcode
@@ -379,7 +399,7 @@ func _card_gacha_rules() -> Dictionary:
 			3:
 				cash_back = 2000
 				AutoloadData.gate_coin_star += cash_back
-	elif AutoloadData.player_cardAvailable.has(card_code):
+	elif AutoloadData.player_cardAvailable.has(card_code) or AutoloadData.player_cardAvailable.has(card_code):
 		# Hitung cashback sesuai tipe
 		match cash_back_code:
 			1:

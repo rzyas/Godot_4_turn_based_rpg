@@ -163,16 +163,23 @@ var setting_language_is_EN: bool = true
 var setting_default_db_level: Array = [-80.0, -30.0, -10.0, -5.0, 0.0]
 var setting_player_db_level = setting_default_db_level[4]
 # Collections and inventories
-var system_cardCollection: Array[String] = [
-	"s1_000", "s1_001", "s1_002", "s1_003", "s1_004"]
+func _system_cardCollection():
+	var data_card = Card_data_s1.new()
+	var total = data_card.dict_all_card_s1.size()
+	var arr_temp:Array = []
+	for i in range(total):
+		var key = data_card.dict_all_card_s1.keys()[i]
+		arr_temp.append(key)
+	return arr_temp
+@onready var system_cardCollection = _system_cardCollection()
 var player_cardCollection: Array[String] = [
-	"s1_000", "s1_001", "s1_002"]
-var player_cardAvailable: Array[String] = []
-var player_cardFragments={}
+	"s1_001", "s1_002", "s1_003"]
+var player_cardAvailable:Array[String] = []
+var player_cardFragments = {}
 # Equipments
 var player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
-var player_inventory_chest = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
-var player_inventory_enhance = {1: 0, 2: 0, 3: 0, 4: 0}
+var player_inventory_chest = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0}
+var player_inventory_enhance = {1:0, 2:0, 3:0, 4:0}
 var player_inventory_fragment = {
 	1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,
 	11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 20: 0,
@@ -184,8 +191,8 @@ var player_equipment: Dictionary = {}
 var player_gear: Dictionary = {}
 var player_equiped: Dictionary = {}
 
-@onready var cardSet_player: Array[String] = ["s1_000", "s1_001", "s1_002"]
-@onready var cardSet_enemy: Array = ["s1_000", "s1_001", "s1_002"]
+@onready var cardSet_player: Array[String] = ["s1_001", "s1_002", "s1_003"]
+@onready var cardSet_enemy: Array = ["s1_001", "s1_002", "s1_003"]
 
 var redeem_code_history: Array[String] = []
 var redeem_pwd_history: Array[String] = []
@@ -401,7 +408,7 @@ func reset_data():
 	# NEW DATA defaults - Tambahkan default values untuk data baru
 	"""Reset semua data ke default values"""
 	player_name = "tanpa nama"
-	player_level = 1
+	player_level = 100
 	player_exp_main = 0
 	player_exp_need = 1000
 	player_money = 0
@@ -421,9 +428,9 @@ func reset_data():
 	setting_player_db_level = setting_default_db_level[4]
 	setting_language_is_EN = true
 	
-	player_cardCollection = ["s1_000", "s1_001", "s1_002"]
-	cardSet_player = ["s1_000", "s1_001", "s1_002"]
-	cardSet_enemy = ["s1_000", "s1_001", "s1_002"]
+	player_cardCollection = ["s1_001", "s1_002", "s1_003"]
+	cardSet_player = ["s1_001", "s1_002", "s1_003"]
+	cardSet_enemy = ["s1_001", "s1_002", "s1_003"]
 	
 	redeem_code_history = []
 	redeem_pwd_history = []

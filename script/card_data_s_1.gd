@@ -4,7 +4,6 @@ class_name Card_data_s1
 enum ELEM{LIGHT, NATURE, WATER, DARK, FIRE}
 enum JOB{WARRIOR, ARCHER, DEFENSE, ASSASIN, SUPPORT, MECH, BEAST, MAGE, HEALER}
 enum RANK{STAR_1, STAR_2, STAR_3, STAR_4, STAR_5, STAR_6}
-
 enum ENUM_SKILL_TARGET{SINGLE, AOE, SINGLE_SPELL, AOE_SPELL, SINGLE_HEAL, AOE_HEAL}
 enum ENUM_MAIN_CHANCES{
 	C10=10, C20=20, C30=30, C40=40, C50=50, C60=60, C70=70, C80=80, C90=90, C100=100,
@@ -28,10 +27,8 @@ enum ENUM_MAIN_CHANCES{
 	# CRIT DEFENSE
 	PSV_CDEF_10=10, PSV_CDEF_20=20, SPV_CDEF_30=30, PSV_CDEF_40=40, PSV_CDEF_50=50, 
 	# SPEED ATTACK
-	PSV_SPDA_50=50, PSV_SPDA_100=100, PSV_SPDA_150=150, PSV_SPDA_200=200, PSV_SPDA_250=250
-}
+	PSV_SPDA_50=50, PSV_SPDA_100=100, PSV_SPDA_150=150, PSV_SPDA_200=200, PSV_SPDA_250=250}
 enum ENUM_DESC_LEVEL{LV1=1, LV2, LV3}
-
 func dict_skill_target(_skill_target: ENUM_SKILL_TARGET):
 	var skill_target = ""
 	match _skill_target:
@@ -42,7 +39,6 @@ func dict_skill_target(_skill_target: ENUM_SKILL_TARGET):
 		ENUM_SKILL_TARGET.SINGLE_HEAL: skill_target = "single_heal"
 		ENUM_SKILL_TARGET.AOE_HEAL: skill_target = "aoe_heal"
 	return skill_target
-
 enum ENUM_DICT_DESC_0 {
 	ATTACK_0, ATTACK_50, ATTACK_100, ATTACK_150, ATTACK_200, ATTACK_250, ATTACK_300, ATTACK_350, ATTACK_400, ATTACK_450, 
 	ATTACK_500, ATTACK_550, ATTACK_600, ATTACK_650, ATTACK_700, ATTACK_750, ATTACK_800, ATTACK_850, ATTACK_900, ATTACK_950, 
@@ -50,8 +46,7 @@ enum ENUM_DICT_DESC_0 {
 	ATTACK_1500, ATTACK_1550, ATTACK_1600, ATTACK_1650, ATTACK_1700, ATTACK_1750, ATTACK_1800, ATTACK_1850, ATTACK_1900, ATTACK_1950, 
 	ATTACK_2000, ATTACK_2050, ATTACK_2100, ATTACK_2150, ATTACK_2200, ATTACK_2250, ATTACK_2300, ATTACK_2350, ATTACK_2400, ATTACK_2450, 
 	ATTACK_2500, ATTACK_2550, ATTACK_2600, ATTACK_2650, ATTACK_2700, ATTACK_2750, ATTACK_2800, ATTACK_2850, ATTACK_2900, ATTACK_2950, 
-	ATTACK_3000,
-}
+	ATTACK_3000, }
 enum ENUM_ATCK_INDIC{SINGLE, AOE, SINGLE_SPELL, AOE_SPELL, SINGLE_HEAL, AOE_HEAL}
 func set_desc_ap(_power, _ap):
 	match _ap:
@@ -61,18 +56,14 @@ func set_desc_ap(_power, _ap):
 		ENUM_ATCK_INDIC.AOE_SPELL: return set_string_color(ENUM_SET_COLOR.BLUE, str("Restores a certain amount of defense to all allies")) +", including yourself, with the amount restored depending on: "+set_string_color(ENUM_SET_COLOR.PURPLE, str("[20-30%] of the caster's current total defense. "))
 		ENUM_ATCK_INDIC.SINGLE_HEAL: return set_string_color(ENUM_SET_COLOR.BLUE, str("Restores a certain amount of health to a single ally"))+", including yourself, with the amount restored depending on: "+set_string_color(ENUM_SET_COLOR.PURPLE,str("[30-40%] of the caster's current total health "))
 		ENUM_ATCK_INDIC.AOE_HEAL: return set_string_color(ENUM_SET_COLOR.BLUE, str("Restores a certain amount of health to all allies ")) + ", including yourself, with the amount restored depending on: "+ set_string_color(ENUM_SET_COLOR.PURPLE, str("[20-30%] of the caster's current total health. "))
-
 enum ENUM_SKILL_DAMAGE{
 	SKILL_DMG_0=0, SKILL_DMG_10=10, SKILL_DMG_30=30, SKILL_DMG_50=50, SKILL_DMG_80=80, SKILL_DMG_100=100, SKILL_DMG_150=150,
 	SKILL_DMG_200=200, SKILL_DMG_250=250, SKILL_DMG_300=300, SKILL_DMG_400=400, SKILL_DMG_500=500, SKILL_DMG_700=700, SKILL_DMG_1K=1000,
-	SKILL_DMG_2K=2000, SKILL_DMG_3K=3000, SKILL_DMG_5K=5000, SKILL_DMG_10K=10000, SKILL_DMG_999K=999000
-}
-
+	SKILL_DMG_2K=2000, SKILL_DMG_3K=3000, SKILL_DMG_5K=5000, SKILL_DMG_10K=10000, SKILL_DMG_999K=999000}
 enum ENUM_CUSTOM_RANK {ATTACKER, AGILITY, DEFENDER, UNIVERSAL}
 enum ENUM_CUSTOM_RANK_LEVEL {ATTACKER_LV1, ATTACKER_LV2, ATTACKER_LV3, AGILITY_LV1, AGILITY_LV2, AGILITY_LV3, DEFENDER_LV1,
 	DEFENDER_LV2, DEFENDER_LV3, UNIVERSAL_LV1, UNIVERSAL_LV2, UNIVERSAL_LV3}
 enum ENUM_SET_COLOR{RED, BLUE, PURPLE, GREY, GOLD, GREEN, HEADER}
-
 func set_string_color(_code:ENUM_SET_COLOR, _txt_:String):
 	match _code:
 		ENUM_SET_COLOR.RED: return str("[color=#E74C3C]"+_txt_+"[/color]")
@@ -82,7 +73,6 @@ func set_string_color(_code:ENUM_SET_COLOR, _txt_:String):
 		ENUM_SET_COLOR.GOLD: return str("[color=#F1C40F]"+_txt_+"[/color]")
 		ENUM_SET_COLOR.GREEN: return str("[color=#81C784]"+_txt_+"[/color]")
 		ENUM_SET_COLOR.HEADER: return str("\n[color=#C9A227]"+_txt_+"[/color]\n")
-
 ## 1 SKILL CODE
 enum ENUM_SKILL_CODE{
 	COUNTER=0, EVA, DEFF_BREAK, SKILL_LOCK, WEAKENING, BURN, POISON, HEALTH_UP, VAMP, ECHO_SHIELD, CRIT_DMG, CRIT_RATE,
@@ -91,8 +81,7 @@ enum ENUM_SKILL_CODE{
 	PSV_EVA, PSV_CRATE, PSV_CDMG, PSV_CDEF, PSV_PSDA, RM_DEBUFF, RM_BLUE_BUFF, RM_GREEN_BUFF, RM_GOLD_BUFF, CD_INC, CD_DEC,
 	RAND_BUFF, INS_HEAL, ONESHOT_CDMG, ONESHOT_CRATE, ONESHOT_TSPD, ONESHOT_DEF, ONESHOT_ASPD, ONESHOT_ATTACKUP, ONESHOT_COUNTER,
 	ONESHOT_EVA, ONESHOT_GRIM, MULTI_CRATE_CDMG, MULTI_ATK_DEF, MULTI_SPDA_SPDT, MULTI_COOLDOWN, LAST_CURSED=70, INFI_HEAL=72,
-	REF_BURN=73, REF_POISON=74, REF_ATTACK=75, MORE_TURN=76, REFCD_DEC=78, STUN=79, AMIMIR=80
-}
+	REF_BURN=73, REF_POISON=74, REF_ATTACK=75, MORE_TURN=76, REFCD_DEC=78, STUN=79, AMIMIR=80}
 ## 2 DESC SET ADAW
 func set_desc_buff(_buff_code, _chances, _level):
 	var main_chances = _chances
@@ -163,7 +152,6 @@ func set_desc_buff(_buff_code, _chances, _level):
 		ENUM_SKILL_CODE.REFCD_DEC: return str(set_string_color(ENUM_SET_COLOR.PURPLE, str(_chances,"% ")))+"Grants buff "+set_string_color(ENUM_SET_COLOR.BLUE, "Reflect Cooldown. ")+set_string_color(ENUM_SET_COLOR.PURPLE, str("Level: ",_level,"\n"))+set_string_color(ENUM_SET_COLOR.GREY, "[Reflect Cooldown]: Reflect Cooldown can only be triggered when attacked. Upon triggering, it reduces some cooldown based on the owner's level. Max stack: 3")
 		ENUM_SKILL_CODE.STUN: return set_string_color(ENUM_SET_COLOR.HEADER, str("[STUN]"))+"Applies a debuff "+set_string_color(ENUM_SET_COLOR.RED, str("Stun "))+"to the enemy with "+set_string_color(ENUM_SET_COLOR.PURPLE, str("chances: ",_chances,"% with level: ",_level,"\n"))+set_string_color(ENUM_SET_COLOR.GREY, str("[Stun]: After successfully inflicting a stun debuff, the enemy cannot claim their turn. The number of stun stacks depends on the level owned:\nLevel 1: 5 stacks\nLevel 2: 10 Stacks\nLevel 3: 15 Stacks"))
 		ENUM_SKILL_CODE.AMIMIR: return set_string_color(ENUM_SET_COLOR.HEADER, str("[A MIMIR]"))+set_string_color(ENUM_SET_COLOR.PURPLE, str(_chances,"% chances "))+"inflict "+set_string_color(ENUM_SET_COLOR.RED, str("a mimir(sleep) "))+"debuff to the enemy. After successfully, enemy can't claim their turn forever except being attacked by enemy"
-
 # This func for set full desc
 func fullset_desc(get_codeSkill, get_chances, get_level, get_atkPower, get_atkIndic):
 	var desc_0 = set_desc_ap(get_atkPower, get_atkIndic)
@@ -174,8 +162,7 @@ var _desc_key = {
 	"s0":["skill_code","pct_req","skill_lv","skill_0_dmg","skill_0_target"],
 	"s1":["skill_code_1","pct_req_1","skill_1_lv","skill_1_dmg","skill_1_target","skill_1_cd"],
 	"s2":["skill_code_2","pct_req_2","skill_2_lv","skill_2_dmg","skill_2_target","skill_2_cd"],
-	"s3":["skill_code_ulti","pct_req_ulti","skill_ulti_lv","skill_ulti_dmg","skill_ulti_target","skill_ulti_cd"],
-}
+	"s3":["skill_code_ulti","pct_req_ulti","skill_ulti_lv","skill_ulti_dmg","skill_ulti_target","skill_ulti_cd"],}
 enum ENUM_SET_DES{S0, S1, S2, S3}
 # GET DESC SKILL
 func set_desc_card(skill_code:ENUM_SET_DES, card_code) -> Dictionary :
@@ -207,7 +194,6 @@ func code_skill_target(code_target):
 	elif code_target == "single_heal": _get_indic_atk = 4
 	elif code_target == "aoe_heal": _get_indic_atk = 5
 	return _get_indic_atk
-	
 func set_hero_icon(txt):return str("res://img/Hero/icon/"+txt+".png")
 enum ENUM_CHAR_GENDER{MALE, FEMALE, UNKNOWN}
 enum ENUM_CHAR_RACE{HUMAN, ANIMAL, ELF, CYBORG, GOD, AI, ABBYS, UNKNOWN, SPIRIT, DRAGON}
@@ -237,9 +223,5 @@ var new_story_character = Data_story_character.new()
 var new_story_character_id = Data_story_character_id.new()
 var card_chap_1 = card_chapter_1.new()
 var dict_all_card_s1:Dictionary = {
-	card_chap_1.hero_s1_000()["key"]:card_chap_1.hero_s1_000()["value"],
-	card_chap_1.hero_s1_001()["key"]:card_chap_1.hero_s1_001()["value"],
-	card_chap_1.hero_s1_002()["key"]:card_chap_1.hero_s1_002()["value"],
-	card_chap_1.hero_s1_003()["key"]:card_chap_1.hero_s1_003()["value"],
-	card_chap_1.hero_s1_004()["key"]:card_chap_1.hero_s1_004()["value"],
+	card_chap_1.hero_s1_1()["key"]:card_chap_1.hero_s1_1()["value"],
 }
