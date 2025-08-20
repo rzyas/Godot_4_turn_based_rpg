@@ -781,10 +781,10 @@ func hero_s1_15() -> Dictionary:
 		card_generator.RANK.STAR_6,
 		# Basic skill
 		card_generator.ENUM_SKILL_TARGET.AOE, # TARGET
-		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_CODE.MORE_TURN, # CODE SKILL
 		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_50, # CODE DMG
 		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
-		card_generator.ENUM_MAIN_CHANCES.PSV_EVA_40, # CHANGES
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
 		1, ## HIT
 		# Skill 1
 		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
@@ -1363,12 +1363,3 @@ func hero_s1_25() -> Dictionary:
 		new_story_character.get_story_character(hero_code), # EN
 		new_story_character_id.get_story_character(hero_code) ) # ID
 	return { "key": hero_code, "value": heroes[hero_code] }
-
-
-
-
-
-
-
-	
-	

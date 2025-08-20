@@ -7487,8 +7487,11 @@ text = "SKILL 1"
 
 [node name="cd_1" type="Label" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("59_4yae7")
+theme = ExtResource("105_47bfs")
+theme_override_colors/font_color = Color(0.05, 0.746667, 1, 1)
+theme_override_font_sizes/font_size = 16
 text = "COOLDOWN: 0 TURN"
+horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
@@ -7531,8 +7534,11 @@ text = "SKILL 2"
 [node name="cd_2" type="Label" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("59_4yae7")
+theme = ExtResource("105_47bfs")
+theme_override_colors/font_color = Color(0.05, 0.746667, 1, 1)
+theme_override_font_sizes/font_size = 16
 text = "COOLDOWN: 0 TURN"
+horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
@@ -7575,8 +7581,11 @@ text = "ULTIMATE"
 [node name="cd_3" type="Label" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("59_4yae7")
+theme = ExtResource("105_47bfs")
+theme_override_colors/font_color = Color(0.05, 0.746667, 1, 1)
+theme_override_font_sizes/font_size = 16
 text = "COOLDOWN: 0 TURN"
+horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer4/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)

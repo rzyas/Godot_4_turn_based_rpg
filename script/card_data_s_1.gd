@@ -222,11 +222,8 @@ func set_char_race(race:ENUM_CHAR_RACE):
 
 func _init() -> void:
 	var data_card_s1 = card_chapter_1.new()
+	var data_card_s2 = card_chapter_2.new()
 	dict_all_card_s1.merge(data_card_s1.all_card, true)
+	dict_all_card_s1.merge(data_card_s2.all_card, true)
 
-var dict_all_card_s1:Dictionary = {
-	#data_card_s1.hero_s1_1()["key"]:data_card_s1.hero_s1_1()["value"],
-	#data_card_s1.hero_s1_2()["key"]:data_card_s1.hero_s1_2()["value"],
-	#data_card_s1.hero_s1_3()["key"]:data_card_s1.hero_s1_3()["value"],
-	#data_card_s1.hero_s1_4()["key"]:data_card_s1.hero_s1_4()["value"],
-}
+var dict_all_card_s1:Dictionary = {}

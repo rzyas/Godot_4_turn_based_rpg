@@ -178,8 +178,7 @@ func _system_cardCollection():
 		arr_temp.append(key)
 	return arr_temp
 @onready var system_cardCollection = _system_cardCollection()
-var player_cardCollection: Array[String] = [
-	"s1_001", "s1_002", "s1_003"]
+var player_cardCollection: Array[String] = ["s1_016","s1_017","s1_034"]
 var player_cardAvailable:Array[String] = []
 var player_cardFragments = {}
 # Equipments
@@ -197,7 +196,7 @@ var player_equipment: Dictionary = {}
 var player_gear: Dictionary = {}
 var player_equiped: Dictionary = {}
 
-@onready var cardSet_player: Array[String] = ["s1_001", "s1_002", "s1_003"]
+@onready var cardSet_player: Array[String] = ["s1_016","s1_017","s1_034"]
 @onready var cardSet_enemy: Array = ["s1_001", "s1_002", "s1_003"]
 
 var redeem_code_history: Array[String] = []
@@ -440,7 +439,7 @@ func reset_data():
 	setting_player_db_level = setting_default_db_level[4]
 	setting_language_is_EN = true
 	
-	player_cardCollection = ["s1_001", "s1_002", "s1_003"]
+	player_cardCollection = ["s1_016","s1_017","s1_034"]
 	cardSet_player = ["s1_001", "s1_002", "s1_003"]
 	cardSet_enemy = ["s1_001", "s1_002", "s1_003"]
 	
