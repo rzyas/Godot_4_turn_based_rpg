@@ -1,6 +1,5 @@
 #extends RefCounted
 class_name card_generator
-
 # Import enums dan fungsi dari Card_data_s1
 enum ELEM{LIGHT, NATURE, WATER, DARK, FIRE}
 enum JOB{WARRIOR, ARCHER, DEFENSE, ASSASIN, SUPPORT, MECH, BEAST, MAGE, HEALER}
@@ -18,8 +17,7 @@ enum ENUM_MAIN_CHANCES{
 	PSV_CRATE_10=10, PSV_CRATE_20=20, PSV_CRATE_30=30, PSV_CRATE_40=40, PSV_CRATE_50=50,
 	PSV_CDMG_100=100, PSV_CDMG_200=200, PSV_CDMG_300=300, PSV_CDMG_400=400, PSV_CDMG_500=500,
 	PSV_CDEF_10=10, PSV_CDEF_20=20, SPV_CDEF_30=30, PSV_CDEF_40=40, PSV_CDEF_50=50, 
-	PSV_SPDA_50=50, PSV_SPDA_100=100, PSV_SPDA_150=150, PSV_SPDA_200=200, PSV_SPDA_250=250
-}
+	PSV_SPDA_50=50, PSV_SPDA_100=100, PSV_SPDA_150=150, PSV_SPDA_200=200, PSV_SPDA_250=250}
 enum ENUM_DESC_LEVEL{LV1=1, LV2, LV3}
 enum ENUM_SKILL_CODE{
 	COUNTER=0, EVA, DEFF_BREAK, SKILL_LOCK, WEAKENING, BURN, POISON, HEALTH_UP, VAMP, ECHO_SHIELD, CRIT_DMG, CRIT_RATE,
@@ -28,19 +26,16 @@ enum ENUM_SKILL_CODE{
 	PSV_EVA, PSV_CRATE, PSV_CDMG, PSV_CDEF, PSV_PSDA, RM_DEBUFF, RM_BLUE_BUFF, RM_GREEN_BUFF, RM_GOLD_BUFF, CD_INC, CD_DEC,
 	RAND_BUFF, INS_HEAL, ONESHOT_CDMG, ONESHOT_CRATE, ONESHOT_TSPD, ONESHOT_DEF, ONESHOT_ASPD, ONESHOT_ATTACKUP, ONESHOT_COUNTER,
 	ONESHOT_EVA, ONESHOT_GRIM, MULTI_CRATE_CDMG, MULTI_ATK_DEF, MULTI_SPDA_SPDT, MULTI_COOLDOWN, LAST_CURSED=70, INFI_HEAL=72,
-	REF_BURN=73, REF_POISON=74, REF_ATTACK=75, MORE_TURN=76, REFCD_DEC=78, STUN=79, AMIMIR=80
-}
+	REF_BURN=73, REF_POISON=74, REF_ATTACK=75, MORE_TURN=76, REFCD_DEC=78, STUN=79, AMIMIR=80}
 enum ENUM_SKILL_DAMAGE{
 	SKILL_DMG_0=0, SKILL_DMG_10=10, SKILL_DMG_30=30, SKILL_DMG_50=50, SKILL_DMG_80=80, SKILL_DMG_100=100, SKILL_DMG_150=150,
 	SKILL_DMG_200=200, SKILL_DMG_250=250, SKILL_DMG_300=300, SKILL_DMG_400=400, SKILL_DMG_500=500, SKILL_DMG_700=700, SKILL_DMG_1K=1000,
-	SKILL_DMG_2K=2000, SKILL_DMG_3K=3000, SKILL_DMG_5K=5000, SKILL_DMG_10K=10000, SKILL_DMG_999K=999000
-}
+	SKILL_DMG_2K=2000, SKILL_DMG_3K=3000, SKILL_DMG_5K=5000, SKILL_DMG_10K=10000, SKILL_DMG_999K=999000}
 enum ENUM_CUSTOM_RANK {ATTACKER, AGILITY, DEFENDER, UNIVERSAL}
 enum ENUM_CUSTOM_RANK_LEVEL {ATTACKER_LV1, ATTACKER_LV2, ATTACKER_LV3, AGILITY_LV1, AGILITY_LV2, AGILITY_LV3, DEFENDER_LV1,
 	DEFENDER_LV2, DEFENDER_LV3, UNIVERSAL_LV1, UNIVERSAL_LV2, UNIVERSAL_LV3}
 enum ENUM_CHAR_GENDER{MALE, FEMALE, UNKNOWN}
 enum ENUM_CHAR_RACE{HUMAN, ANIMAL, ELF, CYBORG, GOD, AI, ABBYS, UNKNOWN, SPIRIT, DRAGON}
-
 # Helper functions
 func dict_skill_target(_skill_target: ENUM_SKILL_TARGET):
 	var skill_target = ""
@@ -52,10 +47,8 @@ func dict_skill_target(_skill_target: ENUM_SKILL_TARGET):
 		ENUM_SKILL_TARGET.SINGLE_HEAL: skill_target = "single_heal"
 		ENUM_SKILL_TARGET.AOE_HEAL: skill_target = "aoe_heal"
 	return skill_target
-
 func set_hero_icon(txt): 
 	return str("res://img/Hero/icon/"+txt+".png")
-
 func set_char_gender(gender: ENUM_CHAR_GENDER):
 	var main_temp
 	match gender:
@@ -63,7 +56,6 @@ func set_char_gender(gender: ENUM_CHAR_GENDER):
 		ENUM_CHAR_GENDER.FEMALE: main_temp = "Female"
 		ENUM_CHAR_GENDER.UNKNOWN: main_temp = "UNKNOWN"
 	return str(main_temp)
-
 func set_char_race(race: ENUM_CHAR_RACE):
 	var main_temp
 	match race:
@@ -78,7 +70,6 @@ func set_char_race(race: ENUM_CHAR_RACE):
 		ENUM_CHAR_RACE.SPIRIT: main_temp = "Spirit"
 		ENUM_CHAR_RACE.DRAGON: main_temp = "Dragon"
 	return main_temp
-
 # Card creation helper function
 func create_card(
 	id: String,
@@ -131,7 +122,6 @@ func create_card(
 	char_story: String = "",
 	char_story_id: String = ""
 ) -> Dictionary:
-	
 	var card = {
 		# BASIC ATTRIBUTE
 		"id":id,
@@ -141,7 +131,6 @@ func create_card(
 		"job": job,
 		"rank": rank,
 		"name": name,
-		
 		# STORY
 		"char_story": char_story,
 		"char_story_id": char_story_id,
@@ -150,7 +139,6 @@ func create_card(
 		"char_age": char_age,
 		"char_height": char_height,
 		"char_weight": char_weight,
-		
 		# SKILL BASIC
 		"skill_0_target": dict_skill_target(skill_0_target),
 		"skill_code": skill_code,
@@ -158,7 +146,6 @@ func create_card(
 		"skill_lv": skill_lv,
 		"pct_req": pct_req,
 		"skill_0_hit": skill_0_hit,
-		
 		# SKILL 1
 		"skill_1_target": dict_skill_target(skill_1_target),
 		"skill_code_1": skill_code_1,
@@ -167,7 +154,6 @@ func create_card(
 		"pct_req_1": pct_req_1,
 		"skill_1_cd": skill_1_cd,
 		"skill_1_hit": skill_1_hit,
-		
 		# SKILL 2
 		"skill_2_target": dict_skill_target(skill_2_target),
 		"skill_code_2": skill_code_2,
@@ -176,7 +162,6 @@ func create_card(
 		"pct_req_2": pct_req_2,
 		"skill_2_cd": skill_2_cd,
 		"skill_2_hit": skill_2_hit,
-		
 		# SKILL ULTI
 		"skill_ulti_target": dict_skill_target(skill_ulti_target),
 		"skill_code_ulti": skill_code_ulti,
@@ -185,12 +170,10 @@ func create_card(
 		"pct_req_ulti": pct_req_ulti,
 		"skill_ulti_cd": skill_ulti_cd,
 		"skill_3_hit": skill_3_hit,
-		
 		# SPECIAL
 		"c_rank_stat": c_rank_stat,
 		"c_rank_value": c_rank_value
 	}
-	
 	return card
 
 # Override function untuk child classes

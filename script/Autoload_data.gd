@@ -108,24 +108,30 @@ var all_npc:Dictionary = {}
 # =====================================================
 # Started Code
 var player_started_reward = {
-	"INDIE_GAME_DEV_INDO":{
-		"id": "spin",
-		"claim": false,
-		"count": 7,
-		"desc": "Claim Successful!\nYou've received 7 free spin coins!\nUse them in the shop (unlocked at level 5)."
-	},
-	"RZYAS_NUSANTARA":{
-		"id": "gold",
-		"claim": false,
-		"count": 500000,
-		"desc": "Claim Successful!\nYou've received 500K gold coins!"
-	},
-	"CODENYA_APA_BANG?":{
-		"id": "mana",
-		"claim": false,
-		"count": 50000,
-		"desc": "Claim Successful!\nYou've received 50K mana stone!"
-	},}
+		"INDIE_GAME_DEV_INDO":{
+			"id": "spin",
+			"claim": false,
+			"count": 7,
+			"desc": "Claim Successful!\nYou've received 7 free spin coins!\nUse them in the shop (unlocked at level 5)."
+		},
+		"RZYAS_FIRST_GAME":{
+			"id": "spin",
+			"claim": false,
+			"count": 28,
+			"desc": "Claim Successful!\nYou've received 28 free spin coins!\nUse them in the shop (unlocked at level 5)."
+		},
+		"RZYAS_NUSANTARA":{
+			"id": "gold",
+			"claim": false,
+			"count": 500000,
+			"desc": "Claim Successful!\nYou've received 500K gold coins!"
+		},
+		"CODENYA_APA_BANG?":{
+			"id": "mana",
+			"claim": false,
+			"count": 50000,
+			"desc": "Claim Successful!\nYou've received 50K mana stone!"
+		}, }
 # Player progression data
 var gate_coin_star = 0
 var gate_coin_skull = 0
@@ -346,8 +352,8 @@ func reset_data():
 	gate_party = {}
 	gate_date = {"day_in":0, "day":1, "mounth":1, "year":1500, "hour":0}
 	gate_coin_star = 0
-	gate_coin_skull = 0
-	gate_coin_cummon = 5000000
+	gate_coin_skull = 99999999
+	gate_coin_cummon = 0
 	all_npc = {}
 	player_started_reward = {
 		"INDIE_GAME_DEV_INDO":{
@@ -355,6 +361,12 @@ func reset_data():
 			"claim": false,
 			"count": 7,
 			"desc": "Claim Successful!\nYou've received 7 free spin coins!\nUse them in the shop (unlocked at level 5)."
+		},
+		"RZYAS_FIRST_GAME":{
+			"id": "spin",
+			"claim": false,
+			"count": 28,
+			"desc": "Claim Successful!\nYou've received 28 free spin coins!\nUse them in the shop (unlocked at level 5)."
 		},
 		"RZYAS_NUSANTARA":{
 			"id": "gold",

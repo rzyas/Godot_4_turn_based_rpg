@@ -161,10 +161,10 @@ func onready_card_exchange():
 		var total_price = current_exchange_count*exchange_price[current_coin]
 		if current_coin == 0 and AutoloadData.gate_coin_cummon >= total_price:
 			AutoloadData.gate_coin_cummon -= total_price
-		elif current_coin == 1 and AutoloadData.gate_coin_star >= total_price:
-			AutoloadData.gate_coin_star -= total_price
-		elif current_coin == 2 and AutoloadData.gate_coin_skull >= total_price:
+		elif current_coin == 1 and AutoloadData.gate_coin_skull >= total_price:
 			AutoloadData.gate_coin_skull -= total_price
+		elif current_coin == 2 and AutoloadData.gate_coin_star >= total_price:
+			AutoloadData.gate_coin_star -= total_price
 		else:
 			SfxManager.play_system_fail()
 			return
@@ -422,19 +422,19 @@ var current_card_code:Array = [null, null, null, null, null, null, null, null, n
 var all_card_available = {
 	0:{ # light
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
-		"code":{0:[],1:[],2:[],4:[],5:[]} },
+		"code":{0:[], 1:[], 2:[], 3:[], 4:[], 5:[]} },
 	1:{ # nature
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
-		"code":{0:[],1:[],2:[],4:[],5:[]} },
+		"code":{0:[], 1:[], 2:[], 3:[], 4:[], 5:[]} },
 	2:{ # water
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
-		"code":{0:[],1:[],2:[],4:[],5:[]} },
+		"code":{0:[], 1:[], 2:[], 3:[], 4:[], 5:[]} },
 	3:{ # dark
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
-		"code":{0:[],1:[],2:[],4:[],5:[]} },
-	4:{ # fir
+		"code":{0:[], 1:[], 2:[], 3:[], 4:[], 5:[]} },
+	4:{ # fire
 		"star":{0:0, 1:0, 2:0, 3:0, 4:0, 5:0},
-		"code":{0:[],1:[],2:[],4:[],5:[]} }, }
+		"code":{0:[], 1:[], 2:[], 3:[], 4:[], 5:[]} }, }
 func _check_card_availabel():
 	var card_data = Card_data_s1.new()
 	var total_card = card_data.dict_all_card_s1.size()
@@ -462,7 +462,6 @@ func _check_open():
 	
 	btn_open.text = "OPEN X%d" %[current_open]
 	btn_open.disabled = false
-	
 func _reset_exchanged(_bool:bool):
 	current_exchange_count = 0
 	current_coin = 0
@@ -489,7 +488,6 @@ func _path_img_gate_coin(code):
 	code = clamp(code, 0, 2)
 	var path = "res://img/Gate/Gate Coin/%d.png" % code
 	return path
-
 # --------------------------------------
 # DATE UNITYLITY
 # --------------------------------------

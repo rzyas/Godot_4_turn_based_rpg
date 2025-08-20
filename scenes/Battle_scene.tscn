@@ -2902,7 +2902,6 @@ animations = [{
 atlas = ExtResource("50_wmnxe")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oenvp"]
-load_path = "res://.godot/imported/N_HEAL_1_Karin.png-3e7ab87799f2f2e74822887d8723c2d1.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvc1l"]
 atlas = ExtResource("5_al84k")
@@ -2925,10 +2924,8 @@ atlas = ExtResource("6_cwo5p")
 region = Rect2(25, 0, 21, 21)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jvwo2"]
-load_path = "res://.godot/imported/N_WAR_1_Dimas.png-9feae933757f44d75a0ca27672dba62c.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wp2nl"]
-load_path = "res://.godot/imported/N_SUPP_1_Reza.png-db870d6f4a9f571ebfd8ec7d092ee9d9.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gage1"]
 

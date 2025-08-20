@@ -217,7 +217,6 @@ _data = {
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k3g1p"]
-load_path = "res://.godot/imported/N_HEAL_1_Karin.png-2438cb6d48e852bb06f9327cc2a649da.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmn52"]
 atlas = ExtResource("3_tal7f")

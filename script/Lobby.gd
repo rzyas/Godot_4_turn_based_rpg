@@ -1592,7 +1592,6 @@ func set_pct(value_ask, target_to_pct):
 
 func prosedural_deck(code):
 	var new_data = Card_data_s1.new()
-	
 	var new_card:Button = prosedural_deck_gen.duplicate()
 	var card_icon = load(new_data.dict_all_card_s1[code]["icon"])
 	var label_name:Label = new_card.get_node("indic/VBoxContainer/card_name")

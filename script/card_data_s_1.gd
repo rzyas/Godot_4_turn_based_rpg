@@ -1,5 +1,6 @@
 #extends RefCounted
 class_name Card_data_s1
+extends Node
 
 enum ELEM{LIGHT, NATURE, WATER, DARK, FIRE}
 enum JOB{WARRIOR, ARCHER, DEFENSE, ASSASIN, SUPPORT, MECH, BEAST, MAGE, HEALER}
@@ -219,9 +220,13 @@ func set_char_race(race:ENUM_CHAR_RACE):
 		ENUM_CHAR_RACE.DRAGON: main_temp = "Dragon"
 	return main_temp
 
-var new_story_character = Data_story_character.new()
-var new_story_character_id = Data_story_character_id.new()
-var card_chap_1 = card_chapter_1.new()
+func _init() -> void:
+	var data_card_s1 = card_chapter_1.new()
+	dict_all_card_s1.merge(data_card_s1.all_card, true)
+
 var dict_all_card_s1:Dictionary = {
-	card_chap_1.hero_s1_1()["key"]:card_chap_1.hero_s1_1()["value"],
+	#data_card_s1.hero_s1_1()["key"]:data_card_s1.hero_s1_1()["value"],
+	#data_card_s1.hero_s1_2()["key"]:data_card_s1.hero_s1_2()["value"],
+	#data_card_s1.hero_s1_3()["key"]:data_card_s1.hero_s1_3()["value"],
+	#data_card_s1.hero_s1_4()["key"]:data_card_s1.hero_s1_4()["value"],
 }

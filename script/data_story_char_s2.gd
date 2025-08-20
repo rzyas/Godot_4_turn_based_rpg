@@ -1,162 +1,163 @@
-class_name data_story_char_s1
+class_name data_story_char_s2_163
 
-var hero_76 = {
+func hero_76(): return {
 	"id":"Dulu, beberapa penyihir api terkuat rela merobek jiwanya sendiri untuk dipersembahkan pada kobaran purba. Dari pengorbanan itu, lahirlah kekuatan yang tidak mengenal belas kasih—sebuah takhta api yang memilih tuannya sendiri. Saat jiwa-jiwa mereka melebur, tercipta sosok tunggal: raja dari semua penyihir api. Setiap lidah api di tubuhnya adalah warisan dari pengorbanan, dan setiap mantra yang ia lafalkan menggema seperti jeritan para pendahulu yang tak pernah beristirahat.",
 	"en":"Once, the mightiest fire sorcerers tore their souls apart, offering themselves to an ancient flame. From that sacrifice was born a power without mercy—a throne of fire that would choose its own master. As their spirits fused, a singular being emerged: the king of all fire mages. Every flicker upon his form is the legacy of sacrifice, and every spell he casts resounds like the eternal cries of predecessors who will never rest."
 }
-var hero_77 = {
+func hero_77(): return {
 	"id":"Di ruang bawah tanah yang dipenuhi lingkaran darah, para penyihir api terbesar menyerahkan hidupnya. Jiwa mereka diekstrak, dijadikan bara abadi yang berputar tanpa henti. Dari pusaran itu bangkit sosok tunggal, api yang memilih tuannya sendiri. Ia bukan sekadar raja, melainkan bejana dari ratusan pengorbanan. Setiap langkahnya membakar tanah, seolah mengingatkan dunia bahwa mahkota api lahir bukan dari kehendak, melainkan dari penderitaan.",
 	"en":"Within the underground chamber etched with circles of blood, the greatest fire sorcerers surrendered their lives. Their souls were extracted, bound into an eternal blaze that never ceased to spin. From that vortex rose a single being, fire itself choosing its master. He was not merely a king, but a vessel of countless sacrifices. Each step scorched the earth, a reminder that the crown of flame was never born of will, but of suffering."
 }
-var hero_78 = {
+func hero_78(): return {
 	"id":"Dari ras langit yang dahulu hidup damai, lahir seorang wanita cantik dengan mata yang selalu menatap jauh ke bumi. Saat sayap-sayap bangsanya tercabik dalam perang, ia kehilangan segalanya kecuali busur yang diwariskan ayahnya. Setiap anak panah yang ia lepaskan kini mengandung doa getir untuk mereka yang gugur. Keindahan wajahnya menipu, sebab di balik senyum itu tersimpan luka seorang penjaga yang bersumpah tak akan membiarkan tragedi itu terulang.",
 	"en":"From a skyborn race once bathed in peace, came a beautiful woman whose gaze forever lingered on the earth below. When the wings of her people were torn apart in war, she lost everything but the bow her father left behind. Every arrow she looses now carries a bitter prayer for the fallen. Her beauty deceives, for behind that smile lies the wound of a guardian sworn to ensure such tragedy will never return."
 }
-var hero_79 = {
+func hero_79(): return {
 	"id":"Lahir dari darah bangsawan langit, ia dibesarkan dalam istana kristal di atas awan. Namun kehancuran datang tanpa peringatan; sayap-sayap emas keluarganya hancur terbakar, menyisakan hanya dirinya dan busur yang terbuat dari pecahan singgasana. Sejak hari itu, setiap tembakan bukan sekadar senjata, melainkan teriakan sunyi seorang pewaris yang dipaksa menjadi prajurit. Di balik keanggunannya, ia menanggung beban seluruh garis keturunan yang musnah.",
 	"en":"Born of noble skyblood, she was raised within a crystal palace above the clouds. But ruin came unannounced; the golden wings of her kin burned away, leaving her with nothing but a bow forged from fragments of the throne. From that day forth, every shot she fired was not merely a weapon, but the silent scream of an heir forced into war. Behind her elegance lies the burden of a lineage erased."
 }
-var hero_80 = {
+func hero_80(): return {
 	"id":"Berbeda dengan darah bangsawan, ia hanyalah putri rakyat jelata yang hidup sederhana di langit. Saat perang merenggut keluarga dan desanya, ia memungut busur patah milik seorang prajurit gugur. Dari sanalah tekadnya lahir: jika langit ingin runtuh, maka ia akan berdiri sebagai tembok terakhir. Setiap panah yang dilepaskannya adalah jeritan hati seorang rakyat biasa yang menolak tunduk, membuktikan bahwa keberanian tidak lahir dari darah, melainkan dari luka.",
 	"en":"Unlike noble blood, she was but the daughter of common folk, living a humble life among the skies. When war stole her family and village, she claimed the broken bow of a fallen soldier. From that moment, her resolve was forged: if the heavens were to fall, she would stand as the final wall. Every arrow she looses is the cry of a commoner who refuses submission, proving that courage is not born of lineage, but of scars."
 }
-var hero_81 = {
+func hero_81(): return {
 	"id":"Ia tumbuh sebagai rakyat biasa, bekerja keras di antara awan tanpa nama besar yang melindunginya. Namun sejak lahir, punggungnya memikul empat sayap—tanda yang seharusnya hanya dimiliki oleh darah bangsawan. Tidak ada jawaban, hanya bisikan dan tatapan curiga. Apakah ia keturunan terbuang, atau sekadar anomali yang menentang takdir? Setiap panah yang ia lepaskan bukan sekadar senjata, melainkan pertanyaan abadi: siapa dirinya sebenarnya di langit yang penuh rahasia ini?",
 	"en":"Raised as a commoner, she toiled among the clouds without the shelter of a noble name. Yet from birth, four wings unfurled upon her back—a mark said to belong only to royal blood. No answers came, only whispers and wary eyes. Was she a discarded heir, or an anomaly defying fate? Each arrow she looses is not only a weapon, but an eternal question: who is she truly, beneath the sky veiled in secrets?"
 }
-var hero_82 = {
+func hero_82(): return {
 	"id":"Dari garis bangsawan tertinggi, ia terlahir dengan sayap hitam—pertanda anugerah sekaligus kutukan. Dalam sejarah ras langit, warna itu tak pernah muncul, seolah melambangkan kekuatan yang bukan berasal dari dunia mereka. Sejak kecil, ia dipandang dengan kagum sekaligus takut, dijauhkan dari yang lain. Namun di balik keanggunannya, ia sendiri tahu: setiap kepakan sayap hitamnya membawa kekuatan yang bisa melindungi, sekaligus menghancurkan seluruh langit.",
 	"en":"From the highest noble line, she was born with black wings—both a blessing and a curse. Among the skyborn, such a color had never appeared, a sign of power beyond their world. Since childhood, she was looked upon with awe and fear, kept apart from the rest. Yet behind her grace, she knew: every beat of her black wings carried the force to protect, or to bring ruin upon the entire heavens."
 }
-var hero_83 = {
+func hero_83(): return {
 	"id":"Ia lahir tanpa nama besar, hanya rakyat biasa yang seharusnya tak mampu melampaui batas langit. Namun sejak kecil, hembusan angin mengikuti langkahnya, dan binatang liar berlutut seolah menemukan rumah. Kekuatan itu mendekatinya pada derajat bangsawan, meski darahnya tak pernah mengalir biru. Bagi sebagian orang, ia adalah keajaiban; bagi yang lain, ancaman pada tatanan lama. Dan setiap kali ia merentangkan busurnya, alam sendiri seakan ikut bernapas bersamanya.",
 	"en":"She was born nameless, a mere commoner who should never have surpassed the bounds of the heavens. Yet since childhood, the wind bent to her steps, and wild creatures knelt as if finding shelter. That power drew her close to the rank of nobles, though no royal blood flowed in her veins. To some, she was a miracle; to others, a threat to the old order. And each time she drew her bow, nature itself seemed to breathe alongside her."
 }
-var hero_86 = {
+
+func hero_84(): return {
 	"id":"Dari rakyat biasa, ia menapaki jalan penuh luka hingga akhirnya dipilih sebagai ratu pemanah terkuat. Tak ada garis keturunan yang menjelaskannya, hanya kekuatan aneh yang tumbuh liar dalam dirinya. Alam tunduk pada tatapannya, binatang bernafas tenang di sisinya, dan setiap anak panahnya menembus batas yang tak pernah disentuh bangsawan manapun. Bagi sebagian, ia adalah anomali yang tak seharusnya ada; bagi yang lain, ia adalah bukti bahwa takdir mampu menyalakan api di tempat paling sederhana.",
 	"en":"From common blood, she walked a path of scars until chosen as the strongest queen of archers. No lineage could explain it, only a strange power that grew wild within her. Nature bowed to her gaze, beasts breathed calmly at her side, and every arrow she loosed pierced limits untouched even by nobles. To some, she was an anomaly that should never exist; to others, living proof that destiny can ignite even in the humblest of places."
 }
-var hero_87 = {
+func hero_87(): return {
 	"id":"Sejak lahir, darahnya membawa tanda pelindung kerajaan: keberanian, kecepatan, dan kesetiaan. Namun garis itu bukan anugerah, melainkan beban yang membawanya pada jalan sunyi. Ia memilih bayangan, menjadi asasin yang bergerak tanpa suara di langit malam. Dua pedang di tangannya bukan sekadar senjata, tetapi warisan yang menuntut pengorbanan. Setiap tebasan adalah sumpah untuk melindungi takhta, meski harga yang harus ia bayar adalah hilangnya dirinya sendiri dalam kegelapan.",
 	"en":"From birth, her blood carried the mark of the kingdom’s guardians: courage, swiftness, and loyalty. Yet that legacy was no gift, but a burden that led her into solitude. She chose the shadows, becoming an assassin who moved soundlessly through the night skies. The twin blades she bore were not mere weapons, but an inheritance demanding sacrifice. Every strike was a vow to protect the throne, even if the price was losing herself to the darkness."
 }
-var hero_88 = {
+func hero_88(): return {
 	"id":"Darah pelindung kerajaan sudah menurunkan padanya keberanian, kecepatan, dan kesetiaan. Namun nasib menuntunnya menemukan serpihan cahaya kuno yang meresap ke dalam jiwanya. Sejak saat itu, dua pedang yang ia bawa bersinar seolah memotong batas antara terang dan bayangan. Ia tetap seorang asasin, bergerak sunyi di langit malam, tapi setiap tebasannya kini membawa cahaya yang mampu menembus kegelapan. Bagi kerajaan, ia adalah senjata terakhir; bagi dirinya, ia hanyalah bayangan yang dipaksa bercahaya.",
 	"en":"The blood of guardians had already gifted her with courage, speed, and loyalty. Yet fate led her to a shard of ancient light that fused with her soul. From then on, the twin blades she carried gleamed as if severing the line between shadow and radiance. Still an assassin who moved in silence across the night skies, every strike now carried a brilliance that pierced the darkness. To the kingdom, she was the final weapon; to herself, merely a shadow forced to shine."
 }
-var hero_98 = {
+func hero_98(): return {
 	"id":"Meski lahir dari garis bangsawan tertinggi, jiwanya menolak duduk di singgasana. Sejak kecil, darahnya bergetar bukan untuk memerintah, melainkan untuk bertarung di barisan depan. Empat sayap di punggungnya menjadi simbol yang tak bisa disangkal—tanda kekuatan dan perbedaan yang sulit diterima bangsawan lain. Dengan pedang di tangan kanan dan tameng di tangan kiri, ia melangkah bukan demi kehormatan keluarganya, melainkan demi sumpah pribadi: menjadi benteng yang takkan runtuh, meski seluruh langit terbakar.",
 	"en":"Though born of the highest noble line, his soul refused the throne. From childhood, his blood yearned not to rule, but to fight at the front lines. The four wings upon his back stood as undeniable symbols—marks of strength and difference scorned by other nobles. With sword in his right hand and shield in his left, he marched not for his family’s honor, but for his own vow: to be the wall that will never fall, even if the heavens burn."
 }
-var herp_99 = {
+func hero_99(): return {
 	"id":"Darah manusia bercampur warga langit menjadikannya jelita, namun di bumi ia dipandang hina. Hidupnya dipenuhi cercaan, tubuhnya direnggut sebagai pelayan paksa oleh raja lalim, hingga ajalnya datang terlalu muda—sunyi, terbenam di danau. Jiwanya yang tulus tak menuntut keadilan, hanya keikhlasan. Namun saat tubuhnya seharusnya membusuk, ia menolak mati. Wadah manusia itu retak bagaikan kepompong, dan dari dalamnya lahir sosok pelindung, kekuatan besar yang bangkit dari penderitaan, bukan dari dendam.",
 	"en":"Born of human blood and skyborn lineage, her beauty became a curse upon the earth. Scorned, violated, and forced into servitude under a tyrant king, her life ended too young—silent, wrapped in the depths of a lake. Her pure soul sought no justice, only acceptance. Yet when her body was meant to wither, it refused death. The human shell cracked like a cocoon, and from within arose a guardian—power immense, born not from vengeance, but from suffering endured in silence."
 }
-var hero_100 = {
+func hero_100(): return {
 	"id":"Ia hanyalah warga langit biasa, tanpa darah bangsawan atau tanda anugerah. Namun tekadnya membakar lebih terang dari sayap siapa pun. Dalam perjalanan panjang penuh luka, ia menemukan kekuatan tersembunyi yang seakan menunggu dirinya untuk bangkit. Dari kegigihan itu lahirlah prajurit baru, bukan karena warisan, melainkan karena tekad yang menolak runtuh. Kini setiap langkahnya adalah bukti bahwa kekuatan sejati bukan diwariskan, melainkan ditempa.",
 	"en":"He was but a common skyborn, carrying neither noble blood nor divine mark. Yet his resolve burned brighter than the wings of any peer. Through a path carved in scars, he uncovered a hidden power that seemed to have awaited his rise. From that unyielding spirit, a warrior was born—not through inheritance, but through defiance. Now every step he takes proves that true strength is not bestowed, but forged."
 }
-var hero_101 = {
+func hero_101(): return {
 	"id":"Ia tidak pernah menginginkan takdirnya. Sayap besar dan kekuatan langit yang membara hanyalah rantai yang mengikat, menyingkirkan harapan hidup sederhana yang ia impikan. Karena kekuatan itu tak dapat disembunyikan, ia dipaksa menjadi pelindung, simbol kebanggaan yang sesungguhnya adalah penjara. Di matanya hanya ada kehampaan; setiap tebasan pedang dan kepakan sayap hanyalah gerakan kosong tanpa jiwa. Bagi dunia ia cahaya, namun bagi dirinya sendiri, ia hanyalah bayangan tanpa kebebasan.",
 	"en":"He never wished for his destiny. The vast wings and blazing power he bore were nothing but chains, stripping away the simple life he longed for. Since his strength could not be hidden, he was forced to stand as protector—a symbol of pride that was, in truth, a prison. In his eyes, only emptiness remained; every swing of his blade and beat of his wings were hollow motions without soul. To the world, he was light, but to himself, only a shadow without freedom."
 }
-var hero_102 = {
+func hero_102(): return {
 	"id":"Sejak lahir, tubuhnya membawa keberuntungan ganda—wadah langka yang mampu menampung kekuatan besar tanpa hancur. Pada hari kelahirannya, roh burung api abadi yang hampir padam memilihnya sebagai pewaris terakhir. Dalam detik-detik kematian roh itu, seluruh nyala abadi berpindah ke tubuh mungil sang bayi. Kini ia tumbuh menjadi pelindung dengan kekuatan anomali, api yang tak seharusnya dimiliki manusia manapun. Namun di balik sinarnya, ia menanggung beban warisan: cahaya terakhir yang tak boleh padam.",
 	"en":"From birth, her body bore a rare dual blessing—a vessel capable of holding immense power without breaking. On the day she came into the world, the dying phoenix spirit chose her as its final heir. In its last breath, the eternal flame poured into the fragile child. She grew into a guardian marked by anomaly, wielding a fire no mortal should ever possess. Yet behind her brilliance lay a heavy burden: the final light of a dying eternity, which must never fade."
 }
-var hero_105 = {
+func hero_105(): return {
 	"id":"Dari garis bangsawan, ia dikenal bukan karena pedang atau sayap, melainkan kejeniusannya dalam menyembuhkan. Sejak muda, pikirannya tajam membaca rahasia tubuh dan jiwa. Namun kepintarannya lahir dari luka lama: ia pernah kehilangan orang terkasih karena penyakit yang tak bisa ia tolong. Kini setiap tetes kekuatannya digunakan untuk menutup luka orang lain, seakan menebus masa lalu. Bagi dunia, ia penyelamat; bagi dirinya sendiri, ia hanyalah lelaki yang terus berusaha menyembuhkan luka yang tak pernah sembuh di hatinya.",
 	"en":"From noble blood, he was renowned not for sword or wings, but for his genius in healing. Since youth, his mind pierced the secrets of body and soul. Yet his brilliance was born from pain: he once lost the one he loved to an illness he could not mend. Now, every ounce of his power is spent sealing the wounds of others, as if to redeem his past. To the world, he is a savior; to himself, only a man trying to mend the wound that never heals within his heart."
 }
-var hero_106 = {
+func hero_106(): return {
 	"id":"Ia dilahirkan tanpa tangisan, seolah dunia tak pernah benar-benar menyambutnya. Tumbuh besar tanpa tawa, tanpa air mata, hanya kehampaan yang menyelimuti wajahnya. Namun di balik hampa itu, tersimpan anomali: kekuatan penyembuhan yang mampu menutup luka lebih dalam dari yang bisa dijelaskan siapa pun. Setiap kali ia menyentuh tubuh yang sekarat, kehidupan kembali berdenyut, meski di dalam dirinya tak ada getaran sedikit pun. Bagi yang diselamatkan, ia mukjizat; bagi dirinya, ia hanya wadah kosong yang tak pernah tahu apa artinya hidup.",
 	"en":"She was born without a cry, as if the world never truly welcomed her. Growing up without laughter, without tears, her face remained veiled in emptiness. Yet within that void lay an anomaly: a healing power capable of mending wounds deeper than reason could grasp. Each time her hand touched the dying, life returned to their veins, though inside her, no heartbeat stirred. To those saved, she was a miracle; to herself, only an empty vessel that never knew the meaning of life."
 }
-var hero_108 = {
+func hero_108(): return {
 	"id":"Di antara warga langit, ia dikenal karena kecantikannya, namun pesonanya bukanlah senjata terkuatnya. Dalam setiap peperangan, ia memiliki anugerah anomali: mampu membuka kekuatan tersembunyi dalam diri orang lain. Prajurit yang putus asa bangkit kembali, sayap yang rapuh seakan mengeras, dan nyala yang padam menyala sekali lagi di hadapannya. Namun di balik senyumnya, ia menanggung kesedihan—karena kekuatan itu hanya bekerja untuk orang lain, sementara dirinya sendiri tetap kosong, tak pernah tahu potensi apa yang ia miliki.",
 	"en":"Among the skyborn, she was admired for her beauty, yet her true gift was far greater. In battle, she bore an anomaly: the power to unlock hidden strength within others. Warriors who despaired rose anew, fragile wings seemed to harden, and dying flames rekindled in her presence. Yet behind her smile lay sorrow—for such power only worked for others, while within herself there remained only emptiness, never knowing what potential she truly possessed."
 }
-var hero_109 = {
+func hero_109(): return {
 	"id":"Terlahir dari darah bangsawan, ia membawa api yang berbeda dari para pendahulunya. Nyala itu bukan kobaran yang membakar musuh, melainkan cahaya yang menyalakan hati sekutu. Dalam peperangan, api misteriusnya meresap ke jiwa-jiwa yang hampir runtuh, mengubah keputusasaan menjadi keberanian. Sayapnya berkilau bagai obor di langit malam, menjadi tanda bahwa harapan belum mati. Namun jauh di dalam dirinya, ia tahu: api yang membakar semangat orang lain perlahan mengikis jiwanya sendiri.",
 	"en":"Born of noble blood, he carried a flame unlike any before him. It was not fire to scorch his enemies, but a light that ignited the hearts of allies. In war, his mysterious fire seeped into weary souls, turning despair into courage. His wings gleamed like a torch across the night sky, a sign that hope had not perished. Yet deep within, he knew: the fire that rekindled others’ strength was slowly consuming his own spirit."
 }
-var hero_110 = {
+func hero_110(): return {
 	"id":"Ia hanyalah warga langit biasa, tanpa garis keturunan agung atau sayap istimewa. Namun roh suci serigala memilihnya sebagai wadah, menanamkan kekuatan yang bisa mengalir ke banyak jiwa. Dalam medan perang, kekuatannya bukan hanya miliknya—ia membagi tenaga, keberanian, bahkan insting tajam roh serigala kepada rekan-rekannya. Setiap lolongan gaib yang bergema darinya membuat pasukan bangkit kembali. Tapi di balik semua itu, ia tahu dirinya hanyalah cangkang rapuh, tubuh fana yang menahan kekuatan jauh melampaui batasnya.",
 	"en":"He was but an ordinary skyborn, with no noble lineage or radiant wings. Yet the holy wolf spirit chose him as a vessel, entrusting him with power that could be shared with others. On the battlefield, his strength was never his alone—he spread energy, courage, even the sharp instincts of the wolf to his allies. Each ghostly howl through him revived the weary and rallied the hopeless. But deep inside, he knew he was only a fragile shell, a mortal body bearing a force far beyond its limits."
 }
-var hero_111 = {
+func hero_111(): return {
 	"id":"Dari silsilah tertinggi para bangsawan langit, ia terlahir membawa jejak suci yang diwariskan turun-temurun. Bukan sekadar darah biru, tetapi cahaya purba yang melekat di nadinya. Dalam peperangan, kekuatan itu menjelma pelindung yang mengusir kegelapan dan memberi harapan bagi semua pasukan. Namun bagi dirinya, warisan itu lebih dari sekadar anugerah—ia memikul beban janji leluhur, bahwa kekuatannya tak boleh dipakai untuk dirinya sendiri, melainkan demi semua jiwa yang bernaung di bawah langit.",
 	"en":"From the highest lineage of the skyborn nobles, he was born carrying a sacred legacy passed down through generations. Not merely noble blood, but an ancient light coursing within his veins. In battle, that power manifested as a shield, driving away darkness and igniting hope among the armies. Yet to him, the legacy was more than a gift—it was a burden, a vow of his ancestors, that his strength could never be for himself, but only for every soul beneath the sky."
 }
-var hero_113 = {
+func hero_113(): return {
 	"id": "Terlahir di garis utama bangsawan, ia dibesarkan di balik dinding kemewahan, jauh dari hiruk pikuk peperangan. Namun api dalam jiwanya menolak hidup di balik bayang nama besar keluarganya. Kekuatan suci yang diwariskan padanya justru berbisik agar ia terjun langsung ke medan perang. Di antara darah dan debu, kecantikannya tak menjadi perhiasan, melainkan lambang keberanian. Namun jauh di lubuk hati, ia tahu bahwa setiap langkahnya adalah penolakan terhadap takdir bangsawan yang hanya duduk di singgasana.",
 	"en":"Born into the main line of nobility, she was raised behind walls of luxury, far from the chaos of war. Yet the fire in her soul rejected the shadow of her family’s grandeur. The sacred power within her whispered, urging her to step onto the battlefield herself. Amid blood and dust, her beauty was no ornament, but a symbol of courage. Still, deep within, she knew that every step she took was a defiance of the noble fate that sought to confine her to a throne."
 }
-var hero_114 = {
+func hero_114(): return {
 	"id":"Ia terlahir rapuh, tubuhnya nyaris tak mampu bertahan melewati hari-hari awal. Namun pada detik kritis, roh suci singa yang telah menua menyerahkan seluruh kekuatannya agar bayi itu tidak padam sebelum waktunya. Dari kelemahan lahirlah kekuatan, dari hampir mati lahirlah prajurit garis depan yang tak tergoyahkan. Dalam setiap teriakan perangnya, gaung roh singa masih terasa—keberanian, keteguhan, dan amarah suci yang diwariskan. Meski darahnya berasal dari rakyat biasa, keberadaannya di medan perang menjadi perwujudan hidup dari pengorbanan roh agung.",
 	"en":"He was born fragile, his body barely able to survive the earliest days. Yet in that desperate moment, an aged lion spirit bestowed all of its remaining strength to keep the child alive. From weakness was born power, from near death was born an unshakable frontline warrior. In every battle cry, the echo of the lion remained—courage, resilience, and a sacred fury passed down. Though his blood came from common folk, his presence on the battlefield was a living testament to the sacrifice of a noble spirit."
 }
-var hero_115 = {
+func hero_115(): return {
 	"id":"Dari keluarga bangsawan ia mewarisi darah agung, namun bukan kekuasaan politik yang ia kejar, melainkan rahasia api kuno yang bersemayam dalam dirinya. Sejak kecil, bisikan sihir selalu mengiringi langkahnya, menolak tidur, memanggil untuk menggali lebih dalam. Ia tumbuh bukan hanya sebagai pewaris nama besar, tapi sebagai penyihir hebat yang mampu menekuk api, cahaya, dan bahkan kehendak manusia. Namun di balik kekuatannya, ada luka—rasa terasing dari dunia bangsawan yang hanya melihatnya sebagai alat, bukan jiwa.",
 	"en":"From a noble family she inherited royal blood, yet it was not political power she sought, but the secrets of ancient fire dwelling within her. Since childhood, whispers of magic followed her steps, denying her rest, urging her to dig deeper. She grew not only as the heir of a great name, but as a powerful sorceress who could bend fire, light, and even human will. Yet behind her strength lay a wound—an isolation from a noble world that saw her not as a soul, but as a tool."
 }
-var hero_116 = {
+func hero_116(): return {
 	"id":"Lahir dari garis bangsawan, ia dibesarkan dalam bayang-bayang kemewahan dan aturan ketat. Namun sejak kecil, api sihir kuno bersemayam di nadinya, menolak untuk padam. Bisikan itu memanggilnya, membuatnya tumbuh menjadi penyihir perempuan yang disegani, mampu menundukkan elemen dan menembus batas kehendak manusia. Tetapi kekuatan besar itu membawa jarak—keluarga bangsawan hanya melihatnya sebagai warisan yang harus dimanfaatkan, bukan jiwa yang pantas dicintai. Maka ia memilih jalannya sendiri, menjadikan sihir sebagai pedang dan perisai melawan nasib yang hendak mengurungnya.",
 	"en":"Born of noble blood, she was raised under the weight of luxury and rigid rules. Yet within her veins, ancient magic burned, refusing to fade. Its whispers shaped her into a sorceress feared and revered, bending elements and piercing even human will. But such power carved a distance—the noble house saw her only as an heirloom to be used, not a soul to be cherished. Thus she chose her own path, wielding sorcery as both sword and shield against the fate that sought to cage her."
 }
-var hero_117 = {
+func hero_117(): return {
 	"id":"Ia hanyalah warga langit biasa, lahir tanpa nama besar atau sayap istimewa. Namun sejak tangisan pertama, aura biru yang aneh menyelimuti tubuhnya, menandakan sihir misterius yang tak dimengerti siapa pun. Seiring tumbuhnya, kekuatan itu berkembang sendiri, menjadikannya penyihir yang unik—bayangan di langit malam yang bisa menundukkan elemen dan memanipulasi arus sihir lain tanpa suara. Keberadaannya misterius, bahkan bagi bangsawan, karena kekuatan yang ia bawa tak pernah bisa dijinakkan, hanya bisa dihormati.",
 	"en":"He was but an ordinary skyborn, born without noble name or remarkable wings. Yet from his first cry, a strange blue aura enveloped him, marking a mysterious magic no one could comprehend. As he grew, the power developed on its own, making him a unique sorcerer—a shadow in the night sky capable of bending elements and manipulating other magic flows silently. His presence was enigmatic, even to nobles, for the power he bore could never be tamed, only respected."
 }
-var hero_118 = {
+func hero_118(): return {
 	"id":"Bayi itu ditemukan di dekat pohon suci yang membakar siapa pun yang mendekat, kecuali dirinya. Tanpa mengetahui orang tuanya, ia dibesarkan oleh petani besar yang melihat potensi luar biasa dalam dirinya. Seiring tumbuh, sihirnya berkembang pesat, menaklukkan elemen dan kekuatan yang bahkan membuat bangsawan terkejut. Di medan pertempuran, ia menghadapi pewaris keluarga bangsawan—pria pendiam dengan kekuatan terlatih—namun sihirnya yang lahir dari misteri dan kehendak pohon suci membawanya menjadi penyihir terhebat, simbol bahwa asal bukanlah batas.",
 	"en":"The infant was found near a sacred tree that incinerated anyone who came close—except for him. With no knowledge of his parents, he was raised by a great farmer who recognized extraordinary potential within him. As he grew, his magic flourished, mastering elements and powers that astonished even the nobles. On the battlefield, he faced the heir of a noble family—a silent man with honed strength—but the sorcery born from mystery and the will of the sacred tree made him the greatest sorcerer, a symbol that origin is never a limit."
 }
-var hero_152 = {
+func hero_152(): return {
 	"id":"Singa bersayap itu adalah makhluk hutan yang jarang terlihat, tubuhnya terbungkus armor yang berkilau di bawah sinar rembulan. Ia dulu setia pada pemiliknya, melindungi dan bertarung di sisinya. Namun saat tuannya meninggal, ikatan itu putus. Kini ia berkeliaran bebas, raja sunyi dari hutan yang menyimpan misteri. Setiap kepakan sayap dan derap cakarnya membawa aura keagungan sekaligus ancaman, menjadi legenda hidup bagi siapa pun yang berani mendekat.",
 	"en":"The winged lion was a forest creature seldom seen, its body clad in armor that gleamed under moonlight. Once devoted to its master, it protected and fought at their side. But with the death of its owner, that bond was broken. Now it roams freely, a silent king of the wilderness shrouded in mystery. Each beat of its wings and stomp of its paws carries both majesty and menace, a living legend to anyone daring enough to approach."
 }
-var hero_153 = {
+func hero_153(): return {
 	"id":"Di kedalaman hutan, bayangan serigala bertanduk rusa bergerak sunyi di antara pepohonan. Tubuhnya gagah namun lincah, mata yang menyala memancarkan misteri dan kewaspadaan. Tidak ada yang tahu dari mana ia datang, dan setiap langkahnya meninggalkan jejak rasa takut sekaligus kagum. Konon, makhluk ini bukan sekadar predator—ia penjaga hutan yang memisahkan yang pantas dari yang tidak, simbol keseimbangan antara liar dan suci.",
 	"en":"Deep within the forest, a shadowy stag-horned wolf moves silently among the trees. Its body is powerful yet agile, eyes glowing with mystery and vigilance. No one knows its origin, and each step it takes leaves both fear and awe in its wake. Legend says this creature is more than a predator—it is the guardian of the forest, separating the worthy from the unworthy, a symbol of balance between wild and sacred."
 }
-var hero_154 = {
+func hero_154(): return {
 	"id":"Di rawa-rawa sunyi, seekor buaya raksasa berbaring, tubuhnya dipenuhi duri tajam dan taring yang meneteskan racun hijau mematikan. Setiap gerakannya menimbulkan gelombang ketakutan bagi makhluk yang berani mendekat. Racunnya bukan sekadar untuk membunuh, tetapi menandai wilayahnya dengan aura kematian yang menebar di air dan tanah. Makhluk ini bukan hanya predator; ia adalah legenda hidup hutan, peringatan bahwa alam liar tidak pernah bisa dijinakkan sepenuhnya.",
 	"en":"In the silent swamp, a colossal crocodile lurks, its body lined with sharp spikes and fangs dripping deadly green venom. Every movement sends waves of fear through any creature daring to approach. Its poison is not merely to kill, but to mark its territory with an aura of death seeping into water and soil. This creature is more than a predator; it is a living legend of the forest, a reminder that the wild can never be fully tamed."
 }
-var hero_155 = {
+func hero_155(): return {
 	"id":"Di rawa hutan yang gelap, muncul makhluk buaya dengan kepala serigala, tubuh berlapis sisik tebal, mata merah menyala menembus kabut. Rahangnya yang kuat bisa menghancurkan apa pun, sementara naluri serigalanya memberinya kelincahan yang tak terduga. Setiap gerakannya membelah air dan tanah, meninggalkan jejak ketakutan bagi siapa pun yang mendekat. Monster ini bukan sekadar predator, tapi penjaga misteri hutan yang menegaskan bahwa alam liar memegang kendali mutlak.",
 	"en":"In the dark forest swamp, a creature emerges—a crocodile with the head of a wolf, its body covered in thick scales, glowing red eyes piercing the mist. Its powerful jaws can crush anything, while its wolf instincts grant it unexpected agility. Each movement splits water and earth, leaving trails of fear for anyone approaching. This monster is not merely a predator, but the guardian of the forest’s mysteries, a reminder that the wild holds ultimate dominion."
 }
-var hero_156 = {
+func hero_156(): return {
 	"id":"Di kedalaman gua terpencil, seekor ular raksasa dengan tiga kepala menjalar, setiap kepala mengamati sekitarnya dengan mata penuh kebencian. Tubuhnya tak sekadar melingkar; tangan dan kaki yang kuat memungkinkannya menyerang dari berbagai arah sekaligus. Dahinya berkerut menandakan kecerdikan predator kuno, racun di taringnya meneteskan ancaman bagi siapa pun yang mendekat. Monster ini bukan sekadar ular; ia perwujudan ketakutan purba yang bangkit dari bayang gua, mengingatkan bahwa alam liar tak pernah bisa dijinakkan sepenuhnya.",
 	"en":"In the depths of a secluded cave, a colossal three-headed serpent slithers, each head watching its surroundings with eyes full of malice. Its body is not merely coiled; strong hands and feet allow it to strike from multiple directions at once. The furrowed brows of its heads hint at the cunning of an ancient predator, its venom dripping a threat to any who approach. This monster is no ordinary snake; it is the embodiment of primal fear rising from the shadows of the cave, a reminder that the wild can never be fully tamed."
 }
-var hero_157 = {
+func hero_157(): return {
 	"id":"Di jantung hutan gelap, seekor gorila raksasa bergerak dengan langkah berat, tubuhnya dikelilingi senjata duri yang berkilau di cahaya rembulan. Setiap pukulan dan tendangannya bukan hanya menghancurkan, tapi menimbulkan getaran yang menakutkan bagi makhluk lain. Duri-duri itu bukan sekadar pelindung; mereka melambangkan kekuatan liar yang terkonsentrasi dalam satu tubuh, menjadikan gorila ini legenda hidup hutan—makhluk yang tak ada yang berani menantangnya secara langsung.",
 	"en":"In the heart of the dark forest, a colossal gorilla moves with heavy steps, its body encircled by spiked weapons gleaming under the moonlight. Each punch and kick not only crushes but sends tremors of fear through nearby creatures. The spikes are not mere armor; they embody the concentrated wild strength within a single body, making this gorilla a living legend of the forest—a being no one dares confront directly."
 }
-var hero_158 = {
+func hero_158(): return {
 	"id":"Di kedalaman hutan malam, seekor macan kumbang bergerak senyap, tubuhnya hitam legam, dengan ekor yang menyala hijau seperti api aneh. Cahaya itu menari di antara pepohonan, membingungkan mangsa dan menandai wilayahnya. Setiap langkahnya lincah, mencerminkan kekuatan dan kelicikan predator purba. Makhluk ini bukan sekadar binatang; ia simbol hutan yang hidup, misterius, dan mematikan, membuat siapa pun yang berani mendekat harus mengingat namanya dengan ketakutan dan hormat.",
 	"en":"In the depths of the night forest, a panther prowls silently, its body jet black, with a tail glowing green like a strange flame. The light dances among the trees, bewildering prey and marking its territory. Every step is agile, reflecting the strength and cunning of an ancient predator. This creature is more than just an animal; it is the living symbol of the forest—mysterious and deadly, reminding anyone daring enough to approach to remember its name with fear and respect."
 }
-var hero_159 = {
+func hero_159(): return {
 	"id":"Di hutan purba, seekor gorila raksasa muncul dengan tubuh setengah tertutup kayu keras, duri-duri menjalar dari punggung hingga lengan, menyerupai tanaman liar yang hidup pada dirinya. Setiap gerakannya berat namun lincah, memecah cabang dan dedaunan, menunjukkan kekuatan alami yang dipadukan dengan perlindungan unik. Makhluk ini bukan sekadar predator; ia adalah penjaga hutan yang lahir dari perpaduan kekuatan binatang dan alam, simbol bahwa hutan bisa melahirkan pertahanan hidup sendiri.",
 	"en":"In the ancient forest, a colossal gorilla emerges, its body partially encased in hardened wood, spikes crawling from back to arms like living vines. Each movement is heavy yet agile, snapping branches and leaves, displaying a natural strength fused with unique protection. This creature is not merely a predator; it is the guardian of the forest, born from a fusion of animal might and nature itself, a symbol that the wilderness can craft its own living defenses."
 }
-var hero_160 = {
+func hero_160(): return {
 	"id":"Di hutan lembab yang jarang dijamah manusia, seekor ular naga dengan tanduk menyerupai rusa melingkar di antara pepohonan basah. Sisiknya berkilau lembap, memantulkan cahaya temaram yang menembus kanopi. Setiap gerakannya halus namun penuh ancaman, rahangnya siap mencengkeram, ekornya menggeliat seperti ular purba. Monster ini bukan sekadar predator; ia penjaga hutan yang misterius, mengatur keseimbangan antara hidup dan mati di wilayahnya.",
 	"en":"In the humid, untouched forest, a horned naga serpent coils among the wet trees. Its scales glisten damply, reflecting the faint light that filters through the canopy. Every movement is smooth yet threatening, jaws ready to strike, tail writhing like an ancient serpent. This creature is more than a predator; it is the mysterious guardian of the forest, maintaining the balance between life and death within its domain."
 }
-var hero_161 = {
+func hero_161(): return {
 	"id":"Di kedalaman hutan purba, seekor moose raksasa berdiri megah, tanduknya membentang lebar seperti mahkota alam. Tubuhnya berotot, langkahnya mengguncang tanah, dan setiap napasnya menghembuskan aura kekuatan yang menegaskan dominasi hutan. Makhluk ini bukan sekadar binatang; ia simbol hutan itu sendiri, lambang kekuatan, keteguhan, dan keseimbangan alam yang tak tergoyahkan oleh manusia maupun predator lain.",
 	"en":"Deep within the ancient forest, a colossal moose stands majestically, its antlers spreading wide like the crown of nature. Muscular body, each step shakes the earth, and every breath exudes an aura of power asserting the forest’s dominion. This creature is more than an animal; it is the embodiment of the forest itself, a symbol of strength, resilience, and the unshakable balance of nature against both humans and predators."
 }
-var hero_162 = {
+func hero_162(): return {
 	"id":"Di hutan lebat, ular naga berwarna hijau menjalar di antara pepohonan, tubuhnya ditutupi mata-mata kecil yang memantau setiap gerakan. Setiap mata memancarkan kilau ancaman, memberi kesan bahwa makhluk ini tahu segala rahasia yang berani mendekat. Racunnya tajam, lidahnya lincah, dan taringnya meneteskan bahaya bagi siapa pun. Monster ini bukan sekadar predator; ia perwujudan kejahatan purba hutan, bayangan yang menakutkan dan selalu mengintai dari setiap sudut gelap.",
 	"en":"In the dense forest, a green evil naga serpent slithers among the trees, its body covered with countless eyes watching every movement. Each eye glows with menace, giving the sense that the creature knows all secrets of anyone daring to approach. Its venom is lethal, tongue agile, and fangs dripping danger. This monster is more than a predator; it embodies the ancient evil of the forest, a terrifying shadow lurking in every dark corner."
 }
-var hero_163 = {
+func hero_163(): return {
 	"id":"Makhluk ini adalah monster hutan purba, tubuhnya terbentuk dari akar dan tanaman menjalar, seolah hutan itu sendiri hidup. Matanya merah menyala, penuh kebencian dan ancaman, sementara taring panjangnya siap merobek apa pun yang mendekat. Tanduk di kepalanya menambah kesan mengintimidasi, dan cakar raksasanya menegaskan kekuatannya yang luar biasa. Ia bukan sekadar predator; ia penjaga hutan yang haus darah, perwujudan amarah alam yang tak bisa dijinakkan.",
 	"en":"This creature is an ancient forest monster, its body formed from twisting roots and creeping vines, as if the forest itself came alive. Its eyes glow red, full of malice and menace, while long fangs are ready to tear anything that approaches. Horns atop its head add to its intimidating presence, and its massive claws emphasize its extraordinary strength. It is more than a predator; it is the forest’s relentless guardian, the embodiment of nature’s wrath that cannot be tamed."
 }
