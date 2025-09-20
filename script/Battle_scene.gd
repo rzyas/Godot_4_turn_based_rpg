@@ -1147,11 +1147,7 @@ func _btn_set_turn():
 	get_btn_anim.visible = false
 	disable_btn_select_enemy(true)
 	disable_btn_select_hero(true)
-	for value in range(3):
-		arr_enemy_pos[value].skill_cd_started()
-		arr_enemy_pos[value]._default_stat_started()
-		arr_hero_pos[value].skill_cd_started()
-		arr_hero_pos[value]._default_stat_started()
+	
 		#if value == 3:
 	var all_card = [arr_hero_pos[0], arr_hero_pos[1], arr_hero_pos[2], arr_enemy_pos[0], arr_enemy_pos[1], arr_enemy_pos[2]]
 	var all_skill = [arr_hero_skill[0], arr_hero_skill[1], arr_hero_skill[2], arr_enemy_skill[0], arr_enemy_skill[1], arr_enemy_skill[2]]
@@ -1161,6 +1157,11 @@ func _btn_set_turn():
 	set_turn()
 	turn_begin()
 	set_elem_pairs()
+	for value in range(3):
+		arr_enemy_pos[value].skill_cd_started()
+		arr_enemy_pos[value]._default_stat_started()
+		arr_hero_pos[value].skill_cd_started()
+		arr_hero_pos[value]._default_stat_started()
 	tween_exp_score(true)
 	
 func get_arr_index(array: Array, value):
@@ -2099,6 +2100,7 @@ func set_card(caster, char_type, code):
 	set_indic_debuff_confirm(caster, new_card_s1.dict_all_card_s1[code]["skill_code"], new_card_s1.dict_all_card_s1[code]["skill_code_1"], new_card_s1.dict_all_card_s1[code]["skill_code_2"], new_card_s1.dict_all_card_s1[code]["skill_code_ulti"])
 	get_card_border(caster, caster._hero_elemen)
 	caster.set_gearset_stat(code)
+	caster._default_stat_started()
 	for value in range(4): set_indic_icon_skill(caster, code, value)
 
 func reset_skill(code, caster):

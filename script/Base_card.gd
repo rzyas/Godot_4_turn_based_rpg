@@ -976,7 +976,7 @@ func default_debuff_confrim(skill_0, skill_1, skill_2, skill_3):
 	if skill_3 in all_debuff_code: skill_3_debuff_confirm = true
 
 func _default_stat_started():
-	_default_stat_bool = false
+	#_default_stat_bool = false
 	_default_atk = get_attack
 	_default_deff = get_deffense
 	_default_hp = get_health
@@ -1007,11 +1007,7 @@ func _default_stat_started():
 	_update_label()
 
 func set_gearset_stat(get_card_code):
-	if card_type_confirm == "hero" and card_code != null and AutoloadData.player_equiped.has(get_card_code):
-		var data_equiped: Dictionary = AutoloadData.player_equiped[get_card_code]
-		print(data_equiped)
-
-		var stat_function_map = {
+	var stat_function_map = {
 			0: stat_attack,
 			1: stat_deffense,
 			2: stat_health,
@@ -1022,12 +1018,37 @@ func set_gearset_stat(get_card_code):
 			8: stat_crit_deff,
 			9: stat_speed_atk,
 		}
+	if card_type_confirm == "hero" and card_code != null and AutoloadData.player_equiped.has(get_card_code):
+		var data_equiped: Dictionary = AutoloadData.player_equiped[get_card_code]
+		print(data_equiped)
 
 		for key in data_equiped.keys():
 			if stat_function_map.has(key):
 				stat_function_map[key].call(data_equiped[key])
-
-
+	elif card_type_confirm == "enemy":
+		var set_npc_power = AutoloadData.temp_bab
+		var set_npc_stage = AutoloadData.temp_stage
+		stat_crit_rate(10*AutoloadData.temp_bab)
+		var final_npc_pwr = 0
+		if set_npc_stage >=12: final_npc_pwr = 5
+		elif set_npc_stage >=10: final_npc_pwr = 4
+		elif set_npc_stage >=7: final_npc_pwr = 3
+		elif set_npc_stage >=5: final_npc_pwr = 2
+		else: final_npc_pwr = 1
+		if AutoloadData.temp_bab != 1:
+			stat_attack(get_attack*set_npc_power)
+			stat_deffense(get_deffense*set_npc_power)
+			stat_health(get_health*set_npc_power)
+			stat_crit_dmg(get_crit_dmg*set_npc_power)
+			stat_speed_atk(get_speed_atk*set_npc_power)
+			# add more base on stage
+			stat_attack(get_attack*final_npc_pwr)
+			stat_deffense(get_deffense*final_npc_pwr)
+			stat_health(get_health*final_npc_pwr)
+			stat_crit_dmg(get_crit_dmg*final_npc_pwr)
+			stat_speed_atk(get_speed_atk*final_npc_pwr)
+			_default_stat()
+		
 var _default_stat_bool = true
 func _default_stat():
 	_update_label()

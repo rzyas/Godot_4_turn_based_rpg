@@ -1,32 +1,40 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dwxewndixe53u"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dwxewndixe53u"]
 
-[ext_resource type="Texture2D" uid="uid://btvgpvxq2nsc0" path="res://img/UI (new)/switch.png" id="1_cn68a"]
 [ext_resource type="FontFile" uid="uid://duykn563gan2v" path="res://font/RobotoCondensed-Bold.ttf" id="1_ygr6f"]
+[ext_resource type="Texture2D" uid="uid://denvlmb0pi3s2" path="res://img/UI (new)/switch_medium.png" id="2_ygr6f"]
 [ext_resource type="Texture2D" uid="uid://crggcpocjkwdr" path="res://img/UI (new)/UI_11.png" id="3_qk8aa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cnle"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 3, 96, 44)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fia0n"]
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 2, 72, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygr6f"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 103, 96, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qk8aa"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 53, 96, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fia0n"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 103, 96, 44)
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 77, 72, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnynd"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 103, 96, 44)
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 77, 72, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gkqx"]
-atlas = ExtResource("1_cn68a")
-region = Rect2(2, 53, 96, 44)
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 2, 72, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk8aa"]
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 39, 72, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dck8i"]
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 77, 72, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bep1"]
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 77, 72, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76dto"]
+atlas = ExtResource("2_ygr6f")
+region = Rect2(2, 39, 72, 34)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fia0n"]
 texture = ExtResource("3_qk8aa")
@@ -40,16 +48,16 @@ region_rect = Rect2(68, 7, 53, 53)
 CheckButton/colors/font_color = Color(0.279463, 0.717506, 1, 1)
 CheckButton/colors/font_outline_color = Color(0, 0, 0, 0.392157)
 CheckButton/constants/outline_size = 12
-CheckButton/font_sizes/font_size = 26
+CheckButton/font_sizes/font_size = 21
 CheckButton/fonts/font = ExtResource("1_ygr6f")
-CheckButton/icons/checked = SubResource("AtlasTexture_3cnle")
+CheckButton/icons/checked = SubResource("AtlasTexture_fia0n")
 CheckButton/icons/checked_disabled = SubResource("AtlasTexture_ygr6f")
-CheckButton/icons/checked_disabled_mirrored = SubResource("AtlasTexture_ygr6f")
-CheckButton/icons/checked_mirrored = SubResource("AtlasTexture_3cnle")
+CheckButton/icons/checked_disabled_mirrored = SubResource("AtlasTexture_xnynd")
+CheckButton/icons/checked_mirrored = SubResource("AtlasTexture_0gkqx")
 CheckButton/icons/unchecked = SubResource("AtlasTexture_qk8aa")
-CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_fia0n")
-CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_xnynd")
-CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_0gkqx")
+CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_dck8i")
+CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_6bep1")
+CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_76dto")
 CheckButton/styles/disabled = SubResource("StyleBoxTexture_fia0n")
 CheckButton/styles/disabled_mirrored = SubResource("StyleBoxTexture_fia0n")
 CheckButton/styles/focus = SubResource("StyleBoxTexture_fia0n")

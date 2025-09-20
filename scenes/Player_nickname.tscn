@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://4ol026xc1ofh"]
+[gd_scene load_steps=18 format=3 uid="uid://4ol026xc1ofh"]
 
 [ext_resource type="Texture2D" uid="uid://c0ritv33tyiio" path="res://img/UI (new)/UI_6.png" id="1_42la8"]
 [ext_resource type="Theme" uid="uid://bxpj4qtfj2ypy" path="res://Themes/THEME V3/LBL_SIDE_BLUE.tres" id="1_c82gc"]
-[ext_resource type="Theme" uid="uid://p8akpkd0aie2" path="res://Themes/THEME V3/LBL_BASIC.tres" id="1_p4yh8"]
 [ext_resource type="Script" uid="uid://o41no8qscn6s" path="res://script/Player_nickname.gd" id="1_udkxx"]
 [ext_resource type="Theme" uid="uid://bl3tlf70y4c0a" path="res://Themes/THEME V3/LINE_EDIT_BASIC.tres" id="1_yhn5w"]
-[ext_resource type="Texture2D" uid="uid://cryqi6csxo2qc" path="res://img/Roadmap/bg_nickname.png" id="2_sx28s"]
+[ext_resource type="Texture2D" uid="uid://blhk3kcx8hlgs" path="res://img/UI (new)/black_panel.png" id="2_sx28s"]
 [ext_resource type="Texture2D" uid="uid://cuwj8k5c62qur" path="res://img/UI (new)/New UI Flat/flat_gold.png" id="3_ydldp"]
 [ext_resource type="Texture2D" uid="uid://c35pqksgkh2it" path="res://img/UI (new)/UI_10.png" id="4_klby6"]
 [ext_resource type="Theme" uid="uid://dwxewndixe53u" path="res://Themes/THEME V3/BTN_SW_MAIN.tres" id="5_nf65l"]
@@ -14,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dl7fms37p7ssa" path="res://img/UI (new)/New UI Flat/flat_ticket.png" id="7_klby6"]
 [ext_resource type="Theme" uid="uid://b7d1nkrdnn1pw" path="res://Themes/THEME V3/LBL_HEADER.tres" id="8_pce14"]
 [ext_resource type="Texture2D" uid="uid://c0y3wjvxvhmyt" path="res://img/UI (new)/New UI Flat/flat_spin.png" id="8_ry1dh"]
-[ext_resource type="Theme" uid="uid://srh11jnyhheh" path="res://Themes/THEME V3/BTN_SELECT.tres" id="9_ydldp"]
+[ext_resource type="Theme" uid="uid://b2a20pavr6ur5" path="res://Themes/THEME V3/BTN_ACTIVE_GOLD.tres" id="8_udkxx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pce14"]
 texture = ExtResource("2_sx28s")
@@ -62,10 +61,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -505.0
-offset_top = -426.0
-offset_right = 505.0
-offset_bottom = 429.0
+offset_left = -323.0
+offset_top = -357.0
+offset_right = 323.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ry1dh")
@@ -84,7 +83,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_c82gc")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Nickname"
 vertical_alignment = 1
 uppercase = true
@@ -93,7 +92,7 @@ uppercase = true
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_c82gc")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Code"
 vertical_alignment = 1
 uppercase = true
@@ -106,14 +105,14 @@ alignment = 1
 [node name="enter_nickname" type="LineEdit" parent="main_pnl_start/vbox/hbox/vbox_main"]
 layout_mode = 2
 theme = ExtResource("1_yhn5w")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 21
 placeholder_text = "Nickname. Min (3-13 Character)"
 max_length = 13
 
 [node name="enter_code_promp" type="LineEdit" parent="main_pnl_start/vbox/hbox/vbox_main"]
 layout_mode = 2
 theme = ExtResource("1_yhn5w")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 21
 placeholder_text = "Reward Code. Max 32 Character"
 max_length = 32
 
@@ -126,13 +125,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_udkxx")
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("6_sx28s")
+theme_override_font_sizes/font_size = 21
 text = "Waiting input..."
 
 [node name="btn_check_code" type="Button" parent="main_pnl_start/vbox"]
-custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
-theme = ExtResource("9_ydldp")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("8_udkxx")
+theme_override_font_sizes/font_size = 24
 text = "CHECK CODE"
 
 [node name="pnl_0" type="PanelContainer" parent="main_pnl_start/vbox"]
@@ -145,7 +144,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox"]
 layout_mode = 2
 theme = ExtResource("8_pce14")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "STARTER REWARD"
 horizontal_alignment = 1
 
@@ -153,7 +152,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("3_ydldp")
 expand_mode = 1
@@ -161,12 +160,11 @@ stretch_mode = 5
 
 [node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("1_p4yh8")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 21
 text = "Gold: 300K"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sw_gold" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_0"]
@@ -179,7 +177,7 @@ flat = true
 layout_mode = 2
 
 [node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("6_42la8")
 expand_mode = 1
@@ -187,24 +185,24 @@ stretch_mode = 5
 
 [node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("1_p4yh8")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 21
 text = "Mana Stone: 30K"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sw_mana" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_1"]
 layout_mode = 2
 theme = ExtResource("5_nf65l")
 flat = true
+expand_icon = true
 
 [node name="reward_2" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
 layout_mode = 2
 
 [node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("7_klby6")
 expand_mode = 1
@@ -212,24 +210,24 @@ stretch_mode = 5
 
 [node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("1_p4yh8")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 21
 text = "Super Ticket: 1.5K"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sw_ticket" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_2"]
 layout_mode = 2
 theme = ExtResource("5_nf65l")
 flat = true
+expand_icon = true
 
 [node name="reward_3" type="HBoxContainer" parent="main_pnl_start/vbox/pnl_0/vbox"]
 layout_mode = 2
 
 [node name="img" type="TextureRect" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("8_ry1dh")
 expand_mode = 1
@@ -237,22 +235,21 @@ stretch_mode = 5
 
 [node name="txt" type="Label" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("1_p4yh8")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("1_c82gc")
+theme_override_font_sizes/font_size = 21
 text = "Spin Coin: 1"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sw_spin" type="CheckButton" parent="main_pnl_start/vbox/pnl_0/vbox/reward_3"]
 layout_mode = 2
 theme = ExtResource("5_nf65l")
 flat = true
+expand_icon = true
 
 [node name="btn_enter_game" type="Button" parent="main_pnl_start/vbox"]
-custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
-theme = ExtResource("9_ydldp")
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("8_udkxx")
+theme_override_font_sizes/font_size = 24
 text = "ENTER GAME"

@@ -135,7 +135,7 @@ var player_started_reward = {
 # Player progression data
 var gate_coin_star = 0
 var gate_coin_skull = 0
-var gate_coin_cummon = 250
+var gate_coin_cummon = 0
 var player_name = ""
 var player_level: int = 1
 var player_exp_main: int = 0
@@ -178,7 +178,7 @@ func _system_cardCollection():
 		arr_temp.append(key)
 	return arr_temp
 @onready var system_cardCollection = _system_cardCollection()
-var player_cardCollection: Array[String] = ["s1_016","s1_017","s1_034"]
+var player_cardCollection: Array[String] = ["s1_168", "s1_171", "s1_173"]
 var player_cardAvailable:Array[String] = []
 var player_cardFragments = {}
 # Equipments
@@ -196,7 +196,7 @@ var player_equipment: Dictionary = {}
 var player_gear: Dictionary = {}
 var player_equiped: Dictionary = {}
 
-@onready var cardSet_player: Array[String] = ["s1_016","s1_017","s1_034"]
+@onready var cardSet_player: Array[String] = ["s1_168", "s1_171", "s1_173"]
 @onready var cardSet_enemy: Array = ["s1_001", "s1_002", "s1_003"]
 
 var redeem_code_history: Array[String] = []
@@ -274,7 +274,7 @@ var _excluded_variables: Array[String] = [
 # Cache untuk mempercepat akses
 var _save_variables_cache: Array[String] = []
 func _ready():
-	reset_data()
+	#reset_data()
 	_initialize_save_system()
 	load_data()
 func _initialize_save_system():
@@ -351,7 +351,7 @@ func reset_data():
 	gate_party = {}
 	gate_date = {"day_in":0, "day":1, "mounth":1, "year":1500, "hour":0}
 	gate_coin_star = 0
-	gate_coin_skull = 99999999
+	gate_coin_skull = 0
 	gate_coin_cummon = 0
 	all_npc = {}
 	player_started_reward = {
@@ -419,7 +419,7 @@ func reset_data():
 	# NEW DATA defaults - Tambahkan default values untuk data baru
 	"""Reset semua data ke default values"""
 	player_name = "tanpa nama"
-	player_level = 100
+	player_level = 1
 	player_exp_main = 0
 	player_exp_need = 1000
 	player_money = 0
@@ -439,9 +439,9 @@ func reset_data():
 	setting_player_db_level = setting_default_db_level[4]
 	setting_language_is_EN = true
 	
-	player_cardCollection = ["s1_016","s1_017","s1_034"]
-	cardSet_player = ["s1_001", "s1_002", "s1_003"]
-	cardSet_enemy = ["s1_001", "s1_002", "s1_003"]
+	player_cardCollection = ["s1_168", "s1_171", "s1_173"]
+	cardSet_player = ["s1_168", "s1_171", "s1_173"]
+	cardSet_enemy = ["s1_168", "s1_171", "s1_173"]
 	
 	redeem_code_history = []
 	redeem_pwd_history = []
@@ -458,7 +458,7 @@ func reset_data():
 	}
 	
 	player_inventory_card_gacha = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
-	player_inventory_chest = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
+	player_inventory_chest = {1: 0, 2: 10, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
 	player_inventory_enhance = {1:0, 2:0, 3:0, 4: 0}
 	player_inventory_fragment = {
 		1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0,

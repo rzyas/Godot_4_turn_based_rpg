@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer2/bab_indicator.text = "CHAPTER 1"
 	#---------------------------------
 	onready_reset_data()
 	onready_slide_story()
@@ -39,7 +40,6 @@ func _ready():
 	$ui_currency/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer/vbox/exp_need.text = update_level["exp"]
 	$ui_currency/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer/vbox/prog_exp.value = update_level["prog"]
 	set_bab_indicator(AutoloadData.temp_bab)
-
 # =======================================================
 # SLIDER
 # =======================================================
@@ -56,7 +56,6 @@ func scroll_slide(scroll_node: ScrollContainer, is_horizontal: bool, is_reverse:
 		var from := scroll_node.scroll_vertical
 		var to := from + delta
 		tween.tween_property(scroll_node, "scroll_vertical", to, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-
 func onready_slide_story():
 	var get_scrollc_story = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer
 	var get_parent_story = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/hbox_btn
@@ -84,7 +83,6 @@ func onready_slide_story():
 	btn_smallstory_down.connect("pressed", scroll_slide.bind(get_scroll_smallstory, false, false) )
 # --------------------------------------------------------
 enum ENUM_SET_NOTIF{RED, ORANGE, BLUE}
-
 func onreadt_btn_unlocked_level():
 	$btn_lock_shop.connect("pressed", func():
 		if AutoloadData.player_level >= 5:
@@ -104,7 +102,6 @@ func onreadt_btn_unlocked_level():
 	if AutoloadData.player_level >= 6:
 		$btn_lock_roadmap.hide()
 		$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_quest/VBoxContainer2/quest.disabled=false
-
 func add_player_exp_level(value):
 	AutoloadData.system_level_manager(value)
 	var update_level = AutoloadData.update_player_level()
@@ -145,7 +142,7 @@ func autoload_player_exp(value):
 	AutoloadData.save_data()
 	update_resources_player()
 func autoload_player_super_ticket():
-	AutoloadData.player_super_ticket+=1000
+	AutoloadData.player_super_ticket+=25000
 	AutoloadData.save_data()
 	update_resources_player()
 func autoload_add_new_card(code:String):
@@ -153,24 +150,19 @@ func autoload_add_new_card(code:String):
 	else:
 		AutoloadData.player_cardCollection.append(code)
 		AutoloadData.save_data()
-
 func autoload_story_stage():
 	var clear_stage = AutoloadData.story_stage[0]["total"]
 	for i in arr_prosedural_main_stage.size():
 		arr_prosedural_main_stage[i].disabled = clear_stage == 0 or i >= clear_stage
-
 # ----------- BTN ACTION SWITCH -----------
 enum ENUM_LOBBY_ACTION { GATE, BAB_STORY, BAB_ALL }
 @onready var lobby_action_switch = [
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel,
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story,
-	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer
-]
-
+	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer ]
 func lobby_action(code: ENUM_LOBBY_ACTION):
 	for i in range(lobby_action_switch.size()):
 		lobby_action_switch[i].visible = (i == code)  # Perbaikan di sini
-
 # ----------- BTN BAB -----------
 @onready var arr_btn_bab = [
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer/bab_1,
@@ -179,8 +171,7 @@ func lobby_action(code: ENUM_LOBBY_ACTION):
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer4/bab_4,
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer5/bab_5,
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer6/bab_6,
-	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer7/bab_7
-]
+	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer7/bab_7 ]
 func onready_btn_bab():
 	for i in range(arr_btn_bab.size()):
 		var btn = arr_btn_bab[i]
@@ -206,14 +197,11 @@ func on_button_pressed(selected_button, index):
 		4: on_bab_5_pressed()
 		5: on_bab_6_pressed()
 		6: on_bab_7_pressed()
-
 func on_button_hover(hovered_button):
 	hovered_button.disabled = false
-
 func on_button_exit(exited_button):
 	if exited_button != last_pressed_button:
 		exited_button.disabled = true
-
 # Fungsi kosong yang bisa kamu isi sendiri
 @onready var get_story_bab_desc:Label = $ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/pnl_desc/desc
 var data_story_desc = ["bab_0","bab_1","bab_2","bab_3","bab_4","bab_5","bab_6","bab_7",]
@@ -246,21 +234,25 @@ func on_bab_4_pressed():
 	set_bab_indicator(current_bab)
 	hide_prosedural_select_stage()
 	animate_chapter_size(4)
+	update_bab_story(data_story_desc[4])
 func on_bab_5_pressed():
 	current_bab = ENUM_BAB_SELECT.BAB_5
 	set_bab_indicator(current_bab)
 	hide_prosedural_select_stage()
 	animate_chapter_size(5)
+	update_bab_story(data_story_desc[5])
 func on_bab_6_pressed():
 	current_bab = ENUM_BAB_SELECT.BAB_6
 	set_bab_indicator(current_bab)
 	hide_prosedural_select_stage()
 	animate_chapter_size(6)
+	update_bab_story(data_story_desc[6])
 func on_bab_7_pressed():
 	current_bab = ENUM_BAB_SELECT.BAB_7
 	set_bab_indicator(current_bab)
 	hide_prosedural_select_stage()
 	animate_chapter_size(7)
+	update_bab_story(data_story_desc[7])
 
 # ----------- PANEL PROSEDURAL STAGE -----------
 enum ENUM_BAB_SELECT{BAB_1,BAB_2,BAB_3,BAB_4,BAB_5,BAB_6,BAB_7}
@@ -284,7 +276,6 @@ func set_bab_indicator(code:ENUM_BAB_SELECT):
 		var img_star:TextureRect = arr_prosedural_main_stage[i].get_node("star")
 		var path = img_data.img_stage_star( AutoloadData.stage_star[current_bab][i] )
 		img_star.texture = load(path)
-		
 	
 var current_bab:ENUM_BAB_SELECT = ENUM_BAB_SELECT.BAB_1
 var current_stage:ENUM_STAGE = ENUM_STAGE.S1
@@ -430,16 +421,14 @@ var last_pressed_panel_action = null  # Menyimpan panel terakhir yang mendapatka
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_quest/VBoxContainer2/quest,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_card/VBoxContainer3/card,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_setting/VBoxContainer4/setting,
-	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon/VBoxContainer4/dungeon
-]
+	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon/VBoxContainer4/dungeon]
 @onready var arr_panel_action=[
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer/panel_shop,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_battle,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_quest,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_card,
 	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_setting,
-	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon
-]
+	$ui_action/VBoxContainer/bar_currency/HBoxContainer/HBoxContainer2/panel_dungeon]
 
 enum ENUM_LOBBY_ACTION_THEME{SHOP, BATTLE, QUEST, CARD, SETTING, DUNGEON}
 func set_lobbyAction_theme(code:ENUM_LOBBY_ACTION_THEME):
@@ -472,15 +461,12 @@ func on_button_pressed_action(index):
 		3: on_card_pressed()
 		4: on_setting_pressed()
 		5: on_gate_pressed()
-
 func on_button_hover_action(index):
 	arr_panel_action[index].theme = theme_action
 	SfxManager.play_click()
-
 func on_button_exit_action(index):
 	if arr_panel_action[index] != last_pressed_panel_action:
 		arr_panel_action[index].theme = null  # Hapus tema jika bukan panel terakhir yang ditekan
-
 # Fungsi kosong yang bisa kamu isi sendiri
 func on_shop_pressed():
 	SfxManager.play_click()
@@ -510,7 +496,6 @@ func on_gate_pressed():
 	hide_prosedural_select_stage()
 	lobby_action(ENUM_LOBBY_ACTION.GATE)
 	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.GATE)
-
 # ----------- BTN GATE -----------
 @onready var arr_btn_gate = [
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer/gate_devil,
@@ -519,9 +504,7 @@ func on_gate_pressed():
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer4/gate_goblin,
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer5/gate_mecha,
 	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer6/gate_mino,
-	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer7/gate_viking
-]
-
+	$ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/main_gate_panel/HBoxContainer/VBoxContainer7/gate_viking]
 func onready_btn_gate():
 	for i in range(arr_btn_gate.size()):
 		var btn = arr_btn_gate[i]
@@ -530,9 +513,7 @@ func onready_btn_gate():
 			btn.connect("mouse_entered", on_gate_hover.bind(btn))
 			btn.connect("mouse_exited", on_gate_exit.bind(btn))
 			btn.disabled = true  # Set awal semua tombol disabled
-
 var last_pressed_gate = null  # Menyimpan tombol terakhir yang ditekan
-
 func on_main_gate_pressed(selected_button, index):
 	SfxManager.play_click()
 	for btn in arr_btn_gate:
@@ -549,44 +530,34 @@ func on_main_gate_pressed(selected_button, index):
 		4: on_gate_mecha_pressed()
 		5: on_gate_mino_pressed()
 		6: on_gate_viking_pressed()
-
 func on_gate_hover(hovered_button):
 	SfxManager.play_click()
 	hovered_button.disabled = false
-
 func on_gate_exit(exited_button):
 	if exited_button != last_pressed_gate:
 		exited_button.disabled = true
-
 # Fungsi kosong yang bisa kamu isi sendiri
 func on_gate_devil_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_dragon_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_elf_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_goblin_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_mecha_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_mino_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-
 func on_gate_viking_pressed():
 	SfxManager.play_click()
 	hide_prosedural_select_stage()
-	
 # ----------- PANEL PROSEDURAL INSPECT HERO -----------
 @onready var set_skill_0:RichTextLabel = $ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/prosedural_skill_0
 @onready var set_skill_1:RichTextLabel = $ui_prosedural_inspect_00/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer2/VBoxContainer/ScrollContainer/prosedural_skill_1
@@ -1104,15 +1075,13 @@ func set_prosedural_card_inspect(card_code, is_card_hero:bool):
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/sound,
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/reedem,
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/story_language,
-	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/community
-]
+	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/community]
 @onready var arr_panel_setting = [
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/account,
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/sound,
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/reedem,
 	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/story_languages,
-	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/community
-]
+	$lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/community]
 @onready var btn_cls_mainSetting = $lobby_setting
 @onready var btn_cls_mainSetting_sub = $lobby_setting/PanelContainer/VBoxContainer/btn_cls_setting
 var current_setting_select:ENUM_SETTING_SHOW=ENUM_SETTING_SHOW.STORY
@@ -1160,18 +1129,14 @@ func setting_story_language():
 func setting_community():
 	SfxManager.play_click()
 	setting_show_panel(ENUM_SETTING_SHOW.COMMUNITY)
-
-
 # ------------------- ONREADY SETTING:START ---------------------
 @onready var setting_volume_prog:TextureProgressBar = $lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/sound/vbox/hbox/prog
 @onready var btn_community_parent = $lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/community/vbox_btn
 var setting_link_community = [
-	'https://web.facebook.com/profile.php?id=61577659532835',
+	'https://www.facebook.com/groups/1328616202253444/?ref=share&mibextid=NSMWBT',
 	'https://discord.gg/egAaC6n5',
 	'https://paypal.me/rzyas?country.x=ID&locale.x=id_ID',
-	'https://sociabuzz.com/rzyas/tribe'
-]
-
+	'https://sociabuzz.com/rzyas/tribe']
 func onready_setting():
 	# LINK COMMUNITY BTN
 	for i in range(btn_community_parent.get_child_count()):
@@ -1201,7 +1166,6 @@ func onready_setting():
 	for i in AutoloadData.setting_default_db_level.size():
 		if AutoloadData.setting_player_db_level == AutoloadData.setting_default_db_level[i]:
 			setting_volume_prog.value = i*25
-		
 # ------------------- ONREADY SETTING:END ---------------------
 
 # ------------------ UI SETTING STORY ------------------
@@ -1209,7 +1173,6 @@ func onready_setting():
 func onready_btn_setting_story():
 	SfxManager.play_click()
 	btn_story_language.connect("pressed",set_story_translate)
-
 func set_story_translate():
 	SfxManager.play_click()
 	AutoloadData.setting_language_is_EN = !AutoloadData.setting_language_is_EN
@@ -1223,7 +1186,6 @@ func set_story_translate():
 			story_translate = ENUM_STORY_TRANSLATE.ID
 			char_translate = ENUM_CHARACHTER_TRANSLATE.ID
 			btn_story_language.text = "INDONESIA"
-			
 # ------------------ UI FINAL DECK ------------------
 @onready var btn_final_deck = $lobby_deck_final
 @onready var icon_sort_all ={
@@ -1274,7 +1236,6 @@ func onready_btn_sort_star():
 		all_btn_star[i].connect("pressed", sort_star.bind(i))
 		all_btn_star[i].connect("mouse_entered", set_node_visible.bind(all_btn_star[i], true))
 		all_btn_star[i].connect("mouse_exited", set_node_visible.bind(all_btn_star[i], false))
-
 func sort_switch(all_bool, all_btn, all_icon):
 	var bools = all_bool.slice(1).map(func(e): return e["_bool"])
 	if bools.count(false) == bools.size() or bools.count(true) == bools.size():
@@ -1282,7 +1243,6 @@ func sort_switch(all_bool, all_btn, all_icon):
 		all_bool[0]["_bool"] = value
 		var get_icon:TextureRect = all_btn[0].get_node("icon")
 		get_icon.texture = all_icon[0][value]
-
 func sort_star(code):
 	SfxManager.play_click()
 	var all_bool = [sort_star_all_enable, sort_star_1_enable, sort_star_2_enable, sort_star_3_enable, sort_star_4_enable, sort_star_5_enable, sort_star_6_enable]
@@ -1303,7 +1263,6 @@ func sort_star(code):
 			get_icon.texture = all_icon[code][get_bool]
 			
 	sort_switch(all_bool, all_btn, all_icon)
-
 # _________________________________________
 var sort_elem_all_enable: = {"_bool":true}
 var sort_elem_light_enable: = {"_bool":true}
@@ -1341,7 +1300,6 @@ func onready_btn_sort_elem():
 		all_btn_elem[i].connect("pressed", sort_elem.bind(i))
 		all_btn_elem[i].connect("mouse_entered", set_node_visible.bind(all_btn_elem[i], true))
 		all_btn_elem[i].connect("mouse_exited", set_node_visible.bind(all_btn_elem[i], false))
-
 func sort_elem(code):
 	SfxManager.play_click()
 	var all_bool = [sort_elem_all_enable, sort_elem_light_enable, sort_elem_nature_enable, sort_elem_water_enable, sort_elem_dark_enable, sort_elem_fire_enable]
@@ -1362,7 +1320,6 @@ func sort_elem(code):
 			var get_icon:TextureRect = all_btn[code].get_node("icon")
 			get_icon.texture = all_icon[code][get_bool]
 	sort_switch(all_bool, all_btn, all_icon)
-	
 # _________________________________________
 var sort_class_all_enable: = {"_bool":true}
 var sort_class_war_enable: = {"_bool":true}
@@ -1420,7 +1377,6 @@ func onready_btn_sort_class():
 		all_btn[i].connect("pressed", sort_class.bind(i))
 		all_btn[i].connect("mouse_entered", set_node_visible.bind(all_btn[i], true))
 		all_btn[i].connect("mouse_exited", set_node_visible.bind(all_btn[i], false))
-
 func sort_class(code):
 	SfxManager.play_click()
 	var all_bool = [sort_class_all_enable, sort_class_war_enable, sort_class_arc_enable, sort_class_def_enable, sort_class_assa_enable, sort_class_supp_enable, sort_class_mech_enable, sort_class_beast_enable, sort_class_wiz_enable, sort_class_heal_enable]
@@ -1449,17 +1405,13 @@ func sort_class(code):
 var is_edit_deck:bool = true
 var is_edit_deck_txt = {
 	true: "EDIT DECK",
-	false: "SAVE DECK"
-}
-
+	false: "SAVE DECK" }
 func onready_anim_deck():
 	btn_isEditDeck.connect("pressed", _on_btn_isEditDeck_pressed)
-
 func _on_btn_isEditDeck_pressed():
 	anim_sort_deck(is_edit_deck)
 	is_edit_deck = !is_edit_deck
 	btn_isEditDeck.text = is_edit_deck_txt[is_edit_deck]
-
 func anim_sort_deck(_bool: bool):
 	btn_isEditDeck.disabled = true
 	var end_y := 900 if _bool else 500
@@ -1546,7 +1498,6 @@ func onready_btn_pickDeck():
 		btn_setDeck[i].connect("pressed", changes_deck.bind(i))
 	btn_setDeck_cls_main.connect("pressed", func(): btn_setDeck_cls_main.hide())
 	btn_setDeck_cls.connect("pressed", func(): btn_setDeck_cls_main.hide())
-		
 func changes_deck(code):
 	SfxManager.play_click()
 	var new_data = Card_data_s1.new()
@@ -1556,7 +1507,6 @@ func changes_deck(code):
 	AutoloadData.cardSet_player[code] = current_deck_select
 	AutoloadData.save_data()
 	btn_setDeck_cls_main.hide()
-
 func pick_deck(code):
 	btn_setDeck_cls_main.show()
 	var new_data = Card_data_s1.new()
@@ -1570,7 +1520,6 @@ func pick_deck(code):
 	for i in range(setDeck_icon.size()):
 		setDeck_icon[i].texture = all_icon[i]
 		btn_setDeck[i].disabled = code in AutoloadData.cardSet_player
-
 func onready_prosedural_deck():
 	var card_total = AutoloadData.player_cardCollection.size()
 	for i in range(card_total):
@@ -1578,18 +1527,15 @@ func onready_prosedural_deck():
 		prosedural_deck(get_code)
 func prosedural_deck_isenabled(_bool:bool, _node):
 	_node.visible = _bool
-	
 func prosedural_deck_current(code):
 	current_deck_select = code
 	pick_deck(code)
-
 func get_pct(value, pct):
 	return (value * pct) / 100
 func set_pct(value_ask, target_to_pct):
 	if target_to_pct == 0:
 		return 0
 	return int((float(value_ask) / target_to_pct) * 100)
-
 func prosedural_deck(code):
 	var new_data = Card_data_s1.new()
 	var new_card:Button = prosedural_deck_gen.duplicate()
@@ -1625,7 +1571,6 @@ func prosedural_deck(code):
 	sprite_star.frame = card_rank
 	new_card.show()
 	prosedural_deck_parent.add_child(new_card)
-	
 # ___________________PROSEDURAL DECK LIST FILTER______________________
 @onready var theme_pnlCon_enabled = preload("res://Themes/NEW THEME 2/deck/panelContainer_enabled.tres")
 @onready var theme_pnlCon_disabled = preload("res://Themes/NEW THEME 2/deck/panelContainer_disabled.tres")
@@ -1677,7 +1622,6 @@ func filter_deck_card(code):
 	
 	if star_confirm==true and elem_confirm==true and class_confirm==true:
 		arr_filter_card.append(code)
-		
 func new_deck_filter():
 	btn_deck_sort.disabled = true
 	var new_data = Card_data_s1.new()
@@ -1748,7 +1692,6 @@ func new_deck_filter():
 		prosedural_deck(i)
 		await get_tree().create_timer(.03).timeout
 	btn_deck_sort.disabled = false
-	
 func _on_btn_deck_sort_pressed() -> void:
 	new_deck_filter()
 # ------------------------------------------------------------------------------
@@ -1797,10 +1740,10 @@ func set_redeem_code_id():
 	label_redeem_status_code.text = "STATUS CODE: WAITING INPUT"
 	label_redeem_used.text = ("USED:-")
 	label_redeem_gen.text = set_redeem_id
-	print(str(
-		"PW 1: ",RedeemCodeGenerator.generate_passwords(set_redeem_id)[0],
-		"PW 2: ",RedeemCodeGenerator.generate_passwords(set_redeem_id)[1]
-	))
+	#print(str(
+		#"PW 1: ",RedeemCodeGenerator.generate_passwords(set_redeem_id)[0],
+		#"PW 2: ",RedeemCodeGenerator.generate_passwords(set_redeem_id)[1]
+	#))
 var redeem_fail_count:int = 0
 var redeem_fail_bool = false
 func get_redeem_code_pwd():
@@ -1827,8 +1770,8 @@ func get_redeem_code_pwd():
 				get_node_to_del.queue_free()
 				AutoloadData.redeem_assign_history.remove_at(_get_index)
 			AutoloadData.save_data()
-			label_redeem_used.text = ("USED: 1000x Super Ticked CLAIMED !")
-			set_notification(ENUM_SET_NOTIF.BLUE, "1000x Super Ticket")
+			label_redeem_used.text = ("USED: 25.000x Super Ticked CLAIMED !")
+			set_notification(ENUM_SET_NOTIF.BLUE, "25.000 Gold Ticket")
 			redeem_history_set_loop_num()
 	else:
 		redeem_fail_count+=1
@@ -1871,14 +1814,12 @@ func new_redeem_history(id, code):
 		set_notification(ENUM_SET_NOTIF.BLUE, "copied"))
 	new_history.show()
 	parent_new_redeem_hitory.add_child(new_history)
-
 func redeem_history_set_loop_num():
 	await get_tree().create_timer(.05).timeout
 	var index = 1
 	for i in range(2, parent_new_redeem_hitory.get_child_count()):
 		parent_new_redeem_hitory.get_child(i).get_child(0).get_child(0).text = str(index)
 		index += 1
-
 func scroll_redeem_panel(scroll_to_top: bool):
 	var scroll_container: ScrollContainer = arr_panel_setting[2]
 	var target_position: int = 0
@@ -1886,7 +1827,6 @@ func scroll_redeem_panel(scroll_to_top: bool):
 		target_position = int(round(scroll_container.get_v_scroll_bar().max_value))
 	var tween = create_tween()
 	tween.tween_method(func(val): scroll_container.scroll_vertical = int(round(val)),scroll_container.scroll_vertical,target_position,0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
 func new_prosedural_assign_later(for_looping:bool, _index):
 	var new_id
 	if for_looping:
@@ -1955,12 +1895,11 @@ func new_prosedural_assign_later(for_looping:bool, _index):
 	parent_new_redeem_hitory.add_child(new_assign_later)
 	redeem_history_set_loop_num()
 	
-	var get_pwd = RedeemCodeGenerator.generate_passwords(new_id)
-	print(str(
-		"PW 1: ", get_pwd[0], "\n",
-		"PW 2: ", get_pwd[1],
-	))
-	
+	#var get_pwd = RedeemCodeGenerator.generate_passwords(new_id)
+	#print(str(
+		#"PW 1: ", get_pwd[0], "\n",
+		#"PW 2: ", get_pwd[1],
+	#))
 var is_redeem_history_open = false
 func redeem_show_history():
 	if panel_history_redeem == null: return
@@ -2028,7 +1967,6 @@ func set_notification(notif_type:ENUM_SET_NOTIF, txt: String):
 
 	# Hapus setelah selesai
 	tween.tween_callback(Callable(notif, "queue_free"))
-	
 # -----------------------------------CARD BTN MAIN-------------------------------------------
 @onready var card_parent = $lobby_card
 @onready var arr_pnl_btn_card = [
@@ -2077,7 +2015,6 @@ func onready_btn_card():
 			1: arr_btn_main_card[i].connect("pressed", on_cardlist_pressed)
 			2: arr_btn_main_card[i].connect("pressed", on_inventory_pressed)
 			3: arr_btn_main_card[i].connect("pressed", on_gacha_pressed)
-
 var cm_current_btn = 0
 var local_card_inspect_bool = true
 func on_mycard_pressed():
@@ -2389,7 +2326,8 @@ func cm_filter_main():
 			
 			var add_string 
 			if card_num <10: add_string = "00"
-			elif card_num <99: add_string = "0"
+			elif card_num <100: add_string = "0"
+			else: add_string = ""
 			new_card.name = str("card_",add_string,card_num)
 			
 			if card_num >36:new_card.hide()
@@ -2409,12 +2347,12 @@ func cm_filter_main():
 			new_card.connect("mouse_exited", func():indic.hide())
 			new_card.connect("pressed", set_prosedural_card_inspect.bind(i, local_card_inspect_bool))
 			cm_parent_prosedural_card.add_child(new_card)
-			await get_tree().create_timer(.01).timeout
+			await get_tree().process_frame
+			#await get_tree().create_timer(.01).timeout
 	cm_pnl_loading.hide()
 	cm_pnl_btn_parent.show()
 	cm_btn_sort.disabled = false
 	cm_page.text = str(cm_current_page)
-	
 func cm_update_card_visibility():
 	var start_index = (cm_current_page - 1) * 36 + 1
 	var end_index = min(cm_current_page * 36, cm_total_card)
@@ -2427,13 +2365,11 @@ func cm_update_card_visibility():
 				card_node.show()
 			else:
 				card_node.hide()
-
 func cm_next_page():
 	if cm_current_page < cm_total_page:
 		cm_current_page += 1
 		cm_page.text = str(cm_current_page)
 		cm_update_card_visibility()
-
 func cm_previous_page():
 	if cm_current_page > 1:
 		cm_current_page -= 1
@@ -2493,9 +2429,7 @@ func animate_chapter_size(selected: int) -> void:
 	"desc":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/PanelContainer/inven_preview/scroll_con/desc,
 	"own":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/PanelContainer/inven_preview/own,
 	"prosed":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_backpack/ScrollContainer/grid_parent/inven_gen,
-	"parent":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_backpack/ScrollContainer/grid_parent,
-}
-
+	"parent":$lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_backpack/ScrollContainer/grid_parent,}
 func load_all_inven():
 	var parent = inven_dict["parent"]
 	var child_count = parent.get_child_count()
@@ -2506,7 +2440,6 @@ func load_all_inven():
 		child.queue_free()
 	var load_inven = Lobby_inventory.new()
 	load_inven.load_all_inven(inven_dict["name"], inven_dict["icon"], inven_dict["type"], inven_dict["desc"], inven_dict["own"], inven_dict["prosed"], inven_dict["parent"])
-
 @onready var _inven_btn = {
 	1:{
 		"_bool":false,
@@ -2543,9 +2476,7 @@ var inven_eq_btn_handle_bool = true
 @onready var inven_eq_btn_prev:Button = $lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_eq/PanelContainer/hbox/prev
 @onready var inven_eq_btn_next:Button = $lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_eq/PanelContainer/hbox/next
 @onready var inven_eq_btn_filter:Button = $lobby_card/PanelContainer/VBoxContainer/HBoxContainer/panel_menu/Inventory/content/item_eq/pnlc_btn/hflow/inven_eq_filter
-
 @onready var inspect_eq_pnl = $ui_gear_inspect
-
 func onready_inven_eq_btn():
 	var eq_data = Lobby_equipments.new()
 	# Handle all btn
@@ -2565,12 +2496,10 @@ func onready_inven_eq_btn():
 		push_warning("Jumlah tombol di inven_eq_parent kurang dari 16!")
 	# Kirim data ke sistem equipment
 	eq_data.set_btn_filter(_inven_eq_btn, _inven_eq_gear_bool, _inven_eq_grade_bool)
-
 var _inven_eq_page_curr = 0
 var _inven_eq_page_total = 0
 var _inven_eq_page_max = 0
 var _inven_eq_item_reminder = 0
-
 func _inven_eq_btn_disabled(_bool: bool) -> void:
 	if _bool:
 		# Disable sementara hanya jika tombol tersedia
@@ -2584,7 +2513,6 @@ func _inven_eq_btn_disabled(_bool: bool) -> void:
 		inven_eq_btn_next.disabled = (_inven_eq_page_curr+1 >= _inven_eq_page_total)
 
 	inven_eq_btn_filter.disabled = _bool
-
 var _inven_eq_arr:Array = []
 var inven_eq_data = Lobby_equipments.new()
 @onready var pnl_loading:PanelContainer = $pnl_loading
@@ -2621,7 +2549,6 @@ func _on_inven_eq_filter_pressed() -> void:
 		await get_tree().create_timer(.02).timeout
 	_inven_eq_btn_disabled(false)
 	pnl_loading.hide()
-
 func _on_prev_pressed() -> void:
 	SfxManager.play_click()
 	var sim_prev = _inven_eq_page_curr - 1
@@ -2654,7 +2581,6 @@ func _on_prev_pressed() -> void:
 			await get_tree().create_timer(.02).timeout
 	_inven_eq_btn_disabled(false)
 	pnl_loading.hide()
-
 func _on_next_pressed() -> void:
 	SfxManager.play_click()
 	var sim_next = _inven_eq_page_curr + 1
@@ -2687,14 +2613,12 @@ func _on_next_pressed() -> void:
 			await get_tree().create_timer(.02).timeout
 	_inven_eq_btn_disabled(false)
 	pnl_loading.hide()
-
 #------------------------------------- INVENTORY EQUIPMENTS: END ---------------------------------------------
 
 #------------------------------------- INVENTORY EQUIPMENTS: ENHANCE ---------------------------------------------
 @onready var inven_eq_enhance_btn = {
 	"pnl_upgrade":$ui_enhance_gear,
-	"pnl_ask":$prosed_ask
-}
+	"pnl_ask":$prosed_ask }
 
 var enhance_data = Lobby_Enhance.new()
 func enhance_play_spell(node: TextureRect) -> void:
@@ -2794,7 +2718,6 @@ func _on_enhance_upgrade_pressed() -> void:
 func _on_enhance_upgrade_2_pressed() -> void:
 	SfxManager.play_click()
 	$ui_enhance_gear.hide()
-
 func _on_btn_switch_story_pressed() -> void:
 	SfxManager.play_click()
 	var new_eq_data = Lobby_equipments.new()

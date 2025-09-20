@@ -223,7 +223,21 @@ func set_char_race(race:ENUM_CHAR_RACE):
 func _init() -> void:
 	var data_card_s1 = card_chapter_1.new()
 	var data_card_s2 = card_chapter_2.new()
+	var data_card_s3 = card_chapter_3.new()
+	var data_card_s4 = card_chapter_4.new()
+	var data_card_s5 = card_chapter_5.new()
+	var data_card_s6 = card_chapter_6.new()
+	var data_card_s7 = card_chapter_7.new()
+	var data_card_s8 = card_chapter_8.new()
+	var data_card_s9 = card_chapter_9.new()
 	dict_all_card_s1.merge(data_card_s1.all_card, true)
 	dict_all_card_s1.merge(data_card_s2.all_card, true)
+	dict_all_card_s1.merge(data_card_s3.all_card, true)
+	dict_all_card_s1.merge(data_card_s4.all_card, true)
+	dict_all_card_s1.merge(data_card_s5.all_card, true)
+	dict_all_card_s1.merge(data_card_s6.all_card, true)
+	dict_all_card_s1.merge(data_card_s7.all_card, true)
+	dict_all_card_s1.merge(data_card_s8.all_card, true)
+	dict_all_card_s1.merge(data_card_s9.all_card, true)
 
 var dict_all_card_s1:Dictionary = {}

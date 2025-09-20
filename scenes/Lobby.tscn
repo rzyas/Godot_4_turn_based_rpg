@@ -1107,6 +1107,7 @@ alignment = 2
 [node name="bab_1" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 icon = ExtResource("9_ejpfw")
 flat = true
 autowrap_mode = 1
@@ -1145,6 +1146,7 @@ alignment = 2
 [node name="bab_2" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer2"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_avpaf")
 flat = true
@@ -1184,6 +1186,7 @@ alignment = 2
 [node name="bab_3" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer3"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_ed38n")
 flat = true
@@ -1223,6 +1226,7 @@ alignment = 2
 [node name="bab_4" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer4"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_5jtpc")
 flat = true
@@ -1262,6 +1266,7 @@ alignment = 2
 [node name="bab_5" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer5"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_qndfg")
 flat = true
@@ -1301,6 +1306,7 @@ alignment = 2
 [node name="bab_6" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer6"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_jmlb1")
 flat = true
@@ -1340,6 +1346,7 @@ alignment = 2
 [node name="bab_7" type="Button" parent="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/main_bab/VBoxContainer7"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme = ExtResource("125_sxbt5")
 disabled = true
 icon = SubResource("AtlasTexture_gul31")
 flat = true
@@ -2953,7 +2960,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.410895, 0.511087, 0.620936, 1)
 theme_override_fonts/font = ExtResource("8_4hpk5")
-text = "ENTER CODE TO GET 1000 SUPER TICKET !"
+text = "ENTER CODE TO GET 25.000 GOLD TICKET !"
 horizontal_alignment = 1
 
 [node name="type_redeem_code" type="LineEdit" parent="lobby_setting/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/ScrollContainer2/VBoxContainer/reedem/VBoxContainer/VBoxContainer"]
@@ -3115,7 +3122,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("8_4hpk5")
 theme_override_font_sizes/font_size = 16
-text = "CLAIMED: x1000 S.TICKET"
+text = "TOP-UP 25.000 GOLD TICKET"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -3269,7 +3276,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("125_sxbt5")
 theme_override_font_sizes/font_size = 32
-text = "Discord (community)"
+disabled = true
+text = "Discord (disabaled)"
 icon = SubResource("AtlasTexture_eht1v")
 flat = true
 expand_icon = true
@@ -5247,32 +5255,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_v84nx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cgkq3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cgkq3")
 text = "EXIT"
-
-[node name="prosedural_notification" type="Label" parent="."]
-visible = false
-z_index = 99
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -283.0
-offset_right = 767.0
-offset_bottom = -245.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("69_adt4o")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.352941)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("8_4hpk5")
-theme_override_font_sizes/font_size = 32
-text = "NOTIFICATIONad dadadaw dadadadawdawawda"
-horizontal_alignment = 2
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
 
 [node name="lobby_card" type="Button" parent="."]
 visible = false
@@ -10149,6 +10131,32 @@ offset_bottom = 535.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("149_hvbgo")
+
+[node name="prosedural_notification" type="Label" parent="."]
+visible = false
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -283.0
+offset_right = 767.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("69_adt4o")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.352941)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_4hpk5")
+theme_override_font_sizes/font_size = 32
+text = "NOTIFICATIONad dadadaw dadadadawdawawda"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
 
 [connection signal="pressed" from="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/prosedural_stage/Button" to="." method="btn_cls_prosedural_story"]
 [connection signal="pressed" from="ui_currency2/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/prosedural_bab_story/btn_fullstory" to="." method="_on_btn_fullstory_pressed"]

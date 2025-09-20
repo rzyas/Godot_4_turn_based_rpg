@@ -10,10 +10,25 @@ config_version=5
 
 [application]
 
-config/name="Rzyas Fantasy Saga - Novel RPG"
+config/name="Naga Story"
+config/description="Game Turn-Based Card
+A stylized 2D turn-based card game built with Godot 4.
+
+Features
+Custom card system with unlockable cards (oever 200+ card)
+Unique classes, elements, and skills
+Story-driven gameplay
+Tiered equipment: A, S, SS, SSS, UR
+Equipment sets and upgrade system
+3 vs 3 Card Battle
+Battle system: Story Stages & Infinite Gate mode
+In-game shop, gacha box, and lucky spin
+Offline redeem code support
+Roadmap: Infinite quests"
+config/version="1.0.0"
 run/main_scene="uid://xbad1c4dwumx"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://flcphh8507uv"
 
 [autoload]
 
@@ -25,7 +40,7 @@ SceneManager="*res://script/Scene_manager.gd"
 
 window/size/viewport_width=1550
 window/size/viewport_height=900
-window/size/mode=4
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
@@ -44,5 +59,6 @@ survive_10={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/msaa_2d=1
 anti_aliasing/quality/use_taa=true

@@ -402,7 +402,7 @@ func hero_s1_34() -> Dictionary:
 		card_generator.JOB.MAGE,
 		card_generator.RANK.STAR_1,
 		# Basic skill
-		card_generator.ENUM_SKILL_TARGET.AOE_SPELL, # TARGET
+		card_generator.ENUM_SKILL_TARGET.AOE, # TARGET
 		card_generator.ENUM_SKILL_CODE.POISON, # CODE SKILL
 		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_10, # CODE DMG
 		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
@@ -441,6 +441,870 @@ func hero_s1_34() -> Dictionary:
 		# Custom rank
 		card_generator.ENUM_CUSTOM_RANK.AGILITY,                                                                        
 		card_generator.ENUM_CUSTOM_RANK_LEVEL.AGILITY_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_35() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_035"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Lilivra Empress",
+		"35_D_WIZ_5_Lilivra Empress", ## CODE GAMBAR
+		card_generator.ELEM.DARK,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_5,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.PSV_DEFF, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.PSV_DEF_3K, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.WEAKENING, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.LAST_CURSED, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_500, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.FEMALE, # GENDER
+		card_generator.ENUM_CHAR_RACE.ABBYS, # RACE
+		"62", ## AGE
+		"176",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.DEFENDER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.DEFENDER_LV2,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_36() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_036"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Drovakar, King of Eternal Void and Shadows",
+		"36_D_WIZ_6_Drovakar, King of Eternal Void and Shadows", ## CODE GAMBAR
+		card_generator.ELEM.DARK,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_6,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.GRIM, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.POISON, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.MULTI_ATK_DEF, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_300, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.AOE_SPELL, # TARGET
+		card_generator.ENUM_SKILL_CODE.RAGE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_500, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.MALE, # GENDER
+		card_generator.ENUM_CHAR_RACE.ABBYS, # RACE
+		"255", ## AGE
+		"192",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV3,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_37() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_037"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Scorchbinder",
+		"37_F_ASSA_4_Scorchbinder", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.ASSASIN,
+		card_generator.RANK.STAR_4,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.BURN, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C20, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.CRIT_RATE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.MALE, # GENDER
+		card_generator.ENUM_CHAR_RACE.ABBYS, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.AGILITY,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.AGILITY_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_38() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_038"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Ashweaver",
+		"38_F_HEAL_4_Ashweaver", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.HEALER,
+		card_generator.RANK.STAR_4,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.WEAKENING, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE_HEAL, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE_HEAL, # TERGET
+		card_generator.ENUM_SKILL_CODE.HEALTH_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.DEFF_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.FEMALE, # GENDER
+		card_generator.ENUM_CHAR_RACE.HUMAN, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV2,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_39() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_039"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Emberlord Veynar",
+		"39_F_SUPP_5_Emberlord Veynar", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.SUPPORT,
+		card_generator.RANK.STAR_5,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.PSV_HP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_50, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.PSV_HP_80K, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE_SPELL, # TERGET
+		card_generator.ENUM_SKILL_CODE.CRIT_RATE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.AOE_SPELL, # TARGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.DEFENDER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.DEFENDER_LV2,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_40() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_040"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Ashen Archon Zarvok",
+		"40_F_SUPP_6_Ashen Archon Zarvok", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.SUPPORT,
+		card_generator.RANK.STAR_6,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.REF_BURN, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_10, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.BURN, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.MULTI_COOLDOWN, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE_SPELL, # TARGET
+		card_generator.ENUM_SKILL_CODE.REVIVE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.DEFENDER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.DEFENDER_LV2,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_41() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_041"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Cindralith",
+		"41_F_WAR_4_Cindralith", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.WARRIOR,
+		card_generator.RANK.STAR_4,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.ONESHOT_CRATE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C40, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C80, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.AOE, # TARGET
+		card_generator.ENUM_SKILL_CODE.BURN, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV2,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_42() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_042"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Cindralith Emperor",
+		"42_F_WAR_5_Cindralith Emperor", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.WARRIOR,
+		card_generator.RANK.STAR_5,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.PSV_CRATE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.PSV_CRATE_50, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_300, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C80, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.RAGE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"200", ## AGE
+		"260",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV3,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_43() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_043"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Ignis Warden",
+		"43_F_WAR_5_Ignis Warden", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.WARRIOR,
+		card_generator.RANK.STAR_5,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.ONESHOT_CDMG, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C70, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C80, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.CRIT_RATE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"126", ## AGE
+		"212",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV3,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_44() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_044"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Infernal Sovereign Arkanis",
+		"44_F_WAR_5_Infernal Sovereign Arkanis", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.WARRIOR,
+		card_generator.RANK.STAR_5,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.RAGE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		1, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.SKILL_LOCK, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.AOE, # TARGET
+		card_generator.ENUM_SKILL_CODE.SPEED_ATK, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.MALE, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"218", ## AGE
+		"231",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV3,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_45() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_045"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Ashling",
+		"45_F_WIZ_1_Ashling", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.AOE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_46() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_046"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Chargrub",
+		"46_F_WIZ_1_Chargrub", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_47() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_047"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Cindervulp",
+		"47_F_WIZ_1_Cindervulp", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C30, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.AOE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_48() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_048"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Cindramite",
+		"48_F_WIZ_1_Cindramite", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.PSV_EVA, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_100, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.PSV_EVA_20, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_49() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_049"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Cindrapede",
+		"49_F_WIZ_1_Cindrapede", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.PSV_EVA_20, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_150, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_250, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_400, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV3, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
+		# Story
+		new_story_character.get_story_character(hero_code), # EN
+		new_story_character_id.get_story_character(hero_code) ) # ID
+	return { "key": hero_code, "value": heroes[hero_code] }
+func hero_s1_50() -> Dictionary:
+	var heroes:Dictionary = {}
+	var hero_code = "s1_050"
+	heroes[hero_code] = new_card.create_card(
+		hero_code,
+		"Emberimp",
+		"50_F_WIZ_1_Emberimp", ## CODE GAMBAR
+		card_generator.ELEM.FIRE,
+		card_generator.JOB.MAGE,
+		card_generator.RANK.STAR_1,
+		# Basic skill
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.WEAKENING, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_50, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV2, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C40, # CHANGES
+		1, ## HIT
+		# Skill 1
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		2, ## COOLDOWN
+		1, ## HIT
+		# Skill 2
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TERGET
+		card_generator.ENUM_SKILL_CODE.NONE, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_300, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Ultimate
+		card_generator.ENUM_SKILL_TARGET.SINGLE, # TARGET
+		card_generator.ENUM_SKILL_CODE.ATTACK_UP, # CODE SKILL
+		card_generator.ENUM_SKILL_DAMAGE.SKILL_DMG_200, # CODE DMG
+		card_generator.ENUM_DESC_LEVEL.LV1, # CODE LEVEL
+		card_generator.ENUM_MAIN_CHANCES.C100, # CHANGES
+		3, ## COOLDOWN
+		1, ## HIT
+		# Character info
+		card_generator.ENUM_CHAR_GENDER.UNKNOWN, # GENDER
+		card_generator.ENUM_CHAR_RACE.SPIRIT, # RACE
+		"??", ## AGE
+		"??",  ## HEIGH
+		"??", ## WEIGH
+		# Custom rank
+		card_generator.ENUM_CUSTOM_RANK.ATTACKER,                                                                        
+		card_generator.ENUM_CUSTOM_RANK_LEVEL.ATTACKER_LV1,
 		# Story
 		new_story_character.get_story_character(hero_code), # EN
 		new_story_character_id.get_story_character(hero_code) ) # ID

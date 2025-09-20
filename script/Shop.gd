@@ -79,6 +79,7 @@ func spin_score_manager(add_exp):
 	AutoloadData.save_data()
 
 func _ready() -> void:
+	onready_chest_shop()
 	update_spin_exhance()
 	onready_btn_vault()
 	onready_open_chest()
@@ -931,3 +932,118 @@ func _on_btn_cls_open_chest_pressed() -> void:
 	$open_chest.visible = false
 func _on_btn_exit_pressed() -> void:
 	SceneManager.move_to_scene(SceneManager.ENUM_SCENE.LOBBY)
+
+# ----------------------- CHEST SHOP ---------------------------------
+var curr_chest_shop:int = 1
+var curr_chest_count:int = 1
+const gearchest_price = [0, 20, 50, 100, 250, 500, 3000, 10000, 25000]
+
+var holdpress_btn_dec=true
+var holdpress_btn_add=true
+
+@onready var btn_cls_chest:Button = $btn_cls_chest
+@onready var btn_chest_shop:Button = $btn_chest_shop
+
+func chest_shop_header():
+	var txt = "Gearchest Level %d. (Price: %s Gold Ticket/pcs)" %[curr_chest_shop, AutoloadData.filter_num_k(gearchest_price[curr_chest_shop])]
+	var get_header:Label =btn_cls_chest.get_node("pnl_c/vbox/header")
+	get_header.text = txt
+
+func onready_chest_shop():
+	var node_btn_cls_confirm:Button = btn_cls_chest.get_node("btn_cls_confirm")
+	
+	btn_cls_chest.pressed.connect(func():
+		btn_cls_chest.hide())
+	btn_chest_shop.pressed.connect(func():
+		btn_cls_chest.show()
+		node_btn_cls_confirm.hide())
+	# ------------- COUNT -------------
+	var node_btn_dec:Button = btn_cls_chest.get_node("pnl_c/vbox/hbox_count/btn_dec")
+	var node_btn_add:Button = btn_cls_chest.get_node("pnl_c/vbox/hbox_count/btn_add")
+	var node_lbl_count:Label = btn_cls_chest.get_node("pnl_c/vbox/hbox_count/count")
+	# btn reset
+	var node_btn_erset_count:Button = btn_cls_chest.get_node("pnl_c/vbox/btn_reset_count")
+	node_btn_erset_count.pressed.connect(func():
+		SfxManager.play_click()
+		curr_chest_count = 1
+		node_lbl_count.text = str(curr_chest_count))
+	# btn dec
+	node_btn_dec.button_up.connect(func():
+		holdpress_btn_dec=false)
+	node_btn_dec.button_down.connect(func():
+		holdpress_btn_dec = true
+		while holdpress_btn_dec:
+			SfxManager.play_click()
+			curr_chest_count-=1
+			curr_chest_count = clamp(curr_chest_count, 1, 999)
+			node_lbl_count.text = str(curr_chest_count)
+			if curr_chest_count == 1: 
+				holdpress_btn_dec=false
+				SfxManager.play_system_fail()
+			await get_tree().create_timer(.1).timeout)
+	#btn add
+	node_btn_add.button_up.connect(func():
+		holdpress_btn_add = false)
+	node_btn_add.button_down.connect(func():
+		holdpress_btn_add = true
+		while holdpress_btn_add and curr_chest_count <= 999:
+			SfxManager.play_click()
+			curr_chest_count+=1
+			curr_chest_count = clamp(curr_chest_count, 1, 999)
+			node_lbl_count.text = str(curr_chest_count)
+			if curr_chest_count == 999:
+				SfxManager.play_system_fail()
+				holdpress_btn_add=false
+			await get_tree().create_timer(.1).timeout)
+	# ------------- CEHST -------------
+	var node_btn_prev:Button = btn_cls_chest.get_node("pnl_c/vbox/hbox/btn_prev")
+	var node_btn_next:Button = btn_cls_chest.get_node("pnl_c/vbox/hbox/btn_next")
+	var node_img_chest:TextureRect = btn_cls_chest.get_node("pnl_c/vbox/hbox/img_chest")
+	var node_btn_buy:Button = btn_cls_chest.get_node("pnl_c/vbox/btn_buy")
+	
+	# BTN PREV
+	node_btn_prev.pressed.connect(func():
+		SfxManager.play_click()
+		curr_chest_shop-=1
+		curr_chest_shop = clamp(curr_chest_shop, 1, 8)
+		var path_img_chest = "res://img/Item/Chest/%03d.png" %[curr_chest_shop]
+		node_img_chest.texture = load(path_img_chest)
+		chest_shop_header())
+	# BTN NEXT
+	node_btn_next.pressed.connect(func():
+		SfxManager.play_click()
+		curr_chest_shop+=1
+		curr_chest_shop = clamp(curr_chest_shop, 1, 8)
+		var path_img_chest = "res://img/Item/Chest/%03d.png" %[curr_chest_shop]
+		node_img_chest.texture = load(path_img_chest)
+		chest_shop_header())
+	# BTN BUY AND CONFIRM
+	
+	var node_btn_confirm:Button = btn_cls_chest.get_node("btn_cls_confirm/pnl_confirm/vbox/btn_confirrm")
+	var node_lbl_desc:Label = btn_cls_chest.get_node("btn_cls_confirm/pnl_confirm/vbox/desc")
+	
+	node_btn_cls_confirm.pressed.connect(func():
+		node_btn_cls_confirm.hide())
+	node_btn_buy.pressed.connect(func():
+		var total_purchased = gearchest_price[curr_chest_shop]*curr_chest_count
+		var confirm_money = true if AutoloadData.player_super_ticket >= total_purchased  else false
+		if confirm_money:
+			node_lbl_desc.text = "You will get: Gearchest Level %d (total: %d)\nTotal price: %s Gold Ticket (own: %s)" %[curr_chest_shop, curr_chest_count, AutoloadData.filter_num_k(total_purchased), AutoloadData.filter_num_k(AutoloadData.player_super_ticket)]
+		else:
+			node_lbl_desc.text = "Sorry, your gold ticket resources are not enough to purchase the item you want."
+		node_btn_cls_confirm.show())
+	# BTN CONFIRM
+	node_btn_confirm.pressed.connect(func():
+		var total_purchased = gearchest_price[curr_chest_shop]*curr_chest_count
+		var confirm_money = true if AutoloadData.player_super_ticket >= total_purchased  else false
+		if confirm_money:
+			SfxManager.play_money()
+			AutoloadData.player_super_ticket-=total_purchased
+			AutoloadData.player_inventory_chest[curr_chest_shop] += curr_chest_count
+			node_btn_cls_confirm.hide()
+		else:
+			SfxManager.play_system_fail())
+	
+	
+	
+	

@@ -114,26 +114,58 @@ func _generate_loading_info(progress: float) -> String:
 # LOADING MANAGEMENT
 # ========================================
 # Mulai proses loading dengan error handling
+
+# ---------------- TEST --------------------
 func start_loading(path: String) -> void:
-	# Validasi path
+	# Validasi path kosong
 	if path.is_empty():
 		_show_error("Error: Scene path not set.\nCheck AutoloadData.scene_data")
 		return
-	# Validasi file existence
-	if not FileAccess.file_exists(path):
-		_show_error("Error: Scene file does not exist.\nPath: %s" % path)
+	
+	# Debug print untuk cek path saat export
+	print("DEBUG: Trying to load scene at path => ", path)
+	
+	# Validasi file existence via ResourceLoader (lebih aman saat export)
+	if not ResourceLoader.exists(path):
+		_show_error("Error: Scene file does not exist or is not exported.\nPath: %s" % path)
 		return
+
 	# Update initial loading info
 	_update_performance_cache()
 	main_data["txt_loading"].text = _generate_loading_info(0.0)
+
 	# Mulai threaded loading
 	var error = ResourceLoader.load_threaded_request(path)
 	if error != OK:
 		_show_error("Failed to start loading.\nError Code: %d\nPath: %s" % [error, path])
 		return
+	
 	# Aktifkan process loop
 	set_process(true)
 	print("Loading started for: %s" % path)
+
+# ---------------- TEST --------------------
+
+#func start_loading(path: String) -> void:
+	## Validasi path
+	#if path.is_empty():
+		#_show_error("Error: Scene path not set.\nCheck AutoloadData.scene_data")
+		#return
+	## Validasi file existence
+	#if not FileAccess.file_exists(path):
+		#_show_error("Error: Scene file does not exist.\nPath: %s" % path)
+		#return
+	## Update initial loading info
+	#_update_performance_cache()
+	#main_data["txt_loading"].text = _generate_loading_info(0.0)
+	## Mulai threaded loading
+	#var error = ResourceLoader.load_threaded_request(path)
+	#if error != OK:
+		#_show_error("Failed to start loading.\nError Code: %d\nPath: %s" % [error, path])
+		#return
+	## Aktifkan process loop
+	#set_process(true)
+	#print("Loading started for: %s" % path)
 # Tampilkan error dengan format yang konsisten
 func _show_error(message: String) -> void:
 	main_data["txt_loading"].text = message
